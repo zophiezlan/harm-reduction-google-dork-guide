@@ -1,6 +1,6 @@
 # Changelog
 
-## v4.0.0 (2026-XX-XX)
+## v4.0.0 (2026-01-29)
 
 ### ✨ Features
 
@@ -8,7 +8,9 @@
   multi-file documentation system.
 - **Progressive Disclosure:** Content is now organized by complexity (Quick Start → Core → Advanced)
   to support new users.
-- **Dork Packs:** Introduced 24 topic-specific "Dork Packs" for targeted searching.
+- **Dork Packs:** Introduced 28 topic-specific "Dork Packs" for targeted searching.
+- **Interactive Dork Explorer:** New browser-based tool for searching and filtering 700+ dorks with
+  live search links and export functionality.
 - **Workflows:** Added dedicated guides for common research and monitoring workflows.
 - **Tools & Resources:** Expanded sections for tools, resources, and privacy/security best
   practices.

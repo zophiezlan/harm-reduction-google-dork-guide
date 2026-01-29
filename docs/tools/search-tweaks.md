@@ -1,4 +1,4 @@
-# Search Tweaks & creative Methodologies
+# Search Tweaks & Creative Methodologies
 
 > Creative "recipes" and search patterns adapted from OSINT and power-user communities for the
 > specific challenges of harm reduction research.

@@ -76,13 +76,15 @@ Ready-to-use search queries organized by harm reduction task:
 
 ### Settings & Populations
 
-| Pack                                                    | Description                         |
-| :------------------------------------------------------ | :---------------------------------- |
-| [Festivals](docs/dork-packs/festivals.md)               | Event harm reduction                |
-| [First Nations](docs/dork-packs/first-nations.md)       | Aboriginal & Torres Strait Islander |
-| [Prisons & Justice](docs/dork-packs/prisons-justice.md) | Corrections health & diversion      |
-| [Rural & Remote](docs/dork-packs/rural-remote.md)       | Non-metropolitan Australia          |
-| [Youth](docs/dork-packs/youth.md)                       | Young people & prevention           |
+| Pack                                                      | Description                         |
+| :-------------------------------------------------------- | :---------------------------------- |
+| [Festivals](docs/dork-packs/festivals.md)                 | Event harm reduction                |
+| [First Nations](docs/dork-packs/first-nations.md)         | Aboriginal & Torres Strait Islander |
+| [LGBTQ+ Health](docs/dork-packs/lgbtq-health.md)          | LGBTQ+ inclusive services, chemsex  |
+| [Prisons & Justice](docs/dork-packs/prisons-justice.md)   | Corrections health & diversion      |
+| [Rural & Remote](docs/dork-packs/rural-remote.md)         | Non-metropolitan Australia          |
+| [Sex Worker Health](docs/dork-packs/sex-worker-health.md) | Sex worker safety & wellbeing       |
+| [Youth](docs/dork-packs/youth.md)                         | Young people & prevention           |
 
 ### Workforce & Peer Practice
 
