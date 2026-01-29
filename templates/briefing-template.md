@@ -7,6 +7,11 @@
 *   **Finding 2:**
 *   **Finding 3:**
 
+**Source Verification & Quality Assessment:**
+* [ ] Sources triangulated? (Gov/Research/Peer)
+* [ ] Currency verified? (Published within last 2 years?)
+* [ ] Authoritative source?
+
 **Implications:**
 *
 

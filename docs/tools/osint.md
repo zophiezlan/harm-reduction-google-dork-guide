@@ -165,6 +165,7 @@ Harvard Law Library's permanent archive. Create permanent links.
 
 ## 🔗 Related Resources
 
+- [AI-Powered Research Tools](ai-tools.md)
 - [Investigative Pack](../dork-packs/investigative.md)
 - [Advanced Operators](../03-advanced-operators.md)
 - [Privacy & Security](privacy-security.md)
