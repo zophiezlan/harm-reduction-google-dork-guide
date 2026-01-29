@@ -238,6 +238,48 @@
         display: none;
       }
 
+      /* Category Filters */
+      .category-filter {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .category-label {
+        color: var(--text-muted);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .category-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .category-chip {
+        border: 1px solid var(--border-subtle);
+        background: var(--bg-card);
+        color: var(--text-secondary);
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .category-chip:hover {
+        border-color: var(--text-muted);
+        color: var(--text-primary);
+      }
+
+      .category-chip.active {
+        background: var(--accent-glow);
+        border-color: var(--accent-primary);
+        color: var(--accent-primary);
+      }
+
       /* Content Area */
       #content-area {
         flex: 1;
@@ -536,6 +578,11 @@
               <span>📥 Export</span>
             </button>
           </div>
+
+          <div class="category-filter">
+            <div class="category-label">Filter by Category</div>
+            <div id="category-chips" class="category-chips"></div>
+          </div>
         </header>
 
         <div id="content-area">
@@ -562,6 +609,7 @@
           currentPackId: "all",
           searchQuery: "",
           dorks: [],
+          selectedCategories: new Set(),
         },
 
         init() {
@@ -645,6 +693,7 @@
           searchInput.addEventListener("input", (e) => {
             this.state.searchQuery = e.target.value.toLowerCase();
             this.state.currentPackId = "all"; // Reset pack selection on search
+            this.state.selectedCategories.clear();
             this.updateNavSelection();
             this.saveStateToURL();
             this.render();
@@ -668,6 +717,7 @@
                 if (searchInput.value) {
                   searchInput.value = "";
                   this.state.searchQuery = "";
+                  this.state.selectedCategories.clear();
                   this.saveStateToURL();
                   this.render();
                 } else {
@@ -738,6 +788,18 @@
         },
 
         getFilteredDorks() {
+          let filtered = this.getBaseFilteredDorks();
+
+          if (this.state.selectedCategories.size > 0) {
+            filtered = filtered.filter((d) =>
+              this.state.selectedCategories.has(d.category || "General")
+            );
+          }
+
+          return filtered;
+        },
+
+        getBaseFilteredDorks() {
           let filtered = this.state.dorks;
 
           if (this.state.currentPackId !== "all") {
@@ -751,11 +813,49 @@
                 d.title.toLowerCase().includes(q) ||
                 d.query.toLowerCase().includes(q) ||
                 d.explanation?.toLowerCase().includes(q) ||
-                d.packTitle.toLowerCase().includes(q)
+                d.packTitle.toLowerCase().includes(q) ||
+                d.category?.toLowerCase().includes(q)
             );
           }
 
           return filtered;
+        },
+
+        renderCategoryChips() {
+          const chipContainer = document.getElementById("category-chips");
+          const categories = Array.from(
+            new Set(
+              this.getBaseFilteredDorks()
+                .map((d) => d.category || "General")
+                .filter(Boolean)
+            )
+          ).sort((a, b) => a.localeCompare(b));
+
+          this.state.selectedCategories.forEach((category) => {
+            if (!categories.includes(category)) {
+              this.state.selectedCategories.delete(category);
+            }
+          });
+
+          chipContainer.innerHTML = "";
+          categories.forEach((category) => {
+            const button = document.createElement("button");
+            button.type = "button";
+            button.className = "category-chip";
+            button.textContent = category;
+            if (this.state.selectedCategories.has(category)) {
+              button.classList.add("active");
+            }
+            button.onclick = () => {
+              if (this.state.selectedCategories.has(category)) {
+                this.state.selectedCategories.delete(category);
+              } else {
+                this.state.selectedCategories.add(category);
+              }
+              this.render();
+            };
+            chipContainer.appendChild(button);
+          });
         },
 
         updateNavSelection() {
@@ -780,6 +880,7 @@
             el.onclick = () => {
               this.state.currentPackId = pack.id;
               this.state.searchQuery = "";
+              this.state.selectedCategories.clear();
               document.getElementById("search-input").value = "";
               this.updateNavSelection();
               this.saveStateToURL();
@@ -817,6 +918,7 @@
 
           // Filter using helper
           const filtered = this.getFilteredDorks();
+          this.renderCategoryChips();
 
           // Empty State
           if (filtered.length === 0) {
@@ -897,6 +999,7 @@
         goToAll() {
           this.state.currentPackId = "all";
           this.state.searchQuery = "";
+          this.state.selectedCategories.clear();
           document.getElementById("search-input").value = "";
           this.updateNavSelection();
           this.saveStateToURL();

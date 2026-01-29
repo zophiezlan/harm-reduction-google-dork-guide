@@ -73,6 +73,7 @@ Ready-to-use search queries organized by harm reduction task:
 | [Naloxone](docs/dork-packs/naloxone.md)           | Take-home naloxone programs & training         |
 | [NSP](docs/dork-packs/nsp.md)                     | Needle & syringe programs                      |
 | [OAT/OST](docs/dork-packs/oat-ost.md)             | Opioid agonist treatment                       |
+| [Supervised Consumption](docs/dork-packs/supervised-consumption.md) | Medically supervised injecting & overdose prevention |
 
 ### Settings & Populations
 
@@ -122,7 +123,7 @@ Ready-to-use search queries organized by harm reduction task:
 | [Document Discovery](docs/dork-packs/document-discovery.md) | Spreadsheets, databases, presentations |
 | [Forum & Community](docs/dork-packs/forum-community.md)     | Reddit, forums, community discussions  |
 | [Investigative](docs/dork-packs/investigative.md)           | Creative & ethical deep searching      |
-| [Novel Substances](docs/dork-packs/novel-substances.md)     | NPS, nitazenes, adulterants            |
+| [Safer Use Education](docs/dork-packs/safer-use-education.md) | Factsheets, brochures, health promotion |
 | [Stigma & Language](docs/dork-packs/stigma-language.md)     | Historical research & terminology      |
 
 👉 [**Browse All Dork Packs →**](docs/dork-packs/)
@@ -167,6 +168,7 @@ Ready-to-use search queries organized by harm reduction task:
 | Resource                                                     | Description                   |
 | :----------------------------------------------------------- | :---------------------------- |
 | [Cheat Sheet](docs/resources/cheat-sheet.md)                 | One-page reference            |
+| [Substance Categories](docs/substance-categories.md)         | Category-based substance dorks |
 | [Substance Databases](docs/resources/substance-databases.md) | Drug information resources    |
 | [Academic Access](docs/resources/academic-access.md)         | Access research papers        |
 | [Organizations](docs/resources/organizations.md)             | Key harm reduction orgs       |
