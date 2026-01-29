@@ -1,7 +1,8 @@
 # Substance Categories: AU Priority Map (Culture + Risk + Signals)
 
-> Built from PsychonautWiki categories, tuned to what’s common or higher‑risk in Australia.
-> Each block uses a different lens: **alerts**, **harms**, **markets**, **culture/setting**, **treatment/response**.
+> Built from PsychonautWiki categories, tuned to what’s common or higher‑risk in Australia. Each
+> block uses a different lens: **alerts**, **harms**, **markets**, **culture/setting**,
+> **treatment/response**.
 
 [← Back to Main Guide](../README.md)
 
@@ -34,7 +35,7 @@
 
 ## Ketamine & Analogues (Arylcyclohexylamines)
 
-### Signal Scans
+### Ketamine Signal Scans
 
 ```txt
 (ketamine OR "2-FDCK" OR "deschloroketamine" OR MXE OR "O-PCE") (alert OR warning OR "drug checking") Australia
@@ -48,7 +49,7 @@
 (ketamine) ("nitrous oxide" OR benzodiazepine OR alcohol) ("polysubstance" OR interaction) Australia
 ```
 
-### Culture / Setting
+### Ketamine Culture / Setting
 
 ```txt
 (ketamine OR "K") (club OR festival OR "dance party" OR "warehouse") Australia
@@ -58,7 +59,7 @@
 
 ## MDMA / Ecstasy (MDxx + Benzofurans)
 
-### Signal Scans
+### MDMA Signal Scans
 
 ```txt
 (MDMA OR ecstasy OR MDA OR MDEA OR "5-APB" OR "6-APB") (alert OR warning OR contamination OR "drug checking") Australia
@@ -68,7 +69,7 @@
 (MDMA OR ecstasy) (hyperthermia OR dehydration OR hyponatremia OR "water intoxication") Australia filetype:pdf
 ```
 
-### Culture / Setting
+### MDMA Culture / Setting
 
 ```txt
 (MDMA OR ecstasy) (festival OR "music event" OR "dance" OR "rave") Australia
@@ -78,7 +79,7 @@
 
 ## Cocaine (Tropanes)
 
-### Signal Scans
+### Cocaine Signal Scans
 
 ```txt
 (cocaine) (seizure OR importation OR trafficking OR "drug intelligence") site:*.gov.au filetype:pdf
@@ -88,7 +89,7 @@
 (cocaine) ("cardiac" OR "chest pain" OR "stroke" OR "emergency department") Australia filetype:pdf
 ```
 
-### Culture / Setting
+### Cocaine Culture / Setting
 
 ```txt
 (cocaine OR "coke") ("nightlife" OR "hospitality" OR "workplace" OR "private events") Australia
@@ -98,7 +99,7 @@
 
 ## Opioids: Fentanyl + Nitazenes (Novel Watch)
 
-### Signal Scans
+### Opioids Signal Scans
 
 ```txt
 (fentanyl OR nitazene OR "benzimidazole opioid" OR isotonitazene OR metonitazene) (alert OR warning OR contamination) Australia
@@ -112,7 +113,7 @@
 (fentanyl OR nitazene) (xylazine OR "tranq" OR "non-opioid adulterant") Australia
 ```
 
-### Response / Harm Reduction
+### Opioids Response / Harm Reduction
 
 ```txt
 (fentanyl OR nitazene) (naloxone OR "take-home naloxone" OR THN) Australia site:*.gov.au
@@ -122,7 +123,7 @@
 
 ## Benzodiazepines (Bromazolam Focus)
 
-### Signal Scans
+### Benzodiazepines Signal Scans
 
 ```txt
 (benzodiazepine OR benzo OR bromazolam OR etizolam OR flubromazolam) (alert OR warning OR contamination) Australia
@@ -150,7 +151,7 @@
 
 > Includes anabolic‑androgenic steroids, peptides, SARMs, and related compounds.
 
-### Signal Scans
+### PIEDS Signal Scans
 
 ```txt
 (PIEDS OR steroid OR "anabolic steroid" OR SARMs OR "performance enhancing") (harm OR risk OR adverse) Australia filetype:pdf
@@ -164,7 +165,7 @@
 (testosterone OR nandrolone OR trenbolone OR oxandrolone OR stanozolol) (health advice OR harms OR "needle" OR injecting) Australia
 ```
 
-### Culture / Setting
+### PIEDS Culture / Setting
 
 ```txt
 (PIEDS OR steroid OR "anabolic steroid") (gym OR bodybuilding OR "fitness" OR "strength") Australia
@@ -174,7 +175,7 @@
 
 ## Alcohol
 
-### Signal Scans
+### Alcohol Signal Scans
 
 ```txt
 (alcohol OR ethanol) ("health advice" OR "public health" OR warning) site:*.gov.au
@@ -184,7 +185,7 @@
 (alcohol) (withdrawal OR "acute intoxication" OR poisoning OR "emergency department") Australia filetype:pdf
 ```
 
-### Setting / Policy
+### Alcohol Setting / Policy
 
 ```txt
 (alcohol) ("late-night" OR "lockout" OR "night-time economy") Australia filetype:pdf
@@ -194,7 +195,7 @@
 
 ## Cannabis (Phytocannabinoids + Synthetic Cannabinoids)
 
-### Signal Scans
+### Cannabis Signal Scans
 
 ```txt
 (cannabis OR THC OR CBD OR "synthetic cannabinoid" OR "spice" OR "K2") (alert OR warning) site:*.gov.au

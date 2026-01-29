@@ -1,7 +1,7 @@
 # Safer Use Education & Health Promotion
 
-> Finding factsheets, brochures, and health promotion resources for safer use education.
-> Focused on public-facing materials for clients, peer workers, and community settings.
+> Finding factsheets, brochures, and health promotion resources for safer use education. Focused on
+> public-facing materials for clients, peer workers, and community settings.
 
 [← Back to Dork Packs](README.md) | [← Main Guide](../../README.md)
 
