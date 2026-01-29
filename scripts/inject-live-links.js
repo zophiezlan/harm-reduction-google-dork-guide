@@ -76,15 +76,28 @@ const processFiles = () => {
           // Skip tables or complex multi-line visual structures that aren't pure dorks
           if (query.includes("| State |") || query.includes("-------")) continue;
 
-          // Check if next line is already a link
-          let nextLine = (lines[i + 1] || "").trim();
-          if (nextLine.includes("Run this search") || nextLine.includes("google.com/search")) {
-            continue; // Already exists
+          // Check if a link already exists in the next few non-empty lines
+          let hasExistingLink = false;
+          for (let k = i + 1; k < Math.min(lines.length, i + 5); k++) {
+            const candidate = (lines[k] || "").trim();
+            if (candidate === "") continue;
+
+            if (
+              /\[[^\]]*\]\(https?:\/\/(www\.)?google\.[^\s)]+\/search\?q=/i.test(candidate) ||
+              /run this search/i.test(candidate) ||
+              /google\.com\/search\?q=/i.test(candidate)
+            ) {
+              hasExistingLink = true;
+            }
+
+            break;
           }
+
+          if (hasExistingLink) continue;
 
           // Inject link
           const encodedQuery = encodeURIComponent(query);
-          const link = `\n[👉 **Run this Search**](https://www.google.com/search?q=${encodedQuery})`;
+          const link = `[👉 **Run this Search**](https://www.google.com/search?q=${encodedQuery})`;
           newLines.push(link);
           totalInjections++;
           modified = true;

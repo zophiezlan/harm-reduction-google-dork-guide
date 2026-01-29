@@ -142,6 +142,7 @@ Find reports specific to a city or town (Google News only).
 location:Sydney "drug alert"
 location:Melbourne "overdose"
 ```
+[👉 **Run this Search**](https://www.google.com/search?q=location%3ASydney%20%22drug%20alert%22%0D%0Alocation%3AMelbourne%20%22overdose%22)
 
 ### The "Local Source" Pattern
 
@@ -150,6 +151,7 @@ Target local news domains specifically to catch community reports.
 ```txt
 site:.com.au (news OR times OR herald OR daily) ("bad batch" OR "warning") location:Newcastle
 ```
+[👉 **Run this Search**](https://www.google.com/search?q=site%3A.com.au%20(news%20OR%20times%20OR%20herald%20OR%20daily)%20(%22bad%20batch%22%20OR%20%22warning%22)%20location%3ANewcastle)
 
 > **💡 Pro Tip:** See [Search Tweaks](../tools/search-tweaks.md#local-alert-monitoring) for more
 > local monitoring recipes.

@@ -144,6 +144,7 @@ filetype:odt "drug checking" OR "pill testing"
 filetype:sql "drug" OR "health" site:*.edu.au
 filetype:sql "research" data export
 ```
+[👉 **Run this Search**](https://www.google.com/search?q=filetype%3Asql%20%22drug%22%20OR%20%22health%22%20site%3A*.edu.au%0D%0Afiletype%3Asql%20%22research%22%20data%20export)
 
 ### Access Databases
 
@@ -151,6 +152,7 @@ filetype:sql "research" data export
 filetype:mdb "health" OR "drug" research
 filetype:accdb "service" directory
 ```
+[👉 **Run this Search**](https://www.google.com/search?q=filetype%3Amdb%20%22health%22%20OR%20%22drug%22%20research%0D%0Afiletype%3Aaccdb%20%22service%22%20directory)
 
 ### Structured Data
 
@@ -158,6 +160,7 @@ filetype:accdb "service" directory
 filetype:json "harm reduction" OR "drug" API
 filetype:xml "health" data Australia
 ```
+[👉 **Run this Search**](https://www.google.com/search?q=filetype%3Ajson%20%22harm%20reduction%22%20OR%20%22drug%22%20API%0D%0Afiletype%3Axml%20%22health%22%20data%20Australia)
 
 ---
 
@@ -205,6 +208,7 @@ filetype:xml sitemap "drug" site:*.org.au
 ```txt
 filetype:log "drug" OR "health" site:*.gov.au
 ```
+[👉 **Run this Search**](https://www.google.com/search?q=filetype%3Alog%20%22drug%22%20OR%20%22health%22%20site%3A*.gov.au)
 
 ---
 
@@ -227,6 +231,7 @@ site:drive.google.com "harm reduction" resources
 site:dropbox.com "drug policy" OR "harm reduction"
 site:onedrive.live.com "AOD" training
 ```
+[👉 **Run this Search**](https://www.google.com/search?q=site%3Adrive.google.com%20%22harm%20reduction%22%20resources%0D%0Asite%3Adropbox.com%20%22drug%20policy%22%20OR%20%22harm%20reduction%22%0D%0Asite%3Aonedrive.live.com%20%22AOD%22%20training)
 
 ---
 
@@ -338,6 +343,7 @@ filetype:xls "expenditure" health drug services
 intitle:"index of" filetype:xlsx site:*.gov.au
 intitle:"index of" filetype:pptx site:*.health.*.gov.au
 ```
+[👉 **Run this Search**](https://www.google.com/search?q=intitle%3A%22index%20of%22%20filetype%3Axlsx%20site%3A*.gov.au%0D%0Aintitle%3A%22index%20of%22%20filetype%3Apptx%20site%3A*.health.*.gov.au)
 
 ### By Year Range
 
@@ -345,12 +351,14 @@ intitle:"index of" filetype:pptx site:*.health.*.gov.au
 filetype:xlsx "harm reduction" 2020..2026
 filetype:pptx "drug policy" after:2023
 ```
+[👉 **Run this Search**](https://www.google.com/search?q=filetype%3Axlsx%20%22harm%20reduction%22%202020..2026%0D%0Afiletype%3Apptx%20%22drug%20policy%22%20after%3A2023)
 
 ### Exclude Duplicates
 
 ```txt
 filetype:xlsx "harm reduction" -"copy" -"backup" -"old"
 ```
+[👉 **Run this Search**](https://www.google.com/search?q=filetype%3Axlsx%20%22harm%20reduction%22%20-%22copy%22%20-%22backup%22%20-%22old%22)
 
 ---
 
