@@ -25,7 +25,6 @@ Find spreadsheets with harm reduction data on government sites:
 filetype:xlsx "harm reduction" OR "AOD" site:*.gov.au
 ```
 
-
 ---
 
 ## 📊 Spreadsheets & Data Files
@@ -144,7 +143,6 @@ filetype:sql "drug" OR "health" site:*.edu.au
 filetype:sql "research" data export
 ```
 
-
 ### Access Databases
 
 ```txt
@@ -152,14 +150,12 @@ filetype:mdb "health" OR "drug" research
 filetype:accdb "service" directory
 ```
 
-
 ### Structured Data
 
 ```txt
 filetype:json "harm reduction" OR "drug" API
 filetype:xml "health" data Australia
 ```
-
 
 ---
 
@@ -208,7 +204,6 @@ filetype:xml sitemap "drug" site:*.org.au
 filetype:log "drug" OR "health" site:*.gov.au
 ```
 
-
 ---
 
 ## ☁️ Cloud Storage & Collaboration
@@ -230,7 +225,6 @@ site:drive.google.com "harm reduction" resources
 site:dropbox.com "drug policy" OR "harm reduction"
 site:onedrive.live.com "AOD" training
 ```
-
 
 ---
 
@@ -343,7 +337,6 @@ intitle:"index of" filetype:xlsx site:*.gov.au
 intitle:"index of" filetype:pptx site:*.health.*.gov.au
 ```
 
-
 ### By Year Range
 
 ```txt
@@ -351,13 +344,11 @@ filetype:xlsx "harm reduction" 2020..2026
 filetype:pptx "drug policy" after:2023
 ```
 
-
 ### Exclude Duplicates
 
 ```txt
 filetype:xlsx "harm reduction" -"copy" -"backup" -"old"
 ```
-
 
 ---
 

@@ -14,7 +14,6 @@ Find peer organisation publications:
 (site:nuaa.org.au OR site:aivl.org.au OR site:hrvic.org.au) filetype:pdf
 ```
 
-
 ---
 
 ## 👥 About This Pack
@@ -33,20 +32,17 @@ site:nuaa.org.au "User's News" filetype:pdf
 site:aivl.org.au "The Advocate" OR newsletter filetype:pdf
 ```
 
-
 ### Peer Organisation Publications
 
 ```txt
 site:*.org.au ("by peers" OR "peer written" OR "peer voices") filetype:pdf
 ```
 
-
 ### General Peer Newsletters
 
 ```txt
 "peer newsletter" OR "peer magazine" harm reduction Australia filetype:pdf
 ```
-
 
 ---
 
@@ -58,13 +54,11 @@ site:*.org.au ("by peers" OR "peer written" OR "peer voices") filetype:pdf
 "lived experience" (story OR narrative OR testimony) drug use Australia filetype:pdf
 ```
 
-
 ### First-Person Accounts
 
 ```txt
 "first person" OR "personal account" drug use harm reduction
 ```
-
 
 ### Peer Stories in Resources
 
@@ -72,13 +66,11 @@ site:*.org.au ("by peers" OR "peer written" OR "peer voices") filetype:pdf
 site:*.org.au ("in their own words" OR "peer perspectives" OR "peer stories") filetype:pdf
 ```
 
-
 ### Digital Storytelling
 
 ```txt
 "photovoice" OR "digital storytelling" "people who use drugs" OR "drug use"
 ```
-
 
 ---
 
@@ -90,13 +82,11 @@ site:*.org.au ("in their own words" OR "peer perspectives" OR "peer stories") fi
 (site:nuaa.org.au OR site:aivl.org.au OR site:hrvic.org.au OR site:quihn.org OR site:wasua.com.au) filetype:pdf after:2020
 ```
 
-
 ### Peer-Developed Resources
 
 ```txt
 site:*.org.au ("peer-developed" OR "peer-produced" OR "peer-created") (materials OR resources OR tools) drug use filetype:pdf
 ```
-
 
 ### Peer Wisdom & Expertise
 
@@ -104,13 +94,11 @@ site:*.org.au ("peer-developed" OR "peer-produced" OR "peer-created") (materials
 "peer expertise" OR "experiential knowledge" OR "peer wisdom" drug use filetype:pdf
 ```
 
-
 ### Peer Representation Guidelines
 
 ```txt
 "peer representative" (guidelines OR support OR training) filetype:pdf
 ```
-
 
 ---
 
@@ -123,13 +111,11 @@ site:nuaa.org.au "User's News" filetype:pdf
 "User's News" NUAA [TOPIC]
 ```
 
-
 ### AIVL Publications
 
 ```txt
 site:aivl.org.au filetype:pdf
 ```
-
 
 ### HRVic Publications
 
@@ -137,13 +123,11 @@ site:aivl.org.au filetype:pdf
 site:hrvic.org.au filetype:pdf
 ```
 
-
 ### State Organisation Publications
 
 ```txt
 (site:quihn.org OR site:wasua.com.au) filetype:pdf
 ```
-
 
 ### Finding Specific Issues
 
@@ -151,7 +135,6 @@ site:hrvic.org.au filetype:pdf
 "User's News" [TOPIC] filetype:pdf
 "peer newsletter" [TOPIC] Australia
 ```
-
 
 ---
 
@@ -163,13 +146,11 @@ site:hrvic.org.au filetype:pdf
 "lived experience" (story OR narrative) "drug use" OR "drug user" Australia filetype:pdf
 ```
 
-
 ### Peer Testimonies
 
 ```txt
 "peer stories" OR "peer testimonies" OR "peer voices" drug policy OR harm reduction
 ```
-
 
 ### Oral Histories
 
@@ -177,13 +158,11 @@ site:hrvic.org.au filetype:pdf
 "oral history" OR "oral histories" ("drug use" OR "harm reduction" OR "drug user movement") Australia
 ```
 
-
 ### Creative Expression
 
 ```txt
 (poetry OR art OR creative) "lived experience" drug use harm reduction
 ```
-
 
 ---
 
@@ -195,7 +174,6 @@ site:hrvic.org.au filetype:pdf
 site:nuaa.org.au OR site:aivl.org.au (factsheet OR "fact sheet" OR guide) filetype:pdf
 ```
 
-
 ### Peer Education Materials
 
 ```txt
@@ -203,13 +181,11 @@ site:nuaa.org.au OR site:aivl.org.au (factsheet OR "fact sheet" OR guide) filety
 "by peers for peers" harm reduction
 ```
 
-
 ### Peer-Developed Campaigns
 
 ```txt
 site:*.org.au "peer-led" (campaign OR resource OR toolkit) filetype:pdf
 ```
-
 
 ---
 
@@ -222,13 +198,11 @@ site:*.org.au "peer-led" (campaign OR resource OR toolkit) filetype:pdf
 "peer organisation" submission (inquiry OR consultation) drug
 ```
 
-
 ### Lived Experience in Advisory
 
 ```txt
 "lived experience" (advisory OR "reference group" OR committee) drug policy
 ```
-
 
 ### Meaningful Participation
 
@@ -236,13 +210,11 @@ site:*.org.au "peer-led" (campaign OR resource OR toolkit) filetype:pdf
 "meaningful participation" OR "authentic engagement" "people who use drugs" (policy OR research)
 ```
 
-
 ### Avoiding Tokenism
 
 ```txt
 "tokenism" (drug user OR peer) involvement (address OR avoid OR prevent)
 ```
-
 
 ---
 
@@ -254,13 +226,11 @@ site:*.org.au "peer-led" (campaign OR resource OR toolkit) filetype:pdf
 site:*.org.au "peer-led" (advocacy OR campaign) drug policy filetype:pdf
 ```
 
-
 ### "Nothing About Us Without Us"
 
 ```txt
 "nothing about us without us" drug policy OR harm reduction filetype:pdf
 ```
-
 
 ### Peer Advocacy History
 
@@ -268,7 +238,6 @@ site:*.org.au "peer-led" (advocacy OR campaign) drug policy filetype:pdf
 "drug user movement" OR "drug user organising" Australia history
 (NUAA OR AIVL) history OR "early days" OR founding
 ```
-
 
 ---
 
@@ -280,20 +249,17 @@ site:*.org.au "peer-led" (advocacy OR campaign) drug policy filetype:pdf
 "peer-led research" OR "peer researcher" (drug use OR harm reduction) Australia filetype:pdf
 ```
 
-
 ### Participatory Research
 
 ```txt
 "participatory action research" OR "community-based participatory research" drug use filetype:pdf
 ```
 
-
 ### Co-Design
 
 ```txt
 "co-design" OR "co-production" "people who use drugs" OR peer filetype:pdf
 ```
-
 
 ---
 
@@ -306,13 +272,11 @@ site:inpud.net filetype:pdf
 "International Network of People Who Use Drugs" resources
 ```
 
-
 ### European Networks
 
 ```txt
 "European Network of People Who Use Drugs" (EuroNPUD OR ENPUD)
 ```
-
 
 ### Canadian Peer Orgs
 
@@ -320,7 +284,6 @@ site:inpud.net filetype:pdf
 "Canadian Association of People Who Use Drugs" (CAPUD)
 site:vandu.org OR site:capud.ca filetype:pdf
 ```
-
 
 ---
 
@@ -332,14 +295,12 @@ site:vandu.org OR site:capud.ca filetype:pdf
 site:web.archive.org (nuaa.org.au OR aivl.org.au)
 ```
 
-
 ### Historical Peer Publications
 
 ```txt
 "User's News" 1990..2010
 "peer newsletter" harm reduction Australia 1990..2015
 ```
-
 
 ---
 

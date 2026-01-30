@@ -197,7 +197,9 @@ onUnmounted(() => {
 
 .color-swatch.active {
   border-color: var(--vp-c-text-1);
-  box-shadow: 0 0 0 2px var(--vp-c-bg), 0 0 0 4px var(--swatch-color);
+  box-shadow:
+    0 0 0 2px var(--vp-c-bg),
+    0 0 0 4px var(--swatch-color);
 }
 
 .mode-buttons {

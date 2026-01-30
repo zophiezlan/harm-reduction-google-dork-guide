@@ -14,7 +14,6 @@ Find AOD service directories:
 (filetype:pdf OR filetype:xlsx) "service directory" (AOD OR "alcohol and other drugs") site:*.gov.au
 ```
 
-
 ---
 
 ## 🟢 Basic Queries
@@ -25,20 +24,17 @@ Find AOD service directories:
 (filetype:pdf OR filetype:xlsx) ("service directory" OR "service finder" OR "contact list") (AOD OR "alcohol and other drugs") site:*.gov.au
 ```
 
-
 ### Regional Service Lists
 
 ```txt
 site:*.health.nsw.gov.au "service directory" ("central coast" OR newcastle OR "hunter region")
 ```
 
-
 ### Inurl Directory Pattern
 
 ```txt
 inurl:aod-services OR inurl:directory site:*.gov.au
 ```
-
 
 ---
 
@@ -50,13 +46,11 @@ inurl:aod-services OR inurl:directory site:*.gov.au
 ("hepatitis" OR "HCV" OR "sexual health") (clinic OR service OR directory) site:*.health.*.gov.au
 ```
 
-
 ### NSP Directories
 
 ```txt
 ("needle syringe program" OR NSP) (directory OR "service list" OR locations) [YOUR STATE]
 ```
-
 
 ### Mental Health Service Directories
 
@@ -64,13 +58,11 @@ inurl:aod-services OR inurl:directory site:*.gov.au
 site:*.gov.au "mental health" service directory (filetype:pdf OR filetype:xlsx)
 ```
 
-
 ### Spreadsheet Directories (Data-Rich)
 
 ```txt
 filetype:xlsx ("service directory" OR "contact list") (AOD OR "drug and alcohol" OR "harm reduction") site:*.gov.au
 ```
-
 
 ---
 
@@ -82,13 +74,11 @@ filetype:xlsx ("service directory" OR "contact list") (AOD OR "drug and alcohol"
 (filetype:pdf OR filetype:xlsx OR filetype:csv) ("service directory" OR "service finder" OR "service list" OR "contact directory") (AOD OR "alcohol and other drugs" OR "drug and alcohol" OR "harm reduction") site:*.gov.au OR site:*.org.au after:2022
 ```
 
-
 ### Treatment Service Finders
 
 ```txt
 (treatment OR rehabilitation OR detox OR counselling) service (directory OR finder OR list) [YOUR STATE] -jobs
 ```
-
 
 ### Outreach Services
 
@@ -96,13 +86,11 @@ filetype:xlsx ("service directory" OR "contact list") (AOD OR "drug and alcohol"
 (outreach OR mobile OR "street-based") service (AOD OR "harm reduction") directory OR list [YOUR STATE]
 ```
 
-
 ### After-Hours Services
 
 ```txt
 ("after hours" OR "24 hour" OR "crisis") service (AOD OR "drug and alcohol" OR "mental health") [YOUR STATE]
 ```
-
 
 ---
 
@@ -115,7 +103,6 @@ site:health.nsw.gov.au OR site:nsw.gov.au "service directory" AOD OR "alcohol dr
 site:*.nsw.gov.au filetype:xlsx service directory
 ```
 
-
 ### Victoria
 
 ```txt
@@ -123,13 +110,11 @@ site:health.vic.gov.au "service directory" OR "service finder" AOD
 site:*.vic.gov.au "alcohol and drug" services directory
 ```
 
-
 ### Queensland
 
 ```txt
 site:health.qld.gov.au "service directory" AOD OR "alcohol and other drugs"
 ```
-
 
 ### Western Australia
 
@@ -138,7 +123,6 @@ site:health.wa.gov.au "service directory" AOD OR "alcohol and other drugs"
 site:mhc.wa.gov.au services directory
 ```
 
-
 ### South Australia
 
 ```txt
@@ -146,13 +130,11 @@ site:sahealth.sa.gov.au service directory drug OR alcohol
 site:dassa.sa.gov.au services
 ```
 
-
 ### Tasmania
 
 ```txt
 site:health.tas.gov.au "service directory" alcohol drug
 ```
-
 
 ### ACT
 
@@ -161,13 +143,11 @@ site:health.act.gov.au service directory AOD
 site:*.act.gov.au "alcohol and drug" services
 ```
 
-
 ### NT
 
 ```txt
 site:health.nt.gov.au service directory AOD
 ```
-
 
 ---
 
@@ -179,13 +159,11 @@ site:health.nt.gov.au service directory AOD
 ("opioid treatment" OR methadone OR buprenorphine) (clinic OR service OR prescriber) directory [YOUR STATE]
 ```
 
-
 ### Residential Rehabilitation
 
 ```txt
 ("residential rehabilitation" OR "residential treatment" OR rehab) directory OR list [YOUR STATE] AOD
 ```
-
 
 ### Withdrawal/Detox Services
 
@@ -193,20 +171,17 @@ site:health.nt.gov.au service directory AOD
 (withdrawal OR detox OR "detoxification") service (directory OR list) [YOUR STATE]
 ```
 
-
 ### Counselling Services
 
 ```txt
 (counselling OR counseling) service (AOD OR "drug and alcohol") directory [YOUR STATE]
 ```
 
-
 ### Youth Services
 
 ```txt
 (youth OR "young people") (AOD OR "drug and alcohol") service directory [YOUR STATE]
 ```
-
 
 ---
 
@@ -216,7 +191,6 @@ site:health.nt.gov.au service directory AOD
 (Aboriginal OR "Torres Strait Islander" OR Indigenous) (AOD OR "alcohol and other drugs") service directory
 (ACCHO OR "community controlled") "alcohol and other drugs" services [YOUR STATE]
 ```
-
 
 ---
 
@@ -228,20 +202,17 @@ site:health.nt.gov.au service directory AOD
 (housing OR homelessness OR accommodation) service directory [YOUR STATE]
 ```
 
-
 ### Mental Health
 
 ```txt
 "mental health" service directory [YOUR STATE] site:*.gov.au
 ```
 
-
 ### Family Support
 
 ```txt
 ("family support" OR "family drug support") service directory [YOUR STATE]
 ```
-
 
 ---
 
@@ -254,13 +225,11 @@ site:*.gov.au inurl:services OR inurl:directory filetype:pdf AOD
 site:*.gov.au inurl:contacts OR inurl:providers filetype:xlsx
 ```
 
-
 ### Spreadsheet Mining
 
 ```txt
 site:*.gov.au filetype:xlsx "service" ("contact" OR "phone" OR "address") drug OR alcohol
 ```
-
 
 ---
 
@@ -273,13 +242,11 @@ site:*.gov.au filetype:xlsx "service" ("contact" OR "phone" OR "address") drug O
 "treatment locator" "drug and alcohol" Australia
 ```
 
-
 ### App/Digital Services
 
 ```txt
 (app OR application OR "online tool") "service finder" AOD Australia
 ```
-
 
 ---
 

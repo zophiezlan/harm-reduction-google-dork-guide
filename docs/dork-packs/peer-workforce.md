@@ -14,7 +14,6 @@ Find peer worker training and framework resources:
 ("peer worker" OR "lived experience") (training OR framework) filetype:pdf site:*.org.au -jobs
 ```
 
-
 ---
 
 ## 👥 About This Pack
@@ -38,20 +37,17 @@ experiential knowledge is expert knowledge. These searches help you find:
 ("peer worker" OR "peer support" OR "lived experience") (supervision OR framework OR competencies) filetype:pdf site:*.org.au
 ```
 
-
 ### Peer Worker Training
 
 ```txt
 "peer worker" "training manual" OR "training package" filetype:pdf
 ```
 
-
 ### Lived Experience Workforce Frameworks
 
 ```txt
 ("lived experience" AROUND(6) workforce) (guideline OR framework OR standard) filetype:pdf Australia
 ```
-
 
 ---
 
@@ -63,13 +59,11 @@ experiential knowledge is expert knowledge. These searches help you find:
 "peer supervision" (model OR framework OR guidelines) AOD filetype:pdf
 ```
 
-
 ### Competency Frameworks
 
 ```txt
 "peer worker" (competencies OR standards OR qualification) Australia filetype:pdf
 ```
-
 
 ### Peer-Led Research
 
@@ -77,13 +71,11 @@ experiential knowledge is expert knowledge. These searches help you find:
 "peer-led research" OR "participatory action research" drug use Australia filetype:pdf
 ```
 
-
 ### Peer Organisation Resources
 
 ```txt
 (site:nuaa.org.au OR site:aivl.org.au OR site:hrvic.org.au OR site:quihn.org) filetype:pdf
 ```
-
 
 ---
 
@@ -95,13 +87,11 @@ experiential knowledge is expert knowledge. These searches help you find:
 ("peer worker" OR "peer support worker" OR "lived experience worker" OR "consumer consultant") (supervision OR training OR competencies OR framework OR "professional development") filetype:pdf (Australia OR NSW OR VIC OR QLD) -jobs -careers after:2020
 ```
 
-
 ### Reflective Practice & Supervision
 
 ```txt
 ("reflective practice" AROUND(5) supervision) (AOD OR "alcohol and other drugs") filetype:pdf
 ```
-
 
 ### Peer Wellbeing & Self-Care
 
@@ -109,20 +99,17 @@ experiential knowledge is expert knowledge. These searches help you find:
 ("vicarious trauma" OR "self-care" OR wellbeing) "peer worker" harm reduction filetype:pdf
 ```
 
-
 ### Pay Equity & Conditions
 
 ```txt
 "peer worker" (remuneration OR "pay equity" OR conditions OR "award") filetype:pdf
 ```
 
-
 ### Career Pathways
 
 ```txt
 "peer workforce" ("career pathway" OR "professional development" OR progression) filetype:pdf
 ```
-
 
 ---
 
@@ -134,13 +121,11 @@ experiential knowledge is expert knowledge. These searches help you find:
 "peer worker" training (package OR curriculum OR module) AOD filetype:pdf
 ```
 
-
 ### Train the Trainer
 
 ```txt
 "peer" "train the trainer" (harm reduction OR AOD) filetype:pdf
 ```
-
 
 ### Induction Resources
 
@@ -148,13 +133,11 @@ experiential knowledge is expert knowledge. These searches help you find:
 "peer worker" (induction OR orientation OR onboarding) filetype:pdf
 ```
 
-
 ### Supervision Training
 
 ```txt
 (supervising OR supervision) "peer worker" training filetype:pdf
 ```
-
 
 ---
 
@@ -166,20 +149,17 @@ experiential knowledge is expert knowledge. These searches help you find:
 "lived experience workforce" (strategy OR framework OR policy) Australia filetype:pdf
 ```
 
-
 ### Competency Standards
 
 ```txt
 "peer worker" ("competency framework" OR "capability framework" OR "practice standards") filetype:pdf
 ```
 
-
 ### Role Descriptions
 
 ```txt
 "peer worker" OR "peer support worker" ("role description" OR "position description" OR "job description") AOD filetype:pdf
 ```
-
 
 ---
 
@@ -191,20 +171,17 @@ experiential knowledge is expert knowledge. These searches help you find:
 "group supervision" "peer worker" harm reduction filetype:pdf
 ```
 
-
 ### External Supervision
 
 ```txt
 "external supervision" "peer worker" OR "lived experience" filetype:pdf
 ```
 
-
 ### Debriefing
 
 ```txt
 (debriefing OR "critical incident") "peer worker" support filetype:pdf
 ```
-
 
 ---
 
@@ -216,13 +193,11 @@ experiential knowledge is expert knowledge. These searches help you find:
 "nothing about us without us" drug policy Australia filetype:pdf
 ```
 
-
 ### Lived Experience Representation
 
 ```txt
 "lived experience" representation (committee OR advisory OR consultation) drug
 ```
-
 
 ### Peer Voice in Policy
 
@@ -230,13 +205,11 @@ experiential knowledge is expert knowledge. These searches help you find:
 "peer advocate" OR "peer advocacy" drug policy reform filetype:pdf
 ```
 
-
 ### Meaningful Participation
 
 ```txt
 "meaningful participation" OR "authentic engagement" "people who use drugs" policy filetype:pdf
 ```
-
 
 ---
 
@@ -248,13 +221,11 @@ experiential knowledge is expert knowledge. These searches help you find:
 "peer-led" (service OR program OR initiative) harm reduction filetype:pdf
 ```
 
-
 ### Peer Navigation
 
 ```txt
 "peer navigation" OR "peer navigator" (drug OR AOD OR "harm reduction") filetype:pdf
 ```
-
 
 ### Peer Outreach
 
@@ -262,13 +233,11 @@ experiential knowledge is expert knowledge. These searches help you find:
 "peer outreach" (drug OR "harm reduction" OR "needle syringe") filetype:pdf
 ```
 
-
 ### Peer Distribution Programs
 
 ```txt
 "peer distribution" (naloxone OR "needle syringe" OR NSP) Australia filetype:pdf
 ```
-
 
 ---
 
@@ -280,20 +249,17 @@ experiential knowledge is expert knowledge. These searches help you find:
 "peer support" OR "peer worker" (effectiveness OR outcomes OR evaluation) "harm reduction" filetype:pdf
 ```
 
-
 ### Peer Work Evidence Base
 
 ```txt
 site:*.edu.au "peer worker" OR "peer support" (evidence OR research OR evaluation) AOD filetype:pdf
 ```
 
-
 ### Co-Design & Participatory Research
 
 ```txt
 "co-design" OR "co-production" ("people who use drugs" OR peer) filetype:pdf
 ```
-
 
 ---
 
@@ -305,20 +271,17 @@ site:*.edu.au "peer worker" OR "peer support" (evidence OR research OR evaluatio
 "vicarious trauma" OR "secondary trauma" "peer worker" (prevention OR support OR management)
 ```
 
-
 ### Self-Care Resources
 
 ```txt
 "self-care" "peer worker" (drug OR AOD OR "harm reduction") (resource OR guide OR toolkit) filetype:pdf
 ```
 
-
 ### Burnout Prevention
 
 ```txt
 burnout "peer worker" OR "lived experience worker" (prevention OR support) filetype:pdf
 ```
-
 
 ---
 

@@ -14,7 +14,6 @@ Find Australian OAT guidelines:
 site:*.health.*.gov.au filetype:pdf ("opioid agonist" OR methadone OR buprenorphine) guideline
 ```
 
-
 ---
 
 ## 🟢 Basic Queries
@@ -25,20 +24,17 @@ site:*.health.*.gov.au filetype:pdf ("opioid agonist" OR methadone OR buprenorph
 site:*.health.*.gov.au filetype:pdf ("opioid agonist" OR "opioid treatment program") (guideline OR policy OR protocol)
 ```
 
-
 ### Methadone-Specific
 
 ```txt
 site:*.gov.au filetype:pdf methadone (guideline OR program OR prescribing)
 ```
 
-
 ### Buprenorphine-Specific
 
 ```txt
 site:*.gov.au filetype:pdf (buprenorphine OR suboxone) (guideline OR program OR prescribing)
 ```
-
 
 ---
 
@@ -50,13 +46,11 @@ site:*.gov.au filetype:pdf (buprenorphine OR suboxone) (guideline OR program OR 
 site:*.gov.au filetype:pdf ("opioid treatment" OR "pharmacotherapy") (NSW OR VIC OR QLD OR WA OR SA OR TAS OR ACT OR NT)
 ```
 
-
 ### Prescriber Resources
 
 ```txt
 site:*.gov.au "authorised prescriber" OR "prescriber training" (methadone OR buprenorphine OR opioid) filetype:pdf
 ```
-
 
 ### Clinic Directories
 
@@ -64,13 +58,11 @@ site:*.gov.au "authorised prescriber" OR "prescriber training" (methadone OR bup
 "opioid treatment" clinic OR service directory [YOUR STATE] site:*.gov.au
 ```
 
-
 ### Dosing Guidelines
 
 ```txt
 site:*.gov.au filetype:pdf (methadone OR buprenorphine) (dosing OR induction OR "dose adjustment")
 ```
-
 
 ---
 
@@ -82,13 +74,11 @@ site:*.gov.au filetype:pdf (methadone OR buprenorphine) (dosing OR induction OR 
 site:*.gov.au filetype:pdf (OAT OR OST OR "opioid agonist" OR "opioid substitution" OR methadone OR buprenorphine OR "pharmacotherapy") (guideline OR policy OR framework OR protocol) after:2020
 ```
 
-
 ### Long-Acting Injectable Buprenorphine
 
 ```txt
 ("long-acting" OR "extended-release" OR "depot" OR "monthly") buprenorphine (sublocade OR buvidal) Australia
 ```
-
 
 ### Take-Away/Takeaway Doses
 
@@ -96,20 +86,17 @@ site:*.gov.au filetype:pdf (OAT OR OST OR "opioid agonist" OR "opioid substituti
 site:*.gov.au ("take-away" OR "takeaway" OR "unsupervised") (dose OR dosing) (methadone OR buprenorphine) filetype:pdf
 ```
 
-
 ### Pregnancy & OAT
 
 ```txt
 site:*.gov.au (pregnancy OR pregnant OR antenatal OR perinatal) (methadone OR buprenorphine OR "opioid treatment") guideline filetype:pdf
 ```
 
-
 ### Pain Management & OAT
 
 ```txt
 site:*.gov.au ("chronic pain" OR "pain management") (methadone OR buprenorphine OR OAT) guideline filetype:pdf
 ```
-
 
 ---
 
@@ -133,20 +120,17 @@ site:*.gov.au ("chronic pain" OR "pain management") (methadone OR buprenorphine 
 "opioid treatment" OR "pharmacotherapy" (prescriber OR "medical practitioner") training Australia
 ```
 
-
 ### Nursing in OAT
 
 ```txt
 (nurse OR nursing) "opioid treatment" OR "pharmacotherapy" (role OR training OR guideline) Australia filetype:pdf
 ```
 
-
 ### Pharmacy Dispensing
 
 ```txt
 (pharmacy OR pharmacist) (methadone OR buprenorphine) (dispensing OR protocol OR guideline) Australia
 ```
-
 
 ---
 
@@ -158,20 +142,17 @@ site:*.gov.au ("chronic pain" OR "pain management") (methadone OR buprenorphine 
 site:ndarc.med.unsw.edu.au OR site:turning-point.org.au (methadone OR buprenorphine OR OAT) filetype:pdf
 ```
 
-
 ### Effectiveness Research
 
 ```txt
 site:*.edu.au ("opioid agonist therapy" OR methadone OR buprenorphine) (effectiveness OR outcomes OR retention) filetype:pdf
 ```
 
-
 ### Systematic Reviews
 
 ```txt
 intitle:"systematic review" ("opioid agonist" OR methadone OR buprenorphine) effectiveness
 ```
-
 
 ---
 
@@ -183,20 +164,17 @@ intitle:"systematic review" ("opioid agonist" OR methadone OR buprenorphine) eff
 (methadone OR buprenorphine) "drug interaction" OR interaction (guideline OR warning) filetype:pdf
 ```
 
-
 ### Withdrawal Management
 
 ```txt
 site:*.gov.au "opioid withdrawal" (methadone OR buprenorphine) (induction OR management) filetype:pdf
 ```
 
-
 ### Diversion & Safety
 
 ```txt
 site:*.gov.au (methadone OR buprenorphine) (diversion OR "safe storage" OR supervision) policy filetype:pdf
 ```
-
 
 ---
 

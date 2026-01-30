@@ -25,9 +25,9 @@
 
 | Level                | Start Here                                                                             |
 | :------------------- | :------------------------------------------------------------------------------------- |
-| **Interactive Tool** | [**🕵️‍♂️ Launch Dork Explorer**](/explorer) - Search & filter 700+ dorks instantly  |
+| **Interactive Tool** | [**🕵️‍♂️ Launch Dork Explorer**](/explorer) - Search & filter 700+ dorks instantly        |
 | **New to dorking?**  | [Quick Start Guide](01-quick-start.md) → [Core Operators](02-core-operators.md)        |
-| **Know the basics?** | [Advanced Operators](03-advanced-operators.md) → [Dork Packs](dork-packs/README.md)             |
+| **Know the basics?** | [Advanced Operators](03-advanced-operators.md) → [Dork Packs](dork-packs/README.md)    |
 | **Power user?**      | [Investigative Searching](dork-packs/investigative.md) → [OSINT Tools](tools/osint.md) |
 
 ### By Role
@@ -151,7 +151,7 @@ Ready-to-use search queries organized by harm reduction task:
 
 | Tool                                    | Description                      |
 | :-------------------------------------- | :------------------------------- |
-| [🕵️‍♂️ Dork Explorer](/explorer)     | **NEW!** Interactive search tool |
+| [🕵️‍♂️ Dork Explorer](/explorer)           | **NEW!** Interactive search tool |
 | [Bookmarklets](tools/bookmarklets.md)   | One-click searching              |
 | [Google Alerts](tools/google-alerts.md) | Automated monitoring             |
 | [Custom Search](tools/custom-search.md) | Build team search engines        |

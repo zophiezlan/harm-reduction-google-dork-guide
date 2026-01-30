@@ -105,7 +105,8 @@ site:example.com "search terms" filetype:pdf
 **Why it's useful:** Context for harm reduction workers.
 ````
 
-Note: Code blocks with dork queries automatically get an "Instant Dork" button that opens Google search in a new tab.
+Note: Code blocks with dork queries automatically get an "Instant Dork" button that opens Google
+search in a new tab.
 
 ---
 

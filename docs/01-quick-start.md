@@ -36,7 +36,6 @@ Copy and paste this into Google right now:
 site:*.gov.au filetype:pdf "harm reduction" after:2024
 ```
 
-
 <details>
 <summary><strong>What this does</strong></summary>
 
@@ -59,13 +58,11 @@ site:*.gov.au filetype:pdf "harm reduction" after:2024
 site:*.gov.au filetype:pdf "harm reduction" after:2024
 ```
 
-
 ### 2. Drug Alerts from NSW Health
 
 ```txt
 site:health.nsw.gov.au intitle:"drug warning" OR intitle:"drug alert"
 ```
-
 
 ### 3. Peer Worker Training Resources
 
@@ -73,20 +70,17 @@ site:health.nsw.gov.au intitle:"drug warning" OR intitle:"drug alert"
 "peer worker" training filetype:pdf site:*.org.au -jobs -careers
 ```
 
-
 ### 4. Research from Australian Universities
 
 ```txt
 site:*.edu.au filetype:pdf "drug checking" OR "pill testing"
 ```
 
-
 ### 5. Naloxone Guidelines
 
 ```txt
 site:*.gov.au "take-home naloxone" guidelines filetype:pdf
 ```
-
 
 ---
 
@@ -166,7 +160,7 @@ Now that you have the basics:
 | Next                      | Link                                    |
 | :------------------------ | :-------------------------------------- |
 | Learn the operators       | [Core Operators](02-core-operators.md)  |
-| Find topic-specific dorks | [Dork Packs](dork-packs/README.md)               |
+| Find topic-specific dorks | [Dork Packs](dork-packs/README.md)      |
 | Set up monitoring         | [Google Alerts](tools/google-alerts.md) |
 
 ---

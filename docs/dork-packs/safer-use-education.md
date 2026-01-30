@@ -15,7 +15,6 @@ Find Australian harm reduction factsheets (PDFs):
 site:*.org.au (factsheet OR brochure OR "information sheet") ("harm reduction" OR "safer use") filetype:pdf
 ```
 
-
 ---
 
 ## 🟢 Basic Queries
@@ -26,20 +25,17 @@ site:*.org.au (factsheet OR brochure OR "information sheet") ("harm reduction" O
 ("safer injecting" OR "safer injection") (factsheet OR brochure OR "information sheet") site:*.org.au filetype:pdf
 ```
 
-
 ### Safer Smoking or Snorting Materials
 
 ```txt
 ("safer smoking" OR "safer snorting" OR "safer use") (factsheet OR brochure OR leaflet) site:*.org.au filetype:pdf
 ```
 
-
 ### Overdose Prevention Education
 
 ```txt
 ("overdose prevention" OR "overdose education") (factsheet OR "information sheet") site:*.org.au
 ```
-
 
 ---
 
@@ -51,20 +47,17 @@ site:*.org.au (factsheet OR brochure OR "information sheet") ("harm reduction" O
 ("harm reduction" OR "safer use") ("health promotion" OR toolkit OR resources) site:*.org.au filetype:pdf
 ```
 
-
 ### Peer Education Resources
 
 ```txt
 ("peer education" OR "peer-led") ("harm reduction" OR "safer use") site:*.org.au filetype:pdf
 ```
 
-
 ### Government Factsheets and Brochures
 
 ```txt
 site:*.gov.au ("harm reduction" OR "safer use") (factsheet OR brochure OR leaflet) filetype:pdf
 ```
-
 
 ---
 
@@ -76,20 +69,17 @@ site:*.gov.au ("harm reduction" OR "safer use") (factsheet OR brochure OR leafle
 ("harm reduction" OR "safer use") (translated OR multilingual OR "easy read" OR "plain language") site:*.org.au filetype:pdf
 ```
 
-
 ### Substance-Specific Harm Reduction Sheets
 
 ```txt
 ("harm reduction" OR "safer use") (opioid OR stimulant OR benzodiazepine OR alcohol) "information sheet" site:*.org.au filetype:pdf
 ```
 
-
 ### Campaigns, Posters, and Communications
 
 ```txt
 ("harm reduction" OR "safer use") (campaign OR "social marketing" OR poster OR "communication plan") Australia filetype:pdf
 ```
-
 
 ---
 

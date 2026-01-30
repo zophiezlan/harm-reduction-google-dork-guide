@@ -5,7 +5,11 @@ import { onMounted, onUnmounted } from "vue";
 // DorkScript syntax patterns
 const PATTERNS = [
   // Operators with colons - match operator: and capture the value
-  { regex: /\b(site|filetype|ext|intitle|allintitle|inurl|allinurl|intext|allintext|after|before|daterange|cache|related|info|link|inanchor|allinanchor|define|weather|stocks|map):/gi, class: "dork-operator" },
+  {
+    regex:
+      /\b(site|filetype|ext|intitle|allintitle|inurl|allinurl|intext|allintext|after|before|daterange|cache|related|info|link|inanchor|allinanchor|define|weather|stocks|map):/gi,
+    class: "dork-operator",
+  },
   // Boolean operators
   { regex: /\b(OR|AND)\b/g, class: "dork-boolean" },
   // Exclusion operator (must be at start of word)

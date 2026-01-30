@@ -21,7 +21,6 @@ Find prison health AOD resources:
 site:*.gov.au "prison health" OR "correctional health" "alcohol and other drugs" filetype:pdf
 ```
 
-
 ---
 
 ## 🟢 Basic Queries
@@ -32,20 +31,17 @@ site:*.gov.au "prison health" OR "correctional health" "alcohol and other drugs"
 site:*.gov.au "prison health" OR "correctional health" "alcohol and other drugs"
 ```
 
-
 ### Custody Drug/Overdose
 
 ```txt
 site:*.gov.au "custody" "drug" OR "overdose" OR "withdrawal"
 ```
 
-
 ### Corrections Harm Reduction
 
 ```txt
 "corrections" OR "correctional" "harm reduction" Australia filetype:pdf
 ```
-
 
 ---
 
@@ -57,13 +53,11 @@ site:*.gov.au "custody" "drug" OR "overdose" OR "withdrawal"
 "prison" OR "custody" "opioid treatment" OR "methadone" OR "buprenorphine" Australia
 ```
 
-
 ### Correctional Pharmacotherapy
 
 ```txt
 "correctional" "pharmacotherapy" OR "OAT" policy guidelines filetype:pdf
 ```
-
 
 ### Prison Naloxone
 
@@ -71,13 +65,11 @@ site:*.gov.au "custody" "drug" OR "overdose" OR "withdrawal"
 "prison naloxone" OR "custody naloxone" OR "release naloxone" Australia
 ```
 
-
 ### Throughcare/Continuity
 
 ```txt
 "throughcare" OR "continuity of care" "opioid treatment" prison release
 ```
-
 
 ---
 
@@ -89,7 +81,6 @@ site:*.gov.au "custody" "drug" OR "overdose" OR "withdrawal"
 ("prison" OR "custody" OR "correctional" OR "incarceration") ("alcohol and other drugs" OR AOD OR "harm reduction" OR "drug treatment" OR "opioid treatment") Australia (policy OR guideline OR program OR research) filetype:pdf after:2020
 ```
 
-
 ### Post-Release Overdose Risk
 
 ```txt
@@ -97,13 +88,11 @@ site:*.gov.au "custody" "drug" OR "overdose" OR "withdrawal"
 "prison release" overdose (prevention OR harm reduction)
 ```
 
-
 ### Withdrawal Management
 
 ```txt
 "prison" OR "custody" "withdrawal" (management OR protocol OR guideline) Australia
 ```
-
 
 ---
 
@@ -116,20 +105,17 @@ site:justicehealth.nsw.gov.au filetype:pdf
 "justice health" drug OR alcohol OR AOD
 ```
 
-
 ### Prison Health Guidelines
 
 ```txt
 "prison health" OR "prisoner health" (guideline OR standard) AOD Australia
 ```
 
-
 ### Forensic AOD
 
 ```txt
 "forensic" AOD OR "alcohol and other drugs" service Australia
 ```
-
 
 ---
 
@@ -141,13 +127,11 @@ site:justicehealth.nsw.gov.au filetype:pdf
 "drug court" Australia (evaluation OR outcomes) filetype:pdf
 ```
 
-
 ### State Drug Courts
 
 ```txt
 "drug court" (NSW OR VIC OR QLD OR WA OR SA) evaluation
 ```
-
 
 ### MERIT (NSW)
 
@@ -155,13 +139,11 @@ site:justicehealth.nsw.gov.au filetype:pdf
 "MERIT" OR "Magistrates Early Referral Into Treatment" NSW
 ```
 
-
 ### CISP (Victoria)
 
 ```txt
 "CISP" OR "Court Integrated Services Program" Victoria
 ```
-
 
 ### Diversion Programs
 
@@ -169,7 +151,6 @@ site:justicehealth.nsw.gov.au filetype:pdf
 "diversion" drug OR substance offence Australia evaluation
 "drug diversion" program Australia effectiveness
 ```
-
 
 ---
 
@@ -182,13 +163,11 @@ site:justicehealth.nsw.gov.au filetype:pdf
 "transition" custody community drug OR alcohol support
 ```
 
-
 ### Throughcare Programs
 
 ```txt
 "throughcare" drug OR alcohol prison release Australia
 ```
-
 
 ### Post-Release Services
 
@@ -196,13 +175,11 @@ site:justicehealth.nsw.gov.au filetype:pdf
 "post-release" (AOD OR "alcohol and other drugs") (service OR support) Australia
 ```
 
-
 ### Housing & Re-entry
 
 ```txt
 "housing" "prison release" OR "post-release" drug OR alcohol Australia
 ```
-
 
 ---
 
@@ -214,7 +191,6 @@ site:justicehealth.nsw.gov.au filetype:pdf
 "youth justice" OR "juvenile justice" drug OR alcohol Australia
 ```
 
-
 ### Youth Diversion
 
 ```txt
@@ -222,7 +198,6 @@ site:justicehealth.nsw.gov.au filetype:pdf
 "youth detention" drug OR alcohol program
 "children's court" drug OR alcohol diversion
 ```
-
 
 ---
 
@@ -235,20 +210,17 @@ site:justicehealth.nsw.gov.au filetype:pdf
 site:aihw.gov.au "prisoner health" drug OR alcohol
 ```
 
-
 ### Research on Prison AOD
 
 ```txt
 site:*.edu.au "prison" OR "incarceration" (AOD OR "drug treatment") Australia filetype:pdf
 ```
 
-
 ### Post-Release Mortality Studies
 
 ```txt
 "post-release" OR "release from prison" (mortality OR death OR overdose) research Australia
 ```
-
 
 ---
 
@@ -261,13 +233,11 @@ site:*.edu.au "prison" OR "incarceration" (AOD OR "drug treatment") Australia fi
 "Aboriginal" "incarceration" drug OR alcohol Australia
 ```
 
-
 ### Aboriginal Courts
 
 ```txt
 "Koori Court" OR "Murri Court" OR "circle sentencing" drug OR alcohol
 ```
-
 
 ### Aboriginal Diversion
 
@@ -275,7 +245,6 @@ site:*.edu.au "prison" OR "incarceration" (AOD OR "drug treatment") Australia fi
 "Aboriginal" diversion drug OR alcohol Australia
 "Aboriginal Legal Service" drug OR alcohol
 ```
-
 
 ---
 

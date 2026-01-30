@@ -14,7 +14,6 @@ Find Australian government reports on novel substances:
 site:*.gov.au filetype:pdf ("novel psychoactive" OR NPS OR "emerging substance") after:2023
 ```
 
-
 ---
 
 ## 🌐 Essential Substance Information Resources
@@ -38,20 +37,17 @@ site:*.gov.au filetype:pdf ("novel psychoactive" OR NPS OR "emerging substance")
 site:*.gov.au filetype:pdf ("novel psychoactive" OR NPS) (trend OR surveillance OR "drug market")
 ```
 
-
 ### University Research
 
 ```txt
 site:*.edu.au filetype:pdf ("nitazene" OR "novel benzodiazepine" OR "synthetic opioid") Australia
 ```
 
-
 ### General NPS Information
 
 ```txt
 "novel psychoactive substance" OR NPS (Australia OR NSW OR VIC) (report OR surveillance) filetype:pdf
 ```
-
 
 ---
 
@@ -63,7 +59,6 @@ site:*.edu.au filetype:pdf ("nitazene" OR "novel benzodiazepine" OR "synthetic o
 ("nitazene" OR "isotonitazene" OR "protonitazene" OR "metonitazene" OR "benzimidazole opioid") Australia filetype:pdf
 ```
 
-
 **Why this matters:** Nitazenes are highly potent synthetic opioids emerging in drug supplies
 globally.
 
@@ -73,20 +68,17 @@ globally.
 ("xylazine" OR "medetomidine" OR "tranq" OR "adulterant") (Australia OR "drug supply") filetype:pdf
 ```
 
-
 ### Novel Benzodiazepines
 
 ```txt
 ("novel benzodiazepine" OR "designer benzodiazepine" OR flualprazolam OR etizolam) detection Australia
 ```
 
-
 ### Synthetic Cannabinoids
 
 ```txt
 ("synthetic cannabinoid" OR "synthetic cannabis" OR "SCRA") Australia (detection OR toxicology OR emergency)
 ```
-
 
 ---
 
@@ -98,13 +90,11 @@ globally.
 site:*.gov.au OR site:*.edu.au filetype:pdf ("novel psychoactive" OR NPS OR "emerging substance" OR "new psychoactive") (surveillance OR monitoring OR trend OR detection) Australia after:2022
 ```
 
-
 ### Fentanyl & Analogues
 
 ```txt
 ("fentanyl" OR "fentanyl analogue" OR "carfentanil" OR "acetylfentanyl") Australia (detection OR alert OR death OR toxicology)
 ```
-
 
 ### Reagent Testing Limitations for NPS
 
@@ -112,20 +102,17 @@ site:*.gov.au OR site:*.edu.au filetype:pdf ("novel psychoactive" OR NPS OR "eme
 "reagent testing" (accuracy OR limitations OR "false positive" OR "false negative") ("novel psychoactive" OR NPS)
 ```
 
-
 ### Drug Checking Results for NPS
 
 ```txt
 "drug checking" ("novel substance" OR "unexpected" OR NPS) (results OR detected) Australia
 ```
 
-
 ### Forensic Detection Methods
 
 ```txt
 (detection OR identification OR analysis) ("novel psychoactive" OR NPS OR nitazene) (method OR technique OR "mass spectrometry") filetype:pdf
 ```
-
 
 ---
 
@@ -137,11 +124,9 @@ site:*.gov.au OR site:*.edu.au filetype:pdf ("novel psychoactive" OR NPS OR "eme
 site:*.gov.au "nitazene" OR "benzimidazole opioid" after:2023
 ```
 
-
 ```txt
 "isotonitazene" OR "protonitazene" (detection OR death OR toxicology OR case) Australia
 ```
-
 
 ### Xylazine ("Tranq")
 
@@ -149,13 +134,11 @@ site:*.gov.au "nitazene" OR "benzimidazole opioid" after:2023
 "xylazine" (Australia OR "drug supply" OR "opioid") (contamination OR adulterant OR detection)
 ```
 
-
 ### Novel Stimulants
 
 ```txt
 ("synthetic cathinone" OR "bath salts" OR "novel stimulant" OR eutylone OR "N-ethylpentylone") Australia
 ```
-
 
 ### Ketamine Analogues
 
@@ -163,13 +146,11 @@ site:*.gov.au "nitazene" OR "benzimidazole opioid" after:2023
 ("ketamine analogue" OR "deschloroketamine" OR "2-FDCK") Australia (detection OR emergence)
 ```
 
-
 ### GHB/GBL
 
 ```txt
 (GHB OR GBL OR "gamma-hydroxybutyrate" OR "fantasy") Australia (harm reduction OR overdose OR detection)
 ```
-
 
 ---
 
@@ -181,13 +162,11 @@ site:*.gov.au "nitazene" OR "benzimidazole opioid" after:2023
 "Illicit Drug Reporting System" OR IDRS (novel OR emerging OR trend) filetype:pdf
 ```
 
-
 ### EDRS (Ecstasy & Related Drugs)
 
 ```txt
 "Ecstasy and Related Drugs Reporting System" OR EDRS filetype:pdf
 ```
-
 
 ### Drug Trends Reports
 
@@ -195,13 +174,11 @@ site:*.gov.au "nitazene" OR "benzimidazole opioid" after:2023
 site:ndarc.med.unsw.edu.au "drug trends" OR "market" filetype:pdf
 ```
 
-
 ### Wastewater Analysis
 
 ```txt
 "wastewater analysis" OR "wastewater epidemiology" (drug OR substance) Australia
 ```
-
 
 ---
 
@@ -213,20 +190,17 @@ site:ndarc.med.unsw.edu.au "drug trends" OR "market" filetype:pdf
 ("emergency department" OR ED) ("novel psychoactive" OR NPS OR "synthetic") (presentation OR poisoning OR overdose) Australia
 ```
 
-
 ### Toxicology Case Reports
 
 ```txt
 (case OR case report) (toxicology OR poisoning) ("novel psychoactive" OR NPS OR nitazene) Australia
 ```
 
-
 ### Treatment Guidelines for NPS
 
 ```txt
 site:*.gov.au ("novel psychoactive" OR NPS) (treatment OR management OR "clinical guideline") filetype:pdf
 ```
-
 
 ---
 
@@ -238,20 +212,17 @@ site:*.gov.au ("novel psychoactive" OR NPS) (treatment OR management OR "clinica
 site:emcdda.europa.eu ("novel psychoactive" OR NPS OR "early warning") filetype:pdf
 ```
 
-
 ### UK Surveillance
 
 ```txt
 site:*.gov.uk ("novel psychoactive" OR NPS) (surveillance OR monitoring OR trend)
 ```
 
-
 ### UNODC
 
 ```txt
 site:unodc.org "novel psychoactive" OR NPS (report OR surveillance)
 ```
-
 
 ---
 
@@ -263,20 +234,17 @@ site:unodc.org "novel psychoactive" OR NPS (report OR surveillance)
 (nitazene OR "synthetic opioid") (pharmacology OR "receptor binding" OR potency) filetype:pdf
 ```
 
-
 ### Metabolism & Detection Windows
 
 ```txt
 ("novel psychoactive" OR NPS) (metabolism OR "detection window" OR metabolite) filetype:pdf
 ```
 
-
 ### Comparative Potency
 
 ```txt
 (nitazene OR fentanyl) potency comparison OR "relative potency" filetype:pdf
 ```
-
 
 ---
 

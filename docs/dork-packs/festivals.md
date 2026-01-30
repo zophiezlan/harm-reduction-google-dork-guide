@@ -14,7 +14,6 @@ Find festival harm reduction resources:
 ("festival" OR "music event") "harm reduction" filetype:pdf -news -opinion
 ```
 
-
 ---
 
 ## 🟢 Basic Queries
@@ -25,20 +24,17 @@ Find festival harm reduction resources:
 ("festival" OR "music event") ("harm reduction" OR "drug checking" OR "peer-led") filetype:pdf -news
 ```
 
-
 ### Festival Medical Planning
 
 ```txt
 (festival OR "music event") ("medical plan" OR "health plan" OR "event health") filetype:pdf
 ```
 
-
 ### Australian Festival Resources
 
 ```txt
 (festival OR "music festival") harm reduction Australia (guideline OR protocol OR evaluation) filetype:pdf
 ```
-
 
 ---
 
@@ -50,13 +46,11 @@ Find festival harm reduction resources:
 (inurl:festival OR inurl:event) ("medical plan" OR "health plan" OR "safety plan") filetype:pdf
 ```
 
-
 ### Drug Checking at Festivals
 
 ```txt
 "drug checking" festival (Australia OR NSW OR VIC OR ACT) (evaluation OR report)
 ```
-
 
 ### DanceWize & Peer Programs
 
@@ -64,13 +58,11 @@ Find festival harm reduction resources:
 "DanceWize" OR ("peer harm reduction" festival) filetype:pdf
 ```
 
-
 ### Festival Medical Guidelines
 
 ```txt
 "festival medical" (guidelines OR protocol OR "best practice") filetype:pdf
 ```
-
 
 ---
 
@@ -82,13 +74,11 @@ Find festival harm reduction resources:
 (festival OR "music event" OR "outdoor event") ("harm reduction" OR "drug safety" OR "event health") (Australia OR NSW OR VIC OR QLD) (evaluation OR report OR guideline) filetype:pdf -news after:2020
 ```
 
-
 ### Roving Medical/Welfare Teams
 
 ```txt
 (festival OR "music event") ("roving" OR "welfare team" OR "peer support") (protocol OR training OR guideline)
 ```
-
 
 ### Chill-Out Spaces
 
@@ -96,20 +86,17 @@ Find festival harm reduction resources:
 ("chill out" OR "chill-out" OR "welfare tent" OR "safe space") festival (guideline OR protocol OR training) filetype:pdf
 ```
 
-
 ### Heat/Weather Safety
 
 ```txt
 (festival OR "outdoor event") (heat OR weather OR dehydration OR "heat stress") (safety OR guideline OR protocol)
 ```
 
-
 ### Crowd Safety
 
 ```txt
 (festival OR "music event") ("crowd safety" OR "crowd crush" OR "crowd management") (guideline OR protocol)
 ```
-
 
 ---
 
@@ -128,13 +115,11 @@ Find festival harm reduction resources:
 "Beyond the Valley" medical OR "harm reduction"
 ```
 
-
 ### Finding Event-Specific Intelligence
 
 ```txt
 "[FESTIVAL NAME]" ("harm reduction" OR "medical" OR "drug checking" OR "incident")
 ```
-
 
 ---
 
@@ -146,13 +131,11 @@ Find festival harm reduction resources:
 "event medical" OR "festival medical" (services OR team OR protocol) Australia
 ```
 
-
 ### Drug-Related Presentations
 
 ```txt
 (festival OR "music event") ("drug related" OR "substance related") (presentation OR emergency OR incident) (data OR report)
 ```
-
 
 ### Overdose Response at Events
 
@@ -160,13 +143,11 @@ Find festival harm reduction resources:
 (festival OR event) overdose (response OR protocol OR "rapid response") filetype:pdf
 ```
 
-
 ### First Aid Protocols
 
 ```txt
 "first aid" ("drug related" OR "substance") festival (protocol OR response)
 ```
-
 
 ---
 
@@ -179,20 +160,17 @@ site:hrvic.org.au DanceWize filetype:pdf
 "DanceWize" (training OR volunteer OR protocol)
 ```
 
-
 ### Peer Outreach at Events
 
 ```txt
 ("peer outreach" OR "peer support") festival (training OR protocol OR evaluation)
 ```
 
-
 ### Volunteer Training
 
 ```txt
 (festival OR event) ("harm reduction" OR "peer support") volunteer training filetype:pdf
 ```
-
 
 ---
 
@@ -204,20 +182,17 @@ site:hrvic.org.au DanceWize filetype:pdf
 "festival harm reduction" evaluation (report OR findings) filetype:pdf
 ```
 
-
 ### Drug Checking Trial Evaluations
 
 ```txt
 "drug checking" festival (evaluation OR pilot OR trial) Australia filetype:pdf
 ```
 
-
 ### Event Health Data
 
 ```txt
 (festival OR "music event") "health data" OR "presentation data" OR statistics (report OR analysis)
 ```
-
 
 ---
 
@@ -229,20 +204,17 @@ site:hrvic.org.au DanceWize filetype:pdf
 "event health" planning OR "risk assessment" (festival OR "music event") filetype:pdf
 ```
 
-
 ### Licensing & Regulations
 
 ```txt
 (festival OR "music event") (license OR regulation OR "harm reduction requirements") (NSW OR VIC OR QLD)
 ```
 
-
 ### Stakeholder Coordination
 
 ```txt
 (festival OR event) ("multi-agency" OR "stakeholder" OR "coordination") (health OR safety OR "harm reduction")
 ```
-
 
 ---
 
@@ -254,20 +226,17 @@ site:hrvic.org.au DanceWize filetype:pdf
 site:*.gov.uk OR site:*.org.uk "festival" "harm reduction" OR "drug safety"
 ```
 
-
 ### European Models
 
 ```txt
 (Europe OR Netherlands OR Switzerland) festival "drug checking" OR "harm reduction" (model OR "best practice")
 ```
 
-
 ### The Loop (UK)
 
 ```txt
 "The Loop" "drug checking" festival evaluation OR results
 ```
-
 
 ---
 

@@ -30,7 +30,7 @@ function enhanceCodeBlocks() {
       code.includes("intitle:") ||
       code.includes("inurl:") ||
       code.includes("intext:") ||
-      code.includes('OR') ||
+      code.includes("OR") ||
       code.includes('"');
 
     if (!isDork) return;

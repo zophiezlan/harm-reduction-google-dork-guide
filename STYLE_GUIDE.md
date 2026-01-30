@@ -167,7 +167,8 @@ site:*.gov.au filetype:pdf "harm reduction"
 
 ### Live Search Links
 
-Code blocks with dork queries automatically get an "Instant Dork" button (search icon) that opens Google in a new tab:
+Code blocks with dork queries automatically get an "Instant Dork" button (search icon) that opens
+Google in a new tab:
 
 ````markdown
 ```txt

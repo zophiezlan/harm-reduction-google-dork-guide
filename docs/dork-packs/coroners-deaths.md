@@ -23,7 +23,6 @@ Find coronial findings on drug-related deaths:
 "coronial recommendation" drug OR overdose Australia filetype:pdf
 ```
 
-
 ---
 
 ## 🟢 Basic Queries
@@ -35,13 +34,11 @@ site:coroners.nsw.gov.au "drug" OR "overdose" OR "substance"
 site:coronerscourt.vic.gov.au inquest drug OR overdose
 ```
 
-
 ### Coronial Recommendations
 
 ```txt
 "coronial recommendation" OR "coroner's recommendation" drug OR overdose Australia
 ```
-
 
 ### Drug Death Statistics
 
@@ -49,7 +46,6 @@ site:coronerscourt.vic.gov.au inquest drug OR overdose
 "drug-induced death" OR "drug-related death" statistics Australia
 site:aihw.gov.au "drug-induced deaths"
 ```
-
 
 ---
 
@@ -62,7 +58,6 @@ site:aihw.gov.au "drug-induced deaths"
 inquest finding "drug" OR "overdose" "recommendation" Australia
 ```
 
-
 ### Systemic Issues
 
 ```txt
@@ -70,14 +65,12 @@ inquest finding "drug" OR "overdose" "recommendation" Australia
 "coroner" "prevention" drug death Australia
 ```
 
-
 ### Cluster Investigations
 
 ```txt
 "cluster" overdose OR "drug death" investigation Australia
 "spike" OR "surge" overdose deaths investigation
 ```
-
 
 ---
 
@@ -89,20 +82,17 @@ inquest finding "drug" OR "overdose" "recommendation" Australia
 (coroner OR coronial OR inquest) ("drug" OR "overdose" OR "substance" OR "opioid") (finding OR recommendation OR inquest) Australia filetype:pdf after:2020
 ```
 
-
 ### Enhanced Surveillance
 
 ```txt
 "enhanced surveillance" OR "public health response" overdose cluster
 ```
 
-
 ### Prevention-Focused Findings
 
 ```txt
 "coroner" (prevention OR "preventable death" OR recommendation) ("drug" OR "overdose") Australia
 ```
-
 
 ---
 
@@ -115,7 +105,6 @@ site:coroners.nsw.gov.au "drug" OR "overdose" OR "substance"
 site:coroners.nsw.gov.au inquest finding
 ```
 
-
 ### Victoria
 
 ```txt
@@ -123,13 +112,11 @@ site:coronerscourt.vic.gov.au drug OR overdose
 site:coronerscourt.vic.gov.au inquest finding
 ```
 
-
 ### Queensland
 
 ```txt
 site:courts.qld.gov.au/courts/coroners-court "drug" OR "overdose"
 ```
-
 
 ### Western Australia
 
@@ -137,13 +124,11 @@ site:courts.qld.gov.au/courts/coroners-court "drug" OR "overdose"
 site:coronerscourt.wa.gov.au drug OR substance OR overdose
 ```
 
-
 ### South Australia
 
 ```txt
 site:courts.sa.gov.au/courts/coroners-court "drug" death
 ```
-
 
 ### ACT
 
@@ -151,20 +136,17 @@ site:courts.sa.gov.au/courts/coroners-court "drug" death
 site:coronialservices.act.gov.au drug OR overdose
 ```
 
-
 ### Northern Territory
 
 ```txt
 site:courts.nt.gov.au/coroner drug OR substance death
 ```
 
-
 ### Tasmania
 
 ```txt
 site:magistratescourt.tas.gov.au/divisions/coronial drug overdose
 ```
-
 
 ---
 
@@ -176,13 +158,11 @@ site:magistratescourt.tas.gov.au/divisions/coronial drug overdose
 site:aihw.gov.au "drug-induced deaths" OR "opioid deaths" filetype:pdf
 ```
 
-
 ### Overdose Mortality
 
 ```txt
 "overdose mortality" OR "overdose fatality" data Australia
 ```
-
 
 ### Accidental Overdose
 
@@ -190,13 +170,11 @@ site:aihw.gov.au "drug-induced deaths" OR "opioid deaths" filetype:pdf
 "accidental drug overdose" OR "unintentional overdose" statistics Australia
 ```
 
-
 ### Penington Institute Reports
 
 ```txt
 site:penington.org.au "overdose" OR "Australia's Annual Overdose Report"
 ```
-
 
 ---
 
@@ -208,13 +186,11 @@ site:penington.org.au "overdose" OR "Australia's Annual Overdose Report"
 "opioid" death OR overdose Australia (coroner OR statistics)
 ```
 
-
 ### Heroin
 
 ```txt
 "heroin" death OR overdose Australia (coroner OR statistics)
 ```
-
 
 ### Pharmaceutical Opioids
 
@@ -223,13 +199,11 @@ site:penington.org.au "overdose" OR "Australia's Annual Overdose Report"
 (oxycodone OR fentanyl OR codeine) overdose death Australia
 ```
 
-
 ### Methamphetamine
 
 ```txt
 "methamphetamine" OR "ice" death Australia (coroner OR data)
 ```
-
 
 ### Emerging Substances
 
@@ -238,14 +212,12 @@ site:penington.org.au "overdose" OR "Australia's Annual Overdose Report"
 "nitazene" death Australia
 ```
 
-
 ### Polydrug/Combination
 
 ```txt
 "benzodiazepine" "opioid" combined overdose death
 "polydrug" OR "multiple substances" overdose death
 ```
-
 
 ---
 
@@ -257,13 +229,11 @@ site:penington.org.au "overdose" OR "Australia's Annual Overdose Report"
 "death in custody" drug OR overdose OR withdrawal Australia
 ```
 
-
 ### Prison Deaths
 
 ```txt
 ("prison death" OR "correctional") drug OR overdose OR withdrawal Australia
 ```
-
 
 ### Hospital/Healthcare Deaths
 
@@ -271,13 +241,11 @@ site:penington.org.au "overdose" OR "Australia's Annual Overdose Report"
 "hospital" OR "healthcare" drug OR overdose death coronial
 ```
 
-
 ### Post-Release Deaths
 
 ```txt
 "post-release" OR "release from custody" overdose death Australia
 ```
-
 
 ---
 
@@ -289,20 +257,17 @@ site:penington.org.au "overdose" OR "Australia's Annual Overdose Report"
 coroner recommendation ("harm reduction" OR naloxone OR "overdose prevention")
 ```
 
-
 ### Implementation of Recommendations
 
 ```txt
 coronial recommendation (implementation OR response OR "government response") drug
 ```
 
-
 ### Systemic Change
 
 ```txt
 coroner ("systemic change" OR "systemic recommendation") drug OR overdose
 ```
-
 
 ---
 
@@ -314,20 +279,17 @@ coroner ("systemic change" OR "systemic recommendation") drug OR overdose
 "drug-related deaths" OR "overdose deaths" "annual report" Australia
 ```
 
-
 ### Trend Analysis
 
 ```txt
 ("drug death" OR "overdose") trend Australia 2020..2026
 ```
 
-
 ### Geographic Patterns
 
 ```txt
 ("drug death" OR "overdose") (rural OR regional OR metropolitan) Australia comparison
 ```
-
 
 ---
 

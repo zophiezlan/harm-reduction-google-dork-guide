@@ -229,7 +229,7 @@ site:*.gov.au ("nitazene" OR "novel psychoactive") filetype:pdf after:2023
 | Resource                                  | Description             |
 | :---------------------------------------- | :---------------------- |
 | [Core Operators](../02-core-operators.md) | Full operator reference |
-| [Dork Packs](../dork-packs/README.md)              | Topic-specific queries  |
+| [Dork Packs](../dork-packs/README.md)     | Topic-specific queries  |
 | [Troubleshooting](../troubleshooting.md)  | When searches fail      |
 
 ---

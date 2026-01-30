@@ -14,7 +14,6 @@ Find youth AOD resources:
 "youth" OR "young people" "alcohol and other drugs" service Australia filetype:pdf
 ```
 
-
 ---
 
 ## 🟢 Basic Queries
@@ -25,20 +24,17 @@ Find youth AOD resources:
 "youth" OR "young people" "alcohol and other drugs" service Australia
 ```
 
-
 ### Adolescent Programs
 
 ```txt
 "adolescent" drug OR alcohol treatment program Australia
 ```
 
-
 ### Early Intervention
 
 ```txt
 "early intervention" youth drug OR alcohol Australia
 ```
-
 
 ---
 
@@ -50,20 +46,17 @@ Find youth AOD resources:
 "youth outreach" drug OR alcohol harm reduction Australia
 ```
 
-
 ### School-Based Programs
 
 ```txt
 "school-based" OR "school" drug OR alcohol prevention Australia evaluation
 ```
 
-
 ### Peer Education (Youth)
 
 ```txt
 "peer education" youth drug OR alcohol Australia
 ```
-
 
 ---
 
@@ -75,20 +68,17 @@ Find youth AOD resources:
 ("youth" OR "young people" OR "adolescent" OR "teen" OR "young adult") ("alcohol and other drugs" OR AOD OR "drug use" OR "harm reduction") Australia (service OR program OR prevention OR research) filetype:pdf after:2020
 ```
 
-
 ### Life Skills Programs
 
 ```txt
 "life skills" OR "resilience" drug prevention young people Australia
 ```
 
-
 ### Youth-Specific Harm Reduction
 
 ```txt
 "youth" OR "young people" "harm reduction" approach Australia filetype:pdf
 ```
-
 
 ---
 
@@ -100,13 +90,11 @@ Find youth AOD resources:
 "drug education" schools Australia (effectiveness OR evaluation) filetype:pdf
 ```
 
-
 ### Prevention Programs
 
 ```txt
 "prevention" "young people" OR youth (drug OR alcohol) Australia evaluation
 ```
-
 
 ### Evidence-Based Prevention
 
@@ -114,13 +102,11 @@ Find youth AOD resources:
 "evidence-based" prevention youth (drug OR alcohol) Australia
 ```
 
-
 ### Harm Reduction Education
 
 ```txt
 "harm reduction education" young people Australia
 ```
-
 
 ---
 
@@ -133,20 +119,17 @@ Find youth AOD resources:
 site:ysas.org.au filetype:pdf
 ```
 
-
 ### Youth Withdrawal
 
 ```txt
 "youth" OR "adolescent" withdrawal OR detox (service OR program) Australia
 ```
 
-
 ### Youth Residential
 
 ```txt
 "youth residential" OR "adolescent residential" (treatment OR rehabilitation) drug alcohol Australia
 ```
-
 
 ---
 
@@ -158,13 +141,11 @@ site:ysas.org.au filetype:pdf
 "festival" young people drug OR alcohol safety Australia
 ```
 
-
 ### Party/Nightlife
 
 ```txt
 "party" OR "nightlife" young people harm reduction Australia
 ```
-
 
 ### Drink Spiking
 
@@ -172,13 +153,11 @@ site:ysas.org.au filetype:pdf
 "drink spiking" prevention young people Australia
 ```
 
-
 ### Safer Partying
 
 ```txt
 "safer partying" OR "safer clubbing" young people Australia
 ```
-
 
 ---
 
@@ -190,13 +169,11 @@ site:ysas.org.au filetype:pdf
 "youth justice" OR "juvenile justice" drug OR alcohol Australia filetype:pdf
 ```
 
-
 ### Youth Diversion
 
 ```txt
 "young offenders" drug OR alcohol diversion Australia
 ```
-
 
 ### Youth Detention
 
@@ -204,13 +181,11 @@ site:ysas.org.au filetype:pdf
 "youth detention" drug OR alcohol program Australia
 ```
 
-
 ### Children's Court
 
 ```txt
 "children's court" drug OR alcohol diversion Australia
 ```
-
 
 ---
 
@@ -223,13 +198,11 @@ site:ysas.org.au filetype:pdf
 site:headspace.org.au drug OR alcohol
 ```
 
-
 ### Early Psychosis
 
 ```txt
 "early psychosis" substance use youth Australia
 ```
-
 
 ---
 
@@ -241,13 +214,11 @@ site:headspace.org.au drug OR alcohol
 "family" "youth" OR "adolescent" AOD treatment Australia
 ```
 
-
 ### Parent Programs
 
 ```txt
 "parent" program youth drug OR alcohol prevention Australia
 ```
-
 
 ---
 
@@ -260,13 +231,11 @@ site:headspace.org.au drug OR alcohol
 site:aihw.gov.au youth "alcohol and other drugs"
 ```
 
-
 ### Research
 
 ```txt
 site:*.edu.au "youth" OR "young people" (AOD OR "alcohol and other drugs") Australia filetype:pdf
 ```
-
 
 ---
 
@@ -278,13 +247,11 @@ site:*.edu.au "youth" OR "young people" (AOD OR "alcohol and other drugs") Austr
 "online" OR "digital" (intervention OR program) youth drug OR alcohol Australia
 ```
 
-
 ### Apps for Youth
 
 ```txt
 (app OR application) youth drug OR alcohol Australia
 ```
-
 
 ---
 

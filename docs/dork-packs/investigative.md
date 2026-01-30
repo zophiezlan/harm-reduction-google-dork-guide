@@ -29,7 +29,6 @@ Find unlisted PDF documents in government publication directories:
 site:*.gov.au inurl:"/publications/" filetype:pdf "harm reduction" -inurl:html
 ```
 
-
 ---
 
 ## 🟢 Basic Queries
@@ -42,20 +41,17 @@ site:*.gov.au inurl:"/uploads/" filetype:pdf "drug"
 site:*.gov.au inurl:"/documents/" filetype:pdf "overdose"
 ```
 
-
 ### Finding Draft Documents
 
 ```txt
 site:*.gov.au filetype:pdf "draft" "harm reduction" -"final"
 ```
 
-
 ### Conference Presentations
 
 ```txt
 filetype:pptx OR filetype:ppt "harm reduction" Australia
 ```
-
 
 ---
 
@@ -68,7 +64,6 @@ site:*.gov.au intitle:"index of" "harm reduction" OR "drug"
 site:*.health.*.gov.au inurl:"/assets/" filetype:pdf
 ```
 
-
 ### Internal/Unpublished Documents
 
 ```txt
@@ -76,14 +71,12 @@ site:*.gov.au filetype:pdf "internal use only" OR "not for distribution" "drug"
 site:*.gov.au filetype:pdf "confidential" "alcohol and other drugs" -"de-identified"
 ```
 
-
 ### Embargoed/Pre-Release
 
 ```txt
 site:*.gov.au filetype:pdf "embargoed" OR "pre-release" drug policy
 "working paper" OR "discussion paper" harm reduction site:*.gov.au
 ```
-
 
 ---
 
@@ -95,7 +88,6 @@ site:*.gov.au filetype:pdf "embargoed" OR "pre-release" drug policy
 site:*.gov.au (inurl:"/publications/" OR inurl:"/uploads/" OR inurl:"/documents/" OR inurl:"/assets/" OR inurl:"/files/") filetype:pdf ("harm reduction" OR "drug policy" OR "alcohol and other drugs") -inurl:html
 ```
 
-
 ### Meeting Minutes & Agendas
 
 ```txt
@@ -103,7 +95,6 @@ site:*.gov.au filetype:pdf "meeting minutes" ("harm reduction" OR "drug policy")
 site:*.gov.au filetype:pdf "agenda" "alcohol and other drugs" committee
 "steering committee" OR "working group" minutes harm reduction filetype:pdf
 ```
-
 
 ### Tender Documents & Funding
 
@@ -113,7 +104,6 @@ site:*.gov.au filetype:pdf "funding agreement" OR "service agreement" AOD
 "request for tender" "alcohol and other drugs" site:*.gov.au
 "grant guidelines" harm reduction site:*.gov.au
 ```
-
 
 ---
 
@@ -126,7 +116,6 @@ filetype:xlsx "harm reduction" OR "AOD" site:*.gov.au
 filetype:xlsx "service directory" OR "contact list" drug alcohol
 ```
 
-
 ### CSV Files
 
 ```txt
@@ -134,13 +123,11 @@ filetype:csv "needle syringe" OR "NSP" OR "overdose"
 filetype:csv "drug" OR "alcohol" site:*.gov.au
 ```
 
-
 ### Old Excel Formats
 
 ```txt
 filetype:xls "opioid treatment" OR "methadone" clinic
 ```
-
 
 ---
 
@@ -153,14 +140,12 @@ site:*.gov.au "freedom of information" OR "FOI" "drug" OR "harm reduction" filet
 site:*.gov.au inurl:foi OR inurl:freedom-of-information "alcohol" OR "overdose"
 ```
 
-
 ### Disclosure Logs
 
 ```txt
 "disclosure log" site:*.gov.au "drug policy" OR "harm reduction"
 "FOI release" "harm reduction" OR "drug checking"
 ```
-
 
 ---
 
@@ -174,7 +159,6 @@ site:*.gov.au "harm reduction" 1990..2005 filetype:pdf
 "needle exchange" Australia history OR origins 1980s
 ```
 
-
 ### Web Archive (NLA)
 
 ```txt
@@ -182,13 +166,11 @@ site:webarchive.nla.gov.au "harm reduction"
 site:web.archive.org "aivl.org.au" OR "nuaa.org.au"
 ```
 
-
 ### AIDS Era Documents
 
 ```txt
 "AIDS" "injecting drug use" Australia 1980s OR 1990s filetype:pdf
 ```
-
 
 ---
 
@@ -201,13 +183,11 @@ site:*.gov.au filetype:pdf "evaluation" "harm reduction" inurl:publications
 site:*.gov.au filetype:pdf "review" "needle syringe program" -news
 ```
 
-
 ### Process & Outcome Evaluations
 
 ```txt
 "process evaluation" OR "outcome evaluation" harm reduction Australia filetype:pdf
 ```
-
 
 ### Cost-Effectiveness (Often Buried)
 
@@ -215,7 +195,6 @@ site:*.gov.au filetype:pdf "review" "needle syringe program" -news
 "cost-effectiveness" OR "cost-benefit" harm reduction Australia filetype:pdf
 site:*.gov.au "economic evaluation" ("harm reduction" OR "needle syringe" OR naloxone)
 ```
-
 
 ---
 
@@ -228,20 +207,17 @@ filetype:rtf "harm reduction" Australia
 filetype:odt "drug checking" OR "pill testing"
 ```
 
-
 ### Ebooks
 
 ```txt
 filetype:epub "harm reduction" guide
 ```
 
-
 ### Sitemaps (Reveal Hidden Pages)
 
 ```txt
 filetype:xml "drug" site:*.gov.au sitemap
 ```
-
 
 ---
 
@@ -255,13 +231,11 @@ filetype:xml "drug" site:*.gov.au sitemap
 "supplementary submission" drug policy parliament
 ```
 
-
 ### Alternative Perspectives
 
 ```txt
 "alternative view" OR "contrary evidence" drug law reform
 ```
-
 
 ---
 
@@ -276,13 +250,11 @@ inurl:reports site:*.gov.au filetype:pdf
 inurl:resources site:*.org.au filetype:pdf
 ```
 
-
 ### Asset Directories
 
 ```txt
 inurl:/assets/ OR inurl:/uploads/ OR inurl:/files/ site:*.gov.au filetype:pdf "drug"
 ```
-
 
 ---
 

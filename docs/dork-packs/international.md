@@ -14,7 +14,6 @@ Find international harm reduction evaluations:
 ("drug consumption room" OR "supervised consumption") evaluation (Canada OR Europe) filetype:pdf
 ```
 
-
 ---
 
 ## 🟢 Basic Queries
@@ -25,20 +24,17 @@ Find international harm reduction evaluations:
 site:*.govt.nz "harm reduction" OR "needle exchange"
 ```
 
-
 ### UK Policy & Research
 
 ```txt
 site:*.gov.uk "drug consumption room" OR "drug policy" reform
 ```
 
-
 ### Canadian Safe Supply
 
 ```txt
 site:*.gc.ca "supervised consumption" OR "safe supply" evaluation
 ```
-
 
 ---
 
@@ -50,13 +46,11 @@ site:*.gc.ca "supervised consumption" OR "safe supply" evaluation
 site:emcdda.europa.eu filetype:pdf "drug checking" OR "harm reduction"
 ```
 
-
 ### Portugal Decriminalisation
 
 ```txt
 site:*.pt OR "Portugal" "decriminalization" drugs (evaluation OR outcomes) 2001..2025
 ```
-
 
 ### Swiss Heroin-Assisted Treatment
 
@@ -64,13 +58,11 @@ site:*.pt OR "Portugal" "decriminalization" drugs (evaluation OR outcomes) 2001.
 (Switzerland OR Swiss) "heroin assisted treatment" OR "heroin prescription" evaluation filetype:pdf
 ```
 
-
 ### Netherlands Drug Policy
 
 ```txt
 (Netherlands OR Dutch) "drug policy" "harm reduction" (coffeeshop OR cannabis OR "tolerance policy")
 ```
-
 
 ---
 
@@ -82,20 +74,17 @@ site:*.pt OR "Portugal" "decriminalization" drugs (evaluation OR outcomes) 2001.
 ("drug consumption room" OR "supervised consumption" OR "supervised injection" OR "safe injection") (evaluation OR effectiveness OR outcomes) (Canada OR UK OR Europe OR Switzerland) filetype:pdf after:2018
 ```
 
-
 ### International Best Practice Comparison
 
 ```txt
 "harm reduction" ("best practice" OR "gold standard" OR model) international (comparison OR review) filetype:pdf
 ```
 
-
 ### Drug Checking International
 
 ```txt
 "drug checking" (evaluation OR service OR program) (Europe OR UK OR "New Zealand" OR Canada) filetype:pdf
 ```
-
 
 ---
 
@@ -108,7 +97,6 @@ site:*.gc.ca "supervised consumption" OR "safe injection" evaluation filetype:pd
 site:*.gc.ca "safe supply" OR "safer supply" (opioid OR prescription) filetype:pdf
 site:bccsu.ca filetype:pdf (guidelines OR protocol)
 ```
-
 
 **Key Canadian Resources:**
 
@@ -124,14 +112,12 @@ site:*.gov.uk "naloxone" OR "take-home naloxone" program
 site:release.org.uk filetype:pdf
 ```
 
-
 ### Europe (EMCDDA)
 
 ```txt
 site:emcdda.europa.eu filetype:pdf
 site:emcdda.europa.eu "drug checking" OR "harm reduction" OR "treatment"
 ```
-
 
 ### Portugal
 
@@ -140,14 +126,12 @@ site:emcdda.europa.eu "drug checking" OR "harm reduction" OR "treatment"
 "Dissuasion Commission" Portugal drug
 ```
 
-
 ### Switzerland
 
 ```txt
 (Switzerland OR Swiss) ("heroin assisted treatment" OR HAT OR "heroin prescription") (evaluation OR outcomes) filetype:pdf
 (Switzerland OR Swiss) "drug consumption room" OR "injection room"
 ```
-
 
 ### Netherlands
 
@@ -156,13 +140,11 @@ site:emcdda.europa.eu "drug checking" OR "harm reduction" OR "treatment"
 (Netherlands OR Dutch) "drug checking" OR "pill testing" (evaluation OR service)
 ```
 
-
 ### Germany
 
 ```txt
 (Germany OR German) "drug consumption room" OR "harm reduction" policy filetype:pdf
 ```
-
 
 ### New Zealand
 
@@ -170,7 +152,6 @@ site:emcdda.europa.eu "drug checking" OR "harm reduction" OR "treatment"
 site:*.govt.nz "needle exchange" OR "drug checking" OR "harm reduction"
 "New Zealand" "drug checking" OR "pill testing" (legislation OR implementation)
 ```
-
 
 ---
 
@@ -182,13 +163,11 @@ site:*.govt.nz "needle exchange" OR "drug checking" OR "harm reduction"
 site:who.int "harm reduction" OR "needle syringe" OR "opioid agonist" guidelines filetype:pdf
 ```
 
-
 ### UNODC
 
 ```txt
 site:unodc.org "harm reduction" guidelines OR standards filetype:pdf
 ```
-
 
 ### EMCDDA (European Monitoring)
 
@@ -196,13 +175,11 @@ site:unodc.org "harm reduction" guidelines OR standards filetype:pdf
 site:emcdda.europa.eu ("best practice" OR guidelines OR standards) filetype:pdf
 ```
 
-
 ### Harm Reduction International
 
 ```txt
 site:hri.global "global state of harm reduction" OR report filetype:pdf
 ```
-
 
 ---
 
@@ -215,7 +192,6 @@ site:inpud.net filetype:pdf
 "International Network of People Who Use Drugs" (statement OR resources)
 ```
 
-
 ### Regional Networks
 
 ```txt
@@ -223,7 +199,6 @@ site:inpud.net filetype:pdf
 "Canadian Association of People Who Use Drugs" (CAPUD)
 "Asian Network of People Who Use Drugs" (ANPUD)
 ```
-
 
 ---
 
@@ -235,13 +210,11 @@ site:inpud.net filetype:pdf
 ("drug consumption room" OR "supervised injection" OR "supervised consumption" OR "safe injection facility") (evaluation OR review OR comparison) international filetype:pdf
 ```
 
-
 ### Heroin-Assisted Treatment
 
 ```txt
 "heroin assisted treatment" OR "heroin prescription" (evaluation OR outcomes OR comparison) (Switzerland OR UK OR Canada OR Germany)
 ```
-
 
 ### Safe Supply Programs
 
@@ -249,13 +222,11 @@ site:inpud.net filetype:pdf
 "safe supply" OR "safer supply" (opioid OR prescription) (Canada OR "British Columbia") evaluation filetype:pdf
 ```
 
-
 ### Drug Checking Services
 
 ```txt
 "drug checking" service (Europe OR UK OR "New Zealand") (evaluation OR model OR implementation) filetype:pdf
 ```
-
 
 ---
 
@@ -267,20 +238,17 @@ site:inpud.net filetype:pdf
 site:emcdda.europa.eu (statistics OR data OR "statistical bulletin") filetype:pdf
 ```
 
-
 ### UN World Drug Report
 
 ```txt
 site:unodc.org "World Drug Report" filetype:pdf
 ```
 
-
 ### Global State of Harm Reduction
 
 ```txt
 site:hri.global "global state" filetype:pdf
 ```
-
 
 ---
 
@@ -292,20 +260,17 @@ site:hri.global "global state" filetype:pdf
 ("policy transfer" OR "policy learning" OR "lessons from") (Portugal OR Canada OR Switzerland) "drug policy" Australia
 ```
 
-
 ### International Comparisons (Australian Context)
 
 ```txt
 Australia ("international comparison" OR "compared to" OR "lessons from") "drug policy" OR "harm reduction" filetype:pdf
 ```
 
-
 ### What Works Elsewhere
 
 ```txt
 ("what works" OR "best practice" OR "evidence-based") "harm reduction" international review filetype:pdf
 ```
-
 
 ---
 

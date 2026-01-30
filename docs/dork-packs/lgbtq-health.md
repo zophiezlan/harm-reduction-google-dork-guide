@@ -14,7 +14,6 @@ Find LGBTQ+ inclusive AOD resources:
 ("LGBTQ" OR "LGBTI" OR "queer") ("harm reduction" OR "alcohol and other drugs") Australia filetype:pdf
 ```
 
-
 ---
 
 ## 🟢 Basic Queries
@@ -25,20 +24,17 @@ Find LGBTQ+ inclusive AOD resources:
 ("LGBTQ" OR "LGBTI" OR "queer" OR "rainbow") "alcohol and other drugs" service Australia
 ```
 
-
 ### Inclusive Treatment
 
 ```txt
 "LGBTQ" OR "LGBTI" inclusive drug OR alcohol treatment Australia
 ```
 
-
 ### Rainbow Tick Services
 
 ```txt
 "rainbow tick" OR "LGBTI inclusive" AOD OR "harm reduction" Australia
 ```
-
 
 ---
 
@@ -50,20 +46,17 @@ Find LGBTQ+ inclusive AOD resources:
 "chemsex" OR "chem sex" OR "party and play" harm reduction Australia
 ```
 
-
 ### GHB/GBL Specific
 
 ```txt
 "GHB" OR "GBL" OR "G" harm reduction "gay men" OR "MSM" Australia
 ```
 
-
 ### Crystal Meth & LGBTQ+
 
 ```txt
 ("crystal meth" OR "methamphetamine" OR "ice") ("gay men" OR "MSM" OR "LGBTQ") harm reduction Australia
 ```
-
 
 ---
 
@@ -75,13 +68,11 @@ Find LGBTQ+ inclusive AOD resources:
 ("LGBTQ" OR "LGBTI" OR "LGBTQIA" OR "queer" OR "gay" OR "lesbian" OR "bisexual" OR "transgender" OR "MSM") ("alcohol and other drugs" OR AOD OR "substance use" OR "drug use" OR "harm reduction") Australia (service OR resource OR program OR guideline) filetype:pdf after:2020
 ```
 
-
 ### Intersectional Resources
 
 ```txt
 ("LGBTQ" OR "queer") ("Aboriginal" OR "First Nations" OR "Indigenous") "harm reduction" Australia
 ```
-
 
 ---
 
@@ -93,20 +84,17 @@ Find LGBTQ+ inclusive AOD resources:
 "sexual health" "drug use" OR "substance use" ("gay men" OR "MSM" OR "LGBTQ") Australia
 ```
 
-
 ### PrEP & Drug Interactions
 
 ```txt
 "PrEP" OR "pre-exposure prophylaxis" drug interaction harm reduction
 ```
 
-
 ### HIV Services & AOD
 
 ```txt
 "HIV" "alcohol and other drugs" OR AOD service Australia
 ```
-
 
 ---
 
@@ -118,20 +106,17 @@ Find LGBTQ+ inclusive AOD resources:
 ("transgender" OR "trans" OR "gender diverse") "alcohol and other drugs" OR "harm reduction" Australia
 ```
 
-
 ### Hormone Therapy & Substances
 
 ```txt
 "hormone therapy" OR "HRT" drug interaction "trans" OR "transgender"
 ```
 
-
 ### Trans-Inclusive Services
 
 ```txt
 "trans inclusive" OR "trans affirming" AOD OR drug OR alcohol service Australia
 ```
-
 
 ---
 
@@ -143,20 +128,17 @@ Find LGBTQ+ inclusive AOD resources:
 site:acon.org.au (drug OR alcohol OR "harm reduction" OR chemsex)
 ```
 
-
 ### Thorne Harbour Health
 
 ```txt
 site:thorneharbour.org (drug OR alcohol OR "harm reduction" OR chemsex)
 ```
 
-
 ### LGBTQ+ Health Australia
 
 ```txt
 site:lgbtiqhealth.org.au (drug OR alcohol OR "substance use")
 ```
-
 
 ---
 
@@ -168,13 +150,11 @@ site:lgbtiqhealth.org.au (drug OR alcohol OR "substance use")
 ("LGBTQ" OR "queer") "mental health" "substance use" OR AOD Australia
 ```
 
-
 ### Minority Stress
 
 ```txt
 "minority stress" ("substance use" OR "drug use" OR AOD) LGBTQ Australia
 ```
-
 
 ---
 
@@ -186,13 +166,11 @@ site:lgbtiqhealth.org.au (drug OR alcohol OR "substance use")
 "pride" OR "mardi gras" "harm reduction" OR "drug safety" Australia
 ```
 
-
 ### Queer Nightlife Safety
 
 ```txt
 "queer" OR "LGBTQ" nightlife OR club "harm reduction" OR safety Australia
 ```
-
 
 ---
 
@@ -204,13 +182,11 @@ site:lgbtiqhealth.org.au (drug OR alcohol OR "substance use")
 site:*.edu.au ("LGBTQ" OR "gay" OR "MSM") "drug use" OR "substance use" Australia filetype:pdf
 ```
 
-
 ### Prevalence Studies
 
 ```txt
 ("LGBTQ" OR "gay men" OR "MSM") "drug use" (prevalence OR survey OR statistics) Australia
 ```
-
 
 ---
 
@@ -222,13 +198,11 @@ site:*.edu.au ("LGBTQ" OR "gay" OR "MSM") "drug use" OR "substance use" Australi
 ("LGBTQ" OR "queer") "young people" OR youth "alcohol and other drugs" Australia
 ```
 
-
 ### Minus18 Resources
 
 ```txt
 site:minus18.org.au (drug OR alcohol OR "harm reduction")
 ```
-
 
 ---
 

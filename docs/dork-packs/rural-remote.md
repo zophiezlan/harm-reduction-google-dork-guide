@@ -26,7 +26,6 @@ Find rural/regional AOD resources:
 ("rural" OR "regional" OR "remote") "harm reduction" Australia filetype:pdf
 ```
 
-
 ---
 
 ## 🟢 Basic Queries
@@ -37,20 +36,17 @@ Find rural/regional AOD resources:
 ("rural" OR "regional" OR "remote") "alcohol and other drugs" (service OR access) site:*.gov.au
 ```
 
-
 ### Rural Harm Reduction
 
 ```txt
 ("rural" OR "regional") "harm reduction" Australia filetype:pdf
 ```
 
-
 ### Tyranny of Distance
 
 ```txt
 "tyranny of distance" drug OR alcohol OR AOD Australia
 ```
-
 
 ---
 
@@ -62,13 +58,11 @@ Find rural/regional AOD resources:
 "non-metropolitan" ("harm reduction" OR AOD OR "alcohol and other drugs") Australia filetype:pdf
 ```
 
-
 ### Country/Bush Context
 
 ```txt
 ("country" OR "bush") ("drug use" OR "alcohol") Australia -USA -UK
 ```
-
 
 ### Telehealth AOD
 
@@ -76,14 +70,12 @@ Find rural/regional AOD resources:
 "telehealth" OR "telemedicine" (AOD OR "alcohol and other drugs" OR "drug and alcohol") Australia
 ```
 
-
 ### Remote Health Services
 
 ```txt
 "remote health" "alcohol and other drugs" Australia
 site:rfds.org.au "alcohol" OR "drug" OR "AOD"
 ```
-
 
 ---
 
@@ -95,7 +87,6 @@ site:rfds.org.au "alcohol" OR "drug" OR "AOD"
 ("rural" OR "regional" OR "remote" OR "non-metropolitan" OR "country") ("harm reduction" OR "alcohol and other drugs" OR AOD OR "drug and alcohol") Australia (service OR access OR workforce OR research) filetype:pdf -USA -UK after:2020
 ```
 
-
 ### FIFO/DIDO Contexts
 
 ```txt
@@ -103,14 +94,12 @@ site:rfds.org.au "alcohol" OR "drug" OR "AOD"
 "mining" OR "resources sector" (drug OR alcohol) (testing OR policy OR health)
 ```
 
-
 ### Farming Communities
 
 ```txt
 "farming" OR "agriculture" ("alcohol" OR "drug use") mental health Australia
 "drought" OR "natural disaster" "alcohol" OR "drug" rural Australia
 ```
-
 
 ---
 
@@ -125,7 +114,6 @@ site:rfds.org.au "alcohol" OR "drug" OR "AOD"
 "Riverina" OR "Murray" harm reduction OR "needle syringe"
 ```
 
-
 ### Queensland Regions
 
 ```txt
@@ -134,14 +122,12 @@ site:rfds.org.au "alcohol" OR "drug" OR "AOD"
 "Outback Queensland" drug OR alcohol health
 ```
 
-
 ### Western Australia Regions
 
 ```txt
 "Kimberley" OR "Pilbara" OR "Goldfields" drug OR alcohol health
 "Wheatbelt" OR "Great Southern" WA AOD
 ```
-
 
 ### Victoria Regions
 
@@ -150,7 +136,6 @@ site:rfds.org.au "alcohol" OR "drug" OR "AOD"
 "Murray" OR "Hume" VIC harm reduction
 ```
 
-
 ### Northern Territory
 
 ```txt
@@ -158,13 +143,11 @@ site:rfds.org.au "alcohol" OR "drug" OR "AOD"
 "Central Australia" AOD OR "alcohol and other drugs"
 ```
 
-
 ### Tasmania
 
 ```txt
 "Tasmania" ("rural" OR "regional") harm reduction OR AOD
 ```
-
 
 ### South Australia
 
@@ -172,7 +155,6 @@ site:rfds.org.au "alcohol" OR "drug" OR "AOD"
 "Eyre Peninsula" OR "Riverland" SA drug OR alcohol
 "outback" SA AOD health
 ```
-
 
 ---
 
@@ -185,13 +167,11 @@ site:rfds.org.au "alcohol" OR "drug" OR "AOD"
 "Royal Flying Doctor Service" harm reduction OR overdose OR AOD
 ```
 
-
 ### Remote Area Nurses
 
 ```txt
 "remote area nurse" OR "RAN" (drug OR alcohol OR AOD) Australia
 ```
-
 
 ### Aboriginal Health Services (Remote)
 
@@ -199,7 +179,6 @@ site:rfds.org.au "alcohol" OR "drug" OR "AOD"
 "remote" "Aboriginal" (AOD OR "alcohol and other drugs") health
 "Aboriginal Community Controlled" remote (drug OR alcohol)
 ```
-
 
 ---
 
@@ -212,7 +191,6 @@ site:rfds.org.au "alcohol" OR "drug" OR "AOD"
 "rural health" (peer worker OR AOD worker) training
 ```
 
-
 ### Generalist Practice
 
 ```txt
@@ -220,13 +198,11 @@ site:rfds.org.au "alcohol" OR "drug" OR "AOD"
 "upskilling" OR "professional development" rural AOD worker
 ```
 
-
 ### Retention & Support
 
 ```txt
 (retention OR support OR "professional isolation") rural (AOD OR "drug and alcohol") worker
 ```
-
 
 ---
 
@@ -239,20 +215,17 @@ site:*.edu.au filetype:pdf "rural" harm reduction Australia
 site:crrmh.com.au OR site:ruralhealth.org.au "alcohol" OR "drug"
 ```
 
-
 ### National Rural Health Alliance
 
 ```txt
 "National Rural Health Alliance" alcohol OR drug OR AOD
 ```
 
-
 ### Centre for Rural and Remote Mental Health
 
 ```txt
 "Centre for Rural and Remote Mental Health" AOD OR "alcohol and other drugs"
 ```
-
 
 ---
 
@@ -265,7 +238,6 @@ site:crrmh.com.au OR site:ruralhealth.org.au "alcohol" OR "drug"
 "rural men" alcohol OR drug use help-seeking
 ```
 
-
 ### Drought & Disasters
 
 ```txt
@@ -273,13 +245,11 @@ site:crrmh.com.au OR site:ruralhealth.org.au "alcohol" OR "drug"
 "natural disaster" substance use OR alcohol rural
 ```
 
-
 ### Seasonal Workers
 
 ```txt
 "seasonal workers" OR "harvest workers" drug OR alcohol health Australia
 ```
-
 
 ---
 

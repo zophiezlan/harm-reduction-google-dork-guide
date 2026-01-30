@@ -23,7 +23,6 @@ Find resources on drug-related stigma:
 "stigma" "people who use drugs" Australia research filetype:pdf
 ```
 
-
 ---
 
 ## 🟢 Basic Queries
@@ -35,7 +34,6 @@ Find resources on drug-related stigma:
 "stigma" "language" drug use harm reduction
 ```
 
-
 ### People-First Language
 
 ```txt
@@ -43,14 +41,12 @@ Find resources on drug-related stigma:
 "from 'addict' to 'person'" language change
 ```
 
-
 ### Language Guides
 
 ```txt
 ("terminology" OR "language") harm reduction guide filetype:pdf
 "words matter" drug OR substance use campaign
 ```
-
 
 ---
 
@@ -66,7 +62,6 @@ Find resources on drug-related stigma:
 "substance abuser" policy OR program Australia before:2015
 ```
 
-
 ### Compare Language Across Eras
 
 ```txt
@@ -74,14 +69,12 @@ Find resources on drug-related stigma:
 "people who inject drugs" OR "PWID" 2010..2026 Australia
 ```
 
-
 ### Media Analysis
 
 ```txt
 "junkie" OR "druggie" (media OR news) Australia analysis
 "media portrayal" OR "media representation" drug use Australia
 ```
-
 
 ---
 
@@ -93,13 +86,11 @@ Find resources on drug-related stigma:
 "stigma" ("people who use drugs" OR "drug users" OR "substance use") Australia (research OR study OR analysis) filetype:pdf after:2015
 ```
 
-
 ### Structural Stigma
 
 ```txt
 "structural stigma" drug use OR substance use (policy OR system OR institutional)
 ```
-
 
 ### Self-Stigma
 
@@ -107,13 +98,11 @@ Find resources on drug-related stigma:
 "self-stigma" OR "internalised stigma" OR "internalized stigma" drug use
 ```
 
-
 ### Stigma Reduction Interventions
 
 ```txt
 "stigma reduction" intervention drug use effectiveness filetype:pdf
 ```
-
 
 ---
 
@@ -126,13 +115,11 @@ Find resources on drug-related stigma:
 "needle exchange" Australia first OR "pilot program" history
 ```
 
-
 ### Methadone History
 
 ```txt
 "methadone program" Australia history OR establishment
 ```
-
 
 ### AIDS Response
 
@@ -140,14 +127,12 @@ Find resources on drug-related stigma:
 "AIDS response" Australia "injecting drug use" 1980s
 ```
 
-
 ### Supervised Injecting History
 
 ```txt
 "supervised injecting" OR "medically supervised injecting" Sydney history OR origins
 "Kings Cross" "injecting room" history OR campaign
 ```
-
 
 ---
 
@@ -160,7 +145,6 @@ Find resources on drug-related stigma:
 (NUAA OR AIVL OR VIVAIDS) history OR "early days" OR founding
 ```
 
-
 ### Activism
 
 ```txt
@@ -168,13 +152,11 @@ Find resources on drug-related stigma:
 "civil society" drug users Australia 1980s OR 1990s
 ```
 
-
 ### Peer Movement
 
 ```txt
 "peer movement" drug use Australia history
 ```
-
 
 ---
 
@@ -187,7 +169,6 @@ Find resources on drug-related stigma:
 site:*.edu.au "stigma" "drug use" OR "substance use" Australia
 ```
 
-
 ### Healthcare Stigma
 
 ```txt
@@ -195,20 +176,17 @@ site:*.edu.au "stigma" "drug use" OR "substance use" Australia
 "stigma" "drug use" (hospital OR "emergency department" OR "health service") Australia
 ```
 
-
 ### Employment & Housing Stigma
 
 ```txt
 "discrimination" drug use (housing OR employment) Australia
 ```
 
-
 ### Criminal Justice Stigma
 
 ```txt
 "stigma" OR "discrimination" "drug use" ("criminal record" OR "justice system") Australia
 ```
-
 
 ---
 
@@ -220,20 +198,17 @@ site:*.edu.au "stigma" "drug use" OR "substance use" Australia
 "terminology" change OR evolution "drug use" OR "substance use" filetype:pdf
 ```
 
-
 ### Style Guides
 
 ```txt
 "style guide" OR "language guide" ("drug use" OR "substance use" OR "harm reduction") filetype:pdf
 ```
 
-
 ### International Language Standards
 
 ```txt
 "people-first language" OR "person-centred language" drug international guidelines
 ```
-
 
 ---
 
@@ -249,13 +224,11 @@ Use date ranges to compare eras:
 ("drug addict" OR "IVDU" OR "substance abuser") Australia 1985..2000 filetype:pdf
 ```
 
-
 **2010s-2020s terminology:**
 
 ```txt
 ("people who use drugs" OR "PWUD" OR "person with lived experience") 2010..2026 filetype:pdf
 ```
-
 
 ---
 
@@ -267,20 +240,17 @@ Use date ranges to compare eras:
 "anti-stigma" OR "stigma campaign" drug OR substance Australia
 ```
 
-
 ### Changing the Narrative
 
 ```txt
 "changing the narrative" OR "reframing" drug use OR "drug policy"
 ```
 
-
 ### Peer-Led Stigma Work
 
 ```txt
 ("peer-led" OR "lived experience") stigma (reduction OR challenge OR campaign) drug
 ```
-
 
 ---
 

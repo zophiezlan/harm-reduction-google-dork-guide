@@ -15,7 +15,6 @@ Find Australian government naloxone program guidelines:
 site:*.gov.au filetype:pdf "take-home naloxone" guidelines
 ```
 
-
 ---
 
 ## 🟢 Basic Queries
@@ -25,7 +24,6 @@ site:*.gov.au filetype:pdf "take-home naloxone" guidelines
 ```txt
 site:*.gov.au filetype:pdf ("take-home naloxone" OR THN) (guideline OR program)
 ```
-
 
 **Why this works:**
 
@@ -39,13 +37,11 @@ site:*.gov.au filetype:pdf ("take-home naloxone" OR THN) (guideline OR program)
 site:*.health.*.gov.au filetype:pdf naloxone (community OR peer OR training)
 ```
 
-
 ### Naloxone Training Materials
 
 ```txt
 "naloxone training" filetype:pdf site:*.org.au
 ```
-
 
 ---
 
@@ -56,7 +52,6 @@ site:*.health.*.gov.au filetype:pdf naloxone (community OR peer OR training)
 ```txt
 site:*.gov.au (naloxone OR narcan OR nyxoid) (program OR guideline OR training) filetype:pdf
 ```
-
 
 **Why this works:**
 
@@ -69,20 +64,17 @@ site:*.gov.au (naloxone OR narcan OR nyxoid) (program OR guideline OR training) 
 "naloxone" (pharmacy OR pharmacist) (supply OR access OR "S3" OR "schedule 3") Australia
 ```
 
-
 ### Peer Distribution Programs
 
 ```txt
 site:*.org.au "naloxone" ("peer distribution" OR "peer-led" OR "community distribution") filetype:pdf
 ```
 
-
 ### Training Resources from Sector
 
 ```txt
 (site:nuaa.org.au OR site:aivl.org.au OR site:penington.org.au) naloxone training filetype:pdf
 ```
-
 
 ---
 
@@ -94,13 +86,11 @@ site:*.org.au "naloxone" ("peer distribution" OR "peer-led" OR "community distri
 site:*.gov.au filetype:pdf ("take-home naloxone" OR "take home naloxone" OR THN OR "naloxone program") (guideline OR framework OR program OR implementation) after:2023
 ```
 
-
 ### Intranasal/Nasal Spray Resources
 
 ```txt
 (nyxoid OR "intranasal naloxone" OR "nasal spray" OR "nasal naloxone") (training OR "how to use" OR administration) Australia filetype:pdf
 ```
-
 
 ### Rescheduling & Policy Changes
 
@@ -108,20 +98,17 @@ site:*.gov.au filetype:pdf ("take-home naloxone" OR "take home naloxone" OR THN 
 "naloxone" ("S3" OR "schedule 3" OR "rescheduling" OR "down-scheduling") Australia policy
 ```
 
-
 ### Community Access Models
 
 ```txt
 "naloxone" ("vending" OR "free distribution" OR "public access" OR "community naloxone") Australia
 ```
 
-
 ### Standing Order Programs
 
 ```txt
 site:*.gov.au "naloxone" "standing order" OR "standing authority" filetype:pdf
 ```
-
 
 ---
 
@@ -146,13 +133,11 @@ site:*.gov.au "naloxone" "standing order" OR "standing authority" filetype:pdf
 "naloxone" "train the trainer" OR "training package" Australia filetype:pdf
 ```
 
-
 ### Peer Education Resources
 
 ```txt
 "naloxone" ("peer education" OR "peer trainer" OR "peer-led training") filetype:pdf
 ```
-
 
 ### Clinical Training
 
@@ -160,13 +145,11 @@ site:*.gov.au "naloxone" "standing order" OR "standing authority" filetype:pdf
 site:*.gov.au "naloxone" "clinical guideline" OR "prescribing" OR "administration" filetype:pdf
 ```
 
-
 ### Video/Multimedia Resources
 
 ```txt
 "naloxone" "how to use" OR "administration" training video Australia
 ```
-
 
 ---
 
@@ -178,20 +161,17 @@ site:*.gov.au "naloxone" "clinical guideline" OR "prescribing" OR "administratio
 site:*.edu.au "naloxone" (evaluation OR effectiveness OR outcomes) Australia filetype:pdf
 ```
 
-
 ### Cochrane/Systematic Reviews
 
 ```txt
 intitle:"systematic review" OR intitle:"meta-analysis" "take-home naloxone" OR "community naloxone"
 ```
 
-
 ### NDARC Research
 
 ```txt
 site:ndarc.med.unsw.edu.au naloxone filetype:pdf
 ```
-
 
 ---
 
@@ -203,20 +183,17 @@ site:ndarc.med.unsw.edu.au naloxone filetype:pdf
 "nyxoid" (training OR "how to use" OR guide) Australia
 ```
 
-
 ### Injectable
 
 ```txt
 "naloxone" (injectable OR intramuscular OR IM) (training OR guide) Australia
 ```
 
-
 ### Comparison of Formulations
 
 ```txt
 "naloxone" (intranasal OR intramuscular OR injectable) comparison OR review filetype:pdf
 ```
-
 
 ---
 

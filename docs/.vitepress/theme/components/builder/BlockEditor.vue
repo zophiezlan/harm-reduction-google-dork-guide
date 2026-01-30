@@ -14,9 +14,7 @@ const sitePresets = [
 
 const filetypePresets = ["pdf", "doc", "docx", "xlsx", "ppt", "pptx"];
 
-const keywordPresets = [
-  { label: "Peer", value: "peer" },
-];
+const keywordPresets = [{ label: "Peer", value: "peer" }];
 
 const datePresets = [
   { label: "Last year", value: new Date().getFullYear() - 1 },
@@ -102,8 +100,15 @@ const synonymSuggestion = computed(() => {
         <button
           v-for="preset in keywordPresets"
           :key="preset.value"
-          :class="['preset-btn', { active: selectedBlock.value.toLowerCase().includes(preset.value) }]"
-          @click="updateBlock(selectedBlock.id, { value: selectedBlock.value ? `${selectedBlock.value} ${preset.value}` : preset.value })"
+          :class="[
+            'preset-btn',
+            { active: selectedBlock.value.toLowerCase().includes(preset.value) },
+          ]"
+          @click="
+            updateBlock(selectedBlock.id, {
+              value: selectedBlock.value ? `${selectedBlock.value} ${preset.value}` : preset.value,
+            })
+          "
         >
           {{ preset.label }}
         </button>

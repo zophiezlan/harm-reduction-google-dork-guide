@@ -15,7 +15,6 @@ Get Australian government drug alerts from the last month:
 site:*.gov.au "drug alert" after:2025-12-01
 ```
 
-
 ---
 
 ## 🟢 Basic Queries
@@ -25,7 +24,6 @@ site:*.gov.au "drug alert" after:2025-12-01
 ```txt
 site:*.gov.au intitle:"drug alert" after:2025-01-01
 ```
-
 
 **Why this works:**
 
@@ -39,13 +37,11 @@ site:*.gov.au intitle:"drug alert" after:2025-01-01
 site:health.nsw.gov.au "drug warning"
 ```
 
-
 ### Victorian Health Alerts
 
 ```txt
 site:health.vic.gov.au "drug alert" OR "health alert"
 ```
-
 
 ---
 
@@ -56,7 +52,6 @@ site:health.vic.gov.au "drug alert" OR "health alert"
 ```txt
 site:*.health.*.gov.au (intitle:"drug alert" OR intitle:"drug warning" OR intitle:"health alert") after:2025-01-01
 ```
-
 
 **Why this works:**
 
@@ -70,13 +65,11 @@ site:*.health.*.gov.au (intitle:"drug alert" OR intitle:"drug warning" OR intitl
 site:*.gov.au ("nitazene" OR "xylazine" OR "fentanyl") (alert OR warning)
 ```
 
-
 ### Alerts with PDFs (Official Documents)
 
 ```txt
 site:*.gov.au filetype:pdf ("drug alert" OR "drug warning" OR "drug notification")
 ```
-
 
 ---
 
@@ -87,7 +80,6 @@ site:*.gov.au filetype:pdf ("drug alert" OR "drug warning" OR "drug notification
 ```txt
 site:*.health.*.gov.au (intitle:"drug alert" OR intitle:"drug warning" OR intitle:"drug notification" OR intitle:"clinical safety alert") (opioid OR stimulant OR "novel substance" OR contamina*) after:2025-01-01 filetype:pdf
 ```
-
 
 **Why this works:**
 
@@ -102,20 +94,17 @@ site:*.health.*.gov.au (intitle:"drug alert" OR intitle:"drug warning" OR intitl
 site:*.gov.au inurl:"/alerts/" OR inurl:"/warnings/" filetype:pdf "drug"
 ```
 
-
 ### High-Priority Emerging Substances
 
 ```txt
 site:*.gov.au filetype:pdf ("nitazene" OR "benzimidazole opioid" OR "xylazine" OR "medetomidine") after:2024
 ```
 
-
 ### Alerts Mentioning Specific Formulations
 
 ```txt
 site:*.gov.au "drug alert" ("high strength" OR "unexpected" OR "contaminated" OR "adulterated")
 ```
-
 
 ---
 
@@ -132,7 +121,6 @@ location:Sydney "drug alert"
 location:Melbourne "overdose"
 ```
 
-
 ### The "Local Source" Pattern
 
 Target local news domains specifically to catch community reports.
@@ -140,7 +128,6 @@ Target local news domains specifically to catch community reports.
 ```txt
 site:.com.au (news OR times OR herald OR daily) ("bad batch" OR "warning") location:Newcastle
 ```
-
 
 > **💡 Pro Tip:** See [Search Tweaks](../tools/search-tweaks.md#local-alert-monitoring) for more
 > local monitoring recipes.
@@ -157,7 +144,6 @@ For comparison and early warning from other jurisdictions:
 site:wedinos.org [substance name]
 ```
 
-
 ### Canada
 
 ```txt
@@ -165,20 +151,17 @@ site:drugschecking.ca results
 site:tripproject.ca alerts
 ```
 
-
 ### Europe
 
 ```txt
 site:saferparty.ch OR site:checkit.wien analysis
 ```
 
-
 ### General International
 
 ```txt
 "drug alert" (UK OR Canada OR Europe) [substance] 2025
 ```
-
 
 ---
 
@@ -212,11 +195,9 @@ Use these dorks as Google Alerts for automatic notifications:
 site:*.health.*.gov.au ("drug alert" OR "drug warning")
 ```
 
-
 ```txt
 ("nitazene" OR "benzimidazole opioid") site:*.gov.au
 ```
-
 
 See [Google Alerts Guide](../tools/google-alerts.md) for detailed setup.
 
