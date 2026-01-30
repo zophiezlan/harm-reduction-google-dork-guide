@@ -18,6 +18,7 @@ export default defineConfig({
     "dork-explorer.md",
   ],
   themeConfig: {
+    appearance: false,
     nav: [
       { text: "Home", link: "/" },
       { text: "Guide", link: "/README" },

@@ -23,6 +23,7 @@ functional.
 
     - Remove the unused theme toggle in the navbar menu since the theme selector and dark/light switcher has been moved to its own place on the navbar.
     - This leaves just the github link in the navbar menu, perhaps we can add more useful links and features here in the future.
+    - The separate theme selector and dark/light switcher menu can be expanded and moved to the underside of the left sidebar on desktop view for better accessibility. It can remain collapsed in the navbar on mobile view for space efficiency.
 
 **6. Improve Dork Builder Interface:**
 

@@ -11,8 +11,27 @@ const blockTypes: { type: BlockType; icon: string; label: string; color: string 
   { type: "trick", icon: "⚡", label: "Tricks", color: "var(--block-trick)" },
 ];
 
+const quickOperators = [
+  { label: "intitle:", value: "intitle:" },
+  { label: "inurl:", value: "inurl:" },
+  { label: "intext:", value: "intext:" },
+  { label: "related:", value: "related:" },
+  { label: "cache:", value: "cache:" },
+  { label: "source:", value: "source:" },
+  { label: "imagesize:", value: "imagesize:" },
+  { label: "AROUND(5)", value: "AROUND(5)" },
+  { label: "OR group", value: "(term1 OR term2)" },
+  { label: "Exclude (-)", value: "-" },
+  { label: "Wildcard *", value: "*" },
+  { label: "Exact phrase", value: '"exact phrase"' },
+];
+
 function handleAdd(type: BlockType) {
   addBlock(type);
+}
+
+function handleQuickOperator(value: string) {
+  addBlock("trick", value);
 }
 </script>
 
@@ -30,6 +49,20 @@ function handleAdd(type: BlockType) {
         <span class="btn-icon">{{ bt.icon }}</span>
         <span class="btn-label">{{ bt.label }}</span>
       </button>
+    </div>
+
+    <div class="palette-section">
+      <span class="palette-label">Quick Operators</span>
+      <div class="palette-quick">
+        <button
+          v-for="op in quickOperators"
+          :key="op.label"
+          class="quick-btn"
+          @click="handleQuickOperator(op.value)"
+        >
+          {{ op.label }}
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -53,6 +86,17 @@ function handleAdd(type: BlockType) {
   gap: 8px;
   margin-top: 12px;
   flex-wrap: wrap;
+}
+
+.palette-section {
+  margin-top: 16px;
+}
+
+.palette-quick {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
 }
 
 .palette-btn {
@@ -81,5 +125,21 @@ function handleAdd(type: BlockType) {
 .btn-label {
   font-size: 11px;
   color: var(--text-secondary);
+}
+
+.quick-btn {
+  padding: 6px 10px;
+  border-radius: var(--radius-md);
+  border: 1px dashed var(--border-subtle);
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  font-size: 12px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.quick-btn:hover {
+  border-color: var(--accent);
+  color: var(--text-primary);
 }
 </style>
