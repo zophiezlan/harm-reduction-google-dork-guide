@@ -12,16 +12,12 @@ Use GitHub's built-in alert syntax for consistent, visually distinctive callouts
 
 > [!NOTE]
 > Supplementary information users should know.
-
 > [!TIP]
 > Helpful advice for better results.
-
 > [!IMPORTANT]
 > Essential information for success.
-
 > [!WARNING]
 > Potential issues requiring attention.
-
 > [!CAUTION]
 > Risks or negative consequences.
 
@@ -303,7 +299,7 @@ Press <kbd>Ctrl</kbd>+<kbd>F</kbd> to search the page.
 ### Deprecated Content
 
 > [!WARNING]
-> **Deprecated:** This operator no longer works reliably as of 2025. Use [`intitle:`](#intitle) instead.
+> **Deprecated:** This operator no longer works reliably as of 2025. Use [`intitle:`] instead.
 
 ---
 
