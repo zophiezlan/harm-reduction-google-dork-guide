@@ -1,0 +1,85 @@
+/* docs/.vitepress/theme/styles/base.css */
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* Focus visible for accessibility */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Selection */
+::selection {
+  background: var(--accent-subtle);
+  color: var(--text-primary);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-active);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* VitePress Overrides */
+.VPNavBar,
+.VPSidebar {
+  background: color-mix(in srgb, var(--bg-deep) 95%, transparent) !important;
+  backdrop-filter: blur(12px);
+}
+
+.VPHomeHero .name {
+  background: linear-gradient(120deg, var(--text-primary) 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.VPHomeFeatures .item {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.VPHomeFeatures .item:hover {
+  border-color: var(--accent-border);
+  box-shadow: 0 0 20px var(--accent-subtle);
+}
+
+/* Links */
+.vp-doc a {
+  color: var(--accent);
+  transition: color var(--transition-fast);
+}
+
+.vp-doc a:hover {
+  color: var(--accent-hover);
+}
+
+/* Inline Code */
+.vp-doc :not(pre) > code {
+  background: var(--bg-elevated);
+  color: var(--accent);
+  border-radius: var(--radius-sm);
+  padding: 0.15em 0.4em;
+}
+
+/* Code Blocks */
+.vp-doc div[class*='language-'] {
+  background: var(--bg-surface) !important;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+}

@@ -1,0 +1,88 @@
+/* docs/.vitepress/theme/styles/vars.css */
+:root {
+  /* Theme Colors - User Selectable */
+  --color-violet: #8b5cf6;
+  --color-blue: #3b82f6;
+  --color-teal: #14b8a6;
+  --color-green: #10b981;
+  --color-amber: #f59e0b;
+  --color-orange: #f97316;
+  --color-rose: #f43f5e;
+  --color-gray: #71717a;
+
+  /* Active Accent (set by JS based on user preference) */
+  --accent: var(--color-violet);
+  --accent-hover: color-mix(in srgb, var(--accent) 80%, white);
+  --accent-subtle: color-mix(in srgb, var(--accent) 15%, transparent);
+  --accent-border: color-mix(in srgb, var(--accent) 30%, transparent);
+
+  /* Background Scale - Dark Mode */
+  --bg-deep: #0a0a0f;
+  --bg-surface: #12121a;
+  --bg-elevated: #1a1a24;
+  --bg-input: #1f1f2a;
+
+  /* Text Scale */
+  --text-primary: #f4f4f5;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+
+  /* Borders */
+  --border-subtle: #262637;
+  --border-active: #3f3f46;
+
+  /* Semantic Colors */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --info: #3b82f6;
+
+  /* Block Colors (Builder) */
+  --block-site: #6366f1;
+  --block-filetype: #ec4899;
+  --block-keyword: #8b5cf6;
+  --block-date: #14b8a6;
+  --block-trick: #f59e0b;
+
+  /* Typography */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Spacing */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 200ms ease;
+
+  /* Override VitePress variables */
+  --vp-c-brand-1: var(--accent);
+  --vp-c-brand-2: var(--accent-hover);
+  --vp-c-brand-3: var(--accent-subtle);
+  --vp-c-bg: var(--bg-deep);
+  --vp-c-bg-alt: var(--bg-surface);
+  --vp-c-bg-soft: var(--bg-elevated);
+  --vp-c-text-1: var(--text-primary);
+  --vp-c-text-2: var(--text-secondary);
+  --vp-c-text-3: var(--text-muted);
+  --vp-c-divider: var(--border-subtle);
+  --vp-c-gutter: var(--border-subtle);
+  --vp-font-family-base: var(--font-sans);
+  --vp-font-family-mono: var(--font-mono);
+}
+
+/* Light Mode Overrides */
+[data-theme="light"] {
+  --bg-deep: #ffffff;
+  --bg-surface: #f9fafb;
+  --bg-elevated: #ffffff;
+  --bg-input: #f3f4f6;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-muted: #9ca3af;
+  --border-subtle: #e5e7eb;
+  --border-active: #d1d5db;
+}
