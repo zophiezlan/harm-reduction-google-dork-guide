@@ -3,6 +3,7 @@ import { computed } from "vue";
 import type { DorkWithPack } from "../../data/types";
 import { useFavorites } from "../../composables/useFavorites";
 import { useToast } from "../../composables/useToast";
+import { highlightDorkText } from "../../utils/dorkscript";
 
 const props = defineProps<{
   dork: DorkWithPack;
@@ -16,6 +17,7 @@ const { isFavorite, toggleFavorite } = useFavorites();
 const { success } = useToast();
 
 const isFav = computed(() => isFavorite(props.dork.packId, props.dork.title));
+const highlightedQuery = computed(() => highlightDorkText(props.dork.query));
 
 function copyQuery() {
   navigator.clipboard.writeText(props.dork.query);
@@ -41,7 +43,7 @@ function handleFavorite() {
     </div>
 
     <div class="card-query">
-      <code>{{ dork.query }}</code>
+      <code v-html="highlightedQuery"></code>
     </div>
 
     <p v-if="dork.explanation" class="card-explanation">
@@ -124,9 +126,72 @@ function handleFavorite() {
 .card-query code {
   font-family: var(--font-mono);
   font-size: 13px;
-  color: var(--accent);
+  color: var(--text-primary);
   white-space: pre-wrap;
   word-break: break-all;
+}
+
+.card-query :deep(.dork-operator) {
+  color: #14b8a6;
+  font-weight: 600;
+}
+
+.card-query :deep(.dork-boolean),
+.card-query :deep(.dork-exclusion) {
+  color: #ef4444;
+  font-weight: 700;
+}
+
+.card-query :deep(.dork-string) {
+  color: #84cc16;
+}
+
+.card-query :deep(.dork-wildcard) {
+  color: #f43f5e;
+  font-weight: 700;
+}
+
+.card-query :deep(.dork-paren) {
+  color: #a78bfa;
+  font-weight: 600;
+}
+
+.card-query :deep(.dork-function) {
+  color: #38bdf8;
+  font-weight: 700;
+}
+
+.card-query :deep(.dork-tag) {
+  color: #f97316;
+  font-weight: 600;
+}
+
+.card-query :deep(.dork-value) {
+  color: #e2e8f0;
+}
+
+.card-query :deep(.dork-domain) {
+  color: #22c55e;
+  font-weight: 600;
+}
+
+.card-query :deep(.dork-filetype) {
+  color: #f59e0b;
+  font-weight: 700;
+}
+
+.card-query :deep(.dork-date) {
+  color: #60a5fa;
+  font-weight: 600;
+}
+
+.card-query :deep(.dork-number) {
+  color: #f472b6;
+  font-weight: 700;
+}
+
+.card-query :deep(.dork-exclusion-term) {
+  color: #f87171;
 }
 
 .card-explanation {
