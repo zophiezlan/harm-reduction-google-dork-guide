@@ -93,6 +93,26 @@ const synonymSuggestion = computed(() => {
       </div>
     </div>
 
+    <!-- Ext Block -->
+    <div v-if="selectedBlock.type === 'ext'" class="editor-content">
+      <div class="preset-group">
+        <button
+          v-for="ft in filetypePresets"
+          :key="ft"
+          :class="['preset-btn', { active: selectedBlock.value === ft }]"
+          @click="updateBlock(selectedBlock.id, { value: ft })"
+        >
+          {{ ft.toUpperCase() }}
+        </button>
+      </div>
+      <input
+        :value="selectedBlock.value"
+        class="input"
+        placeholder="File extension"
+        @input="updateBlock(selectedBlock.id, { value: ($event.target as HTMLInputElement).value })"
+      />
+    </div>
+
     <!-- Keyword Block -->
     <div v-if="selectedBlock.type === 'keyword'" class="editor-content">
       <div class="preset-group">
@@ -218,6 +238,16 @@ const synonymSuggestion = computed(() => {
       />
     </div>
 
+    <!-- All In Title -->
+    <div v-if="selectedBlock.type === 'allintitle'" class="editor-content">
+      <input
+        :value="selectedBlock.value"
+        class="input"
+        placeholder="All title terms..."
+        @input="updateBlock(selectedBlock.id, { value: ($event.target as HTMLInputElement).value })"
+      />
+    </div>
+
     <!-- In URL -->
     <div v-if="selectedBlock.type === 'inurl'" class="editor-content">
       <input
@@ -228,12 +258,52 @@ const synonymSuggestion = computed(() => {
       />
     </div>
 
+    <!-- All In URL -->
+    <div v-if="selectedBlock.type === 'allinurl'" class="editor-content">
+      <input
+        :value="selectedBlock.value"
+        class="input"
+        placeholder="All URL terms..."
+        @input="updateBlock(selectedBlock.id, { value: ($event.target as HTMLInputElement).value })"
+      />
+    </div>
+
     <!-- In Text -->
     <div v-if="selectedBlock.type === 'intext'" class="editor-content">
       <input
         :value="selectedBlock.value"
         class="input"
         placeholder="Body text keywords..."
+        @input="updateBlock(selectedBlock.id, { value: ($event.target as HTMLInputElement).value })"
+      />
+    </div>
+
+    <!-- All In Text -->
+    <div v-if="selectedBlock.type === 'allintext'" class="editor-content">
+      <input
+        :value="selectedBlock.value"
+        class="input"
+        placeholder="All body text terms..."
+        @input="updateBlock(selectedBlock.id, { value: ($event.target as HTMLInputElement).value })"
+      />
+    </div>
+
+    <!-- In Anchor -->
+    <div v-if="selectedBlock.type === 'inanchor'" class="editor-content">
+      <input
+        :value="selectedBlock.value"
+        class="input"
+        placeholder="Anchor text..."
+        @input="updateBlock(selectedBlock.id, { value: ($event.target as HTMLInputElement).value })"
+      />
+    </div>
+
+    <!-- All In Anchor -->
+    <div v-if="selectedBlock.type === 'allinanchor'" class="editor-content">
+      <input
+        :value="selectedBlock.value"
+        class="input"
+        placeholder="All anchor terms..."
         @input="updateBlock(selectedBlock.id, { value: ($event.target as HTMLInputElement).value })"
       />
     </div>
@@ -268,6 +338,101 @@ const synonymSuggestion = computed(() => {
       />
     </div>
 
+    <!-- Info -->
+    <div v-if="selectedBlock.type === 'info'" class="editor-content">
+      <input
+        :value="selectedBlock.value"
+        class="input"
+        placeholder="info:example.com"
+        @input="updateBlock(selectedBlock.id, { value: ($event.target as HTMLInputElement).value })"
+      />
+    </div>
+
+    <!-- Link -->
+    <div v-if="selectedBlock.type === 'link'" class="editor-content">
+      <input
+        :value="selectedBlock.value"
+        class="input"
+        placeholder="link:example.com"
+        @input="updateBlock(selectedBlock.id, { value: ($event.target as HTMLInputElement).value })"
+      />
+    </div>
+
+    <!-- Define -->
+    <div v-if="selectedBlock.type === 'define'" class="editor-content">
+      <input
+        :value="selectedBlock.value"
+        class="input"
+        placeholder="define:term"
+        @input="updateBlock(selectedBlock.id, { value: ($event.target as HTMLInputElement).value })"
+      />
+    </div>
+
+    <!-- Weather -->
+    <div v-if="selectedBlock.type === 'weather'" class="editor-content">
+      <input
+        :value="selectedBlock.value"
+        class="input"
+        placeholder="weather:location"
+        @input="updateBlock(selectedBlock.id, { value: ($event.target as HTMLInputElement).value })"
+      />
+    </div>
+
+    <!-- Stocks -->
+    <div v-if="selectedBlock.type === 'stocks'" class="editor-content">
+      <input
+        :value="selectedBlock.value"
+        class="input"
+        placeholder="stocks:SYMBOL"
+        @input="updateBlock(selectedBlock.id, { value: ($event.target as HTMLInputElement).value })"
+      />
+    </div>
+
+    <!-- Map -->
+    <div v-if="selectedBlock.type === 'map'" class="editor-content">
+      <input
+        :value="selectedBlock.value"
+        class="input"
+        placeholder="map:location"
+        @input="updateBlock(selectedBlock.id, { value: ($event.target as HTMLInputElement).value })"
+      />
+    </div>
+
+    <!-- Date Range -->
+    <div v-if="selectedBlock.type === 'daterange'" class="editor-content">
+      <div class="input-row">
+        <input
+          :value="selectedBlock.options.start"
+          class="input"
+          placeholder="Start"
+          @input="
+            updateBlock(selectedBlock.id, {
+              options: {
+                ...selectedBlock.options,
+                start: ($event.target as HTMLInputElement).value,
+              },
+            })
+          "
+        />
+        <input
+          :value="selectedBlock.options.end"
+          class="input"
+          placeholder="End"
+          @input="
+            updateBlock(selectedBlock.id, {
+              options: { ...selectedBlock.options, end: ($event.target as HTMLInputElement).value },
+            })
+          "
+        />
+      </div>
+      <input
+        :value="selectedBlock.value"
+        class="input"
+        placeholder="Or enter daterange value"
+        @input="updateBlock(selectedBlock.id, { value: ($event.target as HTMLInputElement).value })"
+      />
+    </div>
+
     <!-- Image Size -->
     <div v-if="selectedBlock.type === 'imagesize'" class="editor-content">
       <div class="input-row">
@@ -275,6 +440,7 @@ const synonymSuggestion = computed(() => {
           :value="selectedBlock.options.width"
           class="input"
           placeholder="Width"
+          type="number"
           @input="
             updateBlock(selectedBlock.id, {
               options: {
@@ -288,6 +454,7 @@ const synonymSuggestion = computed(() => {
           :value="selectedBlock.options.height"
           class="input"
           placeholder="Height"
+          type="number"
           @input="
             updateBlock(selectedBlock.id, {
               options: {
@@ -309,6 +476,20 @@ const synonymSuggestion = computed(() => {
     <!-- Around -->
     <div v-if="selectedBlock.type === 'around'" class="editor-content">
       <div class="input-row">
+        <input
+          :value="selectedBlock.options.distance"
+          class="input"
+          placeholder="Distance"
+          type="number"
+          @input="
+            updateBlock(selectedBlock.id, {
+              options: {
+                ...selectedBlock.options,
+                distance: Number(($event.target as HTMLInputElement).value) || 0,
+              },
+            })
+          "
+        />
         <input
           :value="selectedBlock.options.termA"
           class="input"

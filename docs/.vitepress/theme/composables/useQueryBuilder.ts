@@ -6,13 +6,26 @@ export type BlockType =
   | "filetype"
   | "keyword"
   | "date"
+  | "ext"
   | "intitle"
+  | "allintitle"
   | "inurl"
+  | "allinurl"
   | "intext"
+  | "allintext"
+  | "inanchor"
+  | "allinanchor"
   | "related"
   | "cache"
   | "source"
   | "imagesize"
+  | "info"
+  | "link"
+  | "define"
+  | "weather"
+  | "stocks"
+  | "map"
+  | "daterange"
   | "around"
   | "exclude"
   | "or"
@@ -54,6 +67,8 @@ export function useQueryBuilder() {
             return `site:${wildcard}${block.value}`;
           case "filetype":
             return `filetype:${block.value}`;
+          case "ext":
+            return block.value ? `ext:${block.value}` : "";
           case "keyword":
             if (block.options.useSynonyms) {
               const group = findSynonyms(block.value);
@@ -67,10 +82,20 @@ export function useQueryBuilder() {
             return "";
           case "intitle":
             return block.value ? `intitle:${block.value}` : "";
+          case "allintitle":
+            return block.value ? `allintitle:${block.value}` : "";
           case "inurl":
             return block.value ? `inurl:${block.value}` : "";
+          case "allinurl":
+            return block.value ? `allinurl:${block.value}` : "";
           case "intext":
             return block.value ? `intext:${block.value}` : "";
+          case "allintext":
+            return block.value ? `allintext:${block.value}` : "";
+          case "inanchor":
+            return block.value ? `inanchor:${block.value}` : "";
+          case "allinanchor":
+            return block.value ? `allinanchor:${block.value}` : "";
           case "related":
             return block.value ? `related:${block.value}` : "";
           case "cache":
@@ -82,6 +107,24 @@ export function useQueryBuilder() {
               return `imagesize:${block.options.width}x${block.options.height}`;
             }
             return block.value ? `imagesize:${block.value}` : "";
+          case "info":
+            return block.value ? `info:${block.value}` : "";
+          case "link":
+            return block.value ? `link:${block.value}` : "";
+          case "define":
+            return block.value ? `define:${block.value}` : "";
+          case "weather":
+            return block.value ? `weather:${block.value}` : "";
+          case "stocks":
+            return block.value ? `stocks:${block.value}` : "";
+          case "map":
+            return block.value ? `map:${block.value}` : "";
+          case "daterange": {
+            const start = block.options.start || "";
+            const end = block.options.end || "";
+            if (start && end) return `daterange:${start}-${end}`;
+            return block.value ? `daterange:${block.value}` : "";
+          }
           case "around": {
             const termA = block.options.termA || "";
             const termB = block.options.termB || "";
@@ -114,8 +157,20 @@ export function useQueryBuilder() {
   });
 
   function addBlock(type: BlockType, value = "", options: Record<string, any> = {}) {
+    const defaults: Record<string, any> = {};
+    if (type === "around") defaults.distance = 5;
+    if (type === "date") defaults.type = "after";
+    if (type === "exclude") defaults.exact = false;
+    if (type === "imagesize") {
+      defaults.width = "";
+      defaults.height = "";
+    }
+    if (type === "or") {
+      defaults.termA = "";
+      defaults.termB = "";
+    }
     const id = `block-${++blockIdCounter}`;
-    state.blocks.push({ id, type, value, options });
+    state.blocks.push({ id, type, value, options: { ...defaults, ...options } });
     state.selectedBlockId = id;
     return id;
   }
@@ -149,16 +204,30 @@ export function useQueryBuilder() {
   function loadFromQuery(query: string) {
     clearBlocks();
 
+    const operatorList =
+      "site|filetype|ext|intitle|allintitle|inurl|allinurl|intext|allintext|inanchor|allinanchor|after|before|daterange|cache|related|info|link|define|source|weather|stocks|map|imagesize";
+    const operatorStripRegex = new RegExp(`\\b(?:${operatorList}):[^\\s]+`, "gi");
+
+    const readOperatorValue = (operator: string) => {
+      const regex = new RegExp(`${operator}:([^\n]+?)(?=\s+\w+:|$)`, "i");
+      const match = query.match(regex);
+      return match ? match[1].trim() : null;
+    };
+
     // Parse site:
     const siteMatch = query.match(/site:(\*\.)?([^\s]+)/i);
     if (siteMatch) {
       addBlock("site", siteMatch[2], { wildcard: !!siteMatch[1] });
     }
 
-    // Parse filetype:
+    // Parse filetype/ext
     const filetypeMatch = query.match(/filetype:([^\s]+)/i);
     if (filetypeMatch) {
       addBlock("filetype", filetypeMatch[1]);
+    }
+    const extMatch = query.match(/ext:([^\s]+)/i);
+    if (extMatch) {
+      addBlock("ext", extMatch[1]);
     }
 
     // Parse after:/before:
@@ -171,21 +240,45 @@ export function useQueryBuilder() {
       addBlock("date", beforeMatch[1], { type: "before" });
     }
 
-    // Parse intitle/inurl/intext/related/cache/source/imagesize
-    const intitleMatch = query.match(/intitle:([^\s]+)/i);
-    if (intitleMatch) addBlock("intitle", intitleMatch[1]);
-    const inurlMatch = query.match(/inurl:([^\s]+)/i);
-    if (inurlMatch) addBlock("inurl", inurlMatch[1]);
-    const intextMatch = query.match(/intext:([^\s]+)/i);
-    if (intextMatch) addBlock("intext", intextMatch[1]);
-    const relatedMatch = query.match(/related:([^\s]+)/i);
-    if (relatedMatch) addBlock("related", relatedMatch[1]);
-    const cacheMatch = query.match(/cache:([^\s]+)/i);
-    if (cacheMatch) addBlock("cache", cacheMatch[1]);
-    const sourceMatch = query.match(/source:([^\s]+)/i);
-    if (sourceMatch) addBlock("source", sourceMatch[1]);
-    const imageMatch = query.match(/imagesize:([^\s]+)/i);
-    if (imageMatch) addBlock("imagesize", imageMatch[1]);
+    // Parse operator values (multi-word compatible)
+    const intitleValue = readOperatorValue("intitle");
+    if (intitleValue) addBlock("intitle", intitleValue);
+    const allintitleValue = readOperatorValue("allintitle");
+    if (allintitleValue) addBlock("allintitle", allintitleValue);
+    const inurlValue = readOperatorValue("inurl");
+    if (inurlValue) addBlock("inurl", inurlValue);
+    const allinurlValue = readOperatorValue("allinurl");
+    if (allinurlValue) addBlock("allinurl", allinurlValue);
+    const intextValue = readOperatorValue("intext");
+    if (intextValue) addBlock("intext", intextValue);
+    const allintextValue = readOperatorValue("allintext");
+    if (allintextValue) addBlock("allintext", allintextValue);
+    const inanchorValue = readOperatorValue("inanchor");
+    if (inanchorValue) addBlock("inanchor", inanchorValue);
+    const allinanchorValue = readOperatorValue("allinanchor");
+    if (allinanchorValue) addBlock("allinanchor", allinanchorValue);
+    const relatedValue = readOperatorValue("related");
+    if (relatedValue) addBlock("related", relatedValue);
+    const cacheValue = readOperatorValue("cache");
+    if (cacheValue) addBlock("cache", cacheValue);
+    const sourceValue = readOperatorValue("source");
+    if (sourceValue) addBlock("source", sourceValue);
+    const imageValue = readOperatorValue("imagesize");
+    if (imageValue) addBlock("imagesize", imageValue);
+    const infoValue = readOperatorValue("info");
+    if (infoValue) addBlock("info", infoValue);
+    const linkValue = readOperatorValue("link");
+    if (linkValue) addBlock("link", linkValue);
+    const defineValue = readOperatorValue("define");
+    if (defineValue) addBlock("define", defineValue);
+    const weatherValue = readOperatorValue("weather");
+    if (weatherValue) addBlock("weather", weatherValue);
+    const stocksValue = readOperatorValue("stocks");
+    if (stocksValue) addBlock("stocks", stocksValue);
+    const mapValue = readOperatorValue("map");
+    if (mapValue) addBlock("map", mapValue);
+    const daterangeValue = readOperatorValue("daterange");
+    if (daterangeValue) addBlock("daterange", daterangeValue);
 
     // Parse AROUND
     const aroundMatch = query.match(/"([^"]+)"\s+AROUND\((\d+)\)\s+"([^"]+)"/i);
@@ -212,15 +305,10 @@ export function useQueryBuilder() {
     let keywords = query
       .replace(/site:[^\s]+/gi, "")
       .replace(/filetype:[^\s]+/gi, "")
+      .replace(/ext:[^\s]+/gi, "")
       .replace(/after:[^\s]+/gi, "")
       .replace(/before:[^\s]+/gi, "")
-      .replace(/intitle:[^\s]+/gi, "")
-      .replace(/inurl:[^\s]+/gi, "")
-      .replace(/intext:[^\s]+/gi, "")
-      .replace(/related:[^\s]+/gi, "")
-      .replace(/cache:[^\s]+/gi, "")
-      .replace(/source:[^\s]+/gi, "")
-      .replace(/imagesize:[^\s]+/gi, "")
+      .replace(operatorStripRegex, "")
       .replace(/"[^"]+"\s+AROUND\(\d+\)\s+"[^"]+"/gi, "")
       .replace(/(^|\s)-("[^"]+"|[^\s]+)/g, "")
       .trim();
