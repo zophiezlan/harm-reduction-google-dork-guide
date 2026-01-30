@@ -10,19 +10,16 @@ function highlightDork(codeEl: HTMLElement) {
   if (!isDorkQuery(text)) return;
 
   // Mark the parent as a dork block for CSS
-  const parent = codeEl.closest('div[class*="language-"]');
-  if (parent) {
-    parent.classList.add("language-dork");
-  }
+  const parent =
+    codeEl.closest('div[class*="language-"]') || codeEl.closest("pre") || codeEl.parentElement;
+  parent?.classList.add("language-dork");
 
   codeEl.innerHTML = highlightDorkText(text);
 }
 
 function highlightAllDorks() {
-  // Find all txt/text/dork code blocks
-  const codeBlocks = document.querySelectorAll(
-    'div[class*="language-txt"] code, div[class*="language-text"] code, div[class*="language-dork"] code'
-  );
+  // Find all code blocks inside docs
+  const codeBlocks = document.querySelectorAll(".vp-doc pre code, pre code");
 
   codeBlocks.forEach((code) => {
     // Skip if already highlighted
@@ -66,37 +63,37 @@ div[class*="language-txt"].language-dork code {
 
 /* Operators (site:, filetype:, etc.) */
 .dork-operator {
-  color: #14b8a6;
-  font-weight: 600;
+  color: #14b8a6 !important;
+  font-weight: 600 !important;
 }
 
 /* Boolean operators (OR, AND) */
 .dork-boolean {
-  color: #ef4444;
-  font-weight: 700;
+  color: #ef4444 !important;
+  font-weight: 700 !important;
 }
 
 /* Exclusion operator (-) */
 .dork-exclusion {
-  color: #ef4444;
-  font-weight: 700;
+  color: #ef4444 !important;
+  font-weight: 700 !important;
 }
 
 /* Quoted strings */
 .dork-string {
-  color: #84cc16;
+  color: #84cc16 !important;
 }
 
 /* Wildcards (*) */
 .dork-wildcard {
-  color: #f43f5e;
-  font-weight: 700;
+  color: #f43f5e !important;
+  font-weight: 700 !important;
 }
 
 /* Parentheses */
 .dork-paren {
-  color: #a78bfa;
-  font-weight: 600;
+  color: #a78bfa !important;
+  font-weight: 600 !important;
 }
 
 /* Add a subtle indicator that this is a dork query */

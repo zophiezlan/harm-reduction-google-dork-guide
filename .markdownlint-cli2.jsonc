@@ -1,3 +1,3 @@
 {
-  "ignores": ["node_modules/**", "archive/raw-imports/**"],
+  "ignores": ["node_modules/**", "archive/**", "plans/**"],
 }
