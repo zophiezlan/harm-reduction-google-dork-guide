@@ -60,8 +60,7 @@ Before running a search, ask yourself:
 └─────────────────────────────────────────────────────────────┘
 ```
 
-> [!CAUTION]
-> If you answer "no" to questions 1-3 or "yes" to questions 4-5, reconsider your search.
+> [!CAUTION] If you answer "no" to questions 1-3 or "yes" to questions 4-5, reconsider your search.
 
 ---
 
@@ -122,8 +121,8 @@ Before running a search, ask yourself:
 - Using searches to **harass or stalk** individuals
 - **Republishing** copyrighted material without permission
 
-> [!WARNING]
-> This is general guidance, not legal advice. Laws vary by jurisdiction. When in doubt, consult your organization's legal or compliance team.
+> [!WARNING] This is general guidance, not legal advice. Laws vary by jurisdiction. When in doubt,
+> consult your organization's legal or compliance team.
 
 ---
 

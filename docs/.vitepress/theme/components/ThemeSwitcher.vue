@@ -1,19 +1,19 @@
 <!-- docs/.vitepress/theme/components/ThemeSwitcher.vue -->
 <script setup lang="ts">
-import { useSettings, type ThemeColor } from '../composables/useSettings'
+import { useSettings, type ThemeColor } from "../composables/useSettings";
 
-const { settings, setThemeColor, setThemeMode } = useSettings()
+const { settings, setThemeColor, setThemeMode } = useSettings();
 
 const colors: { id: ThemeColor; label: string }[] = [
-  { id: 'violet', label: 'Violet' },
-  { id: 'blue', label: 'Blue' },
-  { id: 'teal', label: 'Teal' },
-  { id: 'green', label: 'Green' },
-  { id: 'amber', label: 'Amber' },
-  { id: 'orange', label: 'Orange' },
-  { id: 'rose', label: 'Rose' },
-  { id: 'gray', label: 'Gray' },
-]
+  { id: "violet", label: "Violet" },
+  { id: "blue", label: "Blue" },
+  { id: "teal", label: "Teal" },
+  { id: "green", label: "Green" },
+  { id: "amber", label: "Amber" },
+  { id: "orange", label: "Orange" },
+  { id: "rose", label: "Rose" },
+  { id: "gray", label: "Gray" },
+];
 </script>
 
 <template>
@@ -101,7 +101,9 @@ const colors: { id: ThemeColor; label: string }[] = [
 
 .color-swatch.active {
   border-color: var(--text-primary);
-  box-shadow: 0 0 0 2px var(--bg-deep), 0 0 0 4px var(--swatch-color);
+  box-shadow:
+    0 0 0 2px var(--bg-deep),
+    0 0 0 4px var(--swatch-color);
 }
 
 .mode-options {

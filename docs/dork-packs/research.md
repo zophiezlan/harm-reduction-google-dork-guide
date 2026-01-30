@@ -2,7 +2,7 @@
 
 > Finding high-quality research, systematic reviews, and grey literature.
 
-[← Back to Dork Packs](README.md) | [← Main Guide](../../README.md)
+[← Back to Dork Packs](README.md) | [← Main Guide](../README.md)
 
 ---
 

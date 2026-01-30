@@ -3,7 +3,7 @@
 > Guidance, training frameworks, implementation resources, and access information for naloxone
 > programs.
 
-[← Back to Dork Packs](README.md) | [← Main Guide](../../README.md)
+[← Back to Dork Packs](README.md) | [← Main Guide](../README.md)
 
 ---
 

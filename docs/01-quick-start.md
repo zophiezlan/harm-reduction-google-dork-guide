@@ -142,8 +142,7 @@ Replace `"harm reduction"` with:
 
 ## ❌ Common Mistakes to Avoid
 
-> [!WARNING]
-> These are the most common issues that break searches.
+> [!WARNING] These are the most common issues that break searches.
 
 | Mistake                     | Fix                                       |
 | :-------------------------- | :---------------------------------------- |
@@ -173,7 +172,7 @@ Now that you have the basics:
 | Next                      | Link                                    |
 | :------------------------ | :-------------------------------------- |
 | Learn the operators       | [Core Operators](02-core-operators.md)  |
-| Find topic-specific dorks | [Dork Packs](dork-packs/)               |
+| Find topic-specific dorks | [Dork Packs](dork-packs/README.md)               |
 | Set up monitoring         | [Google Alerts](tools/google-alerts.md) |
 
 ---
@@ -218,8 +217,8 @@ This finds documents mentioning dates in that range.
 
 </details>
 
-> [!TIP]
-> **Keyboard shortcut:** Press <kbd>Ctrl</kbd>+<kbd>L</kbd> (or <kbd>Cmd</kbd>+<kbd>L</kbd> on Mac) to jump straight to your browser's address bar and start searching.
+> [!TIP] **Keyboard shortcut:** Press <kbd>Ctrl</kbd>+<kbd>L</kbd> (or <kbd>Cmd</kbd>+<kbd>L</kbd>
+> on Mac) to jump straight to your browser's address bar and start searching.
 
 ---
 

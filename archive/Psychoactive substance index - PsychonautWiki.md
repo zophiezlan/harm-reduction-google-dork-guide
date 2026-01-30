@@ -29,7 +29,6 @@ not include substances that are merely theoretical or lack reliable user experie
 data!
 
 - #### [Classical psychedelics](https://psychonautwiki.org/wiki/Classical_psychedelics "Classical psychedelics")
-
   - [Psilocybin mushrooms](https://psychonautwiki.org/wiki/Psilocybin_mushrooms "Psilocybin mushrooms")
   - [LSD](https://psychonautwiki.org/wiki/LSD "LSD")
   - [Mescaline](https://psychonautwiki.org/wiki/Mescaline "Mescaline")
@@ -37,7 +36,6 @@ data!
   - [Ayahuasca](https://psychonautwiki.org/wiki/Ayahuasca "Ayahuasca")
 
 - #### [Lysergamides](https://psychonautwiki.org/wiki/Lysergamides "Lysergamides")
-
   - [1B-LSD](https://psychonautwiki.org/wiki/1B-LSD "1B-LSD")
   - [1cP-AL-LAD](https://psychonautwiki.org/wiki/1cP-AL-LAD "1cP-AL-LAD")
   - [1cP-LSD](https://psychonautwiki.org/wiki/1cP-LSD "1cP-LSD")
@@ -59,7 +57,6 @@ data!
   - [PRO-LAD](https://psychonautwiki.org/wiki/PRO-LAD "PRO-LAD")
 
 - #### [Base tryptamines](https://psychonautwiki.org/wiki/Base_tryptamines "Base tryptamines")
-
   - [aMT](https://psychonautwiki.org/wiki/AMT "AMT")
   - [DET](https://psychonautwiki.org/wiki/DET "DET")
   - [DiPT](https://psychonautwiki.org/wiki/DiPT "DiPT")
@@ -72,7 +69,6 @@ data!
   - [Tryptamine](<https://psychonautwiki.org/wiki/Tryptamine_(compound)> "Tryptamine (compound)")
 
 - #### [Substituted tryptamines](https://psychonautwiki.org/wiki/Substituted_tryptamines "Substituted tryptamines")
-
   - [4-AcO-DET](https://psychonautwiki.org/wiki/4-AcO-DET "4-AcO-DET")
   - [4-AcO-DiPT](https://psychonautwiki.org/wiki/4-AcO-DiPT "4-AcO-DiPT")
   - [4-AcO-DMT](https://psychonautwiki.org/wiki/4-AcO-DMT "4-AcO-DMT") (_Psilacetin_)
@@ -97,7 +93,6 @@ data!
   - [Psilocybin](https://psychonautwiki.org/wiki/Psilocybin "Psilocybin") (_4-PO-DMT_)
 
 - #### Mescaline homologues
-
   - [3C-E](https://psychonautwiki.org/wiki/3C-E "3C-E")
   - [3C-P](https://psychonautwiki.org/wiki/3C-P "3C-P")
   - [Allylescaline](https://psychonautwiki.org/wiki/Allylescaline "Allylescaline")
@@ -108,7 +103,6 @@ data!
   - [Proscaline](https://psychonautwiki.org/wiki/Proscaline "Proscaline")
 
 - #### [2C-x](https://psychonautwiki.org/wiki/2C-x "2C-x")
-
   - [2C-B](https://psychonautwiki.org/wiki/2C-B "2C-B")
   - [2C-C](https://psychonautwiki.org/wiki/2C-C "2C-C")
   - [2C-D](https://psychonautwiki.org/wiki/2C-D "2C-D")
@@ -118,19 +112,16 @@ data!
   - [2C-P](https://psychonautwiki.org/wiki/2C-P "2C-P")
 
 - #### [2C-T-x](https://psychonautwiki.org/wiki/2C-T-x "2C-T-x")
-
   - [2C-T](https://psychonautwiki.org/wiki/2C-T "2C-T")
   - [2C-T-2](https://psychonautwiki.org/wiki/2C-T-2 "2C-T-2")
   - [2C-T-7](https://psychonautwiki.org/wiki/2C-T-7 "2C-T-7")
   - [2C-T-21](https://psychonautwiki.org/wiki/2C-T-21 "2C-T-21")
 
 - #### 2C-x derivatives
-
   - [2C-B-FLY](https://psychonautwiki.org/wiki/2C-B-FLY "2C-B-FLY")
   - [βk-2C-B](https://psychonautwiki.org/wiki/%CE%92k-2C-B "Βk-2C-B")
 
 - #### [DOx](https://psychonautwiki.org/wiki/DOx "DOx")
-
   - [2,5-DMA](https://psychonautwiki.org/wiki/2,5-DMA "2,5-DMA")
   - [DOB](https://psychonautwiki.org/wiki/DOB "DOB")
   - [DOC](https://psychonautwiki.org/wiki/DOC "DOC")
@@ -139,11 +130,9 @@ data!
   - [TMA-2](https://psychonautwiki.org/wiki/TMA-2 "TMA-2")
 
 - #### DOx derivatives
-
   - [Bromo-DragonFLY](https://psychonautwiki.org/wiki/Bromo-DragonFLY "Bromo-DragonFLY")
 
 - #### [N-Benzyl phenethylamines](https://psychonautwiki.org/wiki/NBx "NBx")
-
   - [25B-NBOH](https://psychonautwiki.org/wiki/25B-NBOH "25B-NBOH")
   - [25B-NBOMe](https://psychonautwiki.org/wiki/25B-NBOMe "25B-NBOMe")
   - [25C-NBOH](https://psychonautwiki.org/wiki/25C-NBOH "25C-NBOH")
@@ -155,7 +144,6 @@ data!
   - [25N-NBOMe](https://psychonautwiki.org/wiki/25N-NBOMe "25N-NBOMe")
 
 - #### Miscellaneous [phenethylamines](https://psychonautwiki.org/wiki/Phenethylamines "Phenethylamines")
-
   - [βk-2C-B](https://psychonautwiki.org/wiki/%CE%92k-2C-B "Βk-2C-B")
   - [2C-B-FLY](https://psychonautwiki.org/wiki/2C-B-FLY "2C-B-FLY")
   - [Bromo-DragonFLY](https://psychonautwiki.org/wiki/Bromo-DragonFLY "Bromo-DragonFLY")
@@ -163,7 +151,6 @@ data!
   - [TMA-6](https://psychonautwiki.org/wiki/TMA-6 "TMA-6")
 
 - #### Others
-
   - [5-MeO-DiBF](https://psychonautwiki.org/wiki/5-MeO-DiBF "5-MeO-DiBF")
   - [Efavirenz](https://psychonautwiki.org/wiki/Efavirenz "Efavirenz")
   - [Mirtazapine](https://psychonautwiki.org/wiki/Mirtazapine "Mirtazapine") (_Remeron_)
@@ -191,13 +178,11 @@ data!
   - [Nicotiana](<https://psychonautwiki.org/wiki/Nicotiana_(botany)> "Nicotiana (botany)")
 
 - #### [β-Carbolines](https://psychonautwiki.org/wiki/%CE%92-Carbolines "Β-Carbolines")
-
   - [Harmaline](https://psychonautwiki.org/wiki/Harmaline "Harmaline")
   - [Harmine](https://psychonautwiki.org/wiki/Harmine "Harmine")
   - [Tetrahydroharmine](https://psychonautwiki.org/wiki/Tetrahydroharmine "Tetrahydroharmine")
 
 - #### [Arylcyclohexylamines](https://psychonautwiki.org/wiki/Arylcyclohexylamines "Arylcyclohexylamines")
-
   - [2-Fluorodeschloroketamine](https://psychonautwiki.org/wiki/2-Fluorodeschloroketamine "2-Fluorodeschloroketamine")
     (_2-FDCK_)
   - [2'-Oxo-PCE](https://psychonautwiki.org/wiki/2%27-Oxo-PCE "2'-Oxo-PCE") (_O-PCE_)
@@ -219,40 +204,33 @@ data!
   - [Phencyclidine](https://psychonautwiki.org/wiki/Phencyclidine "Phencyclidine") (_PCP_)
 
 - #### [Morphinans](https://psychonautwiki.org/wiki/Morphinans "Morphinans")
-
   - [Dextromethorphan](https://psychonautwiki.org/wiki/Dextromethorphan "Dextromethorphan") (_DXM_)
     - [Dextrorphan](https://psychonautwiki.org/wiki/Dextrorphan "Dextrorphan") (_DXO_)
 
 - #### [Diarylethylamines](https://psychonautwiki.org/wiki/Diarylethylamines "Diarylethylamines")
-
   - [Diphenidine](https://psychonautwiki.org/wiki/Diphenidine "Diphenidine")
   - [Ephenidine](https://psychonautwiki.org/wiki/Ephenidine "Ephenidine")
 
 - #### [Adamantanes](https://psychonautwiki.org/wiki/Adamantanes "Adamantanes")
-
   - [Memantine](https://psychonautwiki.org/wiki/Memantine "Memantine")
 
 - #### Others
-
   - [Ibogaine](https://psychonautwiki.org/wiki/Ibogaine "Ibogaine")
   - [Nitrous oxide](https://psychonautwiki.org/wiki/Nitrous_oxide "Nitrous oxide")
     (_N<sub>2</sub>O_)
   - [Xenon](https://psychonautwiki.org/wiki/Xenon "Xenon")
 
 - #### [Tropane alkaloids](https://psychonautwiki.org/wiki/Tropane_alkaloids "Tropane alkaloids")
-
   - [Atropine](https://psychonautwiki.org/wiki/Datura#Chemistry "Datura")
   - [Hyoscyamine](https://psychonautwiki.org/wiki/Datura#Chemistry "Datura")
   - [Scopolamine](https://psychonautwiki.org/wiki/Datura#Chemistry "Datura") (_Hyoscine_)
 
 - #### [Antihistamines](https://psychonautwiki.org/wiki/Antihistamine "Antihistamine")
-
   - [Diphenhydramine](https://psychonautwiki.org/wiki/Diphenhydramine "Diphenhydramine") (_Benadryl,
     DPH_)
   - [Promethazine](https://psychonautwiki.org/wiki/Promethazine "Promethazine")
 
 - #### Others
-
   - [Benzydamine](https://psychonautwiki.org/wiki/Benzydamine "Benzydamine")
   - [Mirtazapine](https://psychonautwiki.org/wiki/Mirtazapine "Mirtazapine") (_Remeron_)
   - [Myristicin](https://psychonautwiki.org/wiki/Myristicin "Myristicin") (_Nutmeg_)
@@ -285,7 +263,6 @@ data!
   - [THC-O-acetate](https://psychonautwiki.org/wiki/THC-O-acetate "THC-O-acetate")
 
 - #### [Synthetic cannabinoids](https://psychonautwiki.org/wiki/Synthetic_cannabinoids "Synthetic cannabinoids")
-
   - [5F-AKB48](https://psychonautwiki.org/wiki/5F-AKB48 "5F-AKB48") (_5F-APINACA_)
   - [5F-PB-22](https://psychonautwiki.org/wiki/5F-PB-22 "5F-PB-22")
   - [AB-FUBINACA](https://psychonautwiki.org/wiki/AB-FUBINACA "AB-FUBINACA")
@@ -297,13 +274,11 @@ data!
   - [THJ-2201](https://psychonautwiki.org/wiki/THJ-2201 "THJ-2201")
 
 - #### [κ-Opioid receptor agonists](https://psychonautwiki.org/wiki/%CE%9A-Opioid_receptor_agonists "Κ-Opioid receptor agonists")
-
   - [Ibogaine](https://psychonautwiki.org/wiki/Ibogaine "Ibogaine")
   - [Salvinorin A](https://psychonautwiki.org/wiki/Salvinorin_A "Salvinorin A")
   - [Salvinorin B methoxymethyl ether](https://psychonautwiki.org/wiki/Salvinorin_B_methoxymethyl_ether "Salvinorin B methoxymethyl ether")
 
 - #### [Oneirogens](https://psychonautwiki.org/wiki/Oneirogens "Oneirogens")
-
   - [5-Hydroxytryptophan](https://psychonautwiki.org/wiki/5-Hydroxytryptophan "5-Hydroxytryptophan")
     (_5-HTP_)
   - [Acetylcholine](https://psychonautwiki.org/wiki/Acetylcholine "Acetylcholine") boosters
@@ -316,13 +291,11 @@ data!
   - [Melatonin](https://psychonautwiki.org/wiki/Melatonin "Melatonin")
 
 - #### Polysubstance combinations
-
   - [Ayahuasca](https://psychonautwiki.org/wiki/Ayahuasca "Ayahuasca")
   - [Changa](https://psychonautwiki.org/wiki/Changa "Changa") (_DMT + MAOI_)
   - [DXM & DPH](https://psychonautwiki.org/wiki/DXM_%26_DPH "DXM & DPH") (_Counterflipping_)
 
 - #### [Inhalants](https://psychonautwiki.org/wiki/Inhalants "Inhalants")
-
   - [Chloroform](https://psychonautwiki.org/wiki/Chloroform "Chloroform")
   - [Diethyl ether](https://psychonautwiki.org/wiki/Diethyl_ether "Diethyl ether") (_Ether_)
   - [Nitrous oxide](https://psychonautwiki.org/wiki/Nitrous_oxide "Nitrous oxide")
@@ -334,7 +307,6 @@ data!
   - [Xenon](https://psychonautwiki.org/wiki/Xenon "Xenon")
 
 - #### [Sigmaergics](https://psychonautwiki.org/wiki/Sigmaergics "Sigmaergics")
-
   - [DXM](https://psychonautwiki.org/wiki/DXM "DXM")
   - [Memantine](https://psychonautwiki.org/wiki/Memantine "Memantine")
   - [Progesterone](https://psychonautwiki.org/wiki/Progesterone "Progesterone")
@@ -343,13 +315,11 @@ data!
 - #### Various
 
 - #### [Alcohols](https://psychonautwiki.org/wiki/Alcohols "Alcohols")
-
   - [Alcohol](https://psychonautwiki.org/wiki/Alcohol "Alcohol") (Ethanol)
   - [2-Methyl-2-butanol](https://psychonautwiki.org/wiki/2-Methyl-2-butanol "2-Methyl-2-butanol")
     (_2M2B_)
 
 - #### [Benzodiazepines](https://psychonautwiki.org/wiki/Benzodiazepines "Benzodiazepines")
-
   - [Alprazolam](https://psychonautwiki.org/wiki/Alprazolam "Alprazolam") (_Xanax_)
   - [Bromazepam](https://psychonautwiki.org/wiki/Bromazepam "Bromazepam")
   - [Clonazepam](https://psychonautwiki.org/wiki/Clonazepam "Clonazepam") (_Klonopin_)
@@ -369,19 +339,16 @@ data!
   - [Temazepam](https://psychonautwiki.org/wiki/Temazepam "Temazepam")
 
 - #### [Thienodiazepines](https://psychonautwiki.org/wiki/Thienodiazepines "Thienodiazepines")
-
   - [Deschloroetizolam](https://psychonautwiki.org/wiki/Deschloroetizolam "Deschloroetizolam")
   - [Etizolam](https://psychonautwiki.org/wiki/Etizolam "Etizolam")
   - [Metizolam](https://psychonautwiki.org/wiki/Metizolam "Metizolam")
 
 - #### [Barbiturates](https://psychonautwiki.org/wiki/Barbiturates "Barbiturates")
-
   - [Pentobarbital](https://psychonautwiki.org/wiki/Pentobarbital "Pentobarbital")
   - [Phenobarbital](https://psychonautwiki.org/wiki/Phenobarbital "Phenobarbital")
   - [Secobarbital](https://psychonautwiki.org/wiki/Secobarbital "Secobarbital")
 
 - #### GABA<sub>A</sub>\-α<sub>1</sub> agonists
-
   - [Gaboxadol](https://psychonautwiki.org/wiki/Gaboxadol "Gaboxadol")
   - [Ibotenic acid](https://psychonautwiki.org/wiki/Ibotenic_acid "Ibotenic acid")
   - [Muscimol](https://psychonautwiki.org/wiki/Muscimol "Muscimol")
@@ -390,7 +357,6 @@ data!
     - [Eszopiclone](https://psychonautwiki.org/wiki/Eszopiclone "Eszopiclone") (_Lunesta_)
 
 - #### Other [GABAergics](https://psychonautwiki.org/wiki/GABAergics "GABAergics")
-
   - [1,4-Butanediol](https://psychonautwiki.org/wiki/1,4-Butanediol "1,4-Butanediol") (_1,4-B_)
   - [Baclofen](https://psychonautwiki.org/wiki/Baclofen "Baclofen")
   - [Carisoprodol](https://psychonautwiki.org/wiki/Carisoprodol "Carisoprodol") (_Soma_)
@@ -404,14 +370,12 @@ data!
   - [Phenibut](https://psychonautwiki.org/wiki/Phenibut "Phenibut")
 
 - #### [Gabapentinoids](https://psychonautwiki.org/wiki/Gabapentinoids "Gabapentinoids")
-
   - [F-Phenibut](https://psychonautwiki.org/wiki/F-Phenibut "F-Phenibut")
   - [Gabapentin](https://psychonautwiki.org/wiki/Gabapentin "Gabapentin")
   - [Phenibut](https://psychonautwiki.org/wiki/Phenibut "Phenibut")
   - [Pregabalin](https://psychonautwiki.org/wiki/Pregabalin "Pregabalin") (_Lyrica_)
 
 - #### [Opioids](https://psychonautwiki.org/wiki/Opioids "Opioids")
-
   - [Acetylfentanyl](https://psychonautwiki.org/wiki/Acetylfentanyl "Acetylfentanyl")
   - [Buprenorphine](https://psychonautwiki.org/wiki/Buprenorphine "Buprenorphine")
   - [Codeine](https://psychonautwiki.org/wiki/Codeine "Codeine")
@@ -440,7 +404,6 @@ data!
   - [U-47700](https://psychonautwiki.org/wiki/U-47700 "U-47700")
 
 - #### Others
-
   - [Clonidine](https://psychonautwiki.org/wiki/Clonidine "Clonidine")
   - [Diphenhydramine](https://psychonautwiki.org/wiki/Diphenhydramine "Diphenhydramine") (_Benadryl,
     DPH_)
@@ -448,7 +411,6 @@ data!
   - [Tizanidine](https://psychonautwiki.org/wiki/Tizanidine "Tizanidine")
 
 - #### [Amphetamines](https://psychonautwiki.org/wiki/Amphetamines "Amphetamines")
-
   - [2-FA](https://psychonautwiki.org/wiki/2-FA "2-FA")
   - [2-FEA](https://psychonautwiki.org/wiki/2-FEA "2-FEA")
   - [2-FMA](https://psychonautwiki.org/wiki/2-FMA "2-FMA")
@@ -467,11 +429,9 @@ data!
   - [Methamphetamine](https://psychonautwiki.org/wiki/Methamphetamine "Methamphetamine") (_Meth_)
 
 - #### [Phenmetrazines](https://psychonautwiki.org/w/index.php?title=Phenmetrazines&action=edit&redlink=1 "Phenmetrazines (page does not exist)")
-
   - [3-FPM](https://psychonautwiki.org/wiki/3-FPM "3-FPM")
 
 - #### [Phenidates](https://psychonautwiki.org/wiki/Phenidates "Phenidates")
-
   - [3,4-CTMP](https://psychonautwiki.org/wiki/3,4-CTMP "3,4-CTMP") (_3,4-DCMP_)
   - [4F-EPH](https://psychonautwiki.org/wiki/4F-EPH "4F-EPH")
   - [4F-MPH](https://psychonautwiki.org/wiki/4F-MPH "4F-MPH")
@@ -485,7 +445,6 @@ data!
       (_Focalin_)
 
 - #### [Cathinones](https://psychonautwiki.org/wiki/Cathinones "Cathinones")
-
   - [3-MMC](https://psychonautwiki.org/wiki/3-MMC "3-MMC")
   - [Butylone](https://psychonautwiki.org/wiki/Butylone "Butylone") (_βk-MBDB_)
   - [Cathinone](https://psychonautwiki.org/wiki/Cathinone "Cathinone") (_Khat_)
@@ -504,32 +463,26 @@ data!
   - [Pentedrone](https://psychonautwiki.org/wiki/Pentedrone "Pentedrone")
 
 - #### [Pyrrolidinophenones](https://psychonautwiki.org/w/index.php?title=Pyrrolidinophenones&action=edit&redlink=1 "Pyrrolidinophenones (page does not exist)")
-
   - [α-PHP](https://psychonautwiki.org/wiki/%CE%91-PHP "Α-PHP")
   - [α-PVP](https://psychonautwiki.org/wiki/%CE%91-PVP "Α-PVP") (_Flakka_)
   - [MDPV](https://psychonautwiki.org/wiki/MDPV "MDPV") (_Monkey Dust_)
 
 - #### [Piperazines](https://psychonautwiki.org/wiki/Piperazines "Piperazines")
-
   - [mCPP](https://psychonautwiki.org/wiki/MCPP "MCPP")
 
 - #### [Tropanes](https://psychonautwiki.org/wiki/Tropanes "Tropanes")
-
   - [Cocaine](https://psychonautwiki.org/wiki/Cocaine "Cocaine")
   - [RTI-111](https://psychonautwiki.org/wiki/RTI-111 "RTI-111") (_Dichloropane_)
 
 - #### [Aminorexes](https://psychonautwiki.org/wiki/Aminorexes "Aminorexes")
-
   - [Cyclazodone](https://psychonautwiki.org/wiki/Cyclazodone "Cyclazodone")
 
 - #### [Xanthines](https://psychonautwiki.org/wiki/Xanthines "Xanthines")
-
   - [8-Chlorotheophylline](https://psychonautwiki.org/wiki/8-Chlorotheophylline "8-Chlorotheophylline")
   - [Caffeine](https://psychonautwiki.org/wiki/Caffeine "Caffeine")
   - [Theacrine](https://psychonautwiki.org/wiki/Theacrine "Theacrine")
 
 - #### Others
-
   - [2-AI](https://psychonautwiki.org/wiki/2-AI "2-AI")
   - [Bromantane](https://psychonautwiki.org/wiki/Bromantane "Bromantane")
   - [Desoxypipradrol](https://psychonautwiki.org/wiki/Desoxypipradrol "Desoxypipradrol") (_2-DPMP_)
@@ -542,7 +495,6 @@ data!
     (_Benzedrex_)
 
 - #### [MDxx](https://psychonautwiki.org/wiki/MDxx "MDxx")
-
   - [MDA](https://psychonautwiki.org/wiki/MDA "MDA")
   - [MDAI](https://psychonautwiki.org/wiki/MDAI "MDAI")
   - [MDEA](https://psychonautwiki.org/wiki/MDEA "MDEA") (_MDE_)
@@ -550,19 +502,16 @@ data!
   - [Methylone](https://psychonautwiki.org/wiki/Methylone "Methylone") (_βk-MDMA_)
 
 - #### [Benzofurans](https://psychonautwiki.org/wiki/Benzofurans "Benzofurans")
-
   - [5-APB](https://psychonautwiki.org/wiki/5-APB "5-APB")
   - [5-MAPB](https://psychonautwiki.org/wiki/5-MAPB "5-MAPB")
   - [6-APB](https://psychonautwiki.org/wiki/6-APB "6-APB") (_Benzofury_)
   - [6-APDB](https://psychonautwiki.org/wiki/6-APDB "6-APDB")
 
 - #### Others
-
   - [PMA](https://psychonautwiki.org/wiki/PMA "PMA")
   - [PMMA](https://psychonautwiki.org/wiki/PMMA "PMMA")
 
 - #### [Eugeroics](https://psychonautwiki.org/wiki/Eugeroics "Eugeroics")
-
   - [Adrafinil](https://psychonautwiki.org/wiki/Adrafinil "Adrafinil")
   - [Modafinil](https://psychonautwiki.org/wiki/Modafinil "Modafinil")
     - [Armodafinil](https://psychonautwiki.org/wiki/Armodafinil "Armodafinil")
@@ -570,7 +519,6 @@ data!
     (_Modafiendz_)
 
 - #### Dietary supplements
-
   - [5-HTP](https://psychonautwiki.org/wiki/5-HTP "5-HTP")
   - [Choline](https://psychonautwiki.org/wiki/Choline "Choline")
     - [Acetylcholine](https://psychonautwiki.org/wiki/Acetylcholine "Acetylcholine")
@@ -586,7 +534,6 @@ data!
     (_SAMe_)
 
 - #### [Racetams](https://psychonautwiki.org/wiki/Racetams "Racetams")
-
   - [Aniracetam](https://psychonautwiki.org/wiki/Aniracetam "Aniracetam")
   - [Coluracetam](https://psychonautwiki.org/wiki/Coluracetam "Coluracetam")
   - [Oxiracetam](https://psychonautwiki.org/wiki/Oxiracetam "Oxiracetam")
@@ -595,7 +542,6 @@ data!
   - [Pramiracetam](https://psychonautwiki.org/wiki/Pramiracetam "Pramiracetam")
 
 - #### Others
-
   - [Bromantane](https://psychonautwiki.org/wiki/Bromantane "Bromantane")
   - [L-Theanine](https://psychonautwiki.org/wiki/L-Theanine "L-Theanine")
   - [Memantine](https://psychonautwiki.org/wiki/Memantine "Memantine")
@@ -604,13 +550,11 @@ data!
   - [Tianeptine](https://psychonautwiki.org/wiki/Tianeptine "Tianeptine")
 
 - #### [Amino acids](https://psychonautwiki.org/w/index.php?title=Amino_acids&action=edit&redlink=1 "Amino acids (page does not exist)")
-
   - [γ-Aminobutyric acid](https://psychonautwiki.org/wiki/%CE%93-Aminobutyric_acid "Γ-Aminobutyric acid")
     (_GABA_)
   - [L-Glutamate](https://psychonautwiki.org/wiki/L-Glutamate "L-Glutamate")
 
 - #### [Monoamines](https://psychonautwiki.org/wiki/Monoamines "Monoamines")
-
   - [Dopamine](https://psychonautwiki.org/wiki/Dopamine "Dopamine")
   - [Epinephrine](https://psychonautwiki.org/wiki/Epinephrine "Epinephrine") (_Adrenaline_)
   - [Histamine](https://psychonautwiki.org/wiki/Histamine "Histamine")
@@ -620,7 +564,6 @@ data!
   - [Serotonin](https://psychonautwiki.org/wiki/Serotonin "Serotonin") (_5-HT_)
 
 - #### [Trace amines](https://psychonautwiki.org/w/index.php?title=Trace_amines&action=edit&redlink=1 "Trace amines (page does not exist)")
-
   - Catecholamines
     - [Dopamine](https://psychonautwiki.org/wiki/Dopamine "Dopamine")
   - [Phenethylamines](https://psychonautwiki.org/wiki/Phenethylamine "Phenethylamine")
@@ -629,11 +572,9 @@ data!
     - [Serotonin](https://psychonautwiki.org/wiki/Serotonin "Serotonin") (_5-HT_)
 
 - #### [Peptides](https://psychonautwiki.org/w/index.php?title=Peptides&action=edit&redlink=1 "Peptides (page does not exist)")
-
   - [Semax](https://psychonautwiki.org/wiki/Semax "Semax")
 
 - #### Other
-
   - [Acetylcholine](https://psychonautwiki.org/wiki/Acetylcholine "Acetylcholine")
 
 ## See also

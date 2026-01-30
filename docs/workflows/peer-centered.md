@@ -2,7 +2,7 @@
 
 > Values-based searching for peer workers and lived experience perspectives.
 
-[← Back to Workflows](README.md) | [← Main Guide](../../README.md)
+[← Back to Workflows](README.md) | [← Main Guide](../README.md)
 
 ---
 

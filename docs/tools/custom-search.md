@@ -2,7 +2,7 @@
 
 > Build team search engines that only search trusted harm reduction domains.
 
-[← Back to Tools](README.md) | [← Main Guide](../../README.md)
+[← Back to Tools](README.md) | [← Main Guide](../README.md)
 
 ---
 

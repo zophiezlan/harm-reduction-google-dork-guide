@@ -3,7 +3,7 @@
 > Comprehensive directory of Australian open-source intelligence resources for harm reduction
 > research, advocacy, and investigations.
 
-[← Back to Resources](README.md) | [← Main Guide](../../README.md)
+[← Back to Resources](../tools/README.md) | [← Main Guide](../README.md)
 
 ---
 
@@ -426,4 +426,4 @@ These resources support legitimate harm reduction work:
 
 ---
 
-[← Back to Resources](README.md)
+[← Back to Resources](../tools/README.md)

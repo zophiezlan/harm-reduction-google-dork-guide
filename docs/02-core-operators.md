@@ -89,8 +89,8 @@ filetype:xlsx "service directory" AOD site:*.gov.au
 filetype:pptx "harm reduction" conference
 ```
 
-> [!TIP]
-> `ext:` works the same as `filetype:` (they are aliases). Use whichever you find easier to remember.
+> [!TIP] `ext:` works the same as `filetype:` (they are aliases). Use whichever you find easier to
+> remember.
 
 ---
 
@@ -115,8 +115,8 @@ Find these exact words in this exact order.
 
 Search for either term.
 
-> [!IMPORTANT]
-> `OR` **must be UPPERCASE**. Lowercase `or` is treated as a regular search term and will not function as a boolean operator.
+> [!IMPORTANT] `OR` **must be UPPERCASE**. Lowercase `or` is treated as a regular search term and
+> will not function as a boolean operator.
 
 ```txt
 naloxone OR narcan OR nyxoid
@@ -209,8 +209,8 @@ Filter by publication/index date.
 "overdose" report after:2023 before:2025
 ```
 
-> [!NOTE]
-> This uses Google's index date, which approximates publication date but isn't always exact. For critical currency verification, always check the document's actual publication date.
+> [!NOTE] This uses Google's index date, which approximates publication date but isn't always exact.
+> For critical currency verification, always check the document's actual publication date.
 
 ---
 
@@ -340,8 +340,7 @@ Example: `site:*.health.*.gov.au intitle:"drug warning" after:2024-01-01`
 
 ## ⚠️ Common Mistakes
 
-> [!WARNING]
-> These are the most frequent errors that cause searches to fail or return poor results.
+> [!WARNING] These are the most frequent errors that cause searches to fail or return poor results.
 
 | Mistake            | Problem                 | Fix                  |
 | ------------------ | ----------------------- | -------------------- |

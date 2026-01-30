@@ -2,7 +2,7 @@
 
 > Strategic approaches to research, monitoring, and verification.
 
-[← Back to Main Guide](../../README.md)
+[← Back to Main Guide](../README.md)
 
 ---
 
@@ -73,4 +73,4 @@ Most real searches combine elements from multiple workflows:
 
 ---
 
-[← Back to Main Guide](../../README.md)
+[← Back to Main Guide](../README.md)

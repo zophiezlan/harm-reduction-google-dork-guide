@@ -2,7 +2,7 @@
 
 > Save common searches as one-click browser bookmarks.
 
-[← Back to Tools](README.md) | [← Main Guide](../../README.md)
+[← Back to Tools](README.md) | [← Main Guide](../README.md)
 
 ---
 
@@ -119,7 +119,7 @@ Create a bookmark folder called "Harm Reduction Dorks" with sub-folders:
 ## 🔗 Related Resources
 
 - [Core Operators](../02-core-operators.md)
-- [Dork Packs](../dork-packs/)
+- [Dork Packs](../dork-packs/README.md)
 
 ---
 

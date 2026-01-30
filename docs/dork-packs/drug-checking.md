@@ -2,7 +2,7 @@
 
 > Evidence, evaluations, operating models, and implementation resources for drug checking services.
 
-[← Back to Dork Packs](README.md) | [← Main Guide](../../README.md)
+[← Back to Dork Packs](README.md) | [← Main Guide](../README.md)
 
 ---
 

@@ -2,7 +2,7 @@
 
 > Service models, evaluations, policies, directories, and operational guidelines for NSP.
 
-[← Back to Dork Packs](README.md) | [← Main Guide](../../README.md)
+[← Back to Dork Packs](README.md) | [← Main Guide](../README.md)
 
 ---
 

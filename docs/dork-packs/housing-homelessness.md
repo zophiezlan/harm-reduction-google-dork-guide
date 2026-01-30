@@ -2,7 +2,7 @@
 
 > The intersection of AOD, housing, and social factors.
 
-[← Back to Dork Packs](README.md) | [← Main Guide](../../README.md)
+[← Back to Dork Packs](README.md) | [← Main Guide](../README.md)
 
 ---
 

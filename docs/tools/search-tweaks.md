@@ -3,7 +3,7 @@
 > Creative "recipes" and search patterns adapted from OSINT and power-user communities for the
 > specific challenges of harm reduction research.
 
-[← Back to Main Guide](../../README.md)
+[← Back to Main Guide](../README.md)
 
 ---
 

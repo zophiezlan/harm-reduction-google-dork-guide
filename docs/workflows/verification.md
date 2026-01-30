@@ -2,7 +2,7 @@
 
 > Assess document quality, reliability, and currency.
 
-[← Back to Workflows](README.md) | [← Main Guide](../../README.md)
+[← Back to Workflows](README.md) | [← Main Guide](../README.md)
 
 ---
 

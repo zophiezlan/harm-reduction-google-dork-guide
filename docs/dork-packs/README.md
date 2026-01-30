@@ -3,7 +3,7 @@
 > Copy-paste search queries organized by harm reduction task. Each pack includes Basic →
 > Intermediate → Advanced progression.
 
-[← Back to Main Guide](../../README.md)
+[← Back to Main Guide](../README.md)
 
 ---
 
@@ -124,8 +124,8 @@ Complex multi-operator queries for power users and edge cases.
 - [Core Operators](../02-core-operators.md) - Learn the operators used in these packs
 - [Synonym Blocks](../05-synonym-blocks.md) - Expand your searches
 - [Domain Map](../04-domain-map.md) - Know where to search
-- [Workflows](../workflows/) - Strategic approaches to research
+- [Workflows](../workflows/README.md) - Strategic approaches to research
 
 ---
 
-[← Back to Main Guide](../../README.md)
+[← Back to Main Guide](../README.md)

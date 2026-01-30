@@ -2,7 +2,7 @@
 
 > Supervision, competencies, frameworks, training, and peer-led practice resources.
 
-[← Back to Dork Packs](README.md) | [← Main Guide](../../README.md)
+[← Back to Dork Packs](README.md) | [← Main Guide](../README.md)
 
 ---
 

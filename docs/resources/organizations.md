@@ -2,7 +2,7 @@
 
 > Directory of essential harm reduction organisations and research institutions.
 
-[← Back to Main Guide](../../README.md)
+[← Back to Main Guide](../README.md)
 
 ---
 
@@ -131,4 +131,4 @@
 
 ---
 
-[← Back to Main Guide](../../README.md)
+[← Back to Main Guide](../README.md)

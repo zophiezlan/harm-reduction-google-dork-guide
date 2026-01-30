@@ -2,7 +2,7 @@
 
 > Co-occurring mental health and substance use.
 
-[← Back to Dork Packs](README.md) | [← Main Guide](../../README.md)
+[← Back to Dork Packs](README.md) | [← Main Guide](../README.md)
 
 ---
 

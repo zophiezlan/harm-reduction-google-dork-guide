@@ -2,7 +2,7 @@
 
 > Planning, safety plans, medical directives, and event-specific intelligence for festival health.
 
-[← Back to Dork Packs](README.md) | [← Main Guide](../../README.md)
+[← Back to Dork Packs](README.md) | [← Main Guide](../README.md)
 
 ---
 

@@ -2,7 +2,7 @@
 
 > Harm reduction in closed settings and justice system interactions.
 
-[← Back to Dork Packs](README.md) | [← Main Guide](../../README.md)
+[← Back to Dork Packs](README.md) | [← Main Guide](../README.md)
 
 ---
 

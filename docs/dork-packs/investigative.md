@@ -2,7 +2,7 @@
 
 > Finding buried, niche, obscure, and unusual content through creative dorking. Use responsibly.
 
-[← Back to Dork Packs](README.md) | [← Main Guide](../../README.md)
+[← Back to Dork Packs](README.md) | [← Main Guide](../README.md)
 
 ---
 

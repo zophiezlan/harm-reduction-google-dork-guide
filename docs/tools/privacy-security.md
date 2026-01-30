@@ -2,7 +2,7 @@
 
 > Protect yourself and your clients when doing sensitive work.
 
-[← Back to Tools](README.md) | [← Main Guide](../../README.md)
+[← Back to Tools](README.md) | [← Main Guide](../README.md)
 
 ---
 

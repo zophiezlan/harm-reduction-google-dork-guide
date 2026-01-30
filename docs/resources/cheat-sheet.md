@@ -2,7 +2,7 @@
 
 > One-page reference for essential operators and searches.
 
-[← Back to Main Guide](../../README.md) | [← Resources](../tools/README.md)
+[← Back to Main Guide](../README.md) | [← Resources](../tools/README.md)
 
 ---
 
@@ -21,8 +21,7 @@
 | `AROUND(n)` | Words nearby    | `naloxone AROUND(5) program` |
 | `*`         | Wildcard        | `"drug * service"`           |
 
-> [!IMPORTANT]
-> `OR` must be **UPPERCASE**. Lowercase `or` is ignored.
+> [!IMPORTANT] `OR` must be **UPPERCASE**. Lowercase `or` is ignored.
 
 ---
 
@@ -185,8 +184,7 @@ site:*.gov.au ("nitazene" OR "novel psychoactive") filetype:pdf after:2023
 | Zero results       | Remove `filetype:pdf`                 |
 | Missing subdomains | Use `site:*.gov.au` not `site:gov.au` |
 
-> [!TIP]
-> **Zero results?** Remove operators one at a time to find which one is too restrictive.
+> [!TIP] **Zero results?** Remove operators one at a time to find which one is too restrictive.
 
 ---
 
@@ -231,9 +229,9 @@ site:*.gov.au ("nitazene" OR "novel psychoactive") filetype:pdf after:2023
 | Resource                                  | Description             |
 | :---------------------------------------- | :---------------------- |
 | [Core Operators](../02-core-operators.md) | Full operator reference |
-| [Dork Packs](../dork-packs/)              | Topic-specific queries  |
+| [Dork Packs](../dork-packs/README.md)              | Topic-specific queries  |
 | [Troubleshooting](../troubleshooting.md)  | When searches fail      |
 
 ---
 
-[← Back to Main Guide](../../README.md)
+[← Back to Main Guide](../README.md)

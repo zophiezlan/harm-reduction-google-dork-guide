@@ -1,15 +1,18 @@
 # VitePress Enhancement Design
 
-> Industry-leading harm reduction Google dork guide with polished UX, rich metadata, and an intuitive Dork Builder experience.
+> Industry-leading harm reduction Google dork guide with polished UX, rich metadata, and an
+> intuitive Dork Builder experience.
 
 ## Overview
 
-Transform the current VitePress documentation from a static dork catalog into an interactive, customizable research tool that serves beginners through experts.
+Transform the current VitePress documentation from a static dork catalog into an interactive,
+customizable research tool that serves beginners through experts.
 
 ### Goals
 
 - **Dork Builder**: Hybrid visual/text query construction tool
-- **Enhanced Explorer**: Upgraded from iframe to full Vue component with favorites, filtering, keyboard nav
+- **Enhanced Explorer**: Upgraded from iframe to full Vue component with favorites, filtering,
+  keyboard nav
 - **User Preferences**: Persistent settings, theme customization, export/import
 - **Rich Metadata**: SEO, OpenGraph, structured data
 - **Modern Polish**: Stripe/Tailwind-quality design with OSINT edge
@@ -39,6 +42,7 @@ Transform the current VitePress documentation from a static dork catalog into an
 ### Experience Modes
 
 Global toggle (Beginner/Practitioner/Expert) affects:
+
 - Default synonym expansion
 - Tooltip verbosity
 - Suggested dorks surfacing
@@ -85,14 +89,14 @@ Mode persists in localStorage.
 
 ### Features
 
-| Feature | Description |
-|---------|-------------|
-| → Builder button | Takes any dork into the Builder for customization |
-| Favorites | Star dorks, persisted locally, exportable |
-| Smart search | Searches query text, titles, explanations, AND synonym expansions |
-| Related dorks | Click a dork to see panel with similar queries |
-| Use-case tags | Filter by intent: "policy research", "supplier finding", etc. |
-| Keyboard nav | `j/k` to move, `c` to copy, `enter` to search, `b` for builder |
+| Feature          | Description                                                       |
+| ---------------- | ----------------------------------------------------------------- |
+| → Builder button | Takes any dork into the Builder for customization                 |
+| Favorites        | Star dorks, persisted locally, exportable                         |
+| Smart search     | Searches query text, titles, explanations, AND synonym expansions |
+| Related dorks    | Click a dork to see panel with similar queries                    |
+| Use-case tags    | Filter by intent: "policy research", "supplier finding", etc.     |
+| Keyboard nav     | `j/k` to move, `c` to copy, `enter` to search, `b` for builder    |
 
 ### Dork Card (Expanded View)
 
@@ -143,13 +147,13 @@ Mode persists in localStorage.
 
 ### Block Types
 
-| Block | Options |
-|-------|---------|
-| 🌐 Site | Presets (.gov.au, .edu.au, .org.au, health portals) + custom + wildcard toggle |
-| 📄 Filetype | PDF, DOCX, XLSX, PPT, HTML - multi-select |
-| 💬 Keywords | Free text + synonym expansion toggle |
-| 📅 Date | Presets (last year, 2 years, custom) using `after:`/`before:` |
-| ⚡ Tricks | `intitle:`, `inurl:`, `related:`, `-exclude`, `OR` groups, `*` wildcard |
+| Block       | Options                                                                        |
+| ----------- | ------------------------------------------------------------------------------ |
+| 🌐 Site     | Presets (.gov.au, .edu.au, .org.au, health portals) + custom + wildcard toggle |
+| 📄 Filetype | PDF, DOCX, XLSX, PPT, HTML - multi-select                                      |
+| 💬 Keywords | Free text + synonym expansion toggle                                           |
+| 📅 Date     | Presets (last year, 2 years, custom) using `after:`/`before:`                  |
+| ⚡ Tricks   | `intitle:`, `inurl:`, `related:`, `-exclude`, `OR` groups, `*` wildcard        |
 
 ### Synonym Integration
 
@@ -202,14 +206,14 @@ Mode persists in localStorage.
 
 ### Data Persistence
 
-| Data | Storage | Exportable |
-|------|---------|------------|
-| Experience mode | localStorage | ✓ |
-| Builder defaults | localStorage | ✓ |
-| Theme preference | localStorage | ✓ |
-| Favorites | localStorage | ✓ |
-| Custom synonyms | localStorage | ✓ |
-| Recent searches | localStorage (last 50) | ✓ |
+| Data             | Storage                | Exportable |
+| ---------------- | ---------------------- | ---------- |
+| Experience mode  | localStorage           | ✓          |
+| Builder defaults | localStorage           | ✓          |
+| Theme preference | localStorage           | ✓          |
+| Favorites        | localStorage           | ✓          |
+| Custom synonyms  | localStorage           | ✓          |
+| Recent searches  | localStorage (last 50) | ✓          |
 
 ### Export Format
 
@@ -234,52 +238,52 @@ Mode persists in localStorage.
 
 ```css
 /* Background */
---bg-deep:     #0a0a0f;
---bg-surface:  #12121a;
+--bg-deep: #0a0a0f;
+--bg-surface: #12121a;
 --bg-elevated: #1a1a24;
 
 /* Text */
---text-primary:   #f4f4f5;
+--text-primary: #f4f4f5;
 --text-secondary: #a1a1aa;
---text-muted:     #71717a;
+--text-muted: #71717a;
 
 /* Accent (user-selectable) */
---accent:         var(--color-violet);
---accent-hover:   color-mix(in srgb, var(--accent) 80%, white);
---accent-subtle:  color-mix(in srgb, var(--accent) 15%, transparent);
+--accent: var(--color-violet);
+--accent-hover: color-mix(in srgb, var(--accent) 80%, white);
+--accent-subtle: color-mix(in srgb, var(--accent) 15%, transparent);
 
 /* Semantic */
---success:  #10b981;
---warning:  #f59e0b;
---danger:   #ef4444;
---info:     #3b82f6;
+--success: #10b981;
+--warning: #f59e0b;
+--danger: #ef4444;
+--info: #3b82f6;
 
 /* Block Colors */
---block-site:     #6366f1;
+--block-site: #6366f1;
 --block-filetype: #ec4899;
---block-keyword:  #8b5cf6;
---block-date:     #14b8a6;
---block-trick:    #f59e0b;
+--block-keyword: #8b5cf6;
+--block-date: #14b8a6;
+--block-trick: #f59e0b;
 ```
 
 ### Theme Colors
 
-| Name | Hex |
-|------|-----|
+| Name   | Hex       |
+| ------ | --------- |
 | Violet | `#8b5cf6` |
-| Blue | `#3b82f6` |
-| Teal | `#14b8a6` |
-| Green | `#10b981` |
-| Amber | `#f59e0b` |
+| Blue   | `#3b82f6` |
+| Teal   | `#14b8a6` |
+| Green  | `#10b981` |
+| Amber  | `#f59e0b` |
 | Orange | `#f97316` |
-| Rose | `#f43f5e` |
-| Gray | `#71717a` |
+| Rose   | `#f43f5e` |
+| Gray   | `#71717a` |
 
 ### Typography
 
 ```css
---font-sans:  'Inter', system-ui, sans-serif;
---font-mono:  'JetBrains Mono', monospace;
+--font-sans: "Inter", system-ui, sans-serif;
+--font-mono: "JetBrains Mono", monospace;
 ```
 
 ### Micro-interactions
@@ -294,8 +298,8 @@ Mode persists in localStorage.
 ### Breakpoints
 
 ```css
---mobile:  < 640px;
---tablet:  640-1024px;
+--mobile: < 640px;
+--tablet: 640-1024px;
 --desktop: > 1024px;
 ```
 
@@ -326,10 +330,12 @@ head:
   "@context": "https://schema.org",
   "@type": "HowTo",
   "name": "Find Naloxone Distribution Programs",
-  "step": [{
-    "@type": "HowToStep",
-    "text": "Use query: site:*.health.gov.au \"naloxone\" \"take home\""
-  }]
+  "step": [
+    {
+      "@type": "HowToStep",
+      "text": "Use query: site:*.health.gov.au \"naloxone\" \"take home\""
+    }
+  ]
 }
 ```
 
@@ -412,6 +418,7 @@ npm run build
 ## Implementation Phases
 
 ### Phase 1: Foundation
+
 - [ ] Restructure to new folder layout
 - [ ] CSS custom properties system with theme switcher
 - [ ] Settings composable + persistence
@@ -419,6 +426,7 @@ npm run build
 - [ ] Enhanced frontmatter across all docs
 
 ### Phase 2: Explorer Upgrade
+
 - [ ] Vue component replacing iframe
 - [ ] Favorites system
 - [ ] Improved filtering + search
@@ -426,6 +434,7 @@ npm run build
 - [ ] "Open in Builder" action
 
 ### Phase 3: Dork Builder
+
 - [ ] Block-based query construction
 - [ ] All 5 block types
 - [ ] Synonym integration
@@ -433,6 +442,7 @@ npm run build
 - [ ] Export options
 
 ### Phase 4: Polish
+
 - [ ] OG image generation
 - [ ] Structured data (JSON-LD)
 - [ ] Light mode refinement

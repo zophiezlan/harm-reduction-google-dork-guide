@@ -1,12 +1,17 @@
 # VitePress Enhancement Implementation Plan
 
-> **For Claude:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task.
+> **For Claude:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan
+> task-by-task.
 
-**Goal:** Transform the harm reduction dork guide into an industry-leading interactive tool with a visual Dork Builder, enhanced Explorer, user preferences, and polished design.
+**Goal:** Transform the harm reduction dork guide into an industry-leading interactive tool with a
+visual Dork Builder, enhanced Explorer, user preferences, and polished design.
 
-**Architecture:** Vue composables for state management with localStorage persistence. CSS custom properties for theming. No external state libraries needed. Build scripts generate dork data and synonym groups from markdown source.
+**Architecture:** Vue composables for state management with localStorage persistence. CSS custom
+properties for theming. No external state libraries needed. Build scripts generate dork data and
+synonym groups from markdown source.
 
-**Tech Stack:** VitePress 1.3+, Vue 3 (Composition API), TypeScript, CSS Custom Properties, Inter + JetBrains Mono fonts
+**Tech Stack:** VitePress 1.3+, Vue 3 (Composition API), TypeScript, CSS Custom Properties, Inter +
+JetBrains Mono fonts
 
 ---
 
@@ -15,6 +20,7 @@
 ### Task 1: Restructure CSS Architecture
 
 **Files:**
+
 - Create: `docs/.vitepress/theme/styles/vars.css`
 - Create: `docs/.vitepress/theme/styles/base.css`
 - Create: `docs/.vitepress/theme/styles/components.css`
@@ -71,8 +77,8 @@
   --block-trick: #f59e0b;
 
   /* Typography */
-  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
   /* Spacing */
   --radius-sm: 6px;
@@ -119,7 +125,7 @@
 ```css
 /* docs/.vitepress/theme/styles/base.css */
 /* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
 
 /* Focus visible for accessibility */
 :focus-visible {
@@ -170,7 +176,9 @@
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-xl);
-  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+  transition:
+    border-color var(--transition-normal),
+    box-shadow var(--transition-normal);
 }
 
 .VPHomeFeatures .item:hover {
@@ -197,7 +205,7 @@
 }
 
 /* Code Blocks */
-.vp-doc div[class*='language-'] {
+.vp-doc div[class*="language-"] {
   background: var(--bg-surface) !important;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
@@ -261,7 +269,9 @@
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   padding: 16px;
-  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+  transition:
+    border-color var(--transition-normal),
+    box-shadow var(--transition-normal);
 }
 
 .card:hover {
@@ -281,7 +291,9 @@
   padding: 12px 16px;
   color: var(--text-primary);
   font-size: 14px;
-  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
 }
 
 .input:focus {
@@ -365,25 +377,35 @@
   margin: 16px 0;
 }
 
-.markdown-alert-note { border-left: 3px solid var(--info); }
-.markdown-alert-tip { border-left: 3px solid var(--success); }
-.markdown-alert-warning { border-left: 3px solid var(--warning); }
-.markdown-alert-important { border-left: 3px solid var(--accent); }
-.markdown-alert-caution { border-left: 3px solid var(--danger); }
+.markdown-alert-note {
+  border-left: 3px solid var(--info);
+}
+.markdown-alert-tip {
+  border-left: 3px solid var(--success);
+}
+.markdown-alert-warning {
+  border-left: 3px solid var(--warning);
+}
+.markdown-alert-important {
+  border-left: 3px solid var(--accent);
+}
+.markdown-alert-caution {
+  border-left: 3px solid var(--danger);
+}
 ```
 
 **Step 4: Update theme index.ts**
 
 ```typescript
 // docs/.vitepress/theme/index.ts
-import DefaultTheme from 'vitepress/theme'
-import './styles/vars.css'
-import './styles/base.css'
-import './styles/components.css'
+import DefaultTheme from "vitepress/theme";
+import "./styles/vars.css";
+import "./styles/base.css";
+import "./styles/components.css";
 
 export default {
   extends: DefaultTheme,
-}
+};
 ```
 
 **Step 5: Delete old custom.css**
@@ -392,8 +414,7 @@ Run: `rm docs/.vitepress/theme/custom.css`
 
 **Step 6: Verify dev server works**
 
-Run: `npm run docs:dev`
-Expected: Site loads with new styling, violet accent colors visible
+Run: `npm run docs:dev` Expected: Site loads with new styling, violet accent colors visible
 
 **Step 7: Commit**
 
@@ -407,6 +428,7 @@ git commit -m "refactor: restructure CSS with design tokens and component styles
 ### Task 2: Create Settings Composable
 
 **Files:**
+
 - Create: `docs/.vitepress/theme/composables/useSettings.ts`
 - Create: `docs/.vitepress/theme/utils/storage.ts`
 
@@ -414,30 +436,30 @@ git commit -m "refactor: restructure CSS with design tokens and component styles
 
 ```typescript
 // docs/.vitepress/theme/utils/storage.ts
-const STORAGE_PREFIX = 'hr-dork-'
+const STORAGE_PREFIX = "hr-dork-";
 
 export function getStorageItem<T>(key: string, defaultValue: T): T {
-  if (typeof window === 'undefined') return defaultValue
+  if (typeof window === "undefined") return defaultValue;
   try {
-    const item = localStorage.getItem(STORAGE_PREFIX + key)
-    return item ? JSON.parse(item) : defaultValue
+    const item = localStorage.getItem(STORAGE_PREFIX + key);
+    return item ? JSON.parse(item) : defaultValue;
   } catch {
-    return defaultValue
+    return defaultValue;
   }
 }
 
 export function setStorageItem<T>(key: string, value: T): void {
-  if (typeof window === 'undefined') return
+  if (typeof window === "undefined") return;
   try {
-    localStorage.setItem(STORAGE_PREFIX + key, JSON.stringify(value))
+    localStorage.setItem(STORAGE_PREFIX + key, JSON.stringify(value));
   } catch (e) {
-    console.warn('Failed to save to localStorage:', e)
+    console.warn("Failed to save to localStorage:", e);
   }
 }
 
 export function removeStorageItem(key: string): void {
-  if (typeof window === 'undefined') return
-  localStorage.removeItem(STORAGE_PREFIX + key)
+  if (typeof window === "undefined") return;
+  localStorage.removeItem(STORAGE_PREFIX + key);
 }
 ```
 
@@ -445,97 +467,105 @@ export function removeStorageItem(key: string): void {
 
 ```typescript
 // docs/.vitepress/theme/composables/useSettings.ts
-import { reactive, watch, onMounted } from 'vue'
-import { getStorageItem, setStorageItem } from '../utils/storage'
+import { reactive, watch, onMounted } from "vue";
+import { getStorageItem, setStorageItem } from "../utils/storage";
 
-export type ThemeColor = 'violet' | 'blue' | 'teal' | 'green' | 'amber' | 'orange' | 'rose' | 'gray'
-export type ThemeMode = 'dark' | 'light' | 'system'
-export type ExperienceMode = 'beginner' | 'practitioner' | 'expert'
+export type ThemeColor =
+  | "violet"
+  | "blue"
+  | "teal"
+  | "green"
+  | "amber"
+  | "orange"
+  | "rose"
+  | "gray";
+export type ThemeMode = "dark" | "light" | "system";
+export type ExperienceMode = "beginner" | "practitioner" | "expert";
 
 export interface Settings {
-  experienceMode: ExperienceMode
+  experienceMode: ExperienceMode;
   theme: {
-    color: ThemeColor
-    mode: ThemeMode
-  }
+    color: ThemeColor;
+    mode: ThemeMode;
+  };
   defaults: {
-    synonyms: boolean
-    dateRange: '1y' | '2y' | '5y' | 'none'
-    auOnly: boolean
-  }
+    synonyms: boolean;
+    dateRange: "1y" | "2y" | "5y" | "none";
+    auOnly: boolean;
+  };
 }
 
 const defaultSettings: Settings = {
-  experienceMode: 'practitioner',
+  experienceMode: "practitioner",
   theme: {
-    color: 'violet',
-    mode: 'dark',
+    color: "violet",
+    mode: "dark",
   },
   defaults: {
     synonyms: true,
-    dateRange: '2y',
+    dateRange: "2y",
     auOnly: false,
   },
-}
+};
 
 // Singleton state
-let settingsState: Settings | null = null
+let settingsState: Settings | null = null;
 
 export function useSettings() {
   if (!settingsState) {
-    settingsState = reactive<Settings>({ ...defaultSettings })
+    settingsState = reactive<Settings>({ ...defaultSettings });
   }
 
-  const settings = settingsState
+  const settings = settingsState;
 
   // Apply theme color to CSS
   function applyThemeColor(color: ThemeColor) {
-    if (typeof document === 'undefined') return
-    document.documentElement.style.setProperty('--accent', `var(--color-${color})`)
+    if (typeof document === "undefined") return;
+    document.documentElement.style.setProperty("--accent", `var(--color-${color})`);
   }
 
   // Apply theme mode
   function applyThemeMode(mode: ThemeMode) {
-    if (typeof document === 'undefined') return
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-    const isDark = mode === 'dark' || (mode === 'system' && prefersDark)
-    document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light')
+    if (typeof document === "undefined") return;
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const isDark = mode === "dark" || (mode === "system" && prefersDark);
+    document.documentElement.setAttribute("data-theme", isDark ? "dark" : "light");
   }
 
   // Initialize on mount
   function initialize() {
-    const saved = getStorageItem<Settings>('settings', defaultSettings)
-    Object.assign(settings, saved)
-    applyThemeColor(settings.theme.color)
-    applyThemeMode(settings.theme.mode)
+    const saved = getStorageItem<Settings>("settings", defaultSettings);
+    Object.assign(settings, saved);
+    applyThemeColor(settings.theme.color);
+    applyThemeMode(settings.theme.mode);
   }
 
   // Watch for changes and persist
   watch(
     settings,
     (newSettings) => {
-      setStorageItem('settings', newSettings)
-      applyThemeColor(newSettings.theme.color)
-      applyThemeMode(newSettings.theme.mode)
+      setStorageItem("settings", newSettings);
+      applyThemeColor(newSettings.theme.color);
+      applyThemeMode(newSettings.theme.mode);
     },
     { deep: true }
-  )
+  );
 
   // Setters
   function setThemeColor(color: ThemeColor) {
-    settings.theme.color = color
+    settings.theme.color = color;
   }
 
   function setThemeMode(mode: ThemeMode) {
-    settings.theme.mode = mode
+    settings.theme.mode = mode;
   }
 
   function setExperienceMode(mode: ExperienceMode) {
-    settings.experienceMode = mode
+    settings.experienceMode = mode;
   }
 
   function resetSettings() {
-    Object.assign(settings, defaultSettings)
+    Object.assign(settings, defaultSettings);
   }
 
   return {
@@ -545,14 +575,13 @@ export function useSettings() {
     setThemeMode,
     setExperienceMode,
     resetSettings,
-  }
+  };
 }
 ```
 
 **Step 3: Verify TypeScript compiles**
 
-Run: `npx tsc --noEmit`
-Expected: No errors (may need to install @types/node if not present)
+Run: `npx tsc --noEmit` Expected: No errors (may need to install @types/node if not present)
 
 **Step 4: Commit**
 
@@ -566,6 +595,7 @@ git commit -m "feat: add settings composable with localStorage persistence"
 ### Task 3: Create Theme Switcher Component
 
 **Files:**
+
 - Create: `docs/.vitepress/theme/components/ThemeSwitcher.vue`
 - Modify: `docs/.vitepress/theme/index.ts`
 
@@ -574,20 +604,20 @@ git commit -m "feat: add settings composable with localStorage persistence"
 ```vue
 <!-- docs/.vitepress/theme/components/ThemeSwitcher.vue -->
 <script setup lang="ts">
-import { useSettings, type ThemeColor } from '../composables/useSettings'
+import { useSettings, type ThemeColor } from "../composables/useSettings";
 
-const { settings, setThemeColor, setThemeMode } = useSettings()
+const { settings, setThemeColor, setThemeMode } = useSettings();
 
 const colors: { id: ThemeColor; label: string }[] = [
-  { id: 'violet', label: 'Violet' },
-  { id: 'blue', label: 'Blue' },
-  { id: 'teal', label: 'Teal' },
-  { id: 'green', label: 'Green' },
-  { id: 'amber', label: 'Amber' },
-  { id: 'orange', label: 'Orange' },
-  { id: 'rose', label: 'Rose' },
-  { id: 'gray', label: 'Gray' },
-]
+  { id: "violet", label: "Violet" },
+  { id: "blue", label: "Blue" },
+  { id: "teal", label: "Teal" },
+  { id: "green", label: "Green" },
+  { id: "amber", label: "Amber" },
+  { id: "orange", label: "Orange" },
+  { id: "rose", label: "Rose" },
+  { id: "gray", label: "Gray" },
+];
 </script>
 
 <template>
@@ -675,7 +705,9 @@ const colors: { id: ThemeColor; label: string }[] = [
 
 .color-swatch.active {
   border-color: var(--text-primary);
-  box-shadow: 0 0 0 2px var(--bg-deep), 0 0 0 4px var(--swatch-color);
+  box-shadow:
+    0 0 0 2px var(--bg-deep),
+    0 0 0 4px var(--swatch-color);
 }
 
 .mode-options {
@@ -711,32 +743,31 @@ const colors: { id: ThemeColor; label: string }[] = [
 
 ```typescript
 // docs/.vitepress/theme/index.ts
-import DefaultTheme from 'vitepress/theme'
-import { onMounted } from 'vue'
-import './styles/vars.css'
-import './styles/base.css'
-import './styles/components.css'
-import ThemeSwitcher from './components/ThemeSwitcher.vue'
-import { useSettings } from './composables/useSettings'
+import DefaultTheme from "vitepress/theme";
+import { onMounted } from "vue";
+import "./styles/vars.css";
+import "./styles/base.css";
+import "./styles/components.css";
+import ThemeSwitcher from "./components/ThemeSwitcher.vue";
+import { useSettings } from "./composables/useSettings";
 
 export default {
   extends: DefaultTheme,
   enhanceApp({ app }) {
-    app.component('ThemeSwitcher', ThemeSwitcher)
+    app.component("ThemeSwitcher", ThemeSwitcher);
   },
   setup() {
     onMounted(() => {
-      const { initialize } = useSettings()
-      initialize()
-    })
+      const { initialize } = useSettings();
+      initialize();
+    });
   },
-}
+};
 ```
 
 **Step 3: Test component renders**
 
-Run: `npm run docs:dev`
-Expected: Site loads, theme applied from localStorage (or defaults)
+Run: `npm run docs:dev` Expected: Site loads, theme applied from localStorage (or defaults)
 
 **Step 4: Commit**
 
@@ -750,86 +781,87 @@ git commit -m "feat: add ThemeSwitcher component with color and mode selection"
 ### Task 4: Create Favorites Composable
 
 **Files:**
+
 - Create: `docs/.vitepress/theme/composables/useFavorites.ts`
 
 **Step 1: Create useFavorites composable**
 
 ```typescript
 // docs/.vitepress/theme/composables/useFavorites.ts
-import { reactive, watch } from 'vue'
-import { getStorageItem, setStorageItem } from '../utils/storage'
+import { reactive, watch } from "vue";
+import { getStorageItem, setStorageItem } from "../utils/storage";
 
 export interface FavoriteItem {
-  id: string
-  packId: string
-  title: string
-  query: string
-  addedAt: number
+  id: string;
+  packId: string;
+  title: string;
+  query: string;
+  addedAt: number;
 }
 
 interface FavoritesState {
-  items: FavoriteItem[]
+  items: FavoriteItem[];
 }
 
-let favoritesState: FavoritesState | null = null
+let favoritesState: FavoritesState | null = null;
 
 export function useFavorites() {
   if (!favoritesState) {
     favoritesState = reactive<FavoritesState>({
       items: [],
-    })
+    });
   }
 
-  const state = favoritesState
+  const state = favoritesState;
 
   function initialize() {
-    const saved = getStorageItem<FavoriteItem[]>('favorites', [])
-    state.items = saved
+    const saved = getStorageItem<FavoriteItem[]>("favorites", []);
+    state.items = saved;
   }
 
   watch(
     () => state.items,
     (items) => {
-      setStorageItem('favorites', items)
+      setStorageItem("favorites", items);
     },
     { deep: true }
-  )
+  );
 
   function addFavorite(packId: string, title: string, query: string) {
-    const id = `${packId}-${title.toLowerCase().replace(/\s+/g, '-')}`
-    if (state.items.some((f) => f.id === id)) return // Already exists
+    const id = `${packId}-${title.toLowerCase().replace(/\s+/g, "-")}`;
+    if (state.items.some((f) => f.id === id)) return; // Already exists
     state.items.push({
       id,
       packId,
       title,
       query,
       addedAt: Date.now(),
-    })
+    });
   }
 
   function removeFavorite(id: string) {
-    const idx = state.items.findIndex((f) => f.id === id)
+    const idx = state.items.findIndex((f) => f.id === id);
     if (idx !== -1) {
-      state.items.splice(idx, 1)
+      state.items.splice(idx, 1);
     }
   }
 
   function isFavorite(packId: string, title: string): boolean {
-    const id = `${packId}-${title.toLowerCase().replace(/\s+/g, '-')}`
-    return state.items.some((f) => f.id === id)
+    const id = `${packId}-${title.toLowerCase().replace(/\s+/g, "-")}`;
+    return state.items.some((f) => f.id === id);
   }
 
   function toggleFavorite(packId: string, title: string, query: string) {
     if (isFavorite(packId, title)) {
-      const id = `${packId}-${title.toLowerCase().replace(/\s+/g, '-')}`
-      removeFavorite(id)
+      const id = `${packId}-${title.toLowerCase().replace(/\s+/g, "-")}`;
+      removeFavorite(id);
     } else {
-      addFavorite(packId, title, query)
+      addFavorite(packId, title, query);
     }
   }
 
   function clearFavorites() {
-    state.items = []
+    state.items = [];
   }
 
   return {
@@ -840,7 +872,7 @@ export function useFavorites() {
     isFavorite,
     toggleFavorite,
     clearFavorites,
-  }
+  };
 }
 ```
 
@@ -856,6 +888,7 @@ git commit -m "feat: add favorites composable for dork bookmarking"
 ### Task 5: Create Toast Notification Component
 
 **Files:**
+
 - Create: `docs/.vitepress/theme/components/Toast.vue`
 - Create: `docs/.vitepress/theme/composables/useToast.ts`
 
@@ -863,43 +896,43 @@ git commit -m "feat: add favorites composable for dork bookmarking"
 
 ```typescript
 // docs/.vitepress/theme/composables/useToast.ts
-import { ref } from 'vue'
+import { ref } from "vue";
 
 export interface ToastMessage {
-  id: number
-  message: string
-  type: 'success' | 'error' | 'info'
+  id: number;
+  message: string;
+  type: "success" | "error" | "info";
 }
 
-const toasts = ref<ToastMessage[]>([])
-let toastId = 0
+const toasts = ref<ToastMessage[]>([]);
+let toastId = 0;
 
 export function useToast() {
-  function show(message: string, type: ToastMessage['type'] = 'info', duration = 3000) {
-    const id = ++toastId
-    toasts.value.push({ id, message, type })
+  function show(message: string, type: ToastMessage["type"] = "info", duration = 3000) {
+    const id = ++toastId;
+    toasts.value.push({ id, message, type });
     setTimeout(() => {
-      dismiss(id)
-    }, duration)
+      dismiss(id);
+    }, duration);
   }
 
   function dismiss(id: number) {
-    const idx = toasts.value.findIndex((t) => t.id === id)
+    const idx = toasts.value.findIndex((t) => t.id === id);
     if (idx !== -1) {
-      toasts.value.splice(idx, 1)
+      toasts.value.splice(idx, 1);
     }
   }
 
   function success(message: string) {
-    show(message, 'success')
+    show(message, "success");
   }
 
   function error(message: string) {
-    show(message, 'error')
+    show(message, "error");
   }
 
   function info(message: string) {
-    show(message, 'info')
+    show(message, "info");
   }
 
   return {
@@ -909,7 +942,7 @@ export function useToast() {
     success,
     error,
     info,
-  }
+  };
 }
 ```
 
@@ -918,15 +951,15 @@ export function useToast() {
 ```vue
 <!-- docs/.vitepress/theme/components/Toast.vue -->
 <script setup lang="ts">
-import { useToast } from '../composables/useToast'
+import { useToast } from "../composables/useToast";
 
-const { toasts, dismiss } = useToast()
+const { toasts, dismiss } = useToast();
 
 const icons = {
-  success: '✓',
-  error: '✕',
-  info: 'ℹ',
-}
+  success: "✓",
+  error: "✕",
+  info: "ℹ",
+};
 </script>
 
 <template>
@@ -1023,31 +1056,31 @@ const icons = {
 
 ```typescript
 // docs/.vitepress/theme/index.ts
-import DefaultTheme from 'vitepress/theme'
-import { onMounted } from 'vue'
-import './styles/vars.css'
-import './styles/base.css'
-import './styles/components.css'
-import ThemeSwitcher from './components/ThemeSwitcher.vue'
-import Toast from './components/Toast.vue'
-import { useSettings } from './composables/useSettings'
-import { useFavorites } from './composables/useFavorites'
+import DefaultTheme from "vitepress/theme";
+import { onMounted } from "vue";
+import "./styles/vars.css";
+import "./styles/base.css";
+import "./styles/components.css";
+import ThemeSwitcher from "./components/ThemeSwitcher.vue";
+import Toast from "./components/Toast.vue";
+import { useSettings } from "./composables/useSettings";
+import { useFavorites } from "./composables/useFavorites";
 
 export default {
   extends: DefaultTheme,
   enhanceApp({ app }) {
-    app.component('ThemeSwitcher', ThemeSwitcher)
-    app.component('Toast', Toast)
+    app.component("ThemeSwitcher", ThemeSwitcher);
+    app.component("Toast", Toast);
   },
   setup() {
     onMounted(() => {
-      const { initialize: initSettings } = useSettings()
-      const { initialize: initFavorites } = useFavorites()
-      initSettings()
-      initFavorites()
-    })
+      const { initialize: initSettings } = useSettings();
+      const { initialize: initFavorites } = useFavorites();
+      initSettings();
+      initFavorites();
+    });
   },
-}
+};
 ```
 
 **Step 4: Commit**
@@ -1062,95 +1095,99 @@ git commit -m "feat: add Toast notification system"
 ### Task 6: Build Synonym Data Extractor
 
 **Files:**
+
 - Create: `scripts/build-synonyms.js`
 - Modify: `package.json`
 
 **Step 1: Create synonym extraction script**
 
-```javascript
+````javascript
 // scripts/build-synonyms.js
-const fs = require('fs')
-const path = require('path')
+const fs = require("fs");
+const path = require("path");
 
-const SYNONYM_FILE = path.join(__dirname, '../docs/05-synonym-blocks.md')
-const OUTPUT_FILE = path.join(__dirname, '../docs/.vitepress/theme/data/synonyms.ts')
+const SYNONYM_FILE = path.join(__dirname, "../docs/05-synonym-blocks.md");
+const OUTPUT_FILE = path.join(__dirname, "../docs/.vitepress/theme/data/synonyms.ts");
 
 function extractSynonymGroups() {
-  const content = fs.readFileSync(SYNONYM_FILE, 'utf-8')
-  const lines = content.split('\n')
+  const content = fs.readFileSync(SYNONYM_FILE, "utf-8");
+  const lines = content.split("\n");
 
-  const groups = []
-  let currentGroup = null
-  let captureCode = false
-  let codeBuffer = []
+  const groups = [];
+  let currentGroup = null;
+  let captureCode = false;
+  let codeBuffer = [];
 
   for (const line of lines) {
-    const trimmed = line.trim()
+    const trimmed = line.trim();
 
     // H2 or H3 headers = new group name
     if (trimmed.match(/^##+ .+/)) {
       if (currentGroup && currentGroup.terms.length > 0) {
-        groups.push(currentGroup)
+        groups.push(currentGroup);
       }
       const name = trimmed
-        .replace(/^#+\s*/, '')
-        .replace(/🌏|🚨|💉|👥|💊|🔬|🧪|🏥|🎪|👩‍⚕️|📊|🏠|🧠|👶|👨‍👩‍👧|🖤💛❤️|⚖️|📋|🔄|📅|🔧/g, '')
-        .trim()
+        .replace(/^#+\s*/, "")
+        .replace(/🌏|🚨|💉|👥|💊|🔬|🧪|🏥|🎪|👩‍⚕️|📊|🏠|🧠|👶|👨‍👩‍👧|🖤💛❤️|⚖️|📋|🔄|📅|🔧/g, "")
+        .trim();
       currentGroup = {
-        id: name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+$/, ''),
+        id: name
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, "-")
+          .replace(/-+$/, ""),
         name,
         terms: [],
-        pattern: '',
-      }
-      continue
+        pattern: "",
+      };
+      continue;
     }
 
     // Code blocks contain the synonym pattern
-    if (trimmed.startsWith('```')) {
+    if (trimmed.startsWith("```")) {
       if (!captureCode) {
-        captureCode = true
-        codeBuffer = []
+        captureCode = true;
+        codeBuffer = [];
       } else {
-        captureCode = false
+        captureCode = false;
         if (currentGroup && codeBuffer.length > 0) {
-          const pattern = codeBuffer.join(' ').trim()
+          const pattern = codeBuffer.join(" ").trim();
           // Extract individual terms from OR pattern
           const terms = pattern
-            .replace(/^\(|\)$/g, '')
+            .replace(/^\(|\)$/g, "")
             .split(/\s+OR\s+/i)
-            .map(t => t.replace(/^["']|["']$/g, '').trim())
-            .filter(t => t.length > 0 && !t.includes('site:') && !t.includes('filetype:'))
+            .map((t) => t.replace(/^["']|["']$/g, "").trim())
+            .filter((t) => t.length > 0 && !t.includes("site:") && !t.includes("filetype:"));
 
           if (terms.length > 1) {
-            currentGroup.terms = terms
-            currentGroup.pattern = pattern
+            currentGroup.terms = terms;
+            currentGroup.pattern = pattern;
           }
         }
       }
-      continue
+      continue;
     }
 
     if (captureCode) {
-      codeBuffer.push(line)
+      codeBuffer.push(line);
     }
   }
 
   // Push last group
   if (currentGroup && currentGroup.terms.length > 0) {
-    groups.push(currentGroup)
+    groups.push(currentGroup);
   }
 
-  return groups.filter(g => g.terms.length > 0)
+  return groups.filter((g) => g.terms.length > 0);
 }
 
 function main() {
   // Ensure output directory exists
-  const outputDir = path.dirname(OUTPUT_FILE)
+  const outputDir = path.dirname(OUTPUT_FILE);
   if (!fs.existsSync(outputDir)) {
-    fs.mkdirSync(outputDir, { recursive: true })
+    fs.mkdirSync(outputDir, { recursive: true });
   }
 
-  const groups = extractSynonymGroups()
+  const groups = extractSynonymGroups();
 
   const output = `// Auto-generated from 05-synonym-blocks.md
 // Do not edit manually
@@ -1176,18 +1213,19 @@ export function expandWithSynonyms(term: string): string {
   if (!group) return term
   return group.pattern
 }
-`
+`;
 
-  fs.writeFileSync(OUTPUT_FILE, output)
-  console.log(`Generated ${groups.length} synonym groups to ${OUTPUT_FILE}`)
+  fs.writeFileSync(OUTPUT_FILE, output);
+  console.log(`Generated ${groups.length} synonym groups to ${OUTPUT_FILE}`);
 }
 
-main()
-```
+main();
+````
 
 **Step 2: Update package.json scripts**
 
 Add to scripts section:
+
 ```json
 "build:synonyms": "node scripts/build-synonyms.js",
 "build:all": "npm run build && npm run build:synonyms"
@@ -1195,8 +1233,8 @@ Add to scripts section:
 
 **Step 3: Run and verify**
 
-Run: `npm run build:synonyms`
-Expected: Creates `docs/.vitepress/theme/data/synonyms.ts` with synonym groups
+Run: `npm run build:synonyms` Expected: Creates `docs/.vitepress/theme/data/synonyms.ts` with
+synonym groups
 
 **Step 4: Commit**
 
@@ -1212,6 +1250,7 @@ git commit -m "feat: add synonym extraction build script"
 ### Task 7: Create Dork Data Composable
 
 **Files:**
+
 - Create: `docs/.vitepress/theme/composables/useDorkData.ts`
 - Create: `docs/.vitepress/theme/data/types.ts`
 
@@ -1220,22 +1259,22 @@ git commit -m "feat: add synonym extraction build script"
 ```typescript
 // docs/.vitepress/theme/data/types.ts
 export interface Dork {
-  title: string
-  category: string
-  query: string
-  explanation: string
+  title: string;
+  category: string;
+  query: string;
+  explanation: string;
 }
 
 export interface DorkPack {
-  id: string
-  title: string
-  description: string
-  dorks: Dork[]
+  id: string;
+  title: string;
+  description: string;
+  dorks: Dork[];
 }
 
 export interface DorkWithPack extends Dork {
-  packId: string
-  packTitle: string
+  packId: string;
+  packTitle: string;
 }
 ```
 
@@ -1243,28 +1282,28 @@ export interface DorkWithPack extends Dork {
 
 ```typescript
 // docs/.vitepress/theme/composables/useDorkData.ts
-import { ref, computed } from 'vue'
-import type { DorkPack, DorkWithPack } from '../data/types'
+import { ref, computed } from "vue";
+import type { DorkPack, DorkWithPack } from "../data/types";
 
-const dorkPacks = ref<DorkPack[]>([])
-const isLoaded = ref(false)
-const isLoading = ref(false)
+const dorkPacks = ref<DorkPack[]>([]);
+const isLoaded = ref(false);
+const isLoading = ref(false);
 
 export function useDorkData() {
   async function loadDorks() {
-    if (isLoaded.value || isLoading.value) return
-    isLoading.value = true
+    if (isLoaded.value || isLoading.value) return;
+    isLoading.value = true;
 
     try {
       // Load from global window object (set by dork-data.js)
-      if (typeof window !== 'undefined' && (window as any).DORK_DATA) {
-        dorkPacks.value = (window as any).DORK_DATA
-        isLoaded.value = true
+      if (typeof window !== "undefined" && (window as any).DORK_DATA) {
+        dorkPacks.value = (window as any).DORK_DATA;
+        isLoaded.value = true;
       }
     } catch (e) {
-      console.error('Failed to load dork data:', e)
+      console.error("Failed to load dork data:", e);
     } finally {
-      isLoading.value = false
+      isLoading.value = false;
     }
   }
 
@@ -1275,8 +1314,8 @@ export function useDorkData() {
         packId: pack.id,
         packTitle: pack.title,
       }))
-    )
-  })
+    );
+  });
 
   const packList = computed(() =>
     dorkPacks.value.map((p) => ({
@@ -1285,50 +1324,50 @@ export function useDorkData() {
       description: p.description,
       count: p.dorks.length,
     }))
-  )
+  );
 
   const categories = computed(() => {
-    const cats = new Set<string>()
-    allDorks.value.forEach((d) => cats.add(d.category))
-    return Array.from(cats).sort()
-  })
+    const cats = new Set<string>();
+    allDorks.value.forEach((d) => cats.add(d.category));
+    return Array.from(cats).sort();
+  });
 
   function searchDorks(
     query: string,
     filters: {
-      packs?: string[]
-      categories?: string[]
+      packs?: string[];
+      categories?: string[];
     } = {}
   ): DorkWithPack[] {
-    let results = allDorks.value
+    let results = allDorks.value;
 
     // Filter by packs
     if (filters.packs && filters.packs.length > 0) {
-      results = results.filter((d) => filters.packs!.includes(d.packId))
+      results = results.filter((d) => filters.packs!.includes(d.packId));
     }
 
     // Filter by categories
     if (filters.categories && filters.categories.length > 0) {
-      results = results.filter((d) => filters.categories!.includes(d.category))
+      results = results.filter((d) => filters.categories!.includes(d.category));
     }
 
     // Search query
     if (query.trim()) {
-      const lower = query.toLowerCase()
+      const lower = query.toLowerCase();
       results = results.filter(
         (d) =>
           d.title.toLowerCase().includes(lower) ||
           d.query.toLowerCase().includes(lower) ||
           d.explanation.toLowerCase().includes(lower) ||
           d.packTitle.toLowerCase().includes(lower)
-      )
+      );
     }
 
-    return results
+    return results;
   }
 
   function getDorksByPack(packId: string): DorkWithPack[] {
-    return allDorks.value.filter((d) => d.packId === packId)
+    return allDorks.value.filter((d) => d.packId === packId);
   }
 
   return {
@@ -1341,7 +1380,7 @@ export function useDorkData() {
     loadDorks,
     searchDorks,
     getDorksByPack,
-  }
+  };
 }
 ```
 
@@ -1357,6 +1396,7 @@ git commit -m "feat: add dork data composable for search and filtering"
 ### Task 8: Create DorkCard Component
 
 **Files:**
+
 - Create: `docs/.vitepress/theme/components/explorer/DorkCard.vue`
 
 **Step 1: Create DorkCard component**
@@ -1364,37 +1404,37 @@ git commit -m "feat: add dork data composable for search and filtering"
 ```vue
 <!-- docs/.vitepress/theme/components/explorer/DorkCard.vue -->
 <script setup lang="ts">
-import { computed } from 'vue'
-import type { DorkWithPack } from '../../data/types'
-import { useFavorites } from '../../composables/useFavorites'
-import { useToast } from '../../composables/useToast'
+import { computed } from "vue";
+import type { DorkWithPack } from "../../data/types";
+import { useFavorites } from "../../composables/useFavorites";
+import { useToast } from "../../composables/useToast";
 
 const props = defineProps<{
-  dork: DorkWithPack
-}>()
+  dork: DorkWithPack;
+}>();
 
 const emit = defineEmits<{
-  openInBuilder: [dork: DorkWithPack]
-}>()
+  openInBuilder: [dork: DorkWithPack];
+}>();
 
-const { isFavorite, toggleFavorite } = useFavorites()
-const { success } = useToast()
+const { isFavorite, toggleFavorite } = useFavorites();
+const { success } = useToast();
 
-const isFav = computed(() => isFavorite(props.dork.packId, props.dork.title))
+const isFav = computed(() => isFavorite(props.dork.packId, props.dork.title));
 
 function copyQuery() {
-  navigator.clipboard.writeText(props.dork.query)
-  success('Query copied to clipboard')
+  navigator.clipboard.writeText(props.dork.query);
+  success("Query copied to clipboard");
 }
 
 function searchGoogle() {
-  const url = `https://www.google.com/search?q=${encodeURIComponent(props.dork.query)}`
-  window.open(url, '_blank')
+  const url = `https://www.google.com/search?q=${encodeURIComponent(props.dork.query)}`;
+  window.open(url, "_blank");
 }
 
 function handleFavorite() {
-  toggleFavorite(props.dork.packId, props.dork.title, props.dork.query)
-  success(isFav.value ? 'Removed from favorites' : 'Added to favorites')
+  toggleFavorite(props.dork.packId, props.dork.title, props.dork.query);
+  success(isFav.value ? "Removed from favorites" : "Added to favorites");
 }
 </script>
 
@@ -1410,7 +1450,7 @@ function handleFavorite() {
     </div>
 
     <p v-if="dork.explanation" class="card-explanation">
-      {{ dork.explanation.slice(0, 150) }}{{ dork.explanation.length > 150 ? '...' : '' }}
+      {{ dork.explanation.slice(0, 150) }}{{ dork.explanation.length > 150 ? "..." : "" }}
     </p>
 
     <div class="card-meta">
@@ -1418,9 +1458,7 @@ function handleFavorite() {
     </div>
 
     <div class="card-actions">
-      <button class="action-btn" title="Copy query" @click="copyQuery">
-        <span>📋</span> Copy
-      </button>
+      <button class="action-btn" title="Copy query" @click="copyQuery"><span>📋</span> Copy</button>
       <button class="action-btn" title="Search Google" @click="searchGoogle">
         <span>🔍</span> Search
       </button>
@@ -1432,7 +1470,7 @@ function handleFavorite() {
         title="Toggle favorite"
         @click="handleFavorite"
       >
-        <span>{{ isFav ? '★' : '☆' }}</span>
+        <span>{{ isFav ? "★" : "☆" }}</span>
       </button>
     </div>
   </div>
@@ -1447,7 +1485,9 @@ function handleFavorite() {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+  transition:
+    border-color var(--transition-normal),
+    box-shadow var(--transition-normal);
 }
 
 .dork-card:hover {
@@ -1557,6 +1597,7 @@ git commit -m "feat: add DorkCard component with copy, search, and favorite acti
 ### Task 9: Create DorkExplorer Page Component
 
 **Files:**
+
 - Create: `docs/.vitepress/theme/components/explorer/DorkExplorer.vue`
 - Create: `docs/explorer.md`
 
@@ -1565,99 +1606,99 @@ git commit -m "feat: add DorkCard component with copy, search, and favorite acti
 ```vue
 <!-- docs/.vitepress/theme/components/explorer/DorkExplorer.vue -->
 <script setup lang="ts">
-import { ref, computed, onMounted, watch } from 'vue'
-import { useDorkData } from '../../composables/useDorkData'
-import { useFavorites } from '../../composables/useFavorites'
-import DorkCard from './DorkCard.vue'
-import type { DorkWithPack } from '../../data/types'
+import { ref, computed, onMounted, watch } from "vue";
+import { useDorkData } from "../../composables/useDorkData";
+import { useFavorites } from "../../composables/useFavorites";
+import DorkCard from "./DorkCard.vue";
+import type { DorkWithPack } from "../../data/types";
 
-const { loadDorks, searchDorks, packList, categories, isLoaded } = useDorkData()
-const { favorites } = useFavorites()
+const { loadDorks, searchDorks, packList, categories, isLoaded } = useDorkData();
+const { favorites } = useFavorites();
 
 // State
-const searchQuery = ref('')
-const selectedPacks = ref<string[]>([])
-const selectedCategories = ref<string[]>([])
-const showFavoritesOnly = ref(false)
-const viewMode = ref<'grid' | 'list'>('grid')
+const searchQuery = ref("");
+const selectedPacks = ref<string[]>([]);
+const selectedCategories = ref<string[]>([]);
+const showFavoritesOnly = ref(false);
+const viewMode = ref<"grid" | "list">("grid");
 
 // Load dorks on mount
 onMounted(async () => {
   // Load dork-data.js script
-  if (typeof window !== 'undefined' && !(window as any).DORK_DATA) {
-    const script = document.createElement('script')
-    script.src = '/harm-reduction-google-dork-guide/dork-explorer/dork-data.js'
-    script.onload = () => loadDorks()
-    document.head.appendChild(script)
+  if (typeof window !== "undefined" && !(window as any).DORK_DATA) {
+    const script = document.createElement("script");
+    script.src = "/harm-reduction-google-dork-guide/dork-explorer/dork-data.js";
+    script.onload = () => loadDorks();
+    document.head.appendChild(script);
   } else {
-    loadDorks()
+    loadDorks();
   }
-})
+});
 
 // Filtered results
 const results = computed(() => {
   if (showFavoritesOnly.value) {
-    const favIds = new Set(favorites.map((f) => f.id))
+    const favIds = new Set(favorites.map((f) => f.id));
     return searchDorks(searchQuery.value, {
       packs: selectedPacks.value.length > 0 ? selectedPacks.value : undefined,
       categories: selectedCategories.value.length > 0 ? selectedCategories.value : undefined,
     }).filter((d) => {
-      const id = `${d.packId}-${d.title.toLowerCase().replace(/\s+/g, '-')}`
-      return favIds.has(id)
-    })
+      const id = `${d.packId}-${d.title.toLowerCase().replace(/\s+/g, "-")}`;
+      return favIds.has(id);
+    });
   }
 
   return searchDorks(searchQuery.value, {
     packs: selectedPacks.value.length > 0 ? selectedPacks.value : undefined,
     categories: selectedCategories.value.length > 0 ? selectedCategories.value : undefined,
-  })
-})
+  });
+});
 
 function togglePack(packId: string) {
-  const idx = selectedPacks.value.indexOf(packId)
+  const idx = selectedPacks.value.indexOf(packId);
   if (idx === -1) {
-    selectedPacks.value.push(packId)
+    selectedPacks.value.push(packId);
   } else {
-    selectedPacks.value.splice(idx, 1)
+    selectedPacks.value.splice(idx, 1);
   }
 }
 
 function toggleCategory(category: string) {
-  const idx = selectedCategories.value.indexOf(category)
+  const idx = selectedCategories.value.indexOf(category);
   if (idx === -1) {
-    selectedCategories.value.push(category)
+    selectedCategories.value.push(category);
   } else {
-    selectedCategories.value.splice(idx, 1)
+    selectedCategories.value.splice(idx, 1);
   }
 }
 
 function clearFilters() {
-  searchQuery.value = ''
-  selectedPacks.value = []
-  selectedCategories.value = []
-  showFavoritesOnly.value = false
+  searchQuery.value = "";
+  selectedPacks.value = [];
+  selectedCategories.value = [];
+  showFavoritesOnly.value = false;
 }
 
 function openInBuilder(dork: DorkWithPack) {
   // Navigate to builder with query
-  const url = `/harm-reduction-google-dork-guide/builder?q=${encodeURIComponent(dork.query)}`
-  window.location.href = url
+  const url = `/harm-reduction-google-dork-guide/builder?q=${encodeURIComponent(dork.query)}`;
+  window.location.href = url;
 }
 
 // Keyboard shortcuts
 onMounted(() => {
   const handleKeydown = (e: KeyboardEvent) => {
-    if (e.key === '/' && !['INPUT', 'TEXTAREA'].includes((e.target as HTMLElement).tagName)) {
-      e.preventDefault()
-      document.querySelector<HTMLInputElement>('.search-input')?.focus()
+    if (e.key === "/" && !["INPUT", "TEXTAREA"].includes((e.target as HTMLElement).tagName)) {
+      e.preventDefault();
+      document.querySelector<HTMLInputElement>(".search-input")?.focus();
     }
-    if (e.key === 'Escape') {
-      searchQuery.value = ''
-      ;(document.activeElement as HTMLElement)?.blur()
+    if (e.key === "Escape") {
+      searchQuery.value = "";
+      (document.activeElement as HTMLElement)?.blur();
     }
-  }
-  window.addEventListener('keydown', handleKeydown)
-})
+  };
+  window.addEventListener("keydown", handleKeydown);
+});
 </script>
 
 <template>
@@ -1986,25 +2027,26 @@ import DorkExplorer from './.vitepress/theme/components/explorer/DorkExplorer.vu
 **Step 3: Register components and update config**
 
 Update `docs/.vitepress/theme/index.ts`:
+
 ```typescript
-import DorkExplorer from './components/explorer/DorkExplorer.vue'
-import DorkCard from './components/explorer/DorkCard.vue'
+import DorkExplorer from "./components/explorer/DorkExplorer.vue";
+import DorkCard from "./components/explorer/DorkCard.vue";
 
 // In enhanceApp:
-app.component('DorkExplorer', DorkExplorer)
-app.component('DorkCard', DorkCard)
+app.component("DorkExplorer", DorkExplorer);
+app.component("DorkCard", DorkCard);
 ```
 
 Update `docs/.vitepress/config.mts` nav:
+
 ```typescript
 { text: "Explorer", link: "/explorer" },
 ```
 
 **Step 4: Verify explorer loads**
 
-Run: `npm run docs:dev`
-Navigate to `/explorer`
-Expected: Explorer page loads, shows dorks after loading
+Run: `npm run docs:dev` Navigate to `/explorer` Expected: Explorer page loads, shows dorks after
+loading
 
 **Step 5: Commit**
 
@@ -2020,141 +2062,142 @@ git commit -m "feat: add DorkExplorer page with search, filtering, and favorites
 ### Task 10: Create Query Builder Composable
 
 **Files:**
+
 - Create: `docs/.vitepress/theme/composables/useQueryBuilder.ts`
 
 **Step 1: Create useQueryBuilder composable**
 
 ```typescript
 // docs/.vitepress/theme/composables/useQueryBuilder.ts
-import { reactive, computed } from 'vue'
-import { SYNONYM_GROUPS, findSynonyms } from '../data/synonyms'
+import { reactive, computed } from "vue";
+import { SYNONYM_GROUPS, findSynonyms } from "../data/synonyms";
 
-export type BlockType = 'site' | 'filetype' | 'keyword' | 'date' | 'trick'
+export type BlockType = "site" | "filetype" | "keyword" | "date" | "trick";
 
 export interface QueryBlock {
-  id: string
-  type: BlockType
-  value: string
-  options: Record<string, any>
+  id: string;
+  type: BlockType;
+  value: string;
+  options: Record<string, any>;
 }
 
 interface BuilderState {
-  blocks: QueryBlock[]
-  selectedBlockId: string | null
+  blocks: QueryBlock[];
+  selectedBlockId: string | null;
 }
 
-let builderState: BuilderState | null = null
-let blockIdCounter = 0
+let builderState: BuilderState | null = null;
+let blockIdCounter = 0;
 
 export function useQueryBuilder() {
   if (!builderState) {
     builderState = reactive<BuilderState>({
       blocks: [],
       selectedBlockId: null,
-    })
+    });
   }
 
-  const state = builderState
+  const state = builderState;
 
   // Generate query string from blocks
   const queryString = computed(() => {
     return state.blocks
       .map((block) => {
         switch (block.type) {
-          case 'site':
-            const wildcard = block.options.wildcard ? '*.' : ''
-            return `site:${wildcard}${block.value}`
-          case 'filetype':
-            return `filetype:${block.value}`
-          case 'keyword':
+          case "site":
+            const wildcard = block.options.wildcard ? "*." : "";
+            return `site:${wildcard}${block.value}`;
+          case "filetype":
+            return `filetype:${block.value}`;
+          case "keyword":
             if (block.options.useSynonyms) {
-              const group = findSynonyms(block.value)
-              if (group) return group.pattern
+              const group = findSynonyms(block.value);
+              if (group) return group.pattern;
             }
-            if (block.options.exact) return `"${block.value}"`
-            return block.value
-          case 'date':
-            if (block.options.type === 'after') return `after:${block.value}`
-            if (block.options.type === 'before') return `before:${block.value}`
-            return ''
-          case 'trick':
-            return block.value
+            if (block.options.exact) return `"${block.value}"`;
+            return block.value;
+          case "date":
+            if (block.options.type === "after") return `after:${block.value}`;
+            if (block.options.type === "before") return `before:${block.value}`;
+            return "";
+          case "trick":
+            return block.value;
           default:
-            return block.value
+            return block.value;
         }
       })
       .filter((s) => s.length > 0)
-      .join(' ')
-  })
+      .join(" ");
+  });
 
-  function addBlock(type: BlockType, value = '', options: Record<string, any> = {}) {
-    const id = `block-${++blockIdCounter}`
-    state.blocks.push({ id, type, value, options })
-    state.selectedBlockId = id
-    return id
+  function addBlock(type: BlockType, value = "", options: Record<string, any> = {}) {
+    const id = `block-${++blockIdCounter}`;
+    state.blocks.push({ id, type, value, options });
+    state.selectedBlockId = id;
+    return id;
   }
 
-  function updateBlock(id: string, updates: Partial<Omit<QueryBlock, 'id'>>) {
-    const block = state.blocks.find((b) => b.id === id)
+  function updateBlock(id: string, updates: Partial<Omit<QueryBlock, "id">>) {
+    const block = state.blocks.find((b) => b.id === id);
     if (block) {
-      Object.assign(block, updates)
+      Object.assign(block, updates);
     }
   }
 
   function removeBlock(id: string) {
-    const idx = state.blocks.findIndex((b) => b.id === id)
+    const idx = state.blocks.findIndex((b) => b.id === id);
     if (idx !== -1) {
-      state.blocks.splice(idx, 1)
+      state.blocks.splice(idx, 1);
       if (state.selectedBlockId === id) {
-        state.selectedBlockId = state.blocks[0]?.id || null
+        state.selectedBlockId = state.blocks[0]?.id || null;
       }
     }
   }
 
   function selectBlock(id: string | null) {
-    state.selectedBlockId = id
+    state.selectedBlockId = id;
   }
 
   function clearBlocks() {
-    state.blocks = []
-    state.selectedBlockId = null
+    state.blocks = [];
+    state.selectedBlockId = null;
   }
 
   function loadFromQuery(query: string) {
-    clearBlocks()
+    clearBlocks();
 
     // Parse site:
-    const siteMatch = query.match(/site:(\*\.)?([^\s]+)/i)
+    const siteMatch = query.match(/site:(\*\.)?([^\s]+)/i);
     if (siteMatch) {
-      addBlock('site', siteMatch[2], { wildcard: !!siteMatch[1] })
+      addBlock("site", siteMatch[2], { wildcard: !!siteMatch[1] });
     }
 
     // Parse filetype:
-    const filetypeMatch = query.match(/filetype:([^\s]+)/i)
+    const filetypeMatch = query.match(/filetype:([^\s]+)/i);
     if (filetypeMatch) {
-      addBlock('filetype', filetypeMatch[1])
+      addBlock("filetype", filetypeMatch[1]);
     }
 
     // Parse after:/before:
-    const afterMatch = query.match(/after:([^\s]+)/i)
+    const afterMatch = query.match(/after:([^\s]+)/i);
     if (afterMatch) {
-      addBlock('date', afterMatch[1], { type: 'after' })
+      addBlock("date", afterMatch[1], { type: "after" });
     }
-    const beforeMatch = query.match(/before:([^\s]+)/i)
+    const beforeMatch = query.match(/before:([^\s]+)/i);
     if (beforeMatch) {
-      addBlock('date', beforeMatch[1], { type: 'before' })
+      addBlock("date", beforeMatch[1], { type: "before" });
     }
 
     // Extract remaining keywords (rough extraction)
     let keywords = query
-      .replace(/site:[^\s]+/gi, '')
-      .replace(/filetype:[^\s]+/gi, '')
-      .replace(/after:[^\s]+/gi, '')
-      .replace(/before:[^\s]+/gi, '')
-      .trim()
+      .replace(/site:[^\s]+/gi, "")
+      .replace(/filetype:[^\s]+/gi, "")
+      .replace(/after:[^\s]+/gi, "")
+      .replace(/before:[^\s]+/gi, "")
+      .trim();
 
     if (keywords) {
-      addBlock('keyword', keywords, { useSynonyms: false, exact: keywords.startsWith('"') })
+      addBlock("keyword", keywords, { useSynonyms: false, exact: keywords.startsWith('"') });
     }
   }
 
@@ -2169,7 +2212,7 @@ export function useQueryBuilder() {
     selectBlock,
     clearBlocks,
     loadFromQuery,
-  }
+  };
 }
 ```
 
@@ -2185,6 +2228,7 @@ git commit -m "feat: add query builder composable with block-based query constru
 ### Task 11: Create Builder Block Components
 
 **Files:**
+
 - Create: `docs/.vitepress/theme/components/builder/BlockPalette.vue`
 - Create: `docs/.vitepress/theme/components/builder/BlockEditor.vue`
 - Create: `docs/.vitepress/theme/components/builder/QueryDisplay.vue`
@@ -2194,20 +2238,20 @@ git commit -m "feat: add query builder composable with block-based query constru
 ```vue
 <!-- docs/.vitepress/theme/components/builder/BlockPalette.vue -->
 <script setup lang="ts">
-import { useQueryBuilder, type BlockType } from '../../composables/useQueryBuilder'
+import { useQueryBuilder, type BlockType } from "../../composables/useQueryBuilder";
 
-const { addBlock } = useQueryBuilder()
+const { addBlock } = useQueryBuilder();
 
 const blockTypes: { type: BlockType; icon: string; label: string; color: string }[] = [
-  { type: 'site', icon: '🌐', label: 'Site', color: 'var(--block-site)' },
-  { type: 'filetype', icon: '📄', label: 'File', color: 'var(--block-filetype)' },
-  { type: 'keyword', icon: '💬', label: 'Keywords', color: 'var(--block-keyword)' },
-  { type: 'date', icon: '📅', label: 'Date', color: 'var(--block-date)' },
-  { type: 'trick', icon: '⚡', label: 'Tricks', color: 'var(--block-trick)' },
-]
+  { type: "site", icon: "🌐", label: "Site", color: "var(--block-site)" },
+  { type: "filetype", icon: "📄", label: "File", color: "var(--block-filetype)" },
+  { type: "keyword", icon: "💬", label: "Keywords", color: "var(--block-keyword)" },
+  { type: "date", icon: "📅", label: "Date", color: "var(--block-date)" },
+  { type: "trick", icon: "⚡", label: "Tricks", color: "var(--block-trick)" },
+];
 
 function handleAdd(type: BlockType) {
-  addBlock(type)
+  addBlock(type);
 }
 </script>
 
@@ -2285,28 +2329,28 @@ function handleAdd(type: BlockType) {
 ```vue
 <!-- docs/.vitepress/theme/components/builder/QueryDisplay.vue -->
 <script setup lang="ts">
-import { useQueryBuilder } from '../../composables/useQueryBuilder'
-import { useToast } from '../../composables/useToast'
+import { useQueryBuilder } from "../../composables/useQueryBuilder";
+import { useToast } from "../../composables/useToast";
 
-const { blocks, queryString, selectBlock, selectedBlockId, removeBlock } = useQueryBuilder()
-const { success } = useToast()
+const { blocks, queryString, selectBlock, selectedBlockId, removeBlock } = useQueryBuilder();
+const { success } = useToast();
 
 const blockColors: Record<string, string> = {
-  site: 'var(--block-site)',
-  filetype: 'var(--block-filetype)',
-  keyword: 'var(--block-keyword)',
-  date: 'var(--block-date)',
-  trick: 'var(--block-trick)',
-}
+  site: "var(--block-site)",
+  filetype: "var(--block-filetype)",
+  keyword: "var(--block-keyword)",
+  date: "var(--block-date)",
+  trick: "var(--block-trick)",
+};
 
 function copyQuery() {
-  navigator.clipboard.writeText(queryString.value)
-  success('Query copied to clipboard')
+  navigator.clipboard.writeText(queryString.value);
+  success("Query copied to clipboard");
 }
 
 function searchGoogle() {
-  const url = `https://www.google.com/search?q=${encodeURIComponent(queryString.value)}`
-  window.open(url, '_blank')
+  const url = `https://www.google.com/search?q=${encodeURIComponent(queryString.value)}`;
+  window.open(url, "_blank");
 }
 </script>
 
@@ -2326,7 +2370,7 @@ function searchGoogle() {
           :style="{ '--block-color': blockColors[block.type] }"
           @click="selectBlock(block.id)"
         >
-          {{ block.type }}:{{ block.value || '...' }}
+          {{ block.type }}:{{ block.value || "..." }}
           <button class="block-remove" @click.stop="removeBlock(block.id)">×</button>
         </span>
       </div>
@@ -2453,41 +2497,41 @@ function searchGoogle() {
 ```vue
 <!-- docs/.vitepress/theme/components/builder/BlockEditor.vue -->
 <script setup lang="ts">
-import { computed } from 'vue'
-import { useQueryBuilder } from '../../composables/useQueryBuilder'
-import { SYNONYM_GROUPS, findSynonyms } from '../../data/synonyms'
+import { computed } from "vue";
+import { useQueryBuilder } from "../../composables/useQueryBuilder";
+import { SYNONYM_GROUPS, findSynonyms } from "../../data/synonyms";
 
-const { selectedBlock, updateBlock, removeBlock } = useQueryBuilder()
+const { selectedBlock, updateBlock, removeBlock } = useQueryBuilder();
 
 const sitePresets = [
-  { label: 'Australian Gov', value: 'gov.au' },
-  { label: 'Health Gov', value: 'health.gov.au' },
-  { label: 'Education', value: 'edu.au' },
-  { label: 'Organisations', value: 'org.au' },
-]
+  { label: "Australian Gov", value: "gov.au" },
+  { label: "Health Gov", value: "health.gov.au" },
+  { label: "Education", value: "edu.au" },
+  { label: "Organisations", value: "org.au" },
+];
 
-const filetypePresets = ['pdf', 'doc', 'docx', 'xlsx', 'ppt', 'pptx']
+const filetypePresets = ["pdf", "doc", "docx", "xlsx", "ppt", "pptx"];
 
 const datePresets = [
-  { label: 'Last year', value: new Date().getFullYear() - 1 },
-  { label: 'Last 2 years', value: new Date().getFullYear() - 2 },
-  { label: 'Last 5 years', value: new Date().getFullYear() - 5 },
-]
+  { label: "Last year", value: new Date().getFullYear() - 1 },
+  { label: "Last 2 years", value: new Date().getFullYear() - 2 },
+  { label: "Last 5 years", value: new Date().getFullYear() - 5 },
+];
 
 const trickPresets = [
-  { label: 'In title', value: 'intitle:' },
-  { label: 'In URL', value: 'inurl:' },
-  { label: 'Related', value: 'related:' },
-  { label: 'Exclude', value: '-' },
-  { label: 'OR group', value: '(term1 OR term2)' },
-  { label: 'Exact phrase', value: '"exact phrase"' },
-  { label: 'Wildcard', value: '*' },
-]
+  { label: "In title", value: "intitle:" },
+  { label: "In URL", value: "inurl:" },
+  { label: "Related", value: "related:" },
+  { label: "Exclude", value: "-" },
+  { label: "OR group", value: "(term1 OR term2)" },
+  { label: "Exact phrase", value: '"exact phrase"' },
+  { label: "Wildcard", value: "*" },
+];
 
 const synonymSuggestion = computed(() => {
-  if (selectedBlock.value?.type !== 'keyword') return null
-  return findSynonyms(selectedBlock.value.value)
-})
+  if (selectedBlock.value?.type !== "keyword") return null;
+  return findSynonyms(selectedBlock.value.value);
+});
 </script>
 
 <template>
@@ -2519,7 +2563,14 @@ const synonymSuggestion = computed(() => {
         <input
           type="checkbox"
           :checked="selectedBlock.options.wildcard"
-          @change="updateBlock(selectedBlock.id, { options: { ...selectedBlock.options, wildcard: ($event.target as HTMLInputElement).checked } })"
+          @change="
+            updateBlock(selectedBlock.id, {
+              options: {
+                ...selectedBlock.options,
+                wildcard: ($event.target as HTMLInputElement).checked,
+              },
+            })
+          "
         />
         Include subdomains (wildcard)
       </label>
@@ -2551,7 +2602,14 @@ const synonymSuggestion = computed(() => {
         <input
           type="checkbox"
           :checked="selectedBlock.options.exact"
-          @change="updateBlock(selectedBlock.id, { options: { ...selectedBlock.options, exact: ($event.target as HTMLInputElement).checked } })"
+          @change="
+            updateBlock(selectedBlock.id, {
+              options: {
+                ...selectedBlock.options,
+                exact: ($event.target as HTMLInputElement).checked,
+              },
+            })
+          "
         />
         Exact phrase
       </label>
@@ -2563,7 +2621,14 @@ const synonymSuggestion = computed(() => {
             <input
               type="checkbox"
               :checked="selectedBlock.options.useSynonyms"
-              @change="updateBlock(selectedBlock.id, { options: { ...selectedBlock.options, useSynonyms: ($event.target as HTMLInputElement).checked } })"
+              @change="
+                updateBlock(selectedBlock.id, {
+                  options: {
+                    ...selectedBlock.options,
+                    useSynonyms: ($event.target as HTMLInputElement).checked,
+                  },
+                })
+              "
             />
             Use synonyms
           </label>
@@ -2579,7 +2644,11 @@ const synonymSuggestion = computed(() => {
           <input
             type="radio"
             :checked="selectedBlock.options.type === 'after'"
-            @change="updateBlock(selectedBlock.id, { options: { ...selectedBlock.options, type: 'after' } })"
+            @change="
+              updateBlock(selectedBlock.id, {
+                options: { ...selectedBlock.options, type: 'after' },
+              })
+            "
           />
           After
         </label>
@@ -2587,7 +2656,11 @@ const synonymSuggestion = computed(() => {
           <input
             type="radio"
             :checked="selectedBlock.options.type === 'before'"
-            @change="updateBlock(selectedBlock.id, { options: { ...selectedBlock.options, type: 'before' } })"
+            @change="
+              updateBlock(selectedBlock.id, {
+                options: { ...selectedBlock.options, type: 'before' },
+              })
+            "
           />
           Before
         </label>
@@ -2597,7 +2670,12 @@ const synonymSuggestion = computed(() => {
           v-for="preset in datePresets"
           :key="preset.value"
           :class="['preset-btn', { active: selectedBlock.value === String(preset.value) }]"
-          @click="updateBlock(selectedBlock.id, { value: String(preset.value), options: { ...selectedBlock.options, type: selectedBlock.options.type || 'after' } })"
+          @click="
+            updateBlock(selectedBlock.id, {
+              value: String(preset.value),
+              options: { ...selectedBlock.options, type: selectedBlock.options.type || 'after' },
+            })
+          "
         >
           {{ preset.label }}
         </button>
@@ -2765,6 +2843,7 @@ git commit -m "feat: add Builder block components (palette, editor, query displa
 ### Task 12: Create DorkBuilder Page
 
 **Files:**
+
 - Create: `docs/.vitepress/theme/components/builder/DorkBuilder.vue`
 - Create: `docs/builder.md`
 
@@ -2773,34 +2852,34 @@ git commit -m "feat: add Builder block components (palette, editor, query displa
 ```vue
 <!-- docs/.vitepress/theme/components/builder/DorkBuilder.vue -->
 <script setup lang="ts">
-import { onMounted } from 'vue'
-import { useQueryBuilder } from '../../composables/useQueryBuilder'
-import { useToast } from '../../composables/useToast'
-import QueryDisplay from './QueryDisplay.vue'
-import BlockPalette from './BlockPalette.vue'
-import BlockEditor from './BlockEditor.vue'
+import { onMounted } from "vue";
+import { useQueryBuilder } from "../../composables/useQueryBuilder";
+import { useToast } from "../../composables/useToast";
+import QueryDisplay from "./QueryDisplay.vue";
+import BlockPalette from "./BlockPalette.vue";
+import BlockEditor from "./BlockEditor.vue";
 
-const { clearBlocks, loadFromQuery, queryString } = useQueryBuilder()
-const { success } = useToast()
+const { clearBlocks, loadFromQuery, queryString } = useQueryBuilder();
+const { success } = useToast();
 
 // Load query from URL params
 onMounted(() => {
-  const params = new URLSearchParams(window.location.search)
-  const q = params.get('q')
+  const params = new URLSearchParams(window.location.search);
+  const q = params.get("q");
   if (q) {
-    loadFromQuery(decodeURIComponent(q))
+    loadFromQuery(decodeURIComponent(q));
   }
-})
+});
 
 function handleReset() {
-  clearBlocks()
-  success('Builder cleared')
+  clearBlocks();
+  success("Builder cleared");
 }
 
 function handleShare() {
-  const url = `${window.location.origin}${window.location.pathname}?q=${encodeURIComponent(queryString.value)}`
-  navigator.clipboard.writeText(url)
-  success('Share link copied to clipboard')
+  const url = `${window.location.origin}${window.location.pathname}?q=${encodeURIComponent(queryString.value)}`;
+  navigator.clipboard.writeText(url);
+  success("Share link copied to clipboard");
 }
 </script>
 
@@ -2927,15 +3006,15 @@ import DorkBuilder from './.vitepress/theme/components/builder/DorkBuilder.vue'
 Update `docs/.vitepress/theme/index.ts` to import and register builder components.
 
 Update `docs/.vitepress/config.mts` nav:
+
 ```typescript
 { text: "Builder", link: "/builder" },
 ```
 
 **Step 4: Verify builder works**
 
-Run: `npm run docs:dev`
-Navigate to `/builder`
-Expected: Builder loads, can add blocks, query updates live
+Run: `npm run docs:dev` Navigate to `/builder` Expected: Builder loads, can add blocks, query
+updates live
 
 **Step 5: Commit**
 
@@ -2951,6 +3030,7 @@ git commit -m "feat: add DorkBuilder page with visual query construction"
 ### Task 13: Create Settings Page
 
 **Files:**
+
 - Create: `docs/.vitepress/theme/components/settings/SettingsPanel.vue`
 - Create: `docs/settings.md`
 
@@ -2959,21 +3039,21 @@ git commit -m "feat: add DorkBuilder page with visual query construction"
 ```vue
 <!-- docs/.vitepress/theme/components/settings/SettingsPanel.vue -->
 <script setup lang="ts">
-import { computed } from 'vue'
-import { useSettings, type ExperienceMode } from '../../composables/useSettings'
-import { useFavorites } from '../../composables/useFavorites'
-import { useToast } from '../../composables/useToast'
-import ThemeSwitcher from '../ThemeSwitcher.vue'
+import { computed } from "vue";
+import { useSettings, type ExperienceMode } from "../../composables/useSettings";
+import { useFavorites } from "../../composables/useFavorites";
+import { useToast } from "../../composables/useToast";
+import ThemeSwitcher from "../ThemeSwitcher.vue";
 
-const { settings, setExperienceMode, resetSettings } = useSettings()
-const { favorites, clearFavorites } = useFavorites()
-const { success, error } = useToast()
+const { settings, setExperienceMode, resetSettings } = useSettings();
+const { favorites, clearFavorites } = useFavorites();
+const { success, error } = useToast();
 
 const experienceModes: { id: ExperienceMode; label: string; description: string }[] = [
-  { id: 'beginner', label: 'Beginner', description: 'More guidance, expanded tooltips' },
-  { id: 'practitioner', label: 'Practitioner', description: 'Balanced experience' },
-  { id: 'expert', label: 'Expert', description: 'Minimal UI, power features' },
-]
+  { id: "beginner", label: "Beginner", description: "More guidance, expanded tooltips" },
+  { id: "practitioner", label: "Practitioner", description: "Balanced experience" },
+  { id: "expert", label: "Expert", description: "Minimal UI, power features" },
+];
 
 function exportData() {
   const data = {
@@ -2981,44 +3061,44 @@ function exportData() {
     settings: settings,
     favorites: favorites,
     exportedAt: new Date().toISOString(),
-  }
-  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' })
-  const url = URL.createObjectURL(blob)
-  const a = document.createElement('a')
-  a.href = url
-  a.download = `harm-reduction-dork-guide-backup-${new Date().toISOString().split('T')[0]}.json`
-  a.click()
-  URL.revokeObjectURL(url)
-  success('Data exported successfully')
+  };
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `harm-reduction-dork-guide-backup-${new Date().toISOString().split("T")[0]}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+  success("Data exported successfully");
 }
 
 function importData() {
-  const input = document.createElement('input')
-  input.type = 'file'
-  input.accept = '.json'
+  const input = document.createElement("input");
+  input.type = "file";
+  input.accept = ".json";
   input.onchange = async (e) => {
-    const file = (e.target as HTMLInputElement).files?.[0]
-    if (!file) return
+    const file = (e.target as HTMLInputElement).files?.[0];
+    if (!file) return;
     try {
-      const text = await file.text()
-      const data = JSON.parse(text)
-      if (data.version !== 1) throw new Error('Unsupported version')
+      const text = await file.text();
+      const data = JSON.parse(text);
+      if (data.version !== 1) throw new Error("Unsupported version");
       // Apply settings
-      Object.assign(settings, data.settings)
+      Object.assign(settings, data.settings);
       // Apply favorites (would need to expose a setter)
-      success('Data imported successfully')
+      success("Data imported successfully");
     } catch (e) {
-      error('Failed to import data')
+      error("Failed to import data");
     }
-  }
-  input.click()
+  };
+  input.click();
 }
 
 function handleClearData() {
-  if (confirm('Are you sure? This will clear all your favorites and reset settings.')) {
-    clearFavorites()
-    resetSettings()
-    success('All data cleared')
+  if (confirm("Are you sure? This will clear all your favorites and reset settings.")) {
+    clearFavorites();
+    resetSettings();
+    success("All data cleared");
   }
 }
 
@@ -3027,10 +3107,10 @@ function generateShareLink() {
     mode: settings.experienceMode,
     color: settings.theme.color,
     theme: settings.theme.mode,
-  })
-  const url = `${window.location.origin}/harm-reduction-google-dork-guide/settings?${params}`
-  navigator.clipboard.writeText(url)
-  success('Settings link copied to clipboard')
+  });
+  const url = `${window.location.origin}/harm-reduction-google-dork-guide/settings?${params}`;
+  navigator.clipboard.writeText(url);
+  success("Settings link copied to clipboard");
 }
 </script>
 
@@ -3093,9 +3173,7 @@ function generateShareLink() {
 
     <section class="settings-section">
       <h2 class="section-title">Share Setup</h2>
-      <button class="btn btn-secondary" @click="generateShareLink">
-        Generate Settings Link
-      </button>
+      <button class="btn btn-secondary" @click="generateShareLink">Generate Settings Link</button>
       <p class="help-text">Share this link to give someone your exact configuration</p>
     </section>
   </div>
@@ -3233,6 +3311,7 @@ import SettingsPanel from './.vitepress/theme/components/settings/SettingsPanel.
 **Step 3: Update nav**
 
 Add to nav in config.mts:
+
 ```typescript
 { text: "Settings", link: "/settings" },
 ```
@@ -3249,6 +3328,7 @@ git commit -m "feat: add Settings page with export/import and preferences"
 ### Task 14: Update Navigation and Final Config
 
 **Files:**
+
 - Modify: `docs/.vitepress/config.mts`
 
 **Step 1: Update full navigation config**
@@ -3266,12 +3346,24 @@ export default defineConfig({
   lastUpdated: true,
 
   head: [
-    ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
-    ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
-    ['link', { href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap', rel: 'stylesheet' }],
-    ['meta', { property: 'og:type', content: 'website' }],
-    ['meta', { property: 'og:title', content: 'Harm Reduction Google Dork Guide' }],
-    ['meta', { property: 'og:description', content: 'Advanced search operators and tools for harm reduction research' }],
+    ["link", { rel: "preconnect", href: "https://fonts.googleapis.com" }],
+    ["link", { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "" }],
+    [
+      "link",
+      {
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap",
+        rel: "stylesheet",
+      },
+    ],
+    ["meta", { property: "og:type", content: "website" }],
+    ["meta", { property: "og:title", content: "Harm Reduction Google Dork Guide" }],
+    [
+      "meta",
+      {
+        property: "og:description",
+        content: "Advanced search operators and tools for harm reduction research",
+      },
+    ],
   ],
 
   srcExclude: [
@@ -3372,6 +3464,7 @@ git commit -m "feat: update navigation with Explorer, Builder, and Settings"
 ### Task 15: Add Vercel Configuration
 
 **Files:**
+
 - Create: `vercel.json`
 
 **Step 1: Create vercel.json**
@@ -3381,9 +3474,7 @@ git commit -m "feat: update navigation with Explorer, Builder, and Settings"
   "buildCommand": "npm run build:all && npm run docs:build",
   "outputDirectory": "docs/.vitepress/dist",
   "framework": null,
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
-  ],
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
   "headers": [
     {
       "source": "/(.*)",
@@ -3395,9 +3486,7 @@ git commit -m "feat: update navigation with Explorer, Builder, and Settings"
     },
     {
       "source": "/assets/(.*)",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
-      ]
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
     }
   ]
 }
@@ -3416,13 +3505,11 @@ git commit -m "chore: add Vercel deployment configuration"
 
 **Step 1: Build and run all scripts**
 
-Run: `npm run build:all && npm run docs:build`
-Expected: Build completes without errors
+Run: `npm run build:all && npm run docs:build` Expected: Build completes without errors
 
 **Step 2: Preview production build**
 
-Run: `npm run docs:preview`
-Expected: Site loads at localhost:4173
+Run: `npm run docs:preview` Expected: Site loads at localhost:4173
 
 **Step 3: Test all features**
 

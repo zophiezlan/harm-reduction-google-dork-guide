@@ -2,7 +2,7 @@
 
 > Browser tools, automation, and resources to enhance your searching.
 
-[← Back to Main Guide](../../README.md)
+[← Back to Main Guide](../README.md)
 
 ---
 
@@ -45,4 +45,4 @@
 
 ---
 
-[← Back to Main Guide](../../README.md)
+[← Back to Main Guide](../README.md)

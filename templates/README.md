@@ -49,8 +49,8 @@ Use when you need to:
 
 ## Tips for Using Templates
 
-> [!TIP]
-> Copy templates into your own document management system (Google Docs, Notion, SharePoint, etc.) rather than editing the originals.
+> [!TIP] Copy templates into your own document management system (Google Docs, Notion, SharePoint,
+> etc.) rather than editing the originals.
 
 ### Best Practices
 

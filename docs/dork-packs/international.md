@@ -2,7 +2,7 @@
 
 > Comparators from key international jurisdictions for policy and practice.
 
-[← Back to Dork Packs](README.md) | [← Main Guide](../../README.md)
+[← Back to Dork Packs](README.md) | [← Main Guide](../README.md)
 
 ---
 

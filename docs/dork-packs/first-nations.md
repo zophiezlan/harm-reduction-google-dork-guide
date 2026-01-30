@@ -2,7 +2,7 @@
 
 > Culturally safe, self-determined approaches to healing.
 
-[← Back to Dork Packs](README.md) | [← Main Guide](../../README.md)
+[← Back to Dork Packs](README.md) | [← Main Guide](../README.md)
 
 ---
 

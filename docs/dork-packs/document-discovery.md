@@ -2,7 +2,7 @@
 
 > Finding spreadsheets, databases, presentations, and other document types beyond PDFs.
 
-[← Back to Dork Packs](README.md) | [← Main Guide](../../README.md)
+[← Back to Dork Packs](README.md) | [← Main Guide](../README.md)
 
 ---
 
@@ -135,8 +135,8 @@ filetype:odt "drug checking" OR "pill testing"
 
 ## 🗃️ Database Files
 
-> [!CAUTION]
-> Database files may contain sensitive information. Only access files that are clearly intended for public distribution.
+> [!CAUTION] Database files may contain sensitive information. Only access files that are clearly
+> intended for public distribution.
 
 ### SQL Dumps (Public Datasets)
 

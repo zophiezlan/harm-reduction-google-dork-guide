@@ -10,20 +10,15 @@ Use GitHub's built-in alert syntax for consistent, visually distinctive callouts
 
 ### Alert Types
 
-> [!NOTE]
-> Supplementary information users should know.
+> [!NOTE] Supplementary information users should know.
 
-> [!TIP]
-> Helpful advice for better results.
+> [!TIP] Helpful advice for better results.
 
-> [!IMPORTANT]
-> Essential information for success.
+> [!IMPORTANT] Essential information for success.
 
-> [!WARNING]
-> Potential issues requiring attention.
+> [!WARNING] Potential issues requiring attention.
 
-> [!CAUTION]
-> Risks or negative consequences.
+> [!CAUTION] Risks or negative consequences.
 
 ### When to Use Each
 
@@ -295,13 +290,12 @@ Press <kbd>Ctrl</kbd>+<kbd>F</kbd> to search the page.
 
 ### Version/Compatibility Badges
 
-> [!NOTE]
-> This operator requires Google Search. It may not work on other search engines.
+> [!NOTE] This operator requires Google Search. It may not work on other search engines.
 
 ### Deprecated Content
 
-> [!WARNING]
-> **Deprecated:** This operator no longer works reliably as of 2025. Use [`intitle:`] instead.
+> [!WARNING] **Deprecated:** This operator no longer works reliably as of 2025. Use [`intitle:`]
+> instead.
 
 ---
 

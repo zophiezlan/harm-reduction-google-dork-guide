@@ -2,7 +2,7 @@
 
 > Guidelines, clinical tools, access policies, and research for opioid pharmacotherapy.
 
-[← Back to Dork Packs](README.md) | [← Main Guide](../../README.md)
+[← Back to Dork Packs](README.md) | [← Main Guide](../README.md)
 
 ---
 

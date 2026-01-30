@@ -2,14 +2,14 @@
 
 > Set up automated monitoring for harm reduction intelligence.
 
-[← Back to Workflows](README.md) | [← Main Guide](../../README.md)
+[← Back to Workflows](README.md) | [← Main Guide](../README.md)
 
 ---
 
 ## 🔔 Why Monitoring Matters
 
-> [!TIP]
-> Automated monitoring ensures you don't miss critical information. A well-configured system can alert you to drug warnings within hours of publication, rather than days or weeks.
+> [!TIP] Automated monitoring ensures you don't miss critical information. A well-configured system
+> can alert you to drug warnings within hours of publication, rather than days or weeks.
 
 Don't rely on manual checks. Set up automated monitoring for:
 
@@ -98,8 +98,10 @@ For sites without native RSS:
 
 ## 🔄 Website Change Monitoring
 
-> [!WARNING]
-> **Data Exposure Risk.** When monitoring websites for changes, be careful about what information you capture and store. Avoid monitoring pages that might inadvertently expose personal information, and ensure your monitoring tools comply with your organisation's data handling policies.
+> [!WARNING] **Data Exposure Risk.** When monitoring websites for changes, be careful about what
+> information you capture and store. Avoid monitoring pages that might inadvertently expose personal
+> information, and ensure your monitoring tools comply with your organisation's data handling
+> policies.
 
 ### Tools
 

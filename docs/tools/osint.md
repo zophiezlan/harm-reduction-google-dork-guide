@@ -2,7 +2,7 @@
 
 > Open Source Intelligence tools for deeper research. Use responsibly.
 
-[← Back to Tools](README.md) | [← Main Guide](../../README.md)
+[← Back to Tools](README.md) | [← Main Guide](../README.md)
 
 ---
 

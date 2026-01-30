@@ -3,7 +3,7 @@
 > Finding factsheets, brochures, and health promotion resources for safer use education. Focused on
 > public-facing materials for clients, peer workers, and community settings.
 
-[← Back to Dork Packs](README.md) | [← Main Guide](../../README.md)
+[← Back to Dork Packs](README.md) | [← Main Guide](../README.md)
 
 ---
 

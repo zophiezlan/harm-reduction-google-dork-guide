@@ -3,7 +3,7 @@
 > Real-time monitoring for high-strength, contaminated, or unexpected substances in drug supply.
 > Essential for early warning systems and client safety.
 
-[← Back to Dork Packs](README.md) | [← Main Guide](../../README.md)
+[← Back to Dork Packs](README.md) | [← Main Guide](../README.md)
 
 ---
 

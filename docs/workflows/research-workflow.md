@@ -2,7 +2,7 @@
 
 > Systematic approach to gathering evidence on any harm reduction topic.
 
-[← Back to Workflows](README.md) | [← Main Guide](../../README.md)
+[← Back to Workflows](README.md) | [← Main Guide](../README.md)
 
 ---
 

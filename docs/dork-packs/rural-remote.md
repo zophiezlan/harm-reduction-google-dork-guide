@@ -2,7 +2,7 @@
 
 > Harm reduction services and research specific to non-metropolitan areas.
 
-[← Back to Dork Packs](README.md) | [← Main Guide](../../README.md)
+[← Back to Dork Packs](README.md) | [← Main Guide](../README.md)
 
 ---
 

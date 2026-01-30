@@ -2,7 +2,7 @@
 
 > Finding peer voices, lived experience narratives, and peer-produced knowledge.
 
-[← Back to Dork Packs](README.md) | [← Main Guide](../../README.md)
+[← Back to Dork Packs](README.md) | [← Main Guide](../README.md)
 
 ---
 

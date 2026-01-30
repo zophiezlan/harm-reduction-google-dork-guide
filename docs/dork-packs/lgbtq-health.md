@@ -2,7 +2,7 @@
 
 > Resources for LGBTQ+ communities, including sexual health, chemsex, and inclusive services.
 
-[← Back to Dork Packs](README.md) | [← Main Guide](../../README.md)
+[← Back to Dork Packs](README.md) | [← Main Guide](../README.md)
 
 ---
 
@@ -269,8 +269,9 @@ site:minus18.org.au (drug OR alcohol OR "harm reduction")
 
 ---
 
-> [!NOTE]
-> When searching historical documents, you may encounter outdated terminology. Use inclusive, current language in your own work while recognizing that older resources may use different terms.
+> [!NOTE] When searching historical documents, you may encounter outdated terminology. Use
+> inclusive, current language in your own work while recognizing that older resources may use
+> different terms.
 
 ---
 

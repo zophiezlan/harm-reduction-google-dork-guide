@@ -17,6 +17,8 @@
     "lint:fix": "npm run format && npm run md:fix && npm run sort-tables",
     "lint:check": "npm run format:check",
     "build": "node scripts/build-dorkbase.js",
+    "build:synonyms": "node scripts/build-synonyms.js",
+    "build:all": "npm run build && npm run build:synonyms",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
@@ -26,9 +28,11 @@
   },
   "devDependencies": {
     "fast-glob": "^3.3.2",
-    "markdownlint-cli2": "^0.16.0",
     "markdown-it-github-alerts": "^1.0.1",
+    "markdownlint-cli2": "^0.16.0",
     "prettier": "^3.2.5",
-    "vitepress": "^1.3.1"
+    "typescript": "^5.9.3",
+    "vitepress": "^1.3.1",
+    "vue-tsc": "^3.2.4"
   }
 }

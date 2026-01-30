@@ -2,7 +2,7 @@
 
 > Understanding how language has changed and finding historical documents using legacy terminology.
 
-[← Back to Dork Packs](README.md) | [← Main Guide](../../README.md)
+[← Back to Dork Packs](README.md) | [← Main Guide](../README.md)
 
 ---
 

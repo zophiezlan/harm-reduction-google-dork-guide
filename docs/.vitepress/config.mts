@@ -22,16 +22,8 @@ export default defineConfig({
     nav: [
       { text: "Home", link: "/" },
       { text: "Guide", link: "/README" },
-      { text: "Dork Explorer", link: "/dork-explorer/" },
-      {
-        text: "Modes",
-        items: [
-          { text: "Beginner", link: "/modes/beginner" },
-          { text: "Practitioner", link: "/modes/practitioner" },
-          { text: "Expert", link: "/modes/expert" },
-        ],
-      },
-      { text: "Templates", link: "/templates/README" },
+      { text: "Explorer", link: "/explorer" },
+      { text: "Builder", link: "/builder" },
     ],
     sidebar: {
       "/": [
@@ -65,30 +57,16 @@ export default defineConfig({
             { text: "Tools Overview", link: "/tools/README" },
             { text: "Browser Extensions", link: "/tools/browser-extensions" },
             { text: "Google Alerts", link: "/tools/google-alerts" },
-            { text: "Custom Search", link: "/tools/custom-search" },
             { text: "OSINT", link: "/tools/osint" },
-            { text: "Privacy & Security", link: "/tools/privacy-security" },
             { text: "Cheat Sheet", link: "/resources/cheat-sheet" },
-            { text: "Substance Categories", link: "/substance-categories" },
-            { text: "Substance Databases", link: "/resources/substance-databases" },
-            { text: "Academic Access", link: "/resources/academic-access" },
-            { text: "Organizations", link: "/resources/organizations" },
-            { text: "Australian OSINT", link: "/resources/australian-osint" },
           ],
         },
         {
-          text: "Templates",
+          text: "Interactive",
           items: [
-            { text: "Templates Overview", link: "/templates/README" },
-            { text: "Briefing Template", link: "/templates/briefing-template" },
-            { text: "Evidence Log Template", link: "/templates/evidence-log-template" },
-          ],
-        },
-        {
-          text: "Extras",
-          items: [
-            { text: "Troubleshooting", link: "/troubleshooting" },
-            { text: "Dork Explorer", link: "/dork-explorer/" },
+            { text: "Dork Explorer", link: "/explorer" },
+            { text: "Dork Builder", link: "/builder" },
+            { text: "Settings", link: "/settings" },
           ],
         },
       ],

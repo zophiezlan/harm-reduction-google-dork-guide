@@ -2,7 +2,7 @@
 
 > Set up automated monitoring for harm reduction intelligence.
 
-[← Back to Tools](README.md) | [← Main Guide](../../README.md)
+[← Back to Tools](README.md) | [← Main Guide](../README.md)
 
 ---
 
@@ -39,8 +39,8 @@ Click "Create Alert" and you're done.
 
 ### Priority: Drug Alerts (As-it-happens)
 
-> [!IMPORTANT]
-> This is the most critical alert for frontline harm reduction workers. Set this to "As-it-happens" for immediate notification of health warnings.
+> [!IMPORTANT] This is the most critical alert for frontline harm reduction workers. Set this to
+> "As-it-happens" for immediate notification of health warnings.
 
 ```txt
 site:*.health.*.gov.au ("drug alert" OR "drug warning" OR "drug notification")
@@ -112,8 +112,8 @@ site:*.nsw.gov.au "harm reduction" OR "drug policy" OR "drug alert"
 
 ## 💡 Tips
 
-> [!TIP]
-> The key to effective alerting is specificity. It's better to have 5 targeted alerts than one broad alert that floods your inbox with irrelevant results.
+> [!TIP] The key to effective alerting is specificity. It's better to have 5 targeted alerts than
+> one broad alert that floods your inbox with irrelevant results.
 
 ### Tip 1: Use Specific Queries
 

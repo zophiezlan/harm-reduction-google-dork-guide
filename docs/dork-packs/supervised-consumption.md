@@ -3,7 +3,7 @@
 > Finding evidence, evaluations, and policy documents about supervised consumption services and
 > medically supervised injecting centres in Australia.
 
-[← Back to Dork Packs](README.md) | [← Main Guide](../../README.md)
+[← Back to Dork Packs](README.md) | [← Main Guide](../README.md)
 
 ---
 

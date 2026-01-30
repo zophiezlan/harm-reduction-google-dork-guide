@@ -1,6 +1,6 @@
 /* docs/.vitepress/theme/styles/base.css */
 /* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
 
 /* Focus visible for accessibility */
 :focus-visible {
@@ -51,7 +51,9 @@
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-xl);
-  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+  transition:
+    border-color var(--transition-normal),
+    box-shadow var(--transition-normal);
 }
 
 .VPHomeFeatures .item:hover {
@@ -78,7 +80,7 @@
 }
 
 /* Code Blocks */
-.vp-doc div[class*='language-'] {
+.vp-doc div[class*="language-"] {
   background: var(--bg-surface) !important;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);

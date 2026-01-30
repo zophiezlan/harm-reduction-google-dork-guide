@@ -2,7 +2,7 @@
 
 > Locate hard-to-find lists of AOD, NSP, sexual health, and harm reduction services.
 
-[← Back to Dork Packs](README.md) | [← Main Guide](../../README.md)
+[← Back to Dork Packs](README.md) | [← Main Guide](../README.md)
 
 ---
 

@@ -2,7 +2,7 @@
 
 > Datasets, prevalence surveys, overdose statistics, and surveillance reports.
 
-[← Back to Dork Packs](README.md) | [← Main Guide](../../README.md)
+[← Back to Dork Packs](README.md) | [← Main Guide](../README.md)
 
 ---
 

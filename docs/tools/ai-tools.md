@@ -2,7 +2,7 @@
 
 > Modern AI assistants for research, analysis, and literature review.
 
-[← Back to Tools](README.md) | [← Main Guide](../../README.md)
+[← Back to Tools](README.md) | [← Main Guide](../README.md)
 
 ---
 

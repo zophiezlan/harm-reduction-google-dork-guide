@@ -76,8 +76,8 @@ We use language that respects the dignity of people who use drugs:
 | Overdose, poisoning                | OD'd (casually)      |
 | Medication for opioid use disorder | Replacement therapy  |
 
-> [!NOTE]
-> When researching historical documents, you may need to use older terminology in search queries. This is acceptable for research purposes—context matters.
+> [!NOTE] When researching historical documents, you may need to use older terminology in search
+> queries. This is acceptable for research purposes—context matters.
 
 ---
 

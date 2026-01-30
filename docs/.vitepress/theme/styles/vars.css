@@ -45,8 +45,8 @@
   --block-trick: #f59e0b;
 
   /* Typography */
-  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
   /* Spacing */
   --radius-sm: 6px;

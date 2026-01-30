@@ -2,7 +2,7 @@
 
 > Essential extensions to enhance your research workflow.
 
-[← Back to Tools](README.md) | [← Main Guide](../../README.md)
+[← Back to Tools](README.md) | [← Main Guide](../README.md)
 
 ---
 
