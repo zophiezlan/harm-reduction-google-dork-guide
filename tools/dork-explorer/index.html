@@ -363,7 +363,54 @@
         line-height: 1.5;
         padding: 16px;
         border: none;
-        resize: vertical;
+        margin: 0;
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
+
+      .code-editor code {
+        display: block;
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+        color: inherit;
+        white-space: inherit;
+      }
+
+      /* DorkScript Syntax Highlighting */
+      .dork-operator {
+        color: #14b8a6;
+        font-weight: 600;
+      }
+
+      .dork-boolean,
+      .dork-exclusion {
+        color: #ef4444;
+        font-weight: 700;
+      }
+
+      .dork-string {
+        color: #84cc16;
+      }
+
+      .dork-wildcard {
+        color: #f43f5e;
+        font-weight: 700;
+      }
+
+      .dork-paren {
+        color: #a78bfa;
+        font-weight: 600;
+      }
+
+      .dork-function {
+        color: #38bdf8;
+        font-weight: 700;
+      }
+
+      .dork-tag {
+        color: #f97316;
+        font-weight: 600;
       }
 
       /* Highlight specific keywords in the textarea? Hard without a real editor. 
@@ -601,6 +648,73 @@
     <script src="dork-data.js"></script>
 
     <script>
+      const DORK_OPERATORS = [
+        "site",
+        "filetype",
+        "ext",
+        "imagesize",
+        "intitle",
+        "allintitle",
+        "inurl",
+        "allinurl",
+        "intext",
+        "allintext",
+        "after",
+        "before",
+        "daterange",
+        "cache",
+        "related",
+        "info",
+        "link",
+        "inanchor",
+        "allinanchor",
+        "define",
+        "source",
+        "weather",
+        "stocks",
+        "map",
+      ];
+      const operatorRegex = new RegExp(`\\b(${DORK_OPERATORS.join("|")}):`, "gi");
+
+      function escapeHtml(text) {
+        return text
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#39;");
+      }
+
+      function highlightDorkText(text) {
+        let html = escapeHtml(text);
+
+        // Strings first
+        html = html.replace(/"([^"]*?)"/g, '<span class="dork-string">"$1"</span>');
+
+        // Operators
+        html = html.replace(operatorRegex, '<span class="dork-operator">$1:</span>');
+
+        // Proximity
+        html = html.replace(/\bAROUND\(\d+\)\b/gi, '<span class="dork-function">$&</span>');
+
+        // Boolean operators
+        html = html.replace(/\b(OR|AND)\b/g, '<span class="dork-boolean">$1</span>');
+
+        // Exclusion operator
+        html = html.replace(/(^|\s)-(?=\S)/g, '$1<span class="dork-exclusion">-</span>');
+
+        // Wildcards
+        html = html.replace(/\*/g, '<span class="dork-wildcard">*</span>');
+
+        // Parentheses
+        html = html.replace(/[()]/g, '<span class="dork-paren">$&</span>');
+
+        // Social tags / handles
+        html = html.replace(/(^|\s)([#@][\w-]+)/g, '$1<span class="dork-tag">$2</span>');
+
+        return html;
+      }
+
       /**
        * App Logic
        */
@@ -955,8 +1069,8 @@
 
                       ${cleanExplanation ? `<div class="explanation">${cleanExplanation}</div>` : ""}
 
-                      <div class="code-wrapper">
-                          <textarea class="code-editor" readonly>${finalQuery}</textarea>
+                        <div class="code-wrapper">
+                          <pre class="code-editor"><code>${highlightDorkText(finalQuery)}</code></pre>
                           <div class="code-actions">
                               <button class="icon-btn" onclick='App.copyToClipboard(this, ${JSON.stringify(finalQuery)})'>
                                   <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
