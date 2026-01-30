@@ -108,6 +108,69 @@ div[class*="language-txt"].language-dork code {
   font-weight: 600 !important;
 }
 
+/* Values */
+.dork-value {
+  color: #e2e8f0 !important;
+}
+
+.dork-domain {
+  color: #22c55e !important;
+  font-weight: 600 !important;
+}
+
+.dork-filetype {
+  color: #f59e0b !important;
+  font-weight: 700 !important;
+}
+
+.dork-date {
+  color: #60a5fa !important;
+  font-weight: 600 !important;
+}
+
+.dork-number {
+  color: #f472b6 !important;
+  font-weight: 700 !important;
+}
+
+.dork-exclusion-term {
+  color: #f87171 !important;
+}
+
+/* Lint highlight */
+.dork-error {
+  position: relative;
+  box-shadow: inset 0 -2px 0 #ef4444;
+  background: color-mix(in srgb, #ef4444 12%, transparent);
+  border-radius: 3px;
+}
+
+.dork-error::after {
+  content: attr(data-message);
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 6px);
+  padding: 6px 8px;
+  background: #0f172a;
+  color: #f8fafc;
+  font-size: 11px;
+  border: 1px solid #1e293b;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(4px);
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
+  z-index: 10;
+}
+
+.dork-error:hover::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* Add a subtle indicator that this is a dork query */
 .language-dork::before {
   content: "dork" !important;

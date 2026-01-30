@@ -413,6 +413,34 @@
         font-weight: 600 !important;
       }
 
+      .dork-value {
+        color: #e2e8f0 !important;
+      }
+
+      .dork-domain {
+        color: #22c55e !important;
+        font-weight: 600 !important;
+      }
+
+      .dork-filetype {
+        color: #f59e0b !important;
+        font-weight: 700 !important;
+      }
+
+      .dork-date {
+        color: #60a5fa !important;
+        font-weight: 600 !important;
+      }
+
+      .dork-number {
+        color: #f472b6 !important;
+        font-weight: 700 !important;
+      }
+
+      .dork-exclusion-term {
+        color: #f87171 !important;
+      }
+
       /* Highlight specific keywords in the textarea? Hard without a real editor. 
            We'll stick to styling. */
 
@@ -675,6 +703,7 @@
         "map",
       ];
       const operatorRegex = new RegExp(`\\b(${DORK_OPERATORS.join("|")}):`, "gi");
+      const operatorValueRegex = new RegExp(`^(${DORK_OPERATORS.join("|")}):`, "i");
 
       function escapeHtml(text) {
         return text
@@ -686,33 +715,120 @@
       }
 
       function highlightDorkText(text) {
-        let html = escapeHtml(text);
+        let result = "";
+        let i = 0;
 
-        // Strings first
-        html = html.replace(/"([^"]*?)"/g, '<span class="dork-string">"$1"</span>');
+        const take = (len) => {
+          const chunk = text.slice(i, i + len);
+          i += len;
+          return chunk;
+        };
 
-        // Operators
-        html = html.replace(operatorRegex, '<span class="dork-operator">$1:</span>');
+        while (i < text.length) {
+          const rest = text.slice(i);
 
-        // Proximity
-        html = html.replace(/\bAROUND\(\d+\)\b/gi, '<span class="dork-function">$&</span>');
+          const stringMatch = rest.match(/^"[^"]*"/);
+          if (stringMatch) {
+            result += `<span class="dork-string">${escapeHtml(take(stringMatch[0].length))}</span>`;
+            continue;
+          }
 
-        // Boolean operators
-        html = html.replace(/\b(OR|AND)\b/g, '<span class="dork-boolean">$1</span>');
+          const operatorMatch = rest.match(operatorValueRegex);
+          if (operatorMatch) {
+            const op = operatorMatch[1];
+            result += `<span class="dork-operator">${escapeHtml(take(op.length + 1))}</span>`;
 
-        // Exclusion operator
-        html = html.replace(/(^|\s)-(?=\S)/g, '$1<span class="dork-exclusion">-</span>');
+            const valueStart = text.slice(i);
+            let value = "";
+            if (valueStart.startsWith('"')) {
+              const quoted = valueStart.match(/^"[^"]*"/);
+              if (quoted) value = quoted[0];
+            } else if (valueStart.startsWith("(")) {
+              const paren = valueStart.match(/^\([^\)]*\)/);
+              if (paren) value = paren[0];
+            } else {
+              const token = valueStart.match(/^[^\s)]+/);
+              if (token) value = token[0];
+            }
 
-        // Wildcards
-        html = html.replace(/\*/g, '<span class="dork-wildcard">*</span>');
+            if (value) {
+              const opLower = op.toLowerCase();
+              let valueClass = "dork-value";
+              if (opLower === "site" || opLower === "related" || opLower === "cache") {
+                valueClass = "dork-domain";
+              } else if (opLower === "filetype" || opLower === "ext") {
+                valueClass = "dork-filetype";
+              } else if (opLower === "after" || opLower === "before" || opLower === "daterange") {
+                valueClass = "dork-date";
+              } else if (opLower === "imagesize") {
+                valueClass = "dork-number";
+              }
 
-        // Parentheses
-        html = html.replace(/[()]/g, '<span class="dork-paren">$&</span>');
+              result += `<span class="${valueClass}">${escapeHtml(take(value.length))}</span>`;
+            }
 
-        // Social tags / handles
-        html = html.replace(/(^|\s)([#@][\w-]+)/g, '$1<span class="dork-tag">$2</span>');
+            continue;
+          }
 
-        return html;
+          const aroundMatch = rest.match(/^\bAROUND\(\d+\)\b/i);
+          if (aroundMatch) {
+            result += `<span class="dork-function">${escapeHtml(take(aroundMatch[0].length))}</span>`;
+            continue;
+          }
+
+          const booleanMatch = rest.match(/^\b(OR|AND)\b/);
+          if (booleanMatch) {
+            result += `<span class="dork-boolean">${escapeHtml(take(booleanMatch[0].length))}</span>`;
+            continue;
+          }
+
+          const exclusionMatch = rest.match(/^(\s)?-(?=\S)/);
+          if (exclusionMatch) {
+            if (exclusionMatch[1]) {
+              result += escapeHtml(take(1));
+            }
+            result += `<span class="dork-exclusion">${escapeHtml(take(1))}</span>`;
+
+            const termStart = text.slice(i);
+            let term = "";
+            if (termStart.startsWith('"')) {
+              const quoted = termStart.match(/^"[^"]*"/);
+              if (quoted) term = quoted[0];
+            } else {
+              const token = termStart.match(/^[^\s)]+/);
+              if (token) term = token[0];
+            }
+            if (term) {
+              result += `<span class="dork-exclusion-term">${escapeHtml(take(term.length))}</span>`;
+            }
+            continue;
+          }
+
+          const tagMatch = rest.match(/^(\s)?([#@][\w-]+)/);
+          if (tagMatch) {
+            if (tagMatch[1]) {
+              result += escapeHtml(take(1));
+            }
+            result += `<span class="dork-tag">${escapeHtml(take(tagMatch[2].length))}</span>`;
+            continue;
+          }
+
+          const wildcardMatch = rest.match(/^\*/);
+          if (wildcardMatch) {
+            result += `<span class="dork-wildcard">${escapeHtml(take(1))}</span>`;
+            continue;
+          }
+
+          const parenMatch = rest.match(/^[()]/);
+          if (parenMatch) {
+            result += `<span class="dork-paren">${escapeHtml(take(1))}</span>`;
+            continue;
+          }
+
+          result += escapeHtml(take(1));
+        }
+
+        return result;
       }
 
       /**
