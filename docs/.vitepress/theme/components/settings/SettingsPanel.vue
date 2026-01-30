@@ -69,7 +69,7 @@ function generateShareLink() {
     color: settings.theme.color,
     theme: settings.theme.mode,
   });
-  const url = `${window.location.origin}/harm-reduction-google-dork-guide/settings?${params}`;
+  const url = `${window.location.origin}/settings?${params}`;
   navigator.clipboard.writeText(url);
   success("Settings link copied to clipboard");
 }

@@ -7,7 +7,6 @@ const toolsPublicDir = fileURLToPath(new URL("../../tools", import.meta.url));
 export default defineConfig({
   title: "Harm Reduction Google Dork Guide",
   description: "Advanced search operators, workflows, and dork packs for harm reduction work.",
-  base: "/harm-reduction-google-dork-guide/",
   cleanUrls: true,
   lastUpdated: true,
   srcExclude: [

@@ -40,3 +40,5 @@ tools/dork-explorer/dork-data.js
 
 # User local archive
 archive/raw-imports/
+.vercel
+.env*.local

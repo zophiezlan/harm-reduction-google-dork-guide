@@ -20,7 +20,7 @@ onMounted(async () => {
   // Load dork-data.js script
   if (typeof window !== "undefined" && !(window as any).DORK_DATA) {
     const script = document.createElement("script");
-    script.src = "/harm-reduction-google-dork-guide/dork-explorer/dork-data.js";
+    script.src = "/dork-explorer/dork-data.js";
     script.onload = () => loadDorks();
     document.head.appendChild(script);
   } else {
@@ -74,7 +74,7 @@ function clearFilters() {
 
 function openInBuilder(dork: DorkWithPack) {
   // Navigate to builder with query
-  const url = `/harm-reduction-google-dork-guide/builder?q=${encodeURIComponent(dork.query)}`;
+  const url = `/builder?q=${encodeURIComponent(dork.query)}`;
   window.location.href = url;
 }
 
