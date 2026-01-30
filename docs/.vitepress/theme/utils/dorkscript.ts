@@ -11,6 +11,7 @@ export const DORK_OPERATORS = [
   "site",
   "filetype",
   "ext",
+  "imagesize",
   "intitle",
   "allintitle",
   "inurl",
@@ -27,6 +28,7 @@ export const DORK_OPERATORS = [
   "inanchor",
   "allinanchor",
   "define",
+  "source",
   "weather",
   "stocks",
   "map",
@@ -34,23 +36,14 @@ export const DORK_OPERATORS = [
 
 const OPERATOR_SET = new Set(DORK_OPERATORS);
 const operatorRegex = new RegExp(`\\b(${DORK_OPERATORS.join("|")}):`, "gi");
+const operatorTestRegex = new RegExp(`\\b(${DORK_OPERATORS.join("|")}):`, "i");
 
 export function isDorkQuery(text: string): boolean {
-  const indicators = [
-    "site:",
-    "filetype:",
-    "intitle:",
-    "inurl:",
-    "intext:",
-    "after:",
-    "before:",
-    "cache:",
-    "related:",
-    "ext:",
-    " OR ",
-    " AND ",
-  ];
-  return indicators.some((ind) => text.includes(ind));
+  if (operatorTestRegex.test(text)) return true;
+  if (/\bAROUND\(\d+\)/i.test(text)) return true;
+  if (/[#@][\w-]{2,}/.test(text)) return true;
+  if (/(^|\s)[*-](?=\S)/.test(text)) return true;
+  return /\b(OR|AND)\b/.test(text);
 }
 
 export function lintDorkScript(text: string): DorkLintIssue[] {
@@ -152,11 +145,17 @@ export function highlightDorkText(text: string): string {
   // Operators
   html = html.replace(operatorRegex, '<span class="dork-operator">$1:</span>');
 
+  // AROUND(n) proximity
+  html = html.replace(/\bAROUND\(\d+\)\b/gi, '<span class="dork-function">$&</span>');
+
   // Boolean operators
   html = html.replace(/\b(OR|AND)\b/g, '<span class="dork-boolean">$1</span>');
 
   // Exclusion operator
   html = html.replace(/(^|\s)-(?=\S)/g, '$1<span class="dork-exclusion">-</span>');
+
+  // Social tags / platform handles
+  html = html.replace(/(^|\s)([#@][\w-]+)/g, '$1<span class="dork-tag">$2</span>');
 
   // Wildcards
   html = html.replace(/\*/g, '<span class="dork-wildcard">*</span>');

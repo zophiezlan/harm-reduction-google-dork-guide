@@ -96,6 +96,18 @@ div[class*="language-txt"].language-dork code {
   font-weight: 600 !important;
 }
 
+/* Proximity function (AROUND(n)) */
+.dork-function {
+  color: #38bdf8 !important;
+  font-weight: 700 !important;
+}
+
+/* Social tags / handles */
+.dork-tag {
+  color: #f97316 !important;
+  font-weight: 600 !important;
+}
+
 /* Add a subtle indicator that this is a dork query */
 .language-dork::before {
   content: "dork" !important;
