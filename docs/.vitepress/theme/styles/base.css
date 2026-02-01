@@ -177,3 +177,18 @@
 .VPContent {
   transition: padding var(--transition-normal) !important;
 }
+
+/* Mobile navbar title truncation */
+@media (max-width: 640px) {
+  .VPNavBar .title {
+    min-width: 0;
+    max-width: 55vw;
+  }
+
+  .VPNavBar .title .title {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
