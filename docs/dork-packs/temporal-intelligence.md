@@ -272,23 +272,55 @@ site:web.archive.org/web/*/nuaa.org.au "about" OR "history" OR "mission"
 
 ### Internet Archive (archive.org)
 
-| Pattern                                  | Purpose                                |
-| ---------------------------------------- | -------------------------------------- |
-| `site:archive.org/details/`              | Archive.org collections (books, media) |
-| `site:web.archive.org/web/*/example.com` | All snapshots of specific site         |
-| `site:web.archive.org/web/2020*/`        | Snapshots from specific year           |
-| `site:web.archive.org`                   | General Wayback Machine search         |
+#### Archive.org collections (books, media)
+
+```txt
+site:archive.org/details/
+```
+
+#### All snapshots of specific site
+
+```txt
+site:web.archive.org/web/*/example.com
+```
+
+#### Snapshots from specific year
+
+```txt
+site:web.archive.org/web/2020*/
+```
+
+#### General Wayback Machine search
+
+```txt
+site:web.archive.org
+```
 
 ### Other Archive Sources
 
-| Pattern                   | Purpose                                |
-| ------------------------- | -------------------------------------- |
-| `site:pandora.nla.gov.au` | Australian web archive (PANDORA)       |
-| `site:trove.nla.gov.au`   | National Library of Australia archives |
+#### Australian web archive (PANDORA)
 
-| `site:webarchive.loc.gov |`site:webarchive.org.uk` | UK Web Archive |
-undefined
-Library of Congress web archive        |
+```txt
+site:pandora.nla.gov.au
+```
+
+#### National Library of Australia archives
+
+```txt
+site:trove.nla.gov.au
+```
+
+#### Library of Congress web archive
+
+```txt
+site:webarchive.loc.gov
+```
+
+#### UK Web Archive
+
+```txt
+site:webarchive.org.uk
+```
 
 ---
 

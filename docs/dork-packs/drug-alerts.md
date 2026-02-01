@@ -177,16 +177,53 @@ site:saferparty.ch OR site:checkit.wien analysis
 
 ## 📍 State-by-State Quick Reference
 
-| State | Query                                                   |
-| ----- | ------------------------------------------------------- |
-| ACT   | `site:health.act.gov.au "drug alert"`                   |
-| NSW   | `site:health.nsw.gov.au "drug warning" OR "drug alert"` |
-| NT    | `site:health.nt.gov.au "drug alert"`                    |
-| QLD   | `site:health.qld.gov.au "drug alert"`                   |
-| SA    | `site:sahealth.sa.gov.au "drug alert"`                  |
-| TAS   | `site:health.tas.gov.au "drug alert"`                   |
-| VIC   | `site:health.vic.gov.au "drug alert" OR "health alert"` |
-| WA    | `site:health.wa.gov.au "drug warning"`                  |
+### ACT Drug Alerts
+
+```txt
+site:health.act.gov.au "drug alert" OR "drug notification"
+```
+
+### NSW Drug Alerts
+
+```txt
+site:health.nsw.gov.au "drug warning" OR "drug alert"
+```
+
+### NT Drug Alerts
+
+```txt
+site:health.nt.gov.au "drug alert"
+```
+
+### QLD Drug Alerts
+
+```txt
+site:health.qld.gov.au "drug alert"
+```
+
+### SA Drug Alerts
+
+```txt
+site:sahealth.sa.gov.au "drug alert"
+```
+
+### TAS Drug Alerts
+
+```txt
+site:health.tas.gov.au "drug alert"
+```
+
+### VIC Drug Alerts
+
+```txt
+site:health.vic.gov.au "drug alert" OR "health alert"
+```
+
+### WA Drug Alerts
+
+```txt
+site:health.wa.gov.au "drug warning"`                       |
+```
 
 ---
 

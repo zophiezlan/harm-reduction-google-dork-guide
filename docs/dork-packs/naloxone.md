@@ -114,14 +114,41 @@ site:*.gov.au "naloxone" "standing order" OR "standing authority" filetype:pdf
 
 ## 📍 State-by-State Resources
 
-| State | Query                                                       |
-| ----- | ----------------------------------------------------------- |
-| ACT   | `site:health.act.gov.au naloxone`                           |
-| NSW   | `site:health.nsw.gov.au "naloxone" OR "take-home naloxone"` |
-| QLD   | `site:health.qld.gov.au naloxone`                           |
-| SA    | `site:sahealth.sa.gov.au naloxone`                          |
-| VIC   | `site:health.vic.gov.au naloxone program`                   |
-| WA    | `site:health.wa.gov.au "take-home naloxone"`                |
+### ACT
+
+```txt
+site:health.act.gov.au naloxone
+```
+
+### NSW
+
+```txt
+site:health.nsw.gov.au "naloxone" OR "take-home naloxone"
+```
+
+### QLD
+
+```txt
+site:health.qld.gov.au naloxone
+```
+
+### SA
+
+```txt
+site:sahealth.sa.gov.au naloxone
+```
+
+### VIC
+
+```txt
+site:health.vic.gov.au naloxone program
+```
+
+### WA
+
+```txt
+site:health.wa.gov.au "take-home naloxone"
+```
 
 ---
 

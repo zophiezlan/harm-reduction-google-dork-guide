@@ -102,13 +102,35 @@ site:*.gov.au ("chronic pain" OR "pain management") (methadone OR buprenorphine 
 
 ## 📍 State-by-State OAT Resources
 
-| State | Query                                                                    |
-| ----- | ------------------------------------------------------------------------ |
-| NSW   | `site:health.nsw.gov.au "opioid treatment" OR methadone`                 |
-| QLD   | `site:health.qld.gov.au "opioid treatment program"`                      |
-| SA    | `site:sahealth.sa.gov.au "opioid treatment"`                             |
-| VIC   | `site:health.vic.gov.au "pharmacotherapy" OR methadone OR buprenorphine` |
-| WA    | `site:health.wa.gov.au "community program for opioid pharmacotherapy"`   |
+### NSW
+
+```txt
+site:health.nsw.gov.au "opioid treatment" OR methadone
+```
+
+### QLD
+
+```txt
+site:health.qld.gov.au "opioid treatment program"
+```
+
+### SA
+
+```txt
+site:sahealth.sa.gov.au "opioid treatment"
+```
+
+### VIC
+
+```txt
+site:health.vic.gov.au "pharmacotherapy" OR methadone OR buprenorphine
+```
+
+### WA
+
+```txt
+site:health.wa.gov.au "community program for opioid pharmacotherapy"
+```
 
 ---
 

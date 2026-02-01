@@ -152,7 +152,7 @@ These resources support legitimate harm reduction work:
 | **NSW** | Supreme Court Online | [supremecourt.nsw.gov.au/online-registry](https://supremecourt.nsw.gov.au/online-registry.html)                      |
 | **QLD** | Courts Portal        | [courts.qld.gov.au](https://www.courts.qld.gov.au/court-services/search-for-a-court-file)                            |
 | **QLD** | CaseLaw              | [sclqld.org.au/collections/caselaw](https://www.sclqld.org.au/collections/caselaw)                                   |
-| **VIC** | Public Record Office | [prov.vic.gov.au](https://prov.vic.gov.au/explore-collection/explore-topic/court-cases)                              | Historical (1840s-1980s) |
+| **VIC** | Public Record Office | [prov.vic.gov.au](https://prov.vic.gov.au/explore-collection/explore-topic/court-cases)                              |
 
 ---
 

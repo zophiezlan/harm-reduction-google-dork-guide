@@ -128,13 +128,35 @@ site:aph.gov.au "inquiry" ("illicit drugs" OR "harm reduction" OR "drug policy")
 
 ### State Parliaments
 
-| State | Query                                                         |
-| ----- | ------------------------------------------------------------- |
-| NSW   | `site:parliament.nsw.gov.au inquiry drug`                     |
-| QLD   | `site:parliament.qld.gov.au committee drug`                   |
-| SA    | `site:parliament.sa.gov.au drug inquiry`                      |
-| VIC   | `site:parliament.vic.gov.au inquiry drug OR "harm reduction"` |
-| WA    | `site:parliament.wa.gov.au inquiry drug`                      |
+#### NSW
+
+```txt
+site:parliament.nsw.gov.au inquiry drug
+```
+
+#### QLD
+
+```txt
+site:parliament.qld.gov.au committee drug
+```
+
+#### SA
+
+```txt
+site:parliament.sa.gov.au drug inquiry
+```
+
+#### VIC
+
+```txt
+site:parliament.vic.gov.au inquiry drug OR "harm reduction"
+```
+
+#### WA
+
+```txt
+site:parliament.wa.gov.au inquiry drug
+```
 
 ### Finding Submissions
 

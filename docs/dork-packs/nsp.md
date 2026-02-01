@@ -108,13 +108,35 @@ site:*.gov.au filetype:pdf ("needle syringe program" OR "needle exchange" OR "sy
 
 ## 📍 State-by-State NSP Resources
 
-| State | Query                                             |
-| ----- | ------------------------------------------------- |
-| NSW   | `site:health.nsw.gov.au "needle syringe program"` |
-| QLD   | `site:health.qld.gov.au "needle syringe program"` |
-| SA    | `site:sahealth.sa.gov.au "needle syringe"`        |
-| VIC   | `site:health.vic.gov.au "needle syringe" OR NSP`  |
-| WA    | `site:health.wa.gov.au "needle exchange"`         |
+### NSW
+
+```txt
+site:health.nsw.gov.au "needle syringe program"
+```
+
+### QLD
+
+```txt
+site:health.qld.gov.au "needle syringe program"
+```
+
+### SA
+
+```txt
+site:sahealth.sa.gov.au "needle syringe"
+```
+
+### VIC
+
+```txt
+site:health.vic.gov.au "needle syringe" OR NSP
+```
+
+### WA
+
+```txt
+site:health.wa.gov.au "needle exchange"
+```
 
 ---
 

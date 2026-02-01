@@ -222,14 +222,41 @@ Find online course previews and educational content.
 
 ### Major Podcast Platforms
 
-| Platform        | Search Pattern                              |
-| --------------- | ------------------------------------------- |
-| Apple Podcasts  | `site:podcasts.apple.com "harm reduction"`  |
-| Google Podcasts | `site:podcasts.google.com "harm reduction"` |
-| Pocket Casts    | `site:pocketcasts.com "harm reduction"`     |
-| SoundCloud      | `site:soundcloud.com "harm reduction"`      |
-| Spotify         | `site:open.spotify.com "harm reduction"`    |
-| Stitcher        | `site:stitcher.com "harm reduction"`        |
+#### Apple Podcasts
+
+```txt
+site:podcasts.apple.com "harm reduction"
+```
+
+#### Google Podcasts
+
+```txt
+site:podcasts.google.com "harm reduction"
+```
+
+#### Pocket Casts
+
+```txt
+site:pocketcasts.com "harm reduction"
+```
+
+#### SoundCloud
+
+```txt
+site:soundcloud.com "harm reduction"
+```
+
+#### Spotify
+
+```txt
+site:open.spotify.com "harm reduction"
+```
+
+#### Stitcher
+
+```txt
+site:stitcher.com "harm reduction"
+```
 
 ### Combined Podcast Search
 
@@ -257,13 +284,35 @@ site:podcasts.apple.com (naloxone OR fentanyl OR "safe supply")
 
 ### Major Presentation Platforms
 
-| Platform      | Search Pattern                                       |
-| ------------- | ---------------------------------------------------- |
-| Canva         | `site:canva.com "harm reduction"`                    |
-| Google Slides | `site:docs.google.com/presentation "harm reduction"` |
-| Prezi         | `site:prezi.com "harm reduction"`                    |
-| SlideShare    | `site:slideshare.net "harm reduction"`               |
-| Speaker Deck  | `site:speakerdeck.com "harm reduction"`              |
+#### Canva
+
+```txt
+site:canva.com "harm reduction"
+```
+
+#### Google Slides
+
+```txt
+site:docs.google.com/presentation "harm reduction"
+```
+
+#### Prezi
+
+```txt
+site:prezi.com "harm reduction"
+```
+
+#### SlideShare
+
+```txt
+site:slideshare.net "harm reduction"
+```
+
+#### Speaker Deck
+
+```txt
+site:speakerdeck.com "harm reduction"
+```
 
 ### Conference Presentations
 
