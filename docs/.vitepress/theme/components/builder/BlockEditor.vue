@@ -41,14 +41,38 @@ const validationError = computed(() => {
   const b = selectedBlock.value;
 
   // Required fields
-  if (["site", "filetype", "ext", "define", "weather", "stocks", "map", "keyword", "exact", "wildcard"].includes(b.type)) {
+  if (
+    [
+      "site",
+      "filetype",
+      "ext",
+      "define",
+      "weather",
+      "stocks",
+      "map",
+      "keyword",
+      "exact",
+      "wildcard",
+    ].includes(b.type)
+  ) {
     if (!b.value || String(b.value).trim().length === 0) {
       return "This field is required";
     }
   }
 
   // Operator fields
-  if (["intitle", "allintitle", "inurl", "allinurl", "intext", "allintext", "inanchor", "allinanchor"].includes(b.type)) {
+  if (
+    [
+      "intitle",
+      "allintitle",
+      "inurl",
+      "allinurl",
+      "intext",
+      "allintext",
+      "inanchor",
+      "allinanchor",
+    ].includes(b.type)
+  ) {
     if (!b.value || String(b.value).trim().length === 0) {
       return "Search term is required";
     }
@@ -78,9 +102,7 @@ const validationError = computed(() => {
       <button class="editor-remove" @click="removeBlock(selectedBlock.id)">Remove</button>
     </div>
 
-    <div v-if="validationError" class="validation-alert">
-      ⚠️ {{ validationError }}
-    </div>
+    <div v-if="validationError" class="validation-alert">⚠️ {{ validationError }}</div>
 
     <!-- Site Block -->
     <div v-if="selectedBlock.type === 'site'" class="editor-content">

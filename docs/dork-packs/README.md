@@ -68,6 +68,14 @@
 | [Housing & Homelessness](housing-homelessness.md) | Social determinants              | 🏠         |
 | [Mental Health](mental-health.md)                 | Dual diagnosis & co-occurring    | 🧠         |
 
+### Power User Techniques
+
+| Pack                                                          | Description                                | Quick Link |
+| ------------------------------------------------------------- | ------------------------------------------ | ---------- |
+| [Multimedia Discovery](multimedia-discovery.md)               | Video, audio, podcasts & visual resources  | 🎬         |
+| [Organizational Intelligence](organizational-intelligence.md) | Strategic plans, governance & funding docs | 🏢         |
+| [Temporal Intelligence](temporal-intelligence.md)             | Archives, historical content & time-based  | ⏳         |
+
 ### Specialized
 
 | Pack                                          | Description                             | Quick Link |
@@ -78,6 +86,7 @@
 | [Investigative](investigative.md)             | Creative & ethical deep searching       | 🔍         |
 | [Safer Use Education](safer-use-education.md) | Factsheets, brochures, health promotion | 🧰         |
 | [Stigma & Language](stigma-language.md)       | Historical research & terminology       | 📜         |
+| [User-Hosted Domains](user-hosted-domains.md) | Grassroots content on user platforms    | 🌐         |
 
 ---
 

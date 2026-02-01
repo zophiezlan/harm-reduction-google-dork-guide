@@ -18,10 +18,15 @@ Find family support resources:
 
 ## 🟢 Basic Queries
 
-### Family Support Services
+### Family Support Services - 1
 
 ```txt
 "family support" drug OR alcohol OR AOD Australia
+```
+
+### Family Support Services - 2
+
+```txt
 site:fds.org.au OR site:familydrughelp.org.au
 ```
 
@@ -85,17 +90,27 @@ site:fds.org.au OR site:familydrughelp.org.au
 
 ## 👨‍👩‍👧 Family Support Resources
 
-### Family Drug Support
+### Family Drug Support - 1
 
 ```txt
 site:fds.org.au filetype:pdf
+```
+
+### Family Drug Support - 2
+
+```txt
 "Family Drug Support" Australia
 ```
 
-### Family Drug Help
+### Family Drug Help - 1
 
 ```txt
 site:familydrughelp.org.au
+```
+
+### Family Drug Help - 2
+
+```txt
 "Family Drug Help" Victoria
 ```
 
@@ -109,10 +124,15 @@ site:familydrughelp.org.au
 
 ## 👥 Peer Support for Families
 
-### Parent Peer Support
+### Parent Peer Support - 1
 
 ```txt
 "parent peer support" drug OR alcohol child
+```
+
+### Parent Peer Support - 2
+
+```txt
 "peer support" parents families affected drug
 ```
 
@@ -154,10 +174,15 @@ site:familydrughelp.org.au
 
 ## 👶 Children of Parents with AOD Issues
 
-### Children Affected
+### Children Affected - 1
 
 ```txt
 "children of parents" alcohol OR drug problems Australia
+```
+
+### Children Affected - 2
+
+```txt
 "parental substance use" OR "parental drug use" children impact
 ```
 

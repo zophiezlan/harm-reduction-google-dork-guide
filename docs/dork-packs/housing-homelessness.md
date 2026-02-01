@@ -18,10 +18,15 @@ Find housing and AOD resources:
 
 ## 🟢 Basic Queries
 
-### Homelessness & Drug Use
+### Homelessness & Drug Use - 1
 
 ```txt
 "homelessness" "alcohol and other drugs" OR AOD Australia filetype:pdf
+```
+
+### Homelessness & Drug Use - 2
+
+```txt
 "rough sleeping" drug OR alcohol Australia
 ```
 
@@ -31,10 +36,15 @@ Find housing and AOD resources:
 "housing first" alcohol OR drug Australia evaluation
 ```
 
-### Street-Based Outreach
+### Street-Based Outreach - 1
 
 ```txt
 "street present" drug OR substance use outreach
+```
+
+### Street-Based Outreach - 2
+
+```txt
 "homeless" "harm reduction" outreach Australia
 ```
 
@@ -42,17 +52,27 @@ Find housing and AOD resources:
 
 ## 🟡 Intermediate Queries
 
-### Supportive Housing
+### Supportive Housing - 1
 
 ```txt
 "supportive housing" AOD OR "alcohol and other drugs" Australia
+```
+
+### Supportive Housing - 2
+
+```txt
 "supported accommodation" drug OR alcohol Australia
 ```
 
-### Housing Instability
+### Housing Instability - 1
 
 ```txt
 "housing instability" drug use OR substance use Australia
+```
+
+### Housing Instability - 2
+
+```txt
 "eviction" OR "tenancy" drug use OR substance use
 ```
 
@@ -116,10 +136,15 @@ Find housing and AOD resources:
 
 ## 🏕️ Homelessness Services
 
-### Specialist Homelessness Services
+### Specialist Homelessness Services - 1
 
 ```txt
 "specialist homelessness services" AOD OR "alcohol and other drugs" Australia
+```
+
+### Specialist Homelessness Services - 2
+
+```txt
 site:aihw.gov.au "homelessness" "alcohol and other drugs"
 ```
 
@@ -139,10 +164,15 @@ site:aihw.gov.au "homelessness" "alcohol and other drugs"
 
 ## 🚶 Outreach & Street-Based
 
-### Street Outreach
+### Street Outreach - 1
 
 ```txt
 "outreach" OR "street-based" harm reduction Australia
+```
+
+### Street Outreach - 2
+
+```txt
 "mobile service" needle syringe OR harm reduction
 ```
 

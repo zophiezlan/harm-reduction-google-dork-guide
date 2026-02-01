@@ -33,11 +33,21 @@ site:*.gov.au inurl:"/publications/" filetype:pdf "harm reduction" -inurl:html
 
 ## 🟢 Basic Queries
 
-### Directory & Index Mining
+### Directory & Index Mining - 1
 
 ```txt
 site:*.gov.au inurl:"/publications/" filetype:pdf "harm reduction"
+```
+
+### Directory & Index Mining - 2
+
+```txt
 site:*.gov.au inurl:"/uploads/" filetype:pdf "drug"
+```
+
+### Directory & Index Mining - 3
+
+```txt
 site:*.gov.au inurl:"/documents/" filetype:pdf "overdose"
 ```
 
@@ -57,24 +67,39 @@ filetype:pptx OR filetype:ppt "harm reduction" Australia
 
 ## 🟡 Intermediate Queries
 
-### Index Pages
+### Index Pages - 1
 
 ```txt
 site:*.gov.au intitle:"index of" "harm reduction" OR "drug"
+```
+
+### Index Pages - 2
+
+```txt
 site:*.health.*.gov.au inurl:"/assets/" filetype:pdf
 ```
 
-### Internal/Unpublished Documents
+### Internal/Unpublished Documents - 1
 
 ```txt
 site:*.gov.au filetype:pdf "internal use only" OR "not for distribution" "drug"
+```
+
+### Internal/Unpublished Documents - 2
+
+```txt
 site:*.gov.au filetype:pdf "confidential" "alcohol and other drugs" -"de-identified"
 ```
 
-### Embargoed/Pre-Release
+### Embargoed/Pre-Release - 1
 
 ```txt
 site:*.gov.au filetype:pdf "embargoed" OR "pre-release" drug policy
+```
+
+### Embargoed/Pre-Release - 2
+
+```txt
 "working paper" OR "discussion paper" harm reduction site:*.gov.au
 ```
 
@@ -88,20 +113,45 @@ site:*.gov.au filetype:pdf "embargoed" OR "pre-release" drug policy
 site:*.gov.au (inurl:"/publications/" OR inurl:"/uploads/" OR inurl:"/documents/" OR inurl:"/assets/" OR inurl:"/files/") filetype:pdf ("harm reduction" OR "drug policy" OR "alcohol and other drugs") -inurl:html
 ```
 
-### Meeting Minutes & Agendas
+### Meeting Minutes & Agendas - 1
 
 ```txt
 site:*.gov.au filetype:pdf "meeting minutes" ("harm reduction" OR "drug policy")
+```
+
+### Meeting Minutes & Agendas - 2
+
+```txt
 site:*.gov.au filetype:pdf "agenda" "alcohol and other drugs" committee
+```
+
+### Meeting Minutes & Agendas - 3
+
+```txt
 "steering committee" OR "working group" minutes harm reduction filetype:pdf
 ```
 
-### Tender Documents & Funding
+### Tender Documents & Funding - Tender
 
 ```txt
 site:*.gov.au "tender" OR "expression of interest" "harm reduction"
+```
+
+### Tender Documents & Funding - Funding agreement
+
+```txt
 site:*.gov.au filetype:pdf "funding agreement" OR "service agreement" AOD
+```
+
+### Tender Documents & Funding - Request for tender
+
+```txt
 "request for tender" "alcohol and other drugs" site:*.gov.au
+```
+
+### Tender Documents & Funding - Grant guidelines
+
+```txt
 "grant guidelines" harm reduction site:*.gov.au
 ```
 
@@ -109,17 +159,27 @@ site:*.gov.au filetype:pdf "funding agreement" OR "service agreement" AOD
 
 ## 📊 Spreadsheets & Data Files
 
-### Excel Files
+### Excel Files - 1
 
 ```txt
 filetype:xlsx "harm reduction" OR "AOD" site:*.gov.au
+```
+
+### Excel Files - 2
+
+```txt
 filetype:xlsx "service directory" OR "contact list" drug alcohol
 ```
 
-### CSV Files
+### CSV Files - 1
 
 ```txt
 filetype:csv "needle syringe" OR "NSP" OR "overdose"
+```
+
+### CSV Files - 2
+
+```txt
 filetype:csv "drug" OR "alcohol" site:*.gov.au
 ```
 
@@ -133,17 +193,27 @@ filetype:xls "opioid treatment" OR "methadone" clinic
 
 ## 📋 FOI (Freedom of Information)
 
-### FOI Releases
+### FOI Releases - 1
 
 ```txt
 site:*.gov.au "freedom of information" OR "FOI" "drug" OR "harm reduction" filetype:pdf
+```
+
+### FOI Releases - 2
+
+```txt
 site:*.gov.au inurl:foi OR inurl:freedom-of-information "alcohol" OR "overdose"
 ```
 
-### Disclosure Logs
+### Disclosure Logs - 1
 
 ```txt
 "disclosure log" site:*.gov.au "drug policy" OR "harm reduction"
+```
+
+### Disclosure Logs - 2
+
+```txt
 "FOI release" "harm reduction" OR "drug checking"
 ```
 
@@ -151,18 +221,33 @@ site:*.gov.au inurl:foi OR inurl:freedom-of-information "alcohol" OR "overdose"
 
 ## 📜 Legacy & Archived Content
 
-### Historical Documents
+### Historical Documents - 1
 
 ```txt
 site:*.gov.au "harm reduction" 1990..2005 filetype:pdf
+```
+
+### Historical Documents - 2
+
+```txt
 "national drug strategy" Australia 1985..2000 filetype:pdf
+```
+
+### Historical Documents - 3
+
+```txt
 "needle exchange" Australia history OR origins 1980s
 ```
 
-### Web Archive (NLA)
+### Web Archive (NLA) - 1
 
 ```txt
 site:webarchive.nla.gov.au "harm reduction"
+```
+
+### Web Archive (NLA) - 2
+
+```txt
 site:web.archive.org "aivl.org.au" OR "nuaa.org.au"
 ```
 
@@ -176,10 +261,15 @@ site:web.archive.org "aivl.org.au" OR "nuaa.org.au"
 
 ## 🔍 Buried Evaluations
 
-### Hidden Evaluations
+### Hidden Evaluations - 1
 
 ```txt
 site:*.gov.au filetype:pdf "evaluation" "harm reduction" inurl:publications
+```
+
+### Hidden Evaluations - 2
+
+```txt
 site:*.gov.au filetype:pdf "review" "needle syringe program" -news
 ```
 
@@ -189,10 +279,15 @@ site:*.gov.au filetype:pdf "review" "needle syringe program" -news
 "process evaluation" OR "outcome evaluation" harm reduction Australia filetype:pdf
 ```
 
-### Cost-Effectiveness (Often Buried)
+### Cost-Effectiveness (Often Buried) - 1
 
 ```txt
 "cost-effectiveness" OR "cost-benefit" harm reduction Australia filetype:pdf
+```
+
+### Cost-Effectiveness (Often Buried) - 2
+
+```txt
 site:*.gov.au "economic evaluation" ("harm reduction" OR "needle syringe" OR naloxone)
 ```
 
@@ -200,10 +295,15 @@ site:*.gov.au "economic evaluation" ("harm reduction" OR "needle syringe" OR nal
 
 ## 📄 Unusual File Types
 
-### RTF & ODT
+### RTF & ODT - 1
 
 ```txt
 filetype:rtf "harm reduction" Australia
+```
+
+### RTF & ODT - 2
+
+```txt
 filetype:odt "drug checking" OR "pill testing"
 ```
 
@@ -223,11 +323,21 @@ filetype:xml "drug" site:*.gov.au sitemap
 
 ## 🗣️ Minority Reports & Dissent
 
-### Dissenting Views
+### Dissenting Views - 1
 
 ```txt
 "minority report" OR "dissenting opinion" drug policy Australia
+```
+
+### Dissenting Views - 2
+
+```txt
 "addendum" OR "additional comments" harm reduction inquiry
+```
+
+### Dissenting Views - 3
+
+```txt
 "supplementary submission" drug policy parliament
 ```
 
@@ -241,12 +351,27 @@ filetype:xml "drug" site:*.gov.au sitemap
 
 ## 🔧 URL Pattern Tricks
 
-### Common Directory Patterns
+### Common Directory Patterns - Query 1
 
 ```txt
 inurl:publications site:*.gov.au filetype:pdf
+```
+
+### Common Directory Patterns - Query 2
+
+```txt
 inurl:submissions site:*.gov.au filetype:pdf
+```
+
+### Common Directory Patterns - Query 3
+
+```txt
 inurl:reports site:*.gov.au filetype:pdf
+```
+
+### Common Directory Patterns - Query 4
+
+```txt
 inurl:resources site:*.org.au filetype:pdf
 ```
 

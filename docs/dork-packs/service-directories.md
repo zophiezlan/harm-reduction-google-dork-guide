@@ -96,17 +96,27 @@ filetype:xlsx ("service directory" OR "contact list") (AOD OR "drug and alcohol"
 
 ## 📍 State-by-State Service Directories
 
-### NSW
+### NSW - 1
 
 ```txt
 site:health.nsw.gov.au OR site:nsw.gov.au "service directory" AOD OR "alcohol drug"
+```
+
+### NSW - 2
+
+```txt
 site:*.nsw.gov.au filetype:xlsx service directory
 ```
 
-### Victoria
+### Victoria - 1
 
 ```txt
 site:health.vic.gov.au "service directory" OR "service finder" AOD
+```
+
+### Victoria - 2
+
+```txt
 site:*.vic.gov.au "alcohol and drug" services directory
 ```
 
@@ -116,17 +126,27 @@ site:*.vic.gov.au "alcohol and drug" services directory
 site:health.qld.gov.au "service directory" AOD OR "alcohol and other drugs"
 ```
 
-### Western Australia
+### Western Australia - 1
 
 ```txt
 site:health.wa.gov.au "service directory" AOD OR "alcohol and other drugs"
+```
+
+### Western Australia - 2
+
+```txt
 site:mhc.wa.gov.au services directory
 ```
 
-### South Australia
+### South Australia - 1
 
 ```txt
 site:sahealth.sa.gov.au service directory drug OR alcohol
+```
+
+### South Australia - 2
+
+```txt
 site:dassa.sa.gov.au services
 ```
 
@@ -136,10 +156,15 @@ site:dassa.sa.gov.au services
 site:health.tas.gov.au "service directory" alcohol drug
 ```
 
-### ACT
+### ACT - 1
 
 ```txt
 site:health.act.gov.au service directory AOD
+```
+
+### ACT - 2
+
+```txt
 site:*.act.gov.au "alcohol and drug" services
 ```
 
@@ -187,8 +212,15 @@ site:health.nt.gov.au service directory AOD
 
 ## 🖤💛❤️ First Nations Services
 
+### 🖤💛❤️ First Nations Services - 1
+
 ```txt
 (Aboriginal OR "Torres Strait Islander" OR Indigenous) (AOD OR "alcohol and other drugs") service directory
+```
+
+### 🖤💛❤️ First Nations Services - 2
+
+```txt
 (ACCHO OR "community controlled") "alcohol and other drugs" services [YOUR STATE]
 ```
 
@@ -218,10 +250,15 @@ site:health.nt.gov.au service directory AOD
 
 ## 🔧 Finding Hidden Directories
 
-### Inurl Patterns
+### Inurl Patterns - 1
 
 ```txt
 site:*.gov.au inurl:services OR inurl:directory filetype:pdf AOD
+```
+
+### Inurl Patterns - 2
+
+```txt
 site:*.gov.au inurl:contacts OR inurl:providers filetype:xlsx
 ```
 
@@ -235,10 +272,15 @@ site:*.gov.au filetype:xlsx "service" ("contact" OR "phone" OR "address") drug O
 
 ## 📱 Online Service Finders
 
-### Known Online Tools (search for updates)
+### Known Online Tools (search for updates) - 1
 
 ```txt
 "service finder" AOD Australia online
+```
+
+### Known Online Tools (search for updates) - 2
+
+```txt
 "treatment locator" "drug and alcohol" Australia
 ```
 

@@ -379,6 +379,74 @@ before:2015
 
 ---
 
+## 🌐 User-Hosted Platform Patterns
+
+> Use these to search across user-published content on community platforms.
+
+### Documentation Platforms
+
+```txt
+(site:*.notion.site OR site:*.gitbook.io OR site:*.readthedocs.io OR site:*.readme.io)
+```
+
+### Blogging & Newsletter Platforms
+
+```txt
+(site:*.wordpress.com OR site:*.blogspot.com OR site:medium.com OR site:*.substack.com OR site:*.tumblr.com OR site:telegra.ph)
+```
+
+### Static Site Hosts
+
+```txt
+(site:*.github.io OR site:*.pages.dev OR site:*.vercel.app OR site:*.netlify.app OR site:*.web.app OR site:*.glitch.me)
+```
+
+### File Hosting Platforms
+
+```txt
+(site:drive.google.com OR site:dropbox.com OR site:onedrive.live.com OR site:archive.org OR site:speakerdeck.com)
+```
+
+### Community & Forum Platforms
+
+```txt
+(site:reddit.com OR site:quora.com OR site:groups.google.com)
+```
+
+### Research Data Platforms
+
+```txt
+(site:zenodo.org OR site:osf.io OR site:figshare.com OR site:kaggle.com)
+```
+
+### Bio Link & Creator Platforms
+
+```txt
+(site:linktr.ee OR site:ko-fi.com OR site:patreon.com OR site:about.me)
+```
+
+### Self-Hosted Platform Footprints
+
+```txt
+("Powered by Discourse" OR "MediaWiki" OR "DokuWiki" OR "BookStack" OR "TiddlyWiki")
+```
+
+### All Major User Platforms (Comprehensive)
+
+```txt
+(site:*.notion.site OR site:*.gitbook.io OR site:*.wordpress.com OR site:medium.com OR site:*.substack.com OR site:reddit.com)
+```
+
+**Using platform patterns with topics:**
+
+```txt
+(site:*.notion.site OR site:*.gitbook.io OR site:*.wordpress.com) ("harm reduction") (guide OR resources)
+(site:reddit.com OR site:quora.com) "naloxone" OR "drug checking" -advertisement
+(site:drive.google.com OR site:speakerdeck.com) "harm reduction" training filetype:pdf
+```
+
+---
+
 ## 🔧 Using Blocks in Queries
 
 ### Example 1: Drug Alerts with Full Synonym Block

@@ -46,10 +46,15 @@ site:abs.gov.au "illicit drug use" OR "drug use" survey
 "National Drug Strategy Household Survey" OR NDSHS (latest OR 2022 OR 2023) filetype:pdf
 ```
 
-### IDRS (Illicit Drug Reporting System)
+### IDRS (Illicit Drug Reporting System) - 1
 
 ```txt
 "Illicit Drug Reporting System" OR IDRS filetype:pdf
+```
+
+### IDRS (Illicit Drug Reporting System) - 2
+
+```txt
 site:ndarc.med.unsw.edu.au IDRS
 ```
 
@@ -132,10 +137,15 @@ site:penington.org.au "overdose" OR "Australia's Annual Overdose Report"
 
 ## 💉 NSP Data
 
-### NSP Distribution Data
+### NSP Distribution Data - 1
 
 ```txt
 "needle syringe" ("distribution data" OR "equipment distributed" OR statistics) Australia
+```
+
+### NSP Distribution Data - 2
+
+```txt
 site:aihw.gov.au "needle syringe program" data
 ```
 
@@ -171,10 +181,15 @@ site:aihw.gov.au (methadone OR buprenorphine OR "opioid pharmacotherapy") data O
 
 ## ☠️ Mortality & Morbidity
 
-### Drug-Induced Deaths
+### Drug-Induced Deaths - 1
 
 ```txt
 site:aihw.gov.au "drug-induced deaths" filetype:pdf
+```
+
+### Drug-Induced Deaths - 2
+
+```txt
 "drug-related mortality" OR "drug deaths" statistics Australia
 ```
 
@@ -200,10 +215,15 @@ site:aihw.gov.au ("drug-related" OR "alcohol-related") (hospitalisation OR hospi
 
 ## 📈 Trend & Surveillance
 
-### Drug Market Trends
+### Drug Market Trends - 1
 
 ```txt
 "drug market" trend OR surveillance Australia filetype:pdf
+```
+
+### Drug Market Trends - 2
+
+```txt
 site:ndarc.med.unsw.edu.au "drug trends" OR "market" filetype:pdf
 ```
 
@@ -229,10 +249,15 @@ site:ndarc.med.unsw.edu.au "drug trends" OR "market" filetype:pdf
 site:health.nsw.gov.au OR site:nsw.gov.au (drug OR alcohol) statistics OR data
 ```
 
-### Victoria
+### Victoria - 1
 
 ```txt
 site:health.vic.gov.au OR site:vic.gov.au ("drug related" OR "alcohol related") data
+```
+
+### Victoria - 2
+
+```txt
 site:turning-point.org.au data OR statistics
 ```
 
@@ -274,8 +299,15 @@ site:ada.edu.au OR site:ands.org.au (drug OR alcohol OR AOD) data
 
 ## 🖤💛❤️ First Nations Data
 
+### 🖤💛❤️ First Nations Data - 1
+
 ```txt
 site:aihw.gov.au ("Aboriginal" OR "Indigenous") ("alcohol" OR "drug" OR "substance") statistics
+```
+
+### 🖤💛❤️ First Nations Data - 2
+
+```txt
 "Closing the Gap" (alcohol OR drug OR substance) data
 ```
 

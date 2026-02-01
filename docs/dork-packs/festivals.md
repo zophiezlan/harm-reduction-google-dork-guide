@@ -102,16 +102,51 @@ Find festival harm reduction resources:
 
 ## 🎪 Specific Major Festivals
 
-### Australian Festivals
+### Australian Festivals - Groovin the Moo
 
 ```txt
 "Groovin the Moo" ("drug checking" OR "harm reduction" OR medical)
+```
+
+### Australian Festivals - Lost Paradise
+
+```txt
 "Lost Paradise" ("drug checking" OR "harm reduction")
+```
+
+### Australian Festivals - Splendour in the Grass
+
+```txt
 "Splendour in the Grass" ("harm reduction" OR "medical report")
+```
+
+### Australian Festivals - Falls Festival
+
+```txt
 "Falls Festival" ("harm reduction" OR medical OR "incident report")
+```
+
+### Australian Festivals - Rainbow Serpent
+
+```txt
 "Rainbow Serpent" harm reduction OR "event health"
+```
+
+### Australian Festivals - Strawberry Fields
+
+```txt
 "Strawberry Fields" "drug checking" OR "harm reduction"
+```
+
+### Australian Festivals - Subsonic
+
+```txt
 "Subsonic" harm reduction
+```
+
+### Australian Festivals - Beyond the Valley
+
+```txt
 "Beyond the Valley" medical OR "harm reduction"
 ```
 
@@ -153,10 +188,15 @@ Find festival harm reduction resources:
 
 ## 👥 Peer Programs
 
-### DanceWize
+### DanceWize - 1
 
 ```txt
 site:hrvic.org.au DanceWize filetype:pdf
+```
+
+### DanceWize - 2
+
+```txt
 "DanceWize" (training OR volunteer OR protocol)
 ```
 

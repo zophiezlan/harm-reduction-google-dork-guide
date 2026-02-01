@@ -4,6 +4,7 @@ import DefaultTheme from "vitepress/theme";
 import NavThemeSwitcher from "./components/NavThemeSwitcher.vue";
 import DorkCodeEnhancer from "./components/DorkCodeEnhancer.vue";
 import DorkSyntaxHighlighter from "./components/DorkSyntaxHighlighter.vue";
+import OnboardingTutorial from "./components/OnboardingTutorial.vue";
 
 const { Layout } = DefaultTheme;
 </script>
@@ -16,6 +17,9 @@ const { Layout } = DefaultTheme;
     <template #doc-after>
       <DorkCodeEnhancer />
       <DorkSyntaxHighlighter />
+    </template>
+    <template #layout-bottom>
+      <OnboardingTutorial />
     </template>
   </Layout>
 </template>

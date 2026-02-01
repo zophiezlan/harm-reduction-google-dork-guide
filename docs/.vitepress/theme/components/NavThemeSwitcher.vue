@@ -32,23 +32,23 @@ function handleClickOutside(e: MouseEvent) {
 
 // Mode Toggle Logic
 const isDark = computed(() => {
-  if (settings.theme.mode === 'system') return systemDark.value;
-  return settings.theme.mode === 'dark';
+  if (settings.theme.mode === "system") return systemDark.value;
+  return settings.theme.mode === "dark";
 });
 
 function toggleMode() {
-  setThemeMode(isDark.value ? 'light' : 'dark');
+  setThemeMode(isDark.value ? "light" : "dark");
 }
 
 onMounted(() => {
   document.addEventListener("click", handleClickOutside);
-  
-  if (typeof window !== 'undefined') {
+
+  if (typeof window !== "undefined") {
     const mq = window.matchMedia("(prefers-color-scheme: dark)");
     systemDark.value = mq.matches;
-    
+
     // Listen for system changes
-    mq.addEventListener('change', (e) => {
+    mq.addEventListener("change", (e) => {
       systemDark.value = e.matches;
     });
   }
@@ -62,18 +62,18 @@ onUnmounted(() => {
 <template>
   <div class="nav-theme-switcher" ref="menuRef">
     <!-- Mode Toggle (Left) -->
-    <button 
-      class="theme-toggle-btn mode-toggle" 
-      @click="toggleMode" 
+    <button
+      class="theme-toggle-btn mode-toggle"
+      @click="toggleMode"
       :title="isDark ? 'Switch to light theme' : 'Switch to dark theme'"
     >
-      <span class="icon">{{ isDark ? '🌙' : '☀️' }}</span>
+      <span class="icon">{{ isDark ? "🌙" : "☀️" }}</span>
     </button>
 
     <!-- Color Select (Right) -->
-    <button 
-      class="theme-toggle-btn color-toggle" 
-      @click="toggleDropdown" 
+    <button
+      class="theme-toggle-btn color-toggle"
+      @click="toggleDropdown"
       title="Change theme color"
     >
       <span

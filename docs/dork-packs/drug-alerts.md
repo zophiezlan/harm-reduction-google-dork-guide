@@ -112,12 +112,17 @@ site:*.gov.au "drug alert" ("high strength" OR "unexpected" OR "contaminated" OR
 
 Government alerts can be slow. Local news often reports "bad batch" incidents or overdoses first.
 
-### The "Location" Operator
+### The "Location" Operator - 1
 
 Find reports specific to a city or town (Google News only).
 
 ```txt
 location:Sydney "drug alert"
+```
+
+### The "Location" Operator - 2
+
+```txt
 location:Melbourne "overdose"
 ```
 
@@ -144,10 +149,15 @@ For comparison and early warning from other jurisdictions:
 site:wedinos.org [substance name]
 ```
 
-### Canada
+### Canada - 1
 
 ```txt
 site:drugschecking.ca results
+```
+
+### Canada - 2
+
+```txt
 site:tripproject.ca alerts
 ```
 

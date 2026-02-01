@@ -25,10 +25,15 @@ with lived experience of drug use—resources that center peer voices and wisdom
 
 ## 🟢 Basic Queries
 
-### Peer Newsletters & Magazines
+### Peer Newsletters & Magazines - 1
 
 ```txt
 site:nuaa.org.au "User's News" filetype:pdf
+```
+
+### Peer Newsletters & Magazines - 2
+
+```txt
 site:aivl.org.au "The Advocate" OR newsletter filetype:pdf
 ```
 
@@ -104,10 +109,15 @@ site:*.org.au ("peer-developed" OR "peer-produced" OR "peer-created") (materials
 
 ## 📰 Peer Publications
 
-### User's News (NUAA)
+### User's News (NUAA) - 1
 
 ```txt
 site:nuaa.org.au "User's News" filetype:pdf
+```
+
+### User's News (NUAA) - 2
+
+```txt
 "User's News" NUAA [TOPIC]
 ```
 
@@ -129,10 +139,15 @@ site:hrvic.org.au filetype:pdf
 (site:quihn.org OR site:wasua.com.au) filetype:pdf
 ```
 
-### Finding Specific Issues
+### Finding Specific Issues - 1
 
 ```txt
 "User's News" [TOPIC] filetype:pdf
+```
+
+### Finding Specific Issues - 2
+
+```txt
 "peer newsletter" [TOPIC] Australia
 ```
 
@@ -174,10 +189,15 @@ site:hrvic.org.au filetype:pdf
 site:nuaa.org.au OR site:aivl.org.au (factsheet OR "fact sheet" OR guide) filetype:pdf
 ```
 
-### Peer Education Materials
+### Peer Education Materials - 1
 
 ```txt
 "peer education" resources harm reduction Australia filetype:pdf
+```
+
+### Peer Education Materials - 2
+
+```txt
 "by peers for peers" harm reduction
 ```
 
@@ -191,10 +211,15 @@ site:*.org.au "peer-led" (campaign OR resource OR toolkit) filetype:pdf
 
 ## 🗣️ Peer Voice in Policy
 
-### Peer Submissions
+### Peer Submissions - 1
 
 ```txt
 (site:aivl.org.au OR site:nuaa.org.au) submission filetype:pdf
+```
+
+### Peer Submissions - 2
+
+```txt
 "peer organisation" submission (inquiry OR consultation) drug
 ```
 
@@ -232,10 +257,15 @@ site:*.org.au "peer-led" (advocacy OR campaign) drug policy filetype:pdf
 "nothing about us without us" drug policy OR harm reduction filetype:pdf
 ```
 
-### Peer Advocacy History
+### Peer Advocacy History - 1
 
 ```txt
 "drug user movement" OR "drug user organising" Australia history
+```
+
+### Peer Advocacy History - 2
+
+```txt
 (NUAA OR AIVL) history OR "early days" OR founding
 ```
 
@@ -265,10 +295,15 @@ site:*.org.au "peer-led" (advocacy OR campaign) drug policy filetype:pdf
 
 ## 🌏 International Peer Content
 
-### INPUD
+### INPUD - 1
 
 ```txt
 site:inpud.net filetype:pdf
+```
+
+### INPUD - 2
+
+```txt
 "International Network of People Who Use Drugs" resources
 ```
 
@@ -278,10 +313,15 @@ site:inpud.net filetype:pdf
 "European Network of People Who Use Drugs" (EuroNPUD OR ENPUD)
 ```
 
-### Canadian Peer Orgs
+### Canadian Peer Orgs - 1
 
 ```txt
 "Canadian Association of People Who Use Drugs" (CAPUD)
+```
+
+### Canadian Peer Orgs - 2
+
+```txt
 site:vandu.org OR site:capud.ca filetype:pdf
 ```
 
@@ -295,10 +335,15 @@ site:vandu.org OR site:capud.ca filetype:pdf
 site:web.archive.org (nuaa.org.au OR aivl.org.au)
 ```
 
-### Historical Peer Publications
+### Historical Peer Publications - 1
 
 ```txt
 "User's News" 1990..2010
+```
+
+### Historical Peer Publications - 2
+
+```txt
 "peer newsletter" harm reduction Australia 1990..2015
 ```
 

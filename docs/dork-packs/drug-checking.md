@@ -136,11 +136,21 @@ FTIR ("drug checking" OR "pill testing") (accuracy OR limitations OR comparison)
 
 ## 🎪 Festival-Specific
 
-### Major Australian Festivals
+### Major Australian Festivals - 1
 
 ```txt
 "Groovin the Moo" ("drug checking" OR "pill testing")
+```
+
+### Major Australian Festivals - 2
+
+```txt
 "Lost Paradise" "drug checking" OR "harm reduction"
+```
+
+### Major Australian Festivals - 3
+
+```txt
 "Splendour in the Grass" "pill testing" OR "harm reduction"
 ```
 
