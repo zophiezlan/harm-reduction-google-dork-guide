@@ -112,10 +112,15 @@ Find youth AOD resources:
 
 ## 🏥 Youth AOD Services
 
-### Specialist Youth Services
+### Specialist Youth Services - 1
 
 ```txt
 "youth" AOD service OR "alcohol and other drugs" (directory OR list) [YOUR STATE]
+```
+
+### Specialist Youth Services - 2
+
+```txt
 site:ysas.org.au filetype:pdf
 ```
 
@@ -191,10 +196,15 @@ site:ysas.org.au filetype:pdf
 
 ## 🧠 Mental Health & Youth
 
-### Youth Mental Health & AOD
+### Youth Mental Health & AOD - 1
 
 ```txt
 "youth" OR "young people" "mental health" ("substance use" OR AOD) Australia
+```
+
+### Youth Mental Health & AOD - 2
+
+```txt
 site:headspace.org.au drug OR alcohol
 ```
 
@@ -224,10 +234,15 @@ site:headspace.org.au drug OR alcohol
 
 ## 📊 Research & Data
 
-### Youth Drug Use Data
+### Youth Drug Use Data - 1
 
 ```txt
 "young people" OR "youth" drug use (survey OR statistics) Australia
+```
+
+### Youth Drug Use Data - 2
+
+```txt
 site:aihw.gov.au youth "alcohol and other drugs"
 ```
 

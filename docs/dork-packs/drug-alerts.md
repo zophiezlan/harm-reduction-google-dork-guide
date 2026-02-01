@@ -144,10 +144,15 @@ For comparison and early warning from other jurisdictions:
 site:wedinos.org [substance name]
 ```
 
-### Canada
+### Canada - 1
 
 ```txt
 site:drugschecking.ca results
+```
+
+### Canada - 2
+
+```txt
 site:tripproject.ca alerts
 ```
 

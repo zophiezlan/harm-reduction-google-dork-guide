@@ -90,11 +90,21 @@ site:*.pt OR "Portugal" "decriminalization" drugs (evaluation OR outcomes) 2001.
 
 ## 🌍 By Country/Region
 
-### Canada
+### Canada - 1
 
 ```txt
 site:*.gc.ca "supervised consumption" OR "safe injection" evaluation filetype:pdf
+```
+
+### Canada - 2
+
+```txt
 site:*.gc.ca "safe supply" OR "safer supply" (opioid OR prescription) filetype:pdf
+```
+
+### Canada - 3
+
+```txt
 site:bccsu.ca filetype:pdf (guidelines OR protocol)
 ```
 
@@ -104,39 +114,69 @@ site:bccsu.ca filetype:pdf (guidelines OR protocol)
 - Health Canada supervised consumption
 - Safe supply programs
 
-### United Kingdom
+### United Kingdom - 1
 
 ```txt
 site:*.gov.uk "drug consumption room" OR "drug policy" filetype:pdf
+```
+
+### United Kingdom - 2
+
+```txt
 site:*.gov.uk "naloxone" OR "take-home naloxone" program
+```
+
+### United Kingdom - 3
+
+```txt
 site:release.org.uk filetype:pdf
 ```
 
-### Europe (EMCDDA)
+### Europe (EMCDDA) - 1
 
 ```txt
 site:emcdda.europa.eu filetype:pdf
+```
+
+### Europe (EMCDDA) - 2
+
+```txt
 site:emcdda.europa.eu "drug checking" OR "harm reduction" OR "treatment"
 ```
 
-### Portugal
+### Portugal - 1
 
 ```txt
 "Portugal" "decriminalization" OR "decriminalisation" (drugs OR drug policy) (evaluation OR model OR lessons) filetype:pdf
+```
+
+### Portugal - 2
+
+```txt
 "Dissuasion Commission" Portugal drug
 ```
 
-### Switzerland
+### Switzerland - 1
 
 ```txt
 (Switzerland OR Swiss) ("heroin assisted treatment" OR HAT OR "heroin prescription") (evaluation OR outcomes) filetype:pdf
+```
+
+### Switzerland - 2
+
+```txt
 (Switzerland OR Swiss) "drug consumption room" OR "injection room"
 ```
 
-### Netherlands
+### Netherlands - 1
 
 ```txt
 (Netherlands OR Dutch) "drug policy" (coffeeshop OR cannabis OR "harm reduction") filetype:pdf
+```
+
+### Netherlands - 2
+
+```txt
 (Netherlands OR Dutch) "drug checking" OR "pill testing" (evaluation OR service)
 ```
 
@@ -146,10 +186,15 @@ site:emcdda.europa.eu "drug checking" OR "harm reduction" OR "treatment"
 (Germany OR German) "drug consumption room" OR "harm reduction" policy filetype:pdf
 ```
 
-### New Zealand
+### New Zealand - 1
 
 ```txt
 site:*.govt.nz "needle exchange" OR "drug checking" OR "harm reduction"
+```
+
+### New Zealand - 2
+
+```txt
 "New Zealand" "drug checking" OR "pill testing" (legislation OR implementation)
 ```
 
@@ -185,18 +230,33 @@ site:hri.global "global state of harm reduction" OR report filetype:pdf
 
 ## 👥 International Peer Networks
 
-### INPUD
+### INPUD - 1
 
 ```txt
 site:inpud.net filetype:pdf
+```
+
+### INPUD - 2
+
+```txt
 "International Network of People Who Use Drugs" (statement OR resources)
 ```
 
-### Regional Networks
+### Regional Networks - 1
 
 ```txt
 "European Network of People Who Use Drugs" (EuroNPUD OR ENPUD)
+```
+
+### Regional Networks - 2
+
+```txt
 "Canadian Association of People Who Use Drugs" (CAPUD)
+```
+
+### Regional Networks - 3
+
+```txt
 "Asian Network of People Who Use Drugs" (ANPUD)
 ```
 

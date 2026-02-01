@@ -34,17 +34,27 @@ site:naccho.org.au "alcohol" OR "drug" OR "AOD" filetype:pdf
 
 ## 🟢 Basic Queries
 
-### Aboriginal Community Controlled Health (ACCHOs)
+### Aboriginal Community Controlled Health (ACCHOs) - 1
 
 ```txt
 site:naccho.org.au "alcohol" OR "drug" OR "AOD" OR "substance"
+```
+
+### Aboriginal Community Controlled Health (ACCHOs) - 2
+
+```txt
 "Aboriginal Community Controlled Health" AOD OR "alcohol and other drugs"
 ```
 
-### Aboriginal-Specific Programs
+### Aboriginal-Specific Programs - 1
 
 ```txt
 "Aboriginal" "harm reduction" program Australia filetype:pdf
+```
+
+### Aboriginal-Specific Programs - 2
+
+```txt
 "Aboriginal" "alcohol and other drugs" service OR program
 ```
 
@@ -58,18 +68,33 @@ site:naccho.org.au "alcohol" OR "drug" OR "AOD" OR "substance"
 
 ## 🟡 Intermediate Queries
 
-### State ACCHOs
+### State ACCHOs - 1
 
 ```txt
 site:ahmrc.org.au filetype:pdf
+```
+
+### State ACCHOs - 2
+
+```txt
 site:vaccho.org.au "alcohol and other drugs"
+```
+
+### State ACCHOs - 3
+
+```txt
 site:qaihc.com.au harm reduction OR AOD
 ```
 
-### Cultural Healing Approaches
+### Cultural Healing Approaches - 1
 
 ```txt
 "cultural healing" "alcohol" OR "drug" Aboriginal Australia
+```
+
+### Cultural Healing Approaches - 2
+
+```txt
 "connection to country" OR "return to country" healing substance
 ```
 
@@ -105,10 +130,15 @@ site:qaihc.com.au harm reduction OR AOD
 
 ## 🏥 Aboriginal Community Controlled Organisations
 
-### National
+### National - 1
 
 ```txt
 site:naccho.org.au filetype:pdf
+```
+
+### National - 2
+
+```txt
 "National Aboriginal Community Controlled Health Organisation" AOD
 ```
 
@@ -156,10 +186,15 @@ site:naccho.org.au filetype:pdf
 "Elders" role healing OR recovery (substance OR alcohol) Aboriginal
 ```
 
-### Gender-Specific Healing
+### Gender-Specific Healing - 1
 
 ```txt
 "men's group" OR "women's group" Aboriginal healing alcohol drug
+```
+
+### Gender-Specific Healing - 2
+
+```txt
 "women's business" OR "men's business" healing substance
 ```
 
@@ -185,10 +220,15 @@ site:lowitja.org.au "alcohol" OR "drug" OR "substance" filetype:pdf
 "Closing the Gap" ("alcohol" OR "drug" OR "substance")
 ```
 
-### National Strategies
+### National Strategies - 1
 
 ```txt
 "National Aboriginal and Torres Strait Islander" drug OR alcohol strategy
+```
+
+### National Strategies - 2
+
+```txt
 "Aboriginal and Torres Strait Islander" health plan AOD
 ```
 
@@ -202,18 +242,33 @@ site:aihw.gov.au ("Aboriginal" OR "Indigenous") ("alcohol and other drugs" OR su
 
 ## ⚖️ Justice & Incarceration
 
-### Diversion Programs
+### Diversion Programs - 1
 
 ```txt
 "Aboriginal" "justice" "alcohol" OR "drug" diversion
+```
+
+### Diversion Programs - 2
+
+```txt
 "Koori Court" OR "Murri Court" drug OR alcohol
+```
+
+### Diversion Programs - 3
+
+```txt
 "Aboriginal Legal Service" drug OR alcohol diversion
 ```
 
-### Over-Representation
+### Over-Representation - 1
 
 ```txt
 "over-representation" Aboriginal prison drug OR alcohol
+```
+
+### Over-Representation - 2
+
+```txt
 "Aboriginal" "incarceration" OR "prison" drug OR alcohol
 ```
 
@@ -233,10 +288,15 @@ site:aihw.gov.au ("Aboriginal" OR "Indigenous") ("alcohol and other drugs" OR su
 "Stolen Generations" trauma "substance" OR "alcohol"
 ```
 
-### Intergenerational Trauma
+### Intergenerational Trauma - 1
 
 ```txt
 "intergenerational trauma" "alcohol" OR "drug" Aboriginal
+```
+
+### Intergenerational Trauma - 2
+
+```txt
 "historical trauma" OR "collective trauma" Aboriginal substance
 ```
 
@@ -250,17 +310,27 @@ site:aihw.gov.au ("Aboriginal" OR "Indigenous") ("alcohol and other drugs" OR su
 
 ## 👨‍👩‍👧 Youth & Families
 
-### Aboriginal Youth
+### Aboriginal Youth - 1
 
 ```txt
 "Aboriginal youth" drug OR alcohol prevention
+```
+
+### Aboriginal Youth - 2
+
+```txt
 "Aboriginal young people" (AOD OR "alcohol and other drugs")
 ```
 
-### Families
+### Families - 1
 
 ```txt
 "Aboriginal families" substance OR alcohol support
+```
+
+### Families - 2
+
+```txt
 "kinship" OR "family" Aboriginal "alcohol drug" healing
 ```
 
@@ -274,10 +344,15 @@ site:aihw.gov.au ("Aboriginal" OR "Indigenous") ("alcohol and other drugs" OR su
 
 ## 🏡 Residential & Treatment Services
 
-### Aboriginal Residential Rehab
+### Aboriginal Residential Rehab - 1
 
 ```txt
 "Aboriginal residential rehabilitation" OR "Aboriginal healing centre"
+```
+
+### Aboriginal Residential Rehab - 2
+
+```txt
 "Aboriginal" (rehab OR rehabilitation) "drug" OR "alcohol"
 ```
 
@@ -291,17 +366,27 @@ site:aihw.gov.au ("Aboriginal" OR "Indigenous") ("alcohol and other drugs" OR su
 
 ## 📊 Data & Statistics
 
-### AIHW Aboriginal Data
+### AIHW Aboriginal Data - 1
 
 ```txt
 site:aihw.gov.au "Aboriginal" "alcohol" statistics
+```
+
+### AIHW Aboriginal Data - 2
+
+```txt
 site:abs.gov.au "Indigenous" "substance use" OR "alcohol"
 ```
 
-### Overdose/Death Data
+### Overdose/Death Data - 1
 
 ```txt
 "Aboriginal" "overdose" OR "drug death" data Australia
+```
+
+### Overdose/Death Data - 2
+
+```txt
 "Aboriginal" "alcohol-related" hospitalisation OR death statistics
 ```
 

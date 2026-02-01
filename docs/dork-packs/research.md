@@ -34,11 +34,21 @@ See [Academic Access](../resources/academic-access.md) for full list.
 
 ## 🟢 Basic Queries
 
-### Australian Research Institutions
+### Australian Research Institutions - 1
 
 ```txt
 site:ndarc.med.unsw.edu.au filetype:pdf ("harm reduction" OR "drug checking" OR "overdose")
+```
+
+### Australian Research Institutions - 2
+
+```txt
 site:burnet.edu.au "injecting drug use" OR "needle syringe"
+```
+
+### Australian Research Institutions - 3
+
+```txt
 site:kirby.unsw.edu.au hepatitis drug use
 ```
 
@@ -48,10 +58,15 @@ site:kirby.unsw.edu.au hepatitis drug use
 site:*.edu.au filetype:pdf "harm reduction" (evaluation OR effectiveness)
 ```
 
-### Quality Filters (Systematic Reviews)
+### Quality Filters (Systematic Reviews) - 1
 
 ```txt
 intitle:"systematic review" "needle syringe program" OR "harm reduction"
+```
+
+### Quality Filters (Systematic Reviews) - 2
+
+```txt
 intitle:"meta-analysis" "opioid substitution therapy" OR "naloxone"
 ```
 
@@ -115,10 +130,15 @@ site:*.edu.au ("harm reduction" OR "drug checking") (evaluation OR effectiveness
 
 ## 🏛️ Key Australian Research Centres
 
-### NDARC (National Drug & Alcohol Research Centre)
+### NDARC (National Drug & Alcohol Research Centre) - 1
 
 ```txt
 site:ndarc.med.unsw.edu.au filetype:pdf
+```
+
+### NDARC (National Drug & Alcohol Research Centre) - 2
+
+```txt
 site:ndarc.med.unsw.edu.au [YOUR TOPIC]
 ```
 

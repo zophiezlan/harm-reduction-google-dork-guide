@@ -84,10 +84,15 @@ Find dual diagnosis resources:
 
 ## 🧠 Specific Conditions
 
-### Trauma & PTSD
+### Trauma & PTSD - 1
 
 ```txt
 ("trauma" OR "PTSD" OR "post-traumatic") "substance use" treatment Australia filetype:pdf
+```
+
+### Trauma & PTSD - 2
+
+```txt
 "trauma-informed" AOD OR "alcohol and other drugs" Australia
 ```
 
@@ -97,24 +102,39 @@ Find dual diagnosis resources:
 ("anxiety" OR "depression") "substance use" dual treatment Australia
 ```
 
-### Psychosis
+### Psychosis - 1
 
 ```txt
 ("psychosis" OR "schizophrenia") "substance use" OR "drug use" Australia filetype:pdf
+```
+
+### Psychosis - 2
+
+```txt
 "drug-induced psychosis" treatment OR management Australia
 ```
 
-### Personality Disorders
+### Personality Disorders - 1
 
 ```txt
 "borderline personality" substance use treatment Australia
+```
+
+### Personality Disorders - 2
+
+```txt
 "personality disorder" AOD treatment Australia
 ```
 
-### ADHD
+### ADHD - 1
 
 ```txt
 "ADHD" substance use OR drug use relationship treatment Australia
+```
+
+### ADHD - 2
+
+```txt
 "attention deficit" AOD Australia
 ```
 
@@ -122,17 +142,27 @@ Find dual diagnosis resources:
 
 ## 🏥 Treatment Approaches
 
-### Integrated Treatment
+### Integrated Treatment - 1
 
 ```txt
 "integrated treatment" mental health substance use Australia filetype:pdf
+```
+
+### Integrated Treatment - 2
+
+```txt
 "treating together" mental health substance use
 ```
 
-### Parallel vs Sequential
+### Parallel vs Sequential - 1
 
 ```txt
 "parallel treatment" vs "integrated" dual diagnosis
+```
+
+### Parallel vs Sequential - 2
+
+```txt
 "sequential treatment" dual diagnosis
 ```
 
@@ -146,10 +176,15 @@ Find dual diagnosis resources:
 
 ## ⚠️ Suicide & Self-Harm
 
-### Suicide & Substance Use
+### Suicide & Substance Use - 1
 
 ```txt
 "suicide" "substance use" OR "drug use" (risk OR prevention) Australia
+```
+
+### Suicide & Substance Use - 2
+
+```txt
 "suicidal ideation" substance use treatment
 ```
 
@@ -169,10 +204,15 @@ Find dual diagnosis resources:
 
 ## 📋 Guidelines & Frameworks
 
-### Clinical Guidelines
+### Clinical Guidelines - 1
 
 ```txt
 "dual diagnosis" (guideline OR "clinical guideline" OR protocol) Australia filetype:pdf
+```
+
+### Clinical Guidelines - 2
+
+```txt
 site:*.gov.au "dual diagnosis" OR "co-occurring" guideline
 ```
 

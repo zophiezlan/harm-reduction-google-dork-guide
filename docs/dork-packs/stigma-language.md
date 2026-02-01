@@ -27,24 +27,39 @@ Find resources on drug-related stigma:
 
 ## 🟢 Basic Queries
 
-### Tracking Language Change
+### Tracking Language Change - 1
 
 ```txt
 "people who use drugs" OR "person who uses drugs" (definition OR meaning OR "why we say")
+```
+
+### Tracking Language Change - 2
+
+```txt
 "stigma" "language" drug use harm reduction
 ```
 
-### People-First Language
+### People-First Language - 1
 
 ```txt
 "people-first language" drug OR substance use
+```
+
+### People-First Language - 2
+
+```txt
 "from 'addict' to 'person'" language change
 ```
 
-### Language Guides
+### Language Guides - 1
 
 ```txt
 ("terminology" OR "language") harm reduction guide filetype:pdf
+```
+
+### Language Guides - 2
+
+```txt
 "words matter" drug OR substance use campaign
 ```
 
@@ -62,17 +77,27 @@ Find resources on drug-related stigma:
 "substance abuser" policy OR program Australia before:2015
 ```
 
-### Compare Language Across Eras
+### Compare Language Across Eras - 1
 
 ```txt
 "injecting drug user" OR "IDU" 1990..2010 Australia
+```
+
+### Compare Language Across Eras - 2
+
+```txt
 "people who inject drugs" OR "PWID" 2010..2026 Australia
 ```
 
-### Media Analysis
+### Media Analysis - 1
 
 ```txt
 "junkie" OR "druggie" (media OR news) Australia analysis
+```
+
+### Media Analysis - 2
+
+```txt
 "media portrayal" OR "media representation" drug use Australia
 ```
 
@@ -108,10 +133,15 @@ Find resources on drug-related stigma:
 
 ## 📜 History of Harm Reduction in Australia
 
-### Origins & Early History
+### Origins & Early History - 1
 
 ```txt
 "harm minimisation" Australia history OR origins 1980s OR 1990s
+```
+
+### Origins & Early History - 2
+
+```txt
 "needle exchange" Australia first OR "pilot program" history
 ```
 
@@ -127,10 +157,15 @@ Find resources on drug-related stigma:
 "AIDS response" Australia "injecting drug use" 1980s
 ```
 
-### Supervised Injecting History
+### Supervised Injecting History - 1
 
 ```txt
 "supervised injecting" OR "medically supervised injecting" Sydney history OR origins
+```
+
+### Supervised Injecting History - 2
+
+```txt
 "Kings Cross" "injecting room" history OR campaign
 ```
 
@@ -138,17 +173,27 @@ Find resources on drug-related stigma:
 
 ## ✊ History of Drug User Organising
 
-### Movement History
+### Movement History - 1
 
 ```txt
 "drug user organisation" Australia history
+```
+
+### Movement History - 2
+
+```txt
 (NUAA OR AIVL OR VIVAIDS) history OR "early days" OR founding
 ```
 
-### Activism
+### Activism - 1
 
 ```txt
 "drug user activism" OR "drug user movement" Australia
+```
+
+### Activism - 2
+
+```txt
 "civil society" drug users Australia 1980s OR 1990s
 ```
 
@@ -162,17 +207,27 @@ Find resources on drug-related stigma:
 
 ## 🔬 Stigma Research
 
-### Australian Stigma Research
+### Australian Stigma Research - 1
 
 ```txt
 "stigma" "people who use drugs" Australia research filetype:pdf
+```
+
+### Australian Stigma Research - 2
+
+```txt
 site:*.edu.au "stigma" "drug use" OR "substance use" Australia
 ```
 
-### Healthcare Stigma
+### Healthcare Stigma - 1
 
 ```txt
 "discrimination" drug use "health care" OR healthcare Australia
+```
+
+### Healthcare Stigma - 2
+
+```txt
 "stigma" "drug use" (hospital OR "emergency department" OR "health service") Australia
 ```
 
