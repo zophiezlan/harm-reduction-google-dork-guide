@@ -4,10 +4,10 @@ import { useRouter } from 'vitepress';
 const router = useRouter();
 
 const links = [
-  { text: '📖 Jump into the Guide', link: '/README', theme: 'primary' },
-  { text: '🔍 Open Dork Explorer', link: '/explorer', theme: 'brand' },
-  { text: '📦 Browse Dork Packs', link: '/dork-packs/README', theme: 'alt' },
-  { text: '🎓 Start a Mode', link: '/modes/beginner', theme: 'alt' },
+  { text: '📖 Guide', link: '/README', theme: 'primary' },
+  { text: '🔍 Explorer', link: '/explorer', theme: 'brand' },
+  { text: '📦 Packs', link: '/dork-packs/README', theme: 'alt' },
+  { text: '🎓 Modes', link: '/modes/beginner', theme: 'alt' },
   { text: '📝 Templates', link: '/templates/README', theme: 'alt' },
 ];
 
@@ -17,48 +17,58 @@ function navigate(link: string) {
 </script>
 
 <template>
-  <div class="quick-links-grid">
-    <button
-      v-for="item in links"
-      :key="item.link"
-      class="quick-link-btn"
-      :class="item.theme"
-      @click="navigate(item.link)"
-    >
-      {{ item.text }}
-    </button>
+  <div class="quick-links-container">
+    <div class="quick-links-grid">
+      <button
+        v-for="item in links"
+        :key="item.link"
+        class="quick-link-btn"
+        :class="item.theme"
+        @click="navigate(item.link)"
+      >
+        {{ item.text }}
+      </button>
+    </div>
   </div>
 </template>
 
 <style scoped>
+.quick-links-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+  width: 100%;
+}
+
 .quick-links-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
-  margin: 2rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  max-width: 800px;
 }
 
 .quick-link-btn {
   appearance: none;
   background: var(--vp-c-bg-soft);
   border: 1px solid var(--vp-c-divider);
-  border-radius: 12px;
-  padding: 1rem;
-  font-size: 1rem;
-  font-weight: 600;
+  border-radius: 20px;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
   backdrop-filter: blur(10px);
-  /* Make background slightly transparent for particles */
-  background-color: rgba(var(--vp-c-bg-soft-rgb), 0.8); 
+  background-color: rgba(var(--vp-c-bg-soft-rgb), 0.6); 
   color: var(--vp-c-text-1);
   text-align: center;
+  min-width: 100px;
 }
 
 .quick-link-btn:hover {
   transform: translateY(-2px);
   border-color: var(--vp-c-brand);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: var(--vp-c-bg-soft);
 }
 
 .quick-link-btn.brand {

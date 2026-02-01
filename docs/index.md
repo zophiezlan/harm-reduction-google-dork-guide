@@ -4,16 +4,6 @@ hero:
   name: Harm Reduction Google Dork Guide
   text: A professional, interactive search and discovery platform
   tagline: Built for peer workers, clinicians, researchers, advocates, and anyone reducing harm.
-  actions:
-    - theme: brand
-      text: Start the Guide
-      link: /README
-    - theme: alt
-      text: Open Dork Explorer
-      link: /explorer
-    - theme: alt
-      text: Open Dork Builder
-      link: /builder
 features:
   - title: Dork Explorer Pro
     details: Search and filter 700+ dorks with instant copy, presets, and smart grouping.
@@ -28,7 +18,5 @@ features:
   - title: Built to Scale
     details: Structured data foundations to power future dashboards and automation.
 ---
-
-<HomeActionGrid />
 
 <HomeDorkPacks />
