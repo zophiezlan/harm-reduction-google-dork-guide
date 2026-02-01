@@ -1,8 +1,6 @@
 <script setup lang="ts">
-import { useSidebar } from '../composables/useSidebar';
-import { useRouter } from 'vitepress';
+import { useRouter } from "vitepress";
 
-const { isCollapsed, toggle } = useSidebar();
 const router = useRouter();
 
 function goToSettings() {
@@ -12,16 +10,6 @@ function goToSettings() {
 
 <template>
   <div class="nav-controls">
-    <!-- Sidebar Toggle -->
-    <button
-      class="nav-btn sidebar-toggle"
-      @click="toggle"
-      :title="isCollapsed ? 'Show Sidebar' : 'Hide Sidebar'"
-      aria-label="Toggle Sidebar"
-    >
-      <span class="icon">{{ isCollapsed ? '➡️' : '⬅️' }}</span>
-    </button>
-
     <!-- Settings Button -->
     <button
       class="nav-btn settings-btn"
@@ -67,10 +55,4 @@ function goToSettings() {
   line-height: 1;
 }
 
-/* Hide sidebar toggle on small screens as VitePress has its own mobile menu */
-@media (max-width: 959px) {
-  .sidebar-toggle {
-    display: none;
-  }
-}
 </style>

@@ -1,8 +1,51 @@
 <script setup lang="ts">
-import { useData } from 'vitepress';
-import { computed } from 'vue';
+import { computed, onMounted, onUnmounted, ref, watch } from "vue";
+import { useSettings } from "../composables/useSettings";
 
-const { isDark } = useData();
+const { settings } = useSettings();
+
+const systemDark = ref(false);
+let mediaQuery: MediaQueryList | null = null;
+let mediaListener: ((e: MediaQueryListEvent) => void) | null = null;
+const accent = ref("#3eaf7c");
+
+const isDark = computed(() => {
+  if (settings.theme.mode === "system") return systemDark.value;
+  return settings.theme.mode === "dark";
+});
+
+function syncAccent() {
+  if (typeof window === "undefined") return;
+  const value = getComputedStyle(document.documentElement)
+    .getPropertyValue("--accent")
+    .trim();
+  if (value) accent.value = value;
+}
+
+onMounted(() => {
+  if (typeof window === "undefined") return;
+  mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+  systemDark.value = mediaQuery.matches;
+  mediaListener = (e) => {
+    systemDark.value = e.matches;
+  };
+  mediaQuery.addEventListener("change", mediaListener);
+  syncAccent();
+});
+
+onUnmounted(() => {
+  if (!mediaQuery || !mediaListener) return;
+  mediaQuery.removeEventListener("change", mediaListener);
+});
+
+watch(
+  () => [settings.theme.color, settings.theme.mode, systemDark.value],
+  () => {
+    syncAccent();
+  }
+);
+
+const particleColor = computed(() => (isDark.value ? "#ffffff" : accent.value));
 
 const particlesOptions = computed(() => ({
   fullScreen: {
@@ -16,10 +59,14 @@ const particlesOptions = computed(() => ({
   },
   particles: {
     color: {
-      value: isDark.value ? "#ffffff" : "#3eaf7c"
+      value: particleColor.value
+    },
+    stroke: {
+      width: 1,
+      color: particleColor.value
     },
     links: {
-      color: isDark.value ? "#ffffff" : "#3eaf7c",
+      color: particleColor.value,
       distance: 150,
       enable: true,
       opacity: 0.5,
@@ -59,7 +106,7 @@ const particlesOptions = computed(() => ({
   <ClientOnly>
     <vue-particles
       id="tsparticles"
-      :key="isDark ? 'dark' : 'light'"
+      :key="`${isDark ? 'dark' : 'light'}-${accent}`"
       :options="particlesOptions"
     />
   </ClientOnly>

@@ -91,19 +91,19 @@ site:*.health.*.gov.au (intitle:"drug alert" OR intitle:"drug warning" OR intitl
 ### Directory Mining for Unpublished Alerts
 
 ```txt
-site:*.gov.au inurl:"/alerts/" OR inurl:"/warnings/" filetype:pdf "drug"
+site:*.gov.au inurl:"/alerts/" OR inurl:"/warnings/" filetype:pdf "drug" after:2025-01-01
 ```
 
 ### High-Priority Emerging Substances
 
 ```txt
-site:*.gov.au filetype:pdf ("nitazene" OR "benzimidazole opioid" OR "xylazine" OR "medetomidine") after:2024
+site:*.gov.au filetype:pdf ("nitazene" OR "benzimidazole opioid" OR "xylazine" OR "medetomidine") after:2025-01-01
 ```
 
 ### Alerts Mentioning Specific Formulations
 
 ```txt
-site:*.gov.au "drug alert" ("high strength" OR "unexpected" OR "contaminated" OR "adulterated")
+site:*.gov.au "drug alert" ("high strength" OR "unexpected" OR "contaminated" OR "adulterated") after:2025-01-01
 ```
 
 ---

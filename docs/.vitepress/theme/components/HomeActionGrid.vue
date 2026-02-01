@@ -63,21 +63,24 @@ function navigate(link: string) {
   color: var(--vp-c-text-1);
   text-align: center;
   min-width: 100px;
+  box-shadow: 0 0 0 1px transparent, 0 0 0 transparent;
 }
 
 .quick-link-btn:hover {
   transform: translateY(-2px);
-  border-color: var(--vp-c-brand);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent-border), 0 0 18px var(--accent-subtle);
   background-color: var(--vp-c-bg-soft);
 }
 
 .quick-link-btn.brand {
-  border-color: var(--vp-c-brand);
-  background-color: rgba(var(--vp-c-brand-rgb), 0.1);
-  color: var(--vp-c-brand);
+  border-color: var(--accent);
+  background-color: color-mix(in srgb, var(--accent) 12%, transparent);
+  color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent-border), 0 0 16px var(--accent-subtle);
 }
 
 .quick-link-btn.primary {
-    border-color: var(--vp-c-brand-light);
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--vp-c-divider));
 }
 </style>

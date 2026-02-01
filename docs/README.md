@@ -4,8 +4,7 @@
 
 **A comprehensive search guide for the AOD & harm reduction workforce.**
 
-[![Version](https://img.shields.io/badge/version-4.0-blue.svg)](https://github.com/zophiezlan/harm-reduction-google-dork-guide/blob/main/CHANGELOG.md)
-[![Updated](https://img.shields.io/badge/updated-January%202026-green.svg)](https://github.com/zophiezlan/harm-reduction-google-dork-guide/blob/main/CHANGELOG.md)
+<SiteMetaStrip />
 [![License](https://img.shields.io/badge/license-Share%20Freely-orange.svg)](#license--attribution)
 
 </div>
@@ -25,7 +24,7 @@
 
 | Level                | Start Here                                                                             |
 | :------------------- | :------------------------------------------------------------------------------------- |
-| **Interactive Tool** | [**🕵️‍♂️ Launch Dork Explorer**](/explorer) - Search & filter 700+ dorks instantly        |
+| **Interactive Tool** | [**🕵️‍♂️ Launch Dork Explorer**](/explorer) - Search & filter <DorkCount /> dorks instantly |
 | **Know the basics?** | [Advanced Operators](03-advanced-operators.md) → [Dork Packs](dork-packs/README.md)    |
 | **New to dorking?**  | [Quick Start Guide](01-quick-start.md) → [Core Operators](02-core-operators.md)        |
 | **Power user?**      | [Investigative Searching](dork-packs/investigative.md) → [OSINT Tools](tools/osint.md) |

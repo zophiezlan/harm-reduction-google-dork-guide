@@ -9,7 +9,7 @@
 - **Progressive Disclosure:** Content is now organized by complexity (Quick Start → Core → Advanced)
   to support new users.
 - **Dork Packs:** Introduced 28 topic-specific "Dork Packs" for targeted searching.
-- **Interactive Dork Explorer:** New browser-based tool for searching and filtering 700+ dorks with
+- **Interactive Dork Explorer:** New browser-based tool for searching and filtering the full dork library with
   live search links and export functionality.
 - **Workflows:** Added dedicated guides for common research and monitoring workflows.
 - **Tools & Resources:** Expanded sections for tools, resources, and privacy/security best

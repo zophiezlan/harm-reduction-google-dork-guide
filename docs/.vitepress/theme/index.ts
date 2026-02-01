@@ -15,6 +15,8 @@ import DorkBuilder from "./components/builder/DorkBuilder.vue";
 import SettingsPanel from "./components/settings/SettingsPanel.vue";
 import HomeActionGrid from "./components/HomeActionGrid.vue";
 import HomeDorkPacks from "./components/HomeDorkPacks.vue";
+import DorkCount from "./components/DorkCount.vue";
+import SiteMetaStrip from "./components/SiteMetaStrip.vue";
 import { useSettings } from "./composables/useSettings";
 import { useFavorites } from "./composables/useFavorites";
 import { useQueryHistory } from "./composables/useQueryHistory";
@@ -41,6 +43,8 @@ export default {
     app.component("SettingsPanel", SettingsPanel);
     app.component("HomeActionGrid", HomeActionGrid);
     app.component("HomeDorkPacks", HomeDorkPacks);
+    app.component("DorkCount", DorkCount);
+    app.component("SiteMetaStrip", SiteMetaStrip);
   },
   setup() {
     onMounted(() => {

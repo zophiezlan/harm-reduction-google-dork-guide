@@ -1,8 +1,11 @@
-import { ref, onMounted, watch } from 'vue';
+import { ref, watch } from "vue";
+import { useRoute } from "vitepress";
 
 const isCollapsed = ref(false);
 
 export function useSidebar() {
+  const route = useRoute();
+
   function toggle() {
     isCollapsed.value = !isCollapsed.value;
   }
@@ -25,6 +28,13 @@ export function useSidebar() {
     
     // Initial apply
     updateDom(isCollapsed.value);
+
+    watch(
+      () => route.path,
+      () => {
+        updateDom(isCollapsed.value);
+      }
+    );
   }
 
   function updateDom(collapsed: boolean) {

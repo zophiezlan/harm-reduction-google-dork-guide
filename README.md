@@ -4,8 +4,8 @@
 
 **A comprehensive search guide for the AOD & harm reduction workforce.**
 
-[![Version](https://img.shields.io/badge/version-4.0-blue.svg)](CHANGELOG.md)
-[![Updated](https://img.shields.io/badge/updated-January%202026-green.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/github/package-json/v/zophiezlan/harm-reduction-google-dork-guide?color=2563eb)](CHANGELOG.md)
+[![Updated](https://img.shields.io/github/last-commit/zophiezlan/harm-reduction-google-dork-guide?color=16a34a)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/license-Share%20Freely-orange.svg)](#license--attribution)
 
 </div>
@@ -23,12 +23,12 @@
 
 ### By Experience Level
 
-| Level                | Start Here                                                                                           |
-| :------------------- | :--------------------------------------------------------------------------------------------------- |
-| **Interactive Tool** | [**🕵️‍♂️ Launch Dork Explorer**](tools/dork-explorer/index.html) - Search & filter 700+ dorks instantly |
-| **Know the basics?** | [Advanced Operators](docs/03-advanced-operators.md) → [Dork Packs](docs/dork-packs/)                 |
-| **New to dorking?**  | [Quick Start Guide](docs/01-quick-start.md) → [Core Operators](docs/02-core-operators.md)            |
-| **Power user?**      | [Investigative Searching](docs/dork-packs/investigative.md) → [OSINT Tools](docs/tools/osint.md)     |
+| Level                | Start Here                                                                                                      |
+| :------------------- | :-------------------------------------------------------------------------------------------------------------- |
+| **Interactive Tool** | [**🕵️‍♂️ Launch Dork Explorer**](tools/dork-explorer/index.html) - Search & filter the full dork library instantly |
+| **Know the basics?** | [Advanced Operators](docs/03-advanced-operators.md) → [Dork Packs](docs/dork-packs/)                            |
+| **New to dorking?**  | [Quick Start Guide](docs/01-quick-start.md) → [Core Operators](docs/02-core-operators.md)                       |
+| **Power user?**      | [Investigative Searching](docs/dork-packs/investigative.md) → [OSINT Tools](docs/tools/osint.md)                |
 
 ### By Role
 

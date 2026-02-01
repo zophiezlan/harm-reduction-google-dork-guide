@@ -1,8 +1,15 @@
 import { defineConfig } from "vitepress";
 import markdownItGitHubAlerts from "markdown-it-github-alerts";
 import { fileURLToPath, URL } from "node:url";
+import fs from "node:fs";
 
 const toolsPublicDir = fileURLToPath(new URL("../../tools", import.meta.url));
+const packageJsonPath = fileURLToPath(new URL("../../package.json", import.meta.url));
+const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf-8"));
+const changelogPath = fileURLToPath(new URL("../../CHANGELOG.md", import.meta.url));
+const changelog = fs.readFileSync(changelogPath, "utf-8");
+const changelogMatch = changelog.match(/^##\\s*v?([^\\s(]+)/m);
+const appVersion = changelogMatch ? changelogMatch[1] : packageJson.version;
 
 export default defineConfig({
   title: "Harm Reduction Google Dork Guide",
@@ -64,7 +71,6 @@ export default defineConfig({
           items: [
             { text: "Dork Explorer", link: "/explorer" },
             { text: "Dork Builder", link: "/builder" },
-            { text: "Settings", link: "/settings" },
           ],
         },
         {
@@ -125,6 +131,9 @@ export default defineConfig({
     ],
     search: {
       provider: "local",
+      options: {
+        detailedView: true,
+      },
     },
     outline: [2, 3],
   },
@@ -135,5 +144,9 @@ export default defineConfig({
   },
   vite: {
     publicDir: toolsPublicDir,
+    define: {
+      __APP_VERSION__: JSON.stringify(appVersion),
+      __BUILD_DATE__: JSON.stringify(new Date().toISOString()),
+    },
   },
 });

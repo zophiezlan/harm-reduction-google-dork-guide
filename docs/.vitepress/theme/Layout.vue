@@ -10,6 +10,8 @@ import OnboardingTutorial from "./components/OnboardingTutorial.vue";
 import HomeParticles from "./components/HomeParticles.vue";
 import HomeActionGrid from "./components/HomeActionGrid.vue";
 import NavBarControls from "./components/NavBarControls.vue";
+import SidebarCollapseToggle from "./components/SidebarCollapseToggle.vue";
+import SiteMetaStrip from "./components/SiteMetaStrip.vue";
 import { useSidebar } from "./composables/useSidebar";
 
 const { Layout } = DefaultTheme;
@@ -24,8 +26,12 @@ useSidebar();
     <template #layout-top>
       <HomeParticles v-if="frontmatter.layout === 'home'" />
     </template>
+    <template #nav-bar-title-before>
+      <SidebarCollapseToggle variant="navbar" />
+    </template>
     <template #home-hero-info-after>
       <HomeActionGrid />
+      <SiteMetaStrip />
     </template>
     <template #nav-bar-content-after>
       <div class="nav-extra-controls">
