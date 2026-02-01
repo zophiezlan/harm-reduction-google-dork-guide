@@ -126,7 +126,7 @@ function removeFilter(type: 'pack' | 'category' | 'favorites', value?: string) {
 function scrollToResults() {
   nextTick(() => {
     if (resultsRef.value) {
-      resultsRef.value.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      resultsRef.value.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
     }
   });
 }
@@ -160,6 +160,12 @@ onMounted(() => {
     showScrollTop.value = window.scrollY > 300;
   };
   window.addEventListener("scroll", handleScroll);
+  
+  // Cleanup
+  return () => {
+    window.removeEventListener("keydown", handleKeydown);
+    window.removeEventListener("scroll", handleScroll);
+  };
 });
 </script>
 
@@ -357,6 +363,10 @@ onMounted(() => {
 </template>
 
 <style scoped>
+:root {
+  --header-height: 140px;
+}
+
 .dork-explorer {
   min-height: 100vh;
   display: flex;
@@ -481,9 +491,9 @@ onMounted(() => {
   background: var(--bg-surface);
   overflow-y: auto;
   flex-shrink: 0;
-  max-height: calc(100vh - 140px);
+  max-height: calc(100vh - var(--header-height));
   position: sticky;
-  top: 140px;
+  top: var(--header-height);
 }
 
 .filter-section {
@@ -586,6 +596,26 @@ onMounted(() => {
   gap: 2px;
   max-height: 400px;
   overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-subtle) var(--bg-deep);
+}
+
+.filter-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.filter-list::-webkit-scrollbar-track {
+  background: var(--bg-deep);
+  border-radius: 4px;
+}
+
+.filter-list::-webkit-scrollbar-thumb {
+  background: var(--accent-subtle);
+  border-radius: 4px;
+}
+
+.filter-list::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
 }
 
 .filter-item {
@@ -611,6 +641,11 @@ onMounted(() => {
   background: var(--accent-subtle);
   color: var(--accent);
   font-weight: 600;
+}
+
+.filter-item:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 .filter-name {
@@ -657,7 +692,7 @@ onMounted(() => {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
-  scroll-margin-top: 140px;
+  scroll-margin-top: var(--header-height);
 }
 
 .results-count {
