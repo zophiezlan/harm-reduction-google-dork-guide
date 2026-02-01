@@ -284,8 +284,11 @@ site:podcasts.apple.com (naloxone OR fentanyl OR "safe supply")
 ### Image Search Operators
 
 ```txt
-"harm reduction" (infographic OR poster OR "visual guide") filetype:pdf
 "harm reduction" (infographic OR diagram OR chart) site:*.org.au
+```
+
+```txt
+"harm reduction" (infographic OR poster OR "visual guide") filetype:pdf
 ```
 
 ### Health Promotion Materials
@@ -422,6 +425,9 @@ If you find a good channel, search within it:
 
 ```txt
 site:youtube.com/c/[channel-name] "harm reduction"
+```
+
+```txt
 site:youtube.com/@[handle] naloxone
 ```
 
@@ -431,6 +437,9 @@ YouTube doesn't support length filters in Google, but you can use terms:
 
 ```txt
 site:youtube.com "harm reduction" ("full session" OR "complete" OR hour)
+```
+
+```txt
 site:youtube.com "harm reduction" (short OR "quick guide" OR "2 minutes")
 ```
 
@@ -445,8 +454,11 @@ site:youtube.com/playlist "harm reduction"
 Find videos embedded on organization websites:
 
 ```txt
-site:*.org.au inurl:youtube.com/embed "harm reduction"
 site:*.org.au "youtube.com/watch" "harm reduction"
+```
+
+```txt
+site:*.org.au inurl:youtube.com/embed "harm reduction"
 ```
 
 ### Finding Transcripts
