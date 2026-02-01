@@ -69,6 +69,8 @@ Find resources on drug-related stigma:
 
 ### Historical/Stigmatising Terms (For Research Only) - 1
 
+> ⚠️ Use when you need to locate older documents
+
 ```txt
 "drug addict" OR "drug abuser" Australia 1980..2010 filetype:pdf
 ```

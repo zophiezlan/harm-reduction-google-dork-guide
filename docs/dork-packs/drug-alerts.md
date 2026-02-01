@@ -114,6 +114,8 @@ Government alerts can be slow. Local news often reports "bad batch" incidents or
 
 ### The "Location" Operator - 1
 
+Find reports specific to a city or town (Google News only).
+
 ```txt
 location:Sydney "drug alert"
 ```

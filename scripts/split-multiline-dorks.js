@@ -100,10 +100,7 @@ const processFile = (filename) => {
           // Create separate dork entries for each line
           nonEmptyLines.forEach((item, idx) => {
             const suffix = generateSuffix(item.line.trim(), idx, nonEmptyLines.length);
-            // For H2 sections, create H3 subsections. For H3, keep as H3 with suffix.
-            const newTitle = isH2 
-              ? `### ${title} - ${suffix}`
-              : `### ${title} - ${suffix}`;
+            const newTitle = `### ${title} - ${suffix}`;
 
             if (idx > 0 || isH2) {
               newLines.push(""); // Add blank line between dorks
