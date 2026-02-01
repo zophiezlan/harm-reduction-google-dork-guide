@@ -71,7 +71,7 @@ const results = computed(() => {
   // Apply quick filters
   if (quickFilters.value.auSites) {
     filtered = filtered.filter((d) =>
-      /site:\*?\.?(au|gov\.au|edu\.au|org\.au)/i.test(d.query)
+      /site:\*?\.?(?:gov\.au|edu\.au|org\.au|au\b)/i.test(d.query)
     );
   }
   if (quickFilters.value.pdfs) {
@@ -290,13 +290,15 @@ function downloadFile(content: string, filename: string, mimeType: string) {
   a.href = url;
   a.download = filename;
   a.click();
-  URL.revokeObjectURL(url);
+  setTimeout(() => {
+    URL.revokeObjectURL(url);
+  }, 100);
 }
 
 // Keyboard shortcuts
 function handleKeydown(e: KeyboardEvent) {
   const target = e.target as HTMLElement;
-  if (["INPUT", "TEXTAREA"].includes(target.tagName)) return;
+  if (["INPUT", "TEXTAREA"].includes(target.tagName) || target.isContentEditable) return;
 
   switch (e.key) {
     case "/":
@@ -412,31 +414,35 @@ watch([searchQuery, selectedPacks, selectedCategories, showFavoritesOnly, quickF
         <button
           :class="['quick-filter', { active: quickFilters.auSites }]"
           @click="toggleQuickFilter('auSites')"
-          aria-pressed="false"
+          :aria-pressed="quickFilters.auSites.toString()"
         >
           🇦🇺 Australian Sites
         </button>
         <button
           :class="['quick-filter', { active: quickFilters.pdfs }]"
           @click="toggleQuickFilter('pdfs')"
+          :aria-pressed="quickFilters.pdfs.toString()"
         >
           📄 PDFs Only
         </button>
         <button
           :class="['quick-filter', { active: quickFilters.government }]"
           @click="toggleQuickFilter('government')"
+          :aria-pressed="quickFilters.government.toString()"
         >
           🏛️ Government
         </button>
         <button
           :class="['quick-filter', { active: quickFilters.recent }]"
           @click="toggleQuickFilter('recent')"
+          :aria-pressed="quickFilters.recent.toString()"
         >
           📅 Date Filtered
         </button>
         <button
           :class="['quick-filter favorites-filter', { active: showFavoritesOnly }]"
           @click="showFavoritesOnly = !showFavoritesOnly; scrollToResults()"
+          :aria-pressed="showFavoritesOnly.toString()"
         >
           ★ Favorites ({{ favorites.length }})
         </button>
@@ -675,7 +681,7 @@ watch([searchQuery, selectedPacks, selectedCategories, showFavoritesOnly, quickF
     <!-- Random Dork Modal -->
     <Transition name="modal">
       <div v-if="showRandomDork && randomDork" class="modal-overlay" @click.self="closeRandomDork">
-        <div class="modal random-dork-modal" role="dialog" aria-labelledby="random-dork-title">
+        <div class="modal random-dork-modal" role="dialog" aria-modal="true" aria-labelledby="random-dork-title">
           <div class="modal-header">
             <h2 id="random-dork-title">🎲 Random Dork</h2>
             <button class="modal-close" @click="closeRandomDork" aria-label="Close">×</button>
@@ -694,7 +700,7 @@ watch([searchQuery, selectedPacks, selectedCategories, showFavoritesOnly, quickF
     <!-- Keyboard Shortcuts Modal -->
     <Transition name="modal">
       <div v-if="showShortcuts" class="modal-overlay" @click.self="showShortcuts = false">
-        <div class="modal shortcuts-modal" role="dialog" aria-labelledby="shortcuts-title">
+        <div class="modal shortcuts-modal" role="dialog" aria-modal="true" aria-labelledby="shortcuts-title">
           <div class="modal-header">
             <h2 id="shortcuts-title">⌨️ Keyboard Shortcuts</h2>
             <button class="modal-close" @click="showShortcuts = false" aria-label="Close">×</button>

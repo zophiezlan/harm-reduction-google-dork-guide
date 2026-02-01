@@ -61,11 +61,15 @@ self.addEventListener('fetch', (event) => {
         // Fetch updated version in background
         fetch(event.request).then((response) => {
           if (response.ok) {
-            caches.open(CACHE_NAME).then((cache) => {
-              cache.put(event.request, response);
+            return caches.open(CACHE_NAME).then((cache) => {
+              return cache.put(event.request, response).then(() => {
+                console.log('[SW] Background cache updated for', event.request.url);
+              });
             });
           }
-        }).catch(() => {});
+        }).catch((error) => {
+          console.error('[SW] Background update failed for', event.request.url, error);
+        });
         return cachedResponse;
       }
 
@@ -89,18 +93,6 @@ self.addEventListener('fetch', (event) => {
     })
   );
 });
-
-// Background sync for favorites
-self.addEventListener('sync', (event) => {
-  if (event.tag === 'sync-favorites') {
-    event.waitUntil(syncFavorites());
-  }
-});
-
-async function syncFavorites() {
-  // Future: sync favorites to cloud storage
-  console.log('Syncing favorites...');
-}
 
 // Handle messages from the main thread
 self.addEventListener('message', (event) => {

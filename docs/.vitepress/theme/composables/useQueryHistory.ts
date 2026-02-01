@@ -1,4 +1,4 @@
-import { ref, watch } from "vue";
+import { ref } from "vue";
 import { getStorageItem, setStorageItem } from "../utils/storage";
 
 export interface HistoryItem {
@@ -42,7 +42,7 @@ export function useQueryHistory() {
 
     // Add to beginning
     const item: HistoryItem = {
-      id: `history-${Date.now()}-${Math.random().toString(36).substring(2, 9)}`,
+      id: crypto.randomUUID(),
       query,
       timestamp: Date.now(),
       label,
@@ -78,15 +78,6 @@ export function useQueryHistory() {
       save();
     }
   }
-
-  // Watch for changes and sync
-  watch(
-    history,
-    () => {
-      historyState = history.value;
-    },
-    { deep: true }
-  );
 
   return {
     history,

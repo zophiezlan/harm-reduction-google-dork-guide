@@ -125,7 +125,7 @@ defineExpose({ startTutorial });
 <template>
   <Transition name="modal">
     <div v-if="isVisible" class="tutorial-overlay" @click.self="skipTutorial">
-      <div class="tutorial-modal" role="dialog" aria-labelledby="tutorial-title">
+      <div class="tutorial-modal" role="dialog" aria-modal="true" aria-labelledby="tutorial-title">
         <!-- Progress bar -->
         <div class="tutorial-progress">
           <div class="progress-bar" :style="{ width: `${progress}%` }"></div>

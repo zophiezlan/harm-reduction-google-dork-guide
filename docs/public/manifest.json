@@ -23,34 +23,20 @@
   ],
   "categories": ["education", "productivity", "utilities"],
   "lang": "en-AU",
-  "screenshots": [
-    {
-      "src": "/screenshots/explorer.png",
-      "sizes": "1280x720",
-      "type": "image/png",
-      "label": "Dork Explorer - Search and filter 700+ pre-built search queries"
-    },
-    {
-      "src": "/screenshots/builder.png",
-      "sizes": "1280x720",
-      "type": "image/png",
-      "label": "Dork Builder - Build custom search queries visually"
-    }
-  ],
   "shortcuts": [
     {
       "name": "Explorer",
       "short_name": "Explorer",
       "description": "Search and filter dork packs",
       "url": "/explorer",
-      "icons": [{ "src": "/icons/explorer.png", "sizes": "96x96" }]
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
     },
     {
       "name": "Builder",
       "short_name": "Builder",
       "description": "Build custom search queries",
       "url": "/builder",
-      "icons": [{ "src": "/icons/builder.png", "sizes": "96x96" }]
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
     }
   ]
 }

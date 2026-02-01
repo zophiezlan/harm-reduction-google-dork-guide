@@ -323,7 +323,7 @@ onUnmounted(() => {
     <!-- Shortcuts Modal -->
     <Transition name="modal">
       <div v-if="showShortcuts" class="modal-overlay" @click.self="showShortcuts = false">
-        <div class="modal shortcuts-modal" role="dialog" aria-labelledby="shortcuts-title">
+        <div class="modal shortcuts-modal" role="dialog" aria-modal="true" aria-labelledby="shortcuts-title">
           <div class="modal-header">
             <h2 id="shortcuts-title">⌨️ Keyboard Shortcuts</h2>
             <button class="modal-close" @click="showShortcuts = false" aria-label="Close">×</button>
