@@ -172,9 +172,21 @@ Find tools, datasets, and technical harm reduction projects.
 
 Find Discourse forums, wikis, and community-hosted resources.
 
+**Discourse Forums:**
+
 ```txt
 "Powered by Discourse" "harm reduction" OR "drug policy" OR "drug user"
+```
+
+**MediaWiki Sites:**
+
+```txt
 "MediaWiki" "harm reduction" site:*.org
+```
+
+**BookStack Documentation:**
+
+```txt
 "BookStack" "harm reduction"
 ```
 
@@ -278,15 +290,31 @@ site:*.tumblr.com "harm reduction" OR "safer use" OR "drug education"
 
 ```txt
 site:reddit.com/r/harmreduction
+```
+
+```txt
 site:reddit.com/r/drugs "harm reduction"
+```
+
+```txt
 site:reddit.com/r/opiates "naloxone" OR "narcan"
+```
+
+```txt
 site:reddit.com/r/reagenttesting
 ```
 
 ### GitHub Projects
 
+**General Projects:**
+
 ```txt
 site:github.com "harm reduction" README
+```
+
+**Tools & Data:**
+
+```txt
 site:github.com "drug checking" OR "fentanyl" (tool OR data)
 ```
 
