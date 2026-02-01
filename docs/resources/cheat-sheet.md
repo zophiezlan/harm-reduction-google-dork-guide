@@ -21,8 +21,7 @@
 | `OR`        | Either term     | `naloxone OR narcan`         |
 | `site:`     | Limit to domain | `site:*.gov.au`              |
 
-> [!IMPORTANT]
-> `OR` must be **UPPERCASE**. Lowercase `or` is ignored.
+> [!IMPORTANT] `OR` must be **UPPERCASE**. Lowercase `or` is ignored.
 
 ---
 
@@ -165,8 +164,7 @@ site:*.gov.au ("nitazene" OR "novel psychoactive") filetype:pdf after:2023
 | Wrong jurisdiction | Add `site:*.gov.au`                   |
 | Zero results       | Remove `filetype:pdf`                 |
 
-> [!TIP]
-> **Zero results?** Remove operators one at a time to find which one is too restrictive.
+> [!TIP] **Zero results?** Remove operators one at a time to find which one is too restrictive.
 
 ---
 
@@ -217,4 +215,3 @@ site:*.gov.au ("nitazene" OR "novel psychoactive") filetype:pdf after:2023
 ---
 
 [← Back to Main Guide](../README.md)
-

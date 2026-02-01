@@ -1,5 +1,5 @@
 import { ref } from "vue";
-import { getStorageItem, setStorageItem } from "../utils/storage";
+import { getStorageItemSimple, setStorageItem } from "../utils/storage";
 
 export interface HistoryItem {
   id: string;
@@ -22,9 +22,20 @@ export function useQueryHistory() {
   const history = ref<HistoryItem[]>(historyState);
 
   function initialize() {
-    const saved = getStorageItem<HistoryItem[]>(STORAGE_KEY, []);
-    history.value = saved;
-    historyState = saved;
+    const saved = getStorageItemSimple<HistoryItem[]>(STORAGE_KEY, []);
+    // Validate that saved items have required properties
+    const validItems = Array.isArray(saved)
+      ? saved.filter(
+          (item): item is HistoryItem =>
+            typeof item === "object" &&
+            item !== null &&
+            typeof item.id === "string" &&
+            typeof item.query === "string" &&
+            typeof item.timestamp === "number"
+        )
+      : [];
+    history.value = validItems;
+    historyState = validItems;
   }
 
   function save() {

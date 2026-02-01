@@ -4,19 +4,32 @@ import { withBase } from "vitepress";
 import { useDorkData } from "../../composables/useDorkData";
 import { useFavorites } from "../../composables/useFavorites";
 import { useToast } from "../../composables/useToast";
+import { useDebouncedRef } from "../../composables/useDebounce";
+import { useUrlStateSimple } from "../../composables/useUrlState";
 import DorkCard from "./DorkCard.vue";
+import FilterSidebar from "./FilterSidebar.vue";
+import QuickFiltersBar from "./QuickFiltersBar.vue";
+import ActiveFiltersDisplay from "./ActiveFiltersDisplay.vue";
+import ShortcutsModal from "./ShortcutsModal.vue";
+import ExportMenu from "./ExportMenu.vue";
 import type { DorkWithPack } from "../../data/types";
 
 const { loadDorks, searchDorks, allDorks, packList, categories, isLoaded } = useDorkData();
-const { favorites } = useFavorites();
+const { favorites: rawFavorites } = useFavorites();
 const { success } = useToast();
 
-// State
+// SSR-safe favorites array
+const favorites = computed(() => rawFavorites ?? []);
+
+// State (synced with URL for bookmarking/sharing)
 const searchQuery = ref("");
-const selectedPacks = ref<string[]>([]);
-const selectedCategories = ref<string[]>([]);
+const debouncedSearchQuery = useDebouncedRef(searchQuery, 300);
+const selectedPacks = useUrlStateSimple<string[]>("packs", []);
+const selectedCategories = useUrlStateSimple<string[]>("cats", []);
 const showFavoritesOnly = ref(false);
-const viewMode = ref<"grid" | "list">("grid");
+const viewMode = useUrlStateSimple<string>("view", "grid") as ReturnType<
+  typeof ref<"grid" | "list">
+>;
 
 // Quick filter states
 const quickFilters = ref({
@@ -27,12 +40,7 @@ const quickFilters = ref({
   userHosted: false,
 });
 
-// New filter UI state
-const packSearchQuery = ref("");
-const categorySearchQuery = ref("");
-const packsExpanded = ref(true);
-const categoriesExpanded = ref(true);
-const quickFiltersExpanded = ref(true);
+// UI state
 const showScrollTop = ref(false);
 const resultsRef = ref<HTMLElement | null>(null);
 
@@ -62,9 +70,9 @@ onMounted(async () => {
   }
 });
 
-// Filtered results with quick filters applied
+// Filtered results with quick filters applied (uses debounced search for performance)
 const results = computed(() => {
-  let filtered = searchDorks(searchQuery.value, {
+  let filtered = searchDorks(debouncedSearchQuery.value, {
     packs: selectedPacks.value.length > 0 ? selectedPacks.value : undefined,
     categories: selectedCategories.value.length > 0 ? selectedCategories.value : undefined,
   });
@@ -94,7 +102,7 @@ const results = computed(() => {
 
   // Favorites filter
   if (showFavoritesOnly.value) {
-    const favIds = new Set(favorites.map((f) => f.id));
+    const favIds = new Set(favorites.value.map((f) => f.id));
     filtered = filtered.filter((d) => {
       const id = `${d.packId}-${d.title.toLowerCase().replace(/\s+/g, "-")}`;
       return favIds.has(id);
@@ -107,6 +115,12 @@ const results = computed(() => {
 // Displayed results (for infinite scroll)
 const displayedResults = computed(() => results.value.slice(0, displayLimit.value));
 const hasMoreResults = computed(() => results.value.length > displayLimit.value);
+
+// Filter sidebar state (kept for template compatibility)
+const packSearchQuery = ref("");
+const categorySearchQuery = ref("");
+const packsExpanded = ref(true);
+const categoriesExpanded = ref(true);
 
 // Filtered packs and categories based on search
 const filteredPacks = computed(() => {
@@ -142,7 +156,7 @@ const stats = computed(() => ({
   filtered: results.value.length,
   packs: packList.value.length,
   categories: categories.value.length,
-  favorites: favorites.length,
+  favorites: favorites.value.length,
 }));
 
 function togglePack(packId: string) {
@@ -374,10 +388,13 @@ onUnmounted(() => {
   window.removeEventListener("scroll", handleScroll);
 });
 
-// Reset pagination when filters change
-watch([searchQuery, selectedPacks, selectedCategories, showFavoritesOnly, quickFilters], () => {
-  displayLimit.value = ITEMS_PER_PAGE;
-});
+// Reset pagination when filters change (use debounced search query to avoid excessive resets)
+watch(
+  [debouncedSearchQuery, selectedPacks, selectedCategories, showFavoritesOnly, quickFilters],
+  () => {
+    displayLimit.value = ITEMS_PER_PAGE;
+  }
+);
 </script>
 
 <template>
@@ -495,7 +512,7 @@ watch([searchQuery, selectedPacks, selectedCategories, showFavoritesOnly, quickF
           "
           :aria-pressed="showFavoritesOnly.toString()"
         >
-          ★ Favorites ({{ favorites.length }})
+          ★ Favorites ({{ favorites?.length ?? 0 }})
         </button>
         <button
           v-if="activeFilterCount > 0"

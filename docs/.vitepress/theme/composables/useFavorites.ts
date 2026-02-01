@@ -1,5 +1,5 @@
 import { reactive, watch } from "vue";
-import { getStorageItem, setStorageItem } from "../utils/storage";
+import { getStorageItemSimple, setStorageItem } from "../utils/storage";
 
 export interface FavoriteItem {
   id: string;
@@ -25,8 +25,20 @@ export function useFavorites() {
   const state = favoritesState;
 
   function initialize() {
-    const saved = getStorageItem<FavoriteItem[]>("favorites", []);
-    state.items = saved;
+    const saved = getStorageItemSimple<FavoriteItem[]>("favorites", []);
+    // Validate that saved items have required properties
+    const validItems = Array.isArray(saved)
+      ? saved.filter(
+          (item): item is FavoriteItem =>
+            typeof item === "object" &&
+            item !== null &&
+            typeof item.id === "string" &&
+            typeof item.packId === "string" &&
+            typeof item.title === "string" &&
+            typeof item.query === "string"
+        )
+      : [];
+    state.items = validItems;
   }
 
   watch(

@@ -12,6 +12,7 @@ import HomeActionGrid from "./components/HomeActionGrid.vue";
 import NavBarControls from "./components/NavBarControls.vue";
 import SidebarCollapseToggle from "./components/SidebarCollapseToggle.vue";
 import SiteMetaStrip from "./components/SiteMetaStrip.vue";
+import SkipLink from "./components/SkipLink.vue";
 import { useSidebar } from "./composables/useSidebar";
 
 const { Layout } = DefaultTheme;
@@ -19,9 +20,18 @@ const { frontmatter } = useData();
 
 // Initialize sidebar state (handles class injection)
 useSidebar();
+
+// Add id to VPContent for skip link accessibility
+onMounted(() => {
+  const vpContent = document.querySelector(".VPContent");
+  if (vpContent && !vpContent.id) {
+    vpContent.id = "VPContent";
+  }
+});
 </script>
 
 <template>
+  <SkipLink target="#VPContent" label="Skip to main content" />
   <Layout>
     <template #layout-top>
       <HomeParticles v-if="frontmatter.layout === 'home'" />

@@ -1,7 +1,8 @@
 // docs/.vitepress/theme/index.ts
 import DefaultTheme from "vitepress/theme";
 import { onMounted } from "vue";
-import type { Theme } from "vitepress";
+import type { Theme, EnhanceAppContext } from "vitepress";
+import type { Engine } from "@tsparticles/engine";
 import "./styles/vars.css";
 import "./styles/base.css";
 import "./styles/components.css";
@@ -24,12 +25,12 @@ import { useQueryHistory } from "./composables/useQueryHistory";
 export default {
   extends: DefaultTheme,
   Layout,
-  async enhanceApp({ app }: { app: any }) {
+  async enhanceApp({ app }: EnhanceAppContext) {
     if (!import.meta.env.SSR) {
       const Particles = await import("@tsparticles/vue3");
       const { loadSlim } = await import("@tsparticles/slim");
       app.use(Particles.default, {
-        init: async (engine: any) => {
+        init: async (engine: Engine) => {
           await loadSlim(engine);
         },
       });

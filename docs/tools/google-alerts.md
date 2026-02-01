@@ -39,8 +39,7 @@ Click "Create Alert" and you're done.
 
 ### Priority: Drug Alerts (As-it-happens)
 
-> [!IMPORTANT]
-> This is the most critical alert for frontline harm reduction workers. Set this to
+> [!IMPORTANT] This is the most critical alert for frontline harm reduction workers. Set this to
 > "As-it-happens" for immediate notification of health warnings.
 
 ```txt
@@ -113,8 +112,7 @@ site:*.nsw.gov.au "harm reduction" OR "drug policy" OR "drug alert"
 
 ## 💡 Tips
 
-> [!TIP]
-> The key to effective alerting is specificity. It's better to have 5 targeted alerts than
+> [!TIP] The key to effective alerting is specificity. It's better to have 5 targeted alerts than
 > one broad alert that floods your inbox with irrelevant results.
 
 ### Tip 1: Use Specific Queries
@@ -179,4 +177,3 @@ You can temporarily pause alerts if needed.
 ---
 
 [← Back to Tools](README.md)
-

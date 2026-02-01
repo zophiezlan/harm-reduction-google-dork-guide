@@ -81,8 +81,7 @@ Date filtering can be imprecise.
 
 </details>
 
-> [!TIP]
-> **Debug technique:** Remove operators one at a time to find which one is too restrictive.
+> [!TIP] **Debug technique:** Remove operators one at a time to find which one is too restrictive.
 
 ---
 
@@ -133,8 +132,7 @@ site:*.org.au "peer-led" [topic] filetype:pdf
 
 </details>
 
-> [!NOTE]
-> Sometimes you need stigmatising terms to find older documents. That's okay—just be aware
+> [!NOTE] Sometimes you need stigmatising terms to find older documents. That's okay—just be aware
 > of context.
 
 ---
@@ -159,8 +157,7 @@ site:*.org.au "peer-led" [topic] filetype:pdf
 2. Paste the broken URL
 3. Browse archived versions by date
 
-> [!WARNING]
-> Google Cache (`cache:URL`) is being phased out and may not work reliably.
+> [!WARNING] Google Cache (`cache:URL`) is being phased out and may not work reliably.
 
 ---
 
@@ -184,8 +181,7 @@ site:*.org.au "peer-led" [topic] filetype:pdf
 
 ## 📋 Query Too Complex?
 
-> [!IMPORTANT]
-> Google may silently ignore operators if the query is too complex.
+> [!IMPORTANT] Google may silently ignore operators if the query is too complex.
 
 <details>
 <summary><strong>Example: Simplifying a Complex Query</strong></summary>
@@ -294,4 +290,3 @@ Add exclusions for PDF viewer sites:
 ---
 
 [← Back to Main Guide](README.md)
-

@@ -46,8 +46,7 @@
 
 #### Example Implications
 
-> [!IMPORTANT]
-> [One sentence: What does this mean for our work?]
+> [!IMPORTANT] [One sentence: What does this mean for our work?]
 
 ---
 
@@ -80,8 +79,7 @@
 
 #### Gaps / Limitations
 
-> [!NOTE]
-> [What couldn't you find? What uncertainties remain?]
+> [!NOTE] [What couldn't you find? What uncertainties remain?]
 
 ---
 
@@ -120,8 +118,7 @@ _Prepared using the [Harm Reduction Dorking Guide](/README)_
 
 #### Implications
 
-> [!IMPORTANT]
-> Staff may need refresher training on high-dose naloxone protocols for synthetic
+> [!IMPORTANT] Staff may need refresher training on high-dose naloxone protocols for synthetic
 > opioid overdoses.
 
 ---
@@ -135,4 +132,3 @@ _Prepared using the [Harm Reduction Dorking Guide](/README)_
 |    3     | Request clinical guidance from PHN | Manager   | 2 weeks   |
 
 ---
-

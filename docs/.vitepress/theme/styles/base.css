@@ -8,6 +8,27 @@
   outline-offset: 2px;
 }
 
+/* Ensure skip link target is focusable */
+#VPContent:focus {
+  outline: none;
+}
+
+#VPContent:target {
+  scroll-margin-top: 80px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /* Selection */
 ::selection {
   background: var(--accent-subtle);

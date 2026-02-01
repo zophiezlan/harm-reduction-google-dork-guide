@@ -217,12 +217,10 @@ site:minus18.org.au (drug OR alcohol OR "harm reduction")
 
 ---
 
-> [!NOTE]
-> When searching historical documents, you may encounter outdated terminology. Use
+> [!NOTE] When searching historical documents, you may encounter outdated terminology. Use
 > inclusive, current language in your own work while recognizing that older resources may use
 > different terms.
 
 ---
 
 [← Back to Dork Packs](README.md)
-
