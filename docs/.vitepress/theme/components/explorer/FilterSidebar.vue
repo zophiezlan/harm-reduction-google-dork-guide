@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
+import type { DorkDifficulty, DomainCategory } from "../../data/types";
 
 interface Pack {
   id: string;
@@ -10,13 +11,21 @@ interface Pack {
 const props = defineProps<{
   packList: Pack[];
   categories: string[];
+  difficulties: DorkDifficulty[];
+  domainCategories: DomainCategory[];
   selectedPacks: string[];
   selectedCategories: string[];
+  selectedDifficulties: string[];
+  selectedDomainCategories: string[];
+  includeDocumentation: boolean;
 }>();
 
 const emit = defineEmits<{
   (e: "toggle-pack", packId: string): void;
   (e: "toggle-category", category: string): void;
+  (e: "toggle-difficulty", difficulty: DorkDifficulty): void;
+  (e: "toggle-domain", domain: DomainCategory): void;
+  (e: "toggle-documentation"): void;
 }>();
 
 // Local search state
@@ -24,6 +33,8 @@ const packSearchQuery = ref("");
 const categorySearchQuery = ref("");
 const packsExpanded = ref(true);
 const categoriesExpanded = ref(true);
+const difficultyExpanded = ref(true);
+const domainExpanded = ref(false);
 
 // Filtered lists
 const filteredPacks = computed(() => {
@@ -37,6 +48,34 @@ const filteredCategories = computed(() => {
   const query = categorySearchQuery.value.toLowerCase();
   return props.categories.filter((cat) => cat.toLowerCase().includes(query));
 });
+
+// Display labels
+const difficultyLabels: Record<DorkDifficulty, string> = {
+  beginner: "Beginner",
+  intermediate: "Intermediate",
+  advanced: "Advanced",
+  expert: "Expert",
+};
+
+const domainLabels: Record<string, string> = {
+  government: "Government",
+  health: "Health",
+  education: "Education",
+  research: "Research",
+  ngo: "NGO",
+  news: "News",
+  community: "Community",
+  international: "International",
+  "user-hosted": "User-hosted",
+};
+
+// Color classes for difficulties
+const difficultyColors: Record<DorkDifficulty, string> = {
+  beginner: "diff-beginner",
+  intermediate: "diff-intermediate",
+  advanced: "diff-advanced",
+  expert: "diff-expert",
+};
 </script>
 
 <template>
@@ -96,6 +135,77 @@ const filteredCategories = computed(() => {
       </div>
     </div>
 
+    <!-- Difficulty Filter -->
+    <div v-if="difficulties.length > 0" class="filter-section">
+      <button
+        class="filter-section-header"
+        @click="difficultyExpanded = !difficultyExpanded"
+        :aria-expanded="difficultyExpanded"
+        aria-controls="difficulty-content"
+      >
+        <h4 class="filter-title">
+          Difficulty
+          <span v-if="selectedDifficulties.length > 0" class="filter-badge">{{
+            selectedDifficulties.length
+          }}</span>
+        </h4>
+        <span class="expand-icon" aria-hidden="true">{{ difficultyExpanded ? "▼" : "▶" }}</span>
+      </button>
+
+      <div v-show="difficultyExpanded" id="difficulty-content" class="filter-content">
+        <div class="filter-chips difficulty-chips" role="listbox" aria-label="Difficulty levels">
+          <button
+            v-for="diff in difficulties"
+            :key="diff"
+            :class="[
+              'chip',
+              'diff-chip',
+              difficultyColors[diff],
+              { active: selectedDifficulties.includes(diff) },
+            ]"
+            @click="emit('toggle-difficulty', diff)"
+            role="option"
+            :aria-selected="selectedDifficulties.includes(diff)"
+          >
+            {{ difficultyLabels[diff] }}
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Domain Category Filter -->
+    <div v-if="domainCategories.length > 0" class="filter-section">
+      <button
+        class="filter-section-header"
+        @click="domainExpanded = !domainExpanded"
+        :aria-expanded="domainExpanded"
+        aria-controls="domain-content"
+      >
+        <h4 class="filter-title">
+          Domain Type
+          <span v-if="selectedDomainCategories.length > 0" class="filter-badge">{{
+            selectedDomainCategories.length
+          }}</span>
+        </h4>
+        <span class="expand-icon" aria-hidden="true">{{ domainExpanded ? "▼" : "▶" }}</span>
+      </button>
+
+      <div v-show="domainExpanded" id="domain-content" class="filter-content">
+        <div class="filter-chips" role="listbox" aria-label="Domain categories">
+          <button
+            v-for="domain in domainCategories"
+            :key="domain"
+            :class="['chip', { active: selectedDomainCategories.includes(domain) }]"
+            @click="emit('toggle-domain', domain)"
+            role="option"
+            :aria-selected="selectedDomainCategories.includes(domain)"
+          >
+            {{ domainLabels[domain] || domain }}
+          </button>
+        </div>
+      </div>
+    </div>
+
     <!-- Categories Filter -->
     <div class="filter-section">
       <button
@@ -148,6 +258,18 @@ const filteredCategories = computed(() => {
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- Include Documentation Toggle -->
+    <div class="filter-section">
+      <label class="toggle-row">
+        <input
+          type="checkbox"
+          :checked="includeDocumentation"
+          @change="emit('toggle-documentation')"
+        />
+        <span>Include documentation dorks</span>
+      </label>
     </div>
   </aside>
 </template>
@@ -376,6 +498,78 @@ const filteredCategories = computed(() => {
   text-align: center;
   color: var(--text-muted);
   font-size: 12px;
+}
+
+/* Difficulty chips with colors */
+.difficulty-chips {
+  gap: 8px;
+}
+
+.diff-chip {
+  font-weight: 600;
+}
+
+.diff-chip.diff-beginner {
+  border-color: rgba(34, 197, 94, 0.3);
+  color: #22c55e;
+}
+
+.diff-chip.diff-beginner.active {
+  background: rgba(34, 197, 94, 0.15);
+  border-color: #22c55e;
+}
+
+.diff-chip.diff-intermediate {
+  border-color: rgba(234, 179, 8, 0.3);
+  color: #eab308;
+}
+
+.diff-chip.diff-intermediate.active {
+  background: rgba(234, 179, 8, 0.15);
+  border-color: #eab308;
+}
+
+.diff-chip.diff-advanced {
+  border-color: rgba(249, 115, 22, 0.3);
+  color: #f97316;
+}
+
+.diff-chip.diff-advanced.active {
+  background: rgba(249, 115, 22, 0.15);
+  border-color: #f97316;
+}
+
+.diff-chip.diff-expert {
+  border-color: rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+}
+
+.diff-chip.diff-expert.active {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: #ef4444;
+}
+
+/* Toggle row for checkboxes */
+.toggle-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.toggle-row:hover {
+  color: var(--text-primary);
+}
+
+.toggle-row input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent);
+  cursor: pointer;
 }
 
 @media (max-width: 900px) {

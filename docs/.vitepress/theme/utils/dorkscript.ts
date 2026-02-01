@@ -1,38 +1,62 @@
-export type DorkLintSeverity = "error" | "warning";
+export type DorkLintSeverity = "error" | "warning" | "info";
 
 export interface DorkLintIssue {
   message: string;
   start: number;
   end: number;
   severity: DorkLintSeverity;
+  suggestion?: string;
 }
 
+// Categorized operators for semantic highlighting
 export const DORK_OPERATORS = [
+  // Site/domain operators
   "site",
-  "filetype",
-  "ext",
-  "imagesize",
+  "related",
+  "cache",
+  "info",
+  "link",
+  // Content operators
   "intitle",
   "allintitle",
   "inurl",
   "allinurl",
   "intext",
   "allintext",
+  "inanchor",
+  "allinanchor",
+  // File operators
+  "filetype",
+  "ext",
+  // Date operators
   "after",
   "before",
   "daterange",
-  "cache",
-  "related",
-  "info",
-  "link",
-  "inanchor",
-  "allinanchor",
+  // Special operators
+  "imagesize",
   "define",
   "source",
+  "location",
   "weather",
   "stocks",
   "map",
 ];
+
+// Operator categories for semantic highlighting
+const SITE_OPERATORS = new Set(["site", "related", "cache", "info", "link"]);
+const FILE_OPERATORS = new Set(["filetype", "ext"]);
+const DATE_OPERATORS = new Set(["after", "before", "daterange"]);
+const CONTENT_OPERATORS = new Set([
+  "intitle",
+  "allintitle",
+  "inurl",
+  "allinurl",
+  "intext",
+  "allintext",
+  "inanchor",
+  "allinanchor",
+]);
+const NUMERIC_OPERATORS = new Set(["imagesize"]);
 
 const OPERATOR_SET = new Set(DORK_OPERATORS);
 const operatorRegex = new RegExp(`\\b(${DORK_OPERATORS.join("|")}):`, "gi");
@@ -198,6 +222,31 @@ export function lintDorkScript(text: string): DorkLintIssue[] {
   return issues;
 }
 
+/**
+ * Get the semantic CSS class for an operator's value
+ */
+function getOperatorValueClass(operator: string): string {
+  const op = operator.toLowerCase();
+  if (SITE_OPERATORS.has(op)) return "dork-domain";
+  if (FILE_OPERATORS.has(op)) return "dork-filetype";
+  if (DATE_OPERATORS.has(op)) return "dork-date";
+  if (NUMERIC_OPERATORS.has(op)) return "dork-number";
+  if (CONTENT_OPERATORS.has(op)) return "dork-content-value";
+  return "dork-value";
+}
+
+/**
+ * Get the semantic CSS class for an operator itself
+ */
+function getOperatorClass(operator: string): string {
+  const op = operator.toLowerCase();
+  if (SITE_OPERATORS.has(op)) return "dork-operator dork-op-site";
+  if (FILE_OPERATORS.has(op)) return "dork-operator dork-op-file";
+  if (DATE_OPERATORS.has(op)) return "dork-operator dork-op-date";
+  if (CONTENT_OPERATORS.has(op)) return "dork-operator dork-op-content";
+  return "dork-operator";
+}
+
 export function highlightDorkText(text: string): string {
   let result = "";
   let i = 0;
@@ -211,16 +260,23 @@ export function highlightDorkText(text: string): string {
   while (i < text.length) {
     const rest = text.slice(i);
 
-    const stringMatch = rest.match(/^"[^"]*"/);
+    // Quoted strings - with semantic distinction
+    const stringMatch = rest.match(/^"([^"]*)"/);
     if (stringMatch) {
-      result += `<span class="dork-string">${escapeHtml(take(stringMatch[0].length))}</span>`;
+      const content = stringMatch[1];
+      // Check if it looks like an exact phrase vs a value
+      const isPhrase = content.includes(" ");
+      const cls = isPhrase ? "dork-phrase" : "dork-string";
+      result += `<span class="${cls}">${escapeHtml(take(stringMatch[0].length))}</span>`;
       continue;
     }
 
+    // Operators with values
     const operatorMatch = rest.match(operatorValueRegex);
     if (operatorMatch) {
       const op = operatorMatch[1];
-      result += `<span class="dork-operator">${escapeHtml(take(op.length + 1))}</span>`;
+      const opClass = getOperatorClass(op);
+      result += `<span class="${opClass}">${escapeHtml(take(op.length + 1))}</span>`;
 
       const valueStart = text.slice(i);
       let value = "";
@@ -228,44 +284,67 @@ export function highlightDorkText(text: string): string {
         const quoted = valueStart.match(/^"[^"]*"/);
         if (quoted) value = quoted[0];
       } else if (valueStart.startsWith("(")) {
-        const paren = valueStart.match(/^\([^\)]*\)/);
-        if (paren) value = paren[0];
+        // OR group after operator - parse recursively
+        const paren = valueStart.match(/^\([^)]*\)/);
+        if (paren) {
+          result += `<span class="dork-paren">(</span>`;
+          take(1);
+          const innerContent = paren[0].slice(1, -1);
+          result += highlightDorkText(innerContent);
+          take(innerContent.length);
+          result += `<span class="dork-paren">)</span>`;
+          take(1);
+          continue;
+        }
       } else {
         const token = valueStart.match(/^[^\s)]+/);
         if (token) value = token[0];
       }
 
       if (value) {
-        const opLower = op.toLowerCase();
-        let valueClass = "dork-value";
-        if (opLower === "site" || opLower === "related" || opLower === "cache") {
-          valueClass = "dork-domain";
-        } else if (opLower === "filetype" || opLower === "ext") {
-          valueClass = "dork-filetype";
-        } else if (opLower === "after" || opLower === "before" || opLower === "daterange") {
-          valueClass = "dork-date";
-        } else if (opLower === "imagesize") {
-          valueClass = "dork-number";
+        const valueClass = getOperatorValueClass(op);
+        // Special handling for wildcards within domains
+        if (value.includes("*")) {
+          const parts = value.split(/(\*)/);
+          for (const part of parts) {
+            if (part === "*") {
+              result += `<span class="dork-wildcard">${escapeHtml(take(1))}</span>`;
+            } else if (part) {
+              result += `<span class="${valueClass}">${escapeHtml(take(part.length))}</span>`;
+            }
+          }
+        } else {
+          result += `<span class="${valueClass}">${escapeHtml(take(value.length))}</span>`;
         }
-
-        result += `<span class="${valueClass}">${escapeHtml(take(value.length))}</span>`;
       }
 
       continue;
     }
 
-    const aroundMatch = rest.match(/^\bAROUND\(\d+\)\b/i);
+    // AROUND(n) proximity operator
+    const aroundMatch = rest.match(/^\bAROUND\s*\(\s*(\d+)\s*\)/i);
     if (aroundMatch) {
-      result += `<span class="dork-function">${escapeHtml(take(aroundMatch[0].length))}</span>`;
+      const fullMatch = aroundMatch[0];
+      const num = aroundMatch[1];
+      const beforeNum = fullMatch.indexOf(num);
+      const afterNum = beforeNum + num.length;
+
+      result += `<span class="dork-function">${escapeHtml(take(beforeNum))}</span>`;
+      result += `<span class="dork-number">${escapeHtml(take(num.length))}</span>`;
+      result += `<span class="dork-function">${escapeHtml(take(fullMatch.length - afterNum))}</span>`;
       continue;
     }
 
+    // Boolean operators
     const booleanMatch = rest.match(/^\b(OR|AND)\b/);
     if (booleanMatch) {
-      result += `<span class="dork-boolean">${escapeHtml(take(booleanMatch[0].length))}</span>`;
+      const boolOp = booleanMatch[1];
+      const cls = boolOp === "OR" ? "dork-boolean dork-or" : "dork-boolean dork-and";
+      result += `<span class="${cls}">${escapeHtml(take(booleanMatch[0].length))}</span>`;
       continue;
     }
 
+    // Exclusion operator
     const exclusionMatch = rest.match(/^(\s)?-(?=\S)/);
     if (exclusionMatch) {
       if (exclusionMatch[1]) {
@@ -279,6 +358,17 @@ export function highlightDorkText(text: string): string {
         const quoted = termStart.match(/^"[^"]*"/);
         if (quoted) term = quoted[0];
       } else {
+        // Check if it's an excluded operator
+        const opMatch = termStart.match(operatorValueRegex);
+        if (opMatch) {
+          // Recursively highlight the excluded operator
+          const fullOp = termStart.match(/^[^\s)]+/);
+          if (fullOp) {
+            result += `<span class="dork-exclusion-term">${highlightDorkText(fullOp[0])}</span>`;
+            take(fullOp[0].length);
+            continue;
+          }
+        }
         const token = termStart.match(/^[^\s)]+/);
         if (token) term = token[0];
       }
@@ -288,6 +378,7 @@ export function highlightDorkText(text: string): string {
       continue;
     }
 
+    // Hashtags and mentions (social-style)
     const tagMatch = rest.match(/^(\s)?([#@][\w-]+)/);
     if (tagMatch) {
       if (tagMatch[1]) {
@@ -297,15 +388,23 @@ export function highlightDorkText(text: string): string {
       continue;
     }
 
+    // Wildcards
     const wildcardMatch = rest.match(/^\*/);
     if (wildcardMatch) {
       result += `<span class="dork-wildcard">${escapeHtml(take(1))}</span>`;
       continue;
     }
 
+    // Parentheses
     const parenMatch = rest.match(/^[()]/);
     if (parenMatch) {
       result += `<span class="dork-paren">${escapeHtml(take(1))}</span>`;
+      continue;
+    }
+
+    // Pipe separator (used in some synonym blocks)
+    if (rest[0] === "|") {
+      result += `<span class="dork-pipe">${escapeHtml(take(1))}</span>`;
       continue;
     }
 

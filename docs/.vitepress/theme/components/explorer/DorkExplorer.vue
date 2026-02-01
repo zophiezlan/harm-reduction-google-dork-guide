@@ -14,7 +14,17 @@ import ShortcutsModal from "./ShortcutsModal.vue";
 import ExportMenu from "./ExportMenu.vue";
 import type { DorkWithPack } from "../../data/types";
 
-const { loadDorks, searchDorks, allDorks, packList, categories, isLoaded } = useDorkData();
+const {
+  loadDorks,
+  searchDorks,
+  allDorks,
+  packList,
+  categories,
+  difficulties,
+  domainCategories,
+  stats,
+  isLoaded,
+} = useDorkData();
 const { favorites: rawFavorites } = useFavorites();
 const { success } = useToast();
 
@@ -26,7 +36,10 @@ const searchQuery = ref("");
 const debouncedSearchQuery = useDebouncedRef(searchQuery, 300);
 const selectedPacks = useUrlStateSimple<string[]>("packs", []);
 const selectedCategories = useUrlStateSimple<string[]>("cats", []);
+const selectedDifficulties = useUrlStateSimple<string[]>("diff", []);
+const selectedDomainCategories = useUrlStateSimple<string[]>("domain", []);
 const showFavoritesOnly = ref(false);
+const includeDocumentation = ref(true);
 const viewMode = useUrlStateSimple<string>("view", "grid") as ReturnType<
   typeof ref<"grid" | "list">
 >;
@@ -75,6 +88,13 @@ const results = computed(() => {
   let filtered = searchDorks(debouncedSearchQuery.value, {
     packs: selectedPacks.value.length > 0 ? selectedPacks.value : undefined,
     categories: selectedCategories.value.length > 0 ? selectedCategories.value : undefined,
+    difficulty:
+      selectedDifficulties.value.length > 0 ? (selectedDifficulties.value as any) : undefined,
+    domainCategory:
+      selectedDomainCategories.value.length > 0
+        ? (selectedDomainCategories.value as any)
+        : undefined,
+    includeDocumentation: includeDocumentation.value,
   });
 
   // Apply quick filters
@@ -116,11 +136,34 @@ const results = computed(() => {
 const displayedResults = computed(() => results.value.slice(0, displayLimit.value));
 const hasMoreResults = computed(() => results.value.length > displayLimit.value);
 
-// Filter sidebar state (kept for template compatibility)
+// Filter sidebar state
 const packSearchQuery = ref("");
 const categorySearchQuery = ref("");
 const packsExpanded = ref(true);
 const categoriesExpanded = ref(true);
+const difficultyExpanded = ref(true);
+const domainExpanded = ref(false);
+
+// Display labels for difficulty
+const difficultyLabels: Record<string, string> = {
+  beginner: "Beginner",
+  intermediate: "Intermediate",
+  advanced: "Advanced",
+  expert: "Expert",
+};
+
+// Display labels for domain categories
+const domainLabels: Record<string, string> = {
+  government: "Government",
+  health: "Health",
+  education: "Education",
+  research: "Research",
+  ngo: "NGO",
+  news: "News",
+  community: "Community",
+  international: "International",
+  "user-hosted": "User-hosted",
+};
 
 // Filtered packs and categories based on search
 const filteredPacks = computed(() => {
@@ -140,7 +183,10 @@ const activeFilterCount = computed(() => {
   let count = 0;
   if (selectedPacks.value.length > 0) count += selectedPacks.value.length;
   if (selectedCategories.value.length > 0) count += selectedCategories.value.length;
+  if (selectedDifficulties.value.length > 0) count += selectedDifficulties.value.length;
+  if (selectedDomainCategories.value.length > 0) count += selectedDomainCategories.value.length;
   if (showFavoritesOnly.value) count += 1;
+  if (!includeDocumentation.value) count += 1;
   if (quickFilters.value.auSites) count += 1;
   if (quickFilters.value.pdfs) count += 1;
   if (quickFilters.value.government) count += 1;
@@ -149,8 +195,8 @@ const activeFilterCount = computed(() => {
   return count;
 });
 
-// Statistics
-const stats = computed(() => ({
+// Display statistics (local computed to avoid naming conflict with useDorkData stats)
+const displayStats = computed(() => ({
   total: allDorks.value.length,
   displayed: displayedResults.value.length,
   filtered: results.value.length,
@@ -181,6 +227,28 @@ function toggleCategory(category: string) {
   scrollToResults();
 }
 
+function toggleDifficulty(difficulty: string) {
+  const idx = selectedDifficulties.value.indexOf(difficulty);
+  if (idx === -1) {
+    selectedDifficulties.value.push(difficulty);
+  } else {
+    selectedDifficulties.value.splice(idx, 1);
+  }
+  displayLimit.value = ITEMS_PER_PAGE;
+  scrollToResults();
+}
+
+function toggleDomainCategory(domain: string) {
+  const idx = selectedDomainCategories.value.indexOf(domain);
+  if (idx === -1) {
+    selectedDomainCategories.value.push(domain);
+  } else {
+    selectedDomainCategories.value.splice(idx, 1);
+  }
+  displayLimit.value = ITEMS_PER_PAGE;
+  scrollToResults();
+}
+
 function toggleQuickFilter(filter: keyof typeof quickFilters.value) {
   quickFilters.value[filter] = !quickFilters.value[filter];
   displayLimit.value = ITEMS_PER_PAGE;
@@ -190,7 +258,10 @@ function clearFilters() {
   searchQuery.value = "";
   selectedPacks.value = [];
   selectedCategories.value = [];
+  selectedDifficulties.value = [];
+  selectedDomainCategories.value = [];
   showFavoritesOnly.value = false;
+  includeDocumentation.value = true;
   packSearchQuery.value = "";
   categorySearchQuery.value = "";
   quickFilters.value = {
@@ -203,15 +274,26 @@ function clearFilters() {
   displayLimit.value = ITEMS_PER_PAGE;
 }
 
-function removeFilter(type: "pack" | "category" | "favorites" | "quick", value?: string) {
+function removeFilter(
+  type: "pack" | "category" | "difficulty" | "domain" | "favorites" | "documentation" | "quick",
+  value?: string
+) {
   if (type === "pack" && value) {
     const idx = selectedPacks.value.indexOf(value);
     if (idx !== -1) selectedPacks.value.splice(idx, 1);
   } else if (type === "category" && value) {
     const idx = selectedCategories.value.indexOf(value);
     if (idx !== -1) selectedCategories.value.splice(idx, 1);
+  } else if (type === "difficulty" && value) {
+    const idx = selectedDifficulties.value.indexOf(value);
+    if (idx !== -1) selectedDifficulties.value.splice(idx, 1);
+  } else if (type === "domain" && value) {
+    const idx = selectedDomainCategories.value.indexOf(value);
+    if (idx !== -1) selectedDomainCategories.value.splice(idx, 1);
   } else if (type === "favorites") {
     showFavoritesOnly.value = false;
+  } else if (type === "documentation") {
+    includeDocumentation.value = true;
   } else if (type === "quick" && value) {
     quickFilters.value[value as keyof typeof quickFilters.value] = false;
   }
@@ -390,7 +472,16 @@ onUnmounted(() => {
 
 // Reset pagination when filters change (use debounced search query to avoid excessive resets)
 watch(
-  [debouncedSearchQuery, selectedPacks, selectedCategories, showFavoritesOnly, quickFilters],
+  [
+    debouncedSearchQuery,
+    selectedPacks,
+    selectedCategories,
+    selectedDifficulties,
+    selectedDomainCategories,
+    showFavoritesOnly,
+    includeDocumentation,
+    quickFilters,
+  ],
   () => {
     displayLimit.value = ITEMS_PER_PAGE;
   }
@@ -583,18 +674,43 @@ watch(
             {{ cat }}
             <span class="chip-remove">×</span>
           </button>
+          <button
+            v-for="diff in selectedDifficulties"
+            :key="`diff-${diff}`"
+            :class="['filter-chip', `chip-${diff}`]"
+            @click="removeFilter('difficulty', diff)"
+          >
+            {{ difficultyLabels[diff] }}
+            <span class="chip-remove">×</span>
+          </button>
+          <button
+            v-for="domain in selectedDomainCategories"
+            :key="`domain-${domain}`"
+            class="filter-chip"
+            @click="removeFilter('domain', domain)"
+          >
+            {{ domainLabels[domain] }}
+            <span class="chip-remove">×</span>
+          </button>
+          <button
+            v-if="!includeDocumentation"
+            class="filter-chip"
+            @click="removeFilter('documentation')"
+          >
+            Packs Only <span class="chip-remove">×</span>
+          </button>
         </div>
       </div>
 
       <!-- Stats Bar -->
       <div class="stats-bar">
-        <span class="stat">📊 {{ stats.total }} total dorks</span>
+        <span class="stat">📊 {{ displayStats.total }} total dorks</span>
         <span class="stat-divider">•</span>
-        <span class="stat">📦 {{ stats.packs }} packs</span>
+        <span class="stat">📦 {{ displayStats.packs }} packs</span>
         <span class="stat-divider">•</span>
-        <span class="stat">🏷️ {{ stats.categories }} categories</span>
+        <span class="stat">🏷️ {{ displayStats.categories }} categories</span>
         <span class="stat-divider">•</span>
-        <span class="stat">★ {{ stats.favorites }} saved</span>
+        <span class="stat">★ {{ displayStats.favorites }} saved</span>
       </div>
     </header>
 
@@ -651,6 +767,81 @@ watch(
           </div>
         </div>
 
+        <!-- Difficulty Filter -->
+        <div v-if="difficulties.length > 0" class="filter-section">
+          <button
+            class="filter-section-header"
+            @click="difficultyExpanded = !difficultyExpanded"
+            :aria-expanded="difficultyExpanded"
+            aria-controls="difficulty-content"
+          >
+            <h4 class="filter-title">
+              Difficulty
+              <span v-if="selectedDifficulties.length > 0" class="filter-badge">{{
+                selectedDifficulties.length
+              }}</span>
+            </h4>
+            <span class="expand-icon" aria-hidden="true">{{ difficultyExpanded ? "▼" : "▶" }}</span>
+          </button>
+
+          <div v-show="difficultyExpanded" id="difficulty-content" class="filter-content">
+            <div
+              class="filter-chips difficulty-chips"
+              role="listbox"
+              aria-label="Difficulty levels"
+            >
+              <button
+                v-for="diff in difficulties"
+                :key="diff"
+                :class="[
+                  'chip',
+                  'diff-chip',
+                  `diff-${diff}`,
+                  { active: selectedDifficulties.includes(diff) },
+                ]"
+                @click="toggleDifficulty(diff)"
+                role="option"
+                :aria-selected="selectedDifficulties.includes(diff)"
+              >
+                {{ difficultyLabels[diff] }}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Domain Category Filter -->
+        <div v-if="domainCategories.length > 0" class="filter-section">
+          <button
+            class="filter-section-header"
+            @click="domainExpanded = !domainExpanded"
+            :aria-expanded="domainExpanded"
+            aria-controls="domain-content"
+          >
+            <h4 class="filter-title">
+              Domain Type
+              <span v-if="selectedDomainCategories.length > 0" class="filter-badge">{{
+                selectedDomainCategories.length
+              }}</span>
+            </h4>
+            <span class="expand-icon" aria-hidden="true">{{ domainExpanded ? "▼" : "▶" }}</span>
+          </button>
+
+          <div v-show="domainExpanded" id="domain-content" class="filter-content">
+            <div class="filter-chips" role="listbox" aria-label="Domain categories">
+              <button
+                v-for="domain in domainCategories"
+                :key="domain"
+                :class="['chip', { active: selectedDomainCategories.includes(domain) }]"
+                @click="toggleDomainCategory(domain)"
+                role="option"
+                :aria-selected="selectedDomainCategories.includes(domain)"
+              >
+                {{ domainLabels[domain] }}
+              </button>
+            </div>
+          </div>
+        </div>
+
         <!-- Categories Filter -->
         <div class="filter-section">
           <button
@@ -701,6 +892,18 @@ watch(
               </div>
             </div>
           </div>
+        </div>
+
+        <!-- Include Documentation Toggle -->
+        <div class="filter-section">
+          <label class="toggle-row">
+            <input
+              type="checkbox"
+              :checked="includeDocumentation"
+              @change="includeDocumentation = !includeDocumentation"
+            />
+            <span>Include documentation dorks</span>
+          </label>
         </div>
       </aside>
 
@@ -1354,6 +1557,78 @@ watch(
   text-align: center;
   color: var(--text-muted);
   font-size: 12px;
+}
+
+/* Difficulty chips with colors */
+.difficulty-chips {
+  gap: 8px;
+}
+
+.diff-chip {
+  font-weight: 600;
+}
+
+.diff-chip.diff-beginner {
+  border-color: rgba(34, 197, 94, 0.3);
+  color: #22c55e;
+}
+
+.diff-chip.diff-beginner.active {
+  background: rgba(34, 197, 94, 0.15);
+  border-color: #22c55e;
+}
+
+.diff-chip.diff-intermediate {
+  border-color: rgba(234, 179, 8, 0.3);
+  color: #eab308;
+}
+
+.diff-chip.diff-intermediate.active {
+  background: rgba(234, 179, 8, 0.15);
+  border-color: #eab308;
+}
+
+.diff-chip.diff-advanced {
+  border-color: rgba(249, 115, 22, 0.3);
+  color: #f97316;
+}
+
+.diff-chip.diff-advanced.active {
+  background: rgba(249, 115, 22, 0.15);
+  border-color: #f97316;
+}
+
+.diff-chip.diff-expert {
+  border-color: rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+}
+
+.diff-chip.diff-expert.active {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: #ef4444;
+}
+
+/* Toggle row for checkboxes */
+.toggle-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.toggle-row:hover {
+  color: var(--text-primary);
+}
+
+.toggle-row input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent);
+  cursor: pointer;
 }
 
 .explorer-main {
