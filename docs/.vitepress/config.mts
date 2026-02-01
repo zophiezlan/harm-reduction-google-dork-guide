@@ -59,8 +59,19 @@ export default defineConfig({
     sidebar: {
       "/": [
         {
-          text: "Getting Started",
+          text: "Interactive Apps",
+          collapsed: false,
           items: [
+            { text: "Dork Explorer", link: "/explorer" },
+            { text: "Dork Builder", link: "/builder" },
+            { text: "Settings", link: "/settings" },
+          ],
+        },
+        {
+          text: "Getting Started",
+          collapsed: false,
+          items: [
+            { text: "Introduction", link: "/README" },
             { text: "Quick Start", link: "/01-quick-start" },
             { text: "Core Operators", link: "/02-core-operators" },
             { text: "Advanced Operators", link: "/03-advanced-operators" },
@@ -70,10 +81,21 @@ export default defineConfig({
         },
         {
           text: "Dork Packs",
-          items: [{ text: "All Dork Packs", link: "/dork-packs/README" }],
+          collapsed: true,
+          items: [
+            { text: "Browse All Packs", link: "/dork-packs/README" },
+            { text: "Drug Alerts", link: "/dork-packs/drug-alerts" },
+            { text: "Novel Substances", link: "/dork-packs/novel-substances" },
+            { text: "Coroners & Deaths", link: "/dork-packs/coroners-deaths" },
+            { text: "Community Forums", link: "/dork-packs/forum-community" },
+            { text: "User Domains", link: "/dork-packs/user-hosted-domains" },
+            { text: "Peer Knowledge", link: "/dork-packs/peer-knowledge" },
+            // Add other key packs here if needed, or rely on the index
+          ],
         },
         {
           text: "Workflows",
+          collapsed: true,
           items: [
             { text: "Overview", link: "/workflows/README" },
             { text: "Research Workflow", link: "/workflows/research-workflow" },
@@ -84,20 +106,13 @@ export default defineConfig({
         },
         {
           text: "Tools & Resources",
+          collapsed: true,
           items: [
             { text: "Tools Overview", link: "/tools/README" },
             { text: "Browser Extensions", link: "/tools/browser-extensions" },
             { text: "Google Alerts", link: "/tools/google-alerts" },
-            { text: "OSINT", link: "/tools/osint" },
+            { text: "OSINT Tools", link: "/tools/osint" },
             { text: "Cheat Sheet", link: "/resources/cheat-sheet" },
-          ],
-        },
-        {
-          text: "Interactive",
-          items: [
-            { text: "Dork Explorer", link: "/explorer" },
-            { text: "Dork Builder", link: "/builder" },
-            { text: "Settings", link: "/settings" },
           ],
         },
       ],

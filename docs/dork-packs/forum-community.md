@@ -3,7 +3,7 @@
 > Finding harm reduction discussions, peer knowledge, and community insights on forums and social
 > platforms.
 
-[← Back to Dork Packs](README.md) | [← Main Guide](../../README.md)
+[← Back to Dork Packs](README.md) | [← Main Guide](../README.md)
 
 ---
 

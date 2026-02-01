@@ -59,6 +59,7 @@ const particlesOptions = computed(() => ({
   <ClientOnly>
     <vue-particles
       id="tsparticles"
+      :key="isDark ? 'dark' : 'light'"
       :options="particlesOptions"
     />
   </ClientOnly>

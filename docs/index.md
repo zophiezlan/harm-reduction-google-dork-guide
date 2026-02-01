@@ -10,10 +10,10 @@ hero:
       link: /README
     - theme: alt
       text: Open Dork Explorer
-      link: /dork-explorer/
+      link: /explorer
     - theme: alt
-      text: Choose a Mode
-      link: /modes/beginner
+      text: Open Dork Builder
+      link: /builder
 features:
   - title: Dork Explorer Pro
     details: Search and filter 700+ dorks with instant copy, presets, and smart grouping.
@@ -29,10 +29,6 @@ features:
     details: Structured data foundations to power future dashboards and automation.
 ---
 
-## Quick Links
+<HomeActionGrid />
 
-- [Jump into the Guide](/README)
-- [Open Dork Explorer](/dork-explorer/)
-- [Browse Dork Packs](/dork-packs/README)
-- [Start a Mode](/modes/beginner)
-- [Templates](/templates/README)
+<HomeDorkPacks />

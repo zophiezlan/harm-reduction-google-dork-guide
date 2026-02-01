@@ -222,7 +222,7 @@ site:health.vic.gov.au "drug alert" OR "health alert"
 ### WA Drug Alerts
 
 ```txt
-site:health.wa.gov.au "drug warning"`                       |
+site:health.wa.gov.au "drug warning"
 ```
 
 ---
