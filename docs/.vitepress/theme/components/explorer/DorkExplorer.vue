@@ -71,16 +71,14 @@ const results = computed(() => {
 
   // Apply quick filters
   if (quickFilters.value.auSites) {
-    filtered = filtered.filter((d) =>
-      /site:\*?\.?(?:gov\.au|edu\.au|org\.au|au\b)/i.test(d.query)
-    );
+    filtered = filtered.filter((d) => /site:\*?\.?(?:gov\.au|edu\.au|org\.au|au\b)/i.test(d.query));
   }
   if (quickFilters.value.pdfs) {
     filtered = filtered.filter((d) => /filetype:pdf/i.test(d.query));
   }
   if (quickFilters.value.government) {
-    filtered = filtered.filter((d) =>
-      /site:\*?\.?gov\./i.test(d.query) || /government|policy|legislation/i.test(d.query)
+    filtered = filtered.filter(
+      (d) => /site:\*?\.?gov\./i.test(d.query) || /government|policy|legislation/i.test(d.query)
     );
   }
   if (quickFilters.value.recent) {
@@ -88,7 +86,9 @@ const results = computed(() => {
   }
   if (quickFilters.value.userHosted) {
     filtered = filtered.filter((d) =>
-      /site:\*?\.?(?:notion\.site|gitbook\.io|wordpress\.com|blogspot\.com|medium\.com|substack\.com|tumblr\.com|reddit\.com|github\.io|vercel\.app|netlify\.app|pages\.dev|glitch\.me|drive\.google\.com|dropbox\.com)/i.test(d.query)
+      /(site:\*?\.?(?:notion\.site|gitbook\.io|wordpress\.com|blogspot\.com|medium\.com|substack\.com|tumblr\.com|reddit\.com|github\.io|github\.com|speakerdeck\.com|slideshare\.net|vercel\.app|netlify\.app|pages\.dev|glitch\.me|drive\.google\.com|docs\.google\.com|dropbox\.com)|"Powered by Discourse"|Powered by Discourse)/i.test(
+        d.query
+      )
     );
   }
 
@@ -179,7 +179,13 @@ function clearFilters() {
   showFavoritesOnly.value = false;
   packSearchQuery.value = "";
   categorySearchQuery.value = "";
-  quickFilters.value = { auSites: false, pdfs: false, government: false, recent: false, userHosted: false };
+  quickFilters.value = {
+    auSites: false,
+    pdfs: false,
+    government: false,
+    recent: false,
+    userHosted: false,
+  };
   displayLimit.value = ITEMS_PER_PAGE;
 }
 
@@ -388,28 +394,56 @@ watch([searchQuery, selectedPacks, selectedCategories, showFavoritesOnly, quickF
             placeholder="Search dorks... (press / to focus)"
             aria-label="Search dorks"
           />
-          <span v-if="searchQuery" class="search-clear" @click="searchQuery = ''" role="button" aria-label="Clear search">✕</span>
+          <span
+            v-if="searchQuery"
+            class="search-clear"
+            @click="searchQuery = ''"
+            role="button"
+            aria-label="Clear search"
+            >✕</span
+          >
         </div>
 
         <div class="header-tools">
-          <button class="tool-btn" @click="showRandomDorkFunc" title="Random Dork (R)" aria-label="Get random dork">
+          <button
+            class="tool-btn"
+            @click="showRandomDorkFunc"
+            title="Random Dork (R)"
+            aria-label="Get random dork"
+          >
             🎲 <span class="tool-label">Random</span>
           </button>
 
           <div class="export-wrapper">
-            <button class="tool-btn" @click="showExportMenu = !showExportMenu" title="Export results" aria-label="Export menu">
+            <button
+              class="tool-btn"
+              @click="showExportMenu = !showExportMenu"
+              title="Export results"
+              aria-label="Export menu"
+            >
               📥 <span class="tool-label">Export</span>
             </button>
             <Transition name="dropdown">
               <div v-if="showExportMenu" class="export-menu" role="menu">
-                <button class="export-option" @click="exportToCSV" role="menuitem">📊 Export to CSV</button>
-                <button class="export-option" @click="exportToJSON" role="menuitem">📋 Export to JSON</button>
-                <button class="export-option" @click="exportToMarkdown" role="menuitem">📝 Export to Markdown</button>
+                <button class="export-option" @click="exportToCSV" role="menuitem">
+                  📊 Export to CSV
+                </button>
+                <button class="export-option" @click="exportToJSON" role="menuitem">
+                  📋 Export to JSON
+                </button>
+                <button class="export-option" @click="exportToMarkdown" role="menuitem">
+                  📝 Export to Markdown
+                </button>
               </div>
             </Transition>
           </div>
 
-          <button class="tool-btn" @click="showShortcuts = true" title="Keyboard shortcuts (?)" aria-label="Show keyboard shortcuts">
+          <button
+            class="tool-btn"
+            @click="showShortcuts = true"
+            title="Keyboard shortcuts (?)"
+            aria-label="Show keyboard shortcuts"
+          >
             ⌨️ <span class="tool-label">Shortcuts</span>
           </button>
         </div>
@@ -455,12 +489,19 @@ watch([searchQuery, selectedPacks, selectedCategories, showFavoritesOnly, quickF
         </button>
         <button
           :class="['quick-filter favorites-filter', { active: showFavoritesOnly }]"
-          @click="showFavoritesOnly = !showFavoritesOnly; scrollToResults()"
+          @click="
+            showFavoritesOnly = !showFavoritesOnly;
+            scrollToResults();
+          "
           :aria-pressed="showFavoritesOnly.toString()"
         >
           ★ Favorites ({{ favorites.length }})
         </button>
-        <button v-if="activeFilterCount > 0" class="quick-filter clear-filter" @click="clearFilters">
+        <button
+          v-if="activeFilterCount > 0"
+          class="quick-filter clear-filter"
+          @click="clearFilters"
+        >
           ✕ Clear All
         </button>
       </div>
@@ -472,19 +513,39 @@ watch([searchQuery, selectedPacks, selectedCategories, showFavoritesOnly, quickF
           <button v-if="showFavoritesOnly" class="filter-chip" @click="removeFilter('favorites')">
             ★ Favorites <span class="chip-remove">×</span>
           </button>
-          <button v-if="quickFilters.auSites" class="filter-chip" @click="removeFilter('quick', 'auSites')">
+          <button
+            v-if="quickFilters.auSites"
+            class="filter-chip"
+            @click="removeFilter('quick', 'auSites')"
+          >
             🇦🇺 AU Sites <span class="chip-remove">×</span>
           </button>
-          <button v-if="quickFilters.pdfs" class="filter-chip" @click="removeFilter('quick', 'pdfs')">
+          <button
+            v-if="quickFilters.pdfs"
+            class="filter-chip"
+            @click="removeFilter('quick', 'pdfs')"
+          >
             📄 PDFs <span class="chip-remove">×</span>
           </button>
-          <button v-if="quickFilters.government" class="filter-chip" @click="removeFilter('quick', 'government')">
+          <button
+            v-if="quickFilters.government"
+            class="filter-chip"
+            @click="removeFilter('quick', 'government')"
+          >
             🏛️ Gov <span class="chip-remove">×</span>
           </button>
-          <button v-if="quickFilters.recent" class="filter-chip" @click="removeFilter('quick', 'recent')">
+          <button
+            v-if="quickFilters.recent"
+            class="filter-chip"
+            @click="removeFilter('quick', 'recent')"
+          >
             📅 Dated <span class="chip-remove">×</span>
           </button>
-          <button v-if="quickFilters.userHosted" class="filter-chip" @click="removeFilter('quick', 'userHosted')">
+          <button
+            v-if="quickFilters.userHosted"
+            class="filter-chip"
+            @click="removeFilter('quick', 'userHosted')"
+          >
             🌐 User Platforms <span class="chip-remove">×</span>
           </button>
           <button
@@ -533,7 +594,9 @@ watch([searchQuery, selectedPacks, selectedCategories, showFavoritesOnly, quickF
           >
             <h4 class="filter-title">
               Packs
-              <span v-if="selectedPacks.length > 0" class="filter-badge">{{ selectedPacks.length }}</span>
+              <span v-if="selectedPacks.length > 0" class="filter-badge">{{
+                selectedPacks.length
+              }}</span>
             </h4>
             <span class="expand-icon" aria-hidden="true">{{ packsExpanded ? "▼" : "▶" }}</span>
           </button>
@@ -547,7 +610,9 @@ watch([searchQuery, selectedPacks, selectedCategories, showFavoritesOnly, quickF
                 placeholder="Search packs..."
                 aria-label="Filter packs"
               />
-              <span v-if="packSearchQuery" class="search-clear-small" @click="packSearchQuery = ''">✕</span>
+              <span v-if="packSearchQuery" class="search-clear-small" @click="packSearchQuery = ''"
+                >✕</span
+              >
             </div>
 
             <div class="filter-list" role="listbox" aria-label="Available packs">
@@ -579,7 +644,9 @@ watch([searchQuery, selectedPacks, selectedCategories, showFavoritesOnly, quickF
           >
             <h4 class="filter-title">
               Categories
-              <span v-if="selectedCategories.length > 0" class="filter-badge">{{ selectedCategories.length }}</span>
+              <span v-if="selectedCategories.length > 0" class="filter-badge">{{
+                selectedCategories.length
+              }}</span>
             </h4>
             <span class="expand-icon" aria-hidden="true">{{ categoriesExpanded ? "▼" : "▶" }}</span>
           </button>
@@ -593,7 +660,12 @@ watch([searchQuery, selectedPacks, selectedCategories, showFavoritesOnly, quickF
                 placeholder="Search categories..."
                 aria-label="Filter categories"
               />
-              <span v-if="categorySearchQuery" class="search-clear-small" @click="categorySearchQuery = ''">✕</span>
+              <span
+                v-if="categorySearchQuery"
+                class="search-clear-small"
+                @click="categorySearchQuery = ''"
+                >✕</span
+              >
             </div>
 
             <div class="filter-chips" role="listbox" aria-label="Available categories">
@@ -698,7 +770,12 @@ watch([searchQuery, selectedPacks, selectedCategories, showFavoritesOnly, quickF
     <!-- Random Dork Modal -->
     <Transition name="modal">
       <div v-if="showRandomDork && randomDork" class="modal-overlay" @click.self="closeRandomDork">
-        <div class="modal random-dork-modal" role="dialog" aria-modal="true" aria-labelledby="random-dork-title">
+        <div
+          class="modal random-dork-modal"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="random-dork-title"
+        >
           <div class="modal-header">
             <h2 id="random-dork-title">🎲 Random Dork</h2>
             <button class="modal-close" @click="closeRandomDork" aria-label="Close">×</button>
@@ -717,7 +794,12 @@ watch([searchQuery, selectedPacks, selectedCategories, showFavoritesOnly, quickF
     <!-- Keyboard Shortcuts Modal -->
     <Transition name="modal">
       <div v-if="showShortcuts" class="modal-overlay" @click.self="showShortcuts = false">
-        <div class="modal shortcuts-modal" role="dialog" aria-modal="true" aria-labelledby="shortcuts-title">
+        <div
+          class="modal shortcuts-modal"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="shortcuts-title"
+        >
           <div class="modal-header">
             <h2 id="shortcuts-title">⌨️ Keyboard Shortcuts</h2>
             <button class="modal-close" @click="showShortcuts = false" aria-label="Close">×</button>
@@ -1344,7 +1426,12 @@ watch([searchQuery, selectedPacks, selectedCategories, showFavoritesOnly, quickF
 .skeleton-code,
 .skeleton-text,
 .skeleton-actions {
-  background: linear-gradient(90deg, var(--bg-elevated) 25%, var(--bg-deep) 50%, var(--bg-elevated) 75%);
+  background: linear-gradient(
+    90deg,
+    var(--bg-elevated) 25%,
+    var(--bg-deep) 50%,
+    var(--bg-elevated) 75%
+  );
   background-size: 200% 100%;
   animation: skeleton-loading 1.5s infinite;
   border-radius: var(--radius-md);

@@ -1,6 +1,8 @@
 # Multimedia & Audiovisual Discovery
 
-> Unlock video, audio, and visual resources — a whole content type that's underutilized in harm reduction research. Find training videos, conference talks, podcasts, webinars, infographics, and community-produced media.
+> Unlock video, audio, and visual resources — a whole content type that's underutilized in harm
+> reduction research. Find training videos, conference talks, podcasts, webinars, infographics, and
+> community-produced media.
 
 [← Back to Dork Packs](README.md) | [← Main Guide](../README.md)
 
@@ -37,7 +39,7 @@ site:youtube.com "harm reduction" (training OR workshop OR tutorial)
 Find professional and organizational videos.
 
 ```txt
-site:vimeo.com "harm reduction" OR "drug checking" OR "naloxone"
+site:vimeo.com ("harm reduction" OR "drug checking" OR "naloxone")
 ```
 
 **Why this works:**
@@ -220,14 +222,14 @@ Find online course previews and educational content.
 
 ### Major Podcast Platforms
 
-| Platform | Search Pattern |
-| -------- | -------------- |
-| Apple Podcasts | `site:podcasts.apple.com "harm reduction"` |
-| Spotify | `site:open.spotify.com "harm reduction"` |
-| SoundCloud | `site:soundcloud.com "harm reduction"` |
-| Stitcher | `site:stitcher.com "harm reduction"` |
+| Platform        | Search Pattern                              |
+| --------------- | ------------------------------------------- |
+| Apple Podcasts  | `site:podcasts.apple.com "harm reduction"`  |
+| Spotify         | `site:open.spotify.com "harm reduction"`    |
+| SoundCloud      | `site:soundcloud.com "harm reduction"`      |
+| Stitcher        | `site:stitcher.com "harm reduction"`        |
 | Google Podcasts | `site:podcasts.google.com "harm reduction"` |
-| Pocket Casts | `site:pocketcasts.com "harm reduction"` |
+| Pocket Casts    | `site:pocketcasts.com "harm reduction"`     |
 
 ### Combined Podcast Search
 
@@ -255,13 +257,13 @@ site:podcasts.apple.com (naloxone OR fentanyl OR "safe supply")
 
 ### Major Presentation Platforms
 
-| Platform | Search Pattern |
-| -------- | -------------- |
-| SlideShare | `site:slideshare.net "harm reduction"` |
-| Speaker Deck | `site:speakerdeck.com "harm reduction"` |
-| Prezi | `site:prezi.com "harm reduction"` |
+| Platform      | Search Pattern                                       |
+| ------------- | ---------------------------------------------------- |
+| SlideShare    | `site:slideshare.net "harm reduction"`               |
+| Speaker Deck  | `site:speakerdeck.com "harm reduction"`              |
+| Prezi         | `site:prezi.com "harm reduction"`                    |
 | Google Slides | `site:docs.google.com/presentation "harm reduction"` |
-| Canva | `site:canva.com "harm reduction"` |
+| Canva         | `site:canva.com "harm reduction"`                    |
 
 ### Conference Presentations
 
@@ -468,7 +470,8 @@ site:*.org.au "youtube.com/watch" "harm reduction"
 ## 🔗 Related Resources
 
 - **Domain Map:** [User-Hosted Platforms](../04-domain-map.md#-user-hosted--community-platforms)
-- **Related Packs:** [Peer Knowledge](peer-knowledge.md), [Safer Use Education](safer-use-education.md)
+- **Related Packs:** [Peer Knowledge](peer-knowledge.md),
+  [Safer Use Education](safer-use-education.md)
 - **Synonym Blocks:** [Training Terms](../05-synonym-blocks.md)
 
 ---

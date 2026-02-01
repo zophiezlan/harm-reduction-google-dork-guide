@@ -1,6 +1,8 @@
 # Temporal Intelligence & Archive Diving
 
-> Search across time. Find archived content, deleted pages, policy evolution, historical documents, and content that's been moved or removed. This pack teaches you to think *temporally* about content discovery.
+> Search across time. Find archived content, deleted pages, policy evolution, historical documents,
+> and content that's been moved or removed. This pack teaches you to think _temporally_ about
+> content discovery.
 
 [← Back to Dork Packs](README.md) | [← Main Guide](../README.md)
 
@@ -195,7 +197,7 @@ site:web.archive.org filetype:pdf "harm reduction" "annual report"
 Find historical media coverage of harm reduction.
 
 ```txt
-site:web.archive.org (site:abc.net.au OR site:smh.com.au OR site:theage.com.au) "safe injecting" OR "pill testing"
+site:web.archive.org (site:abc.net.au OR site:smh.com.au OR site:theage.com.au) ("safe injecting" OR "pill testing")
 ```
 
 **Why this works:**
@@ -209,7 +211,7 @@ site:web.archive.org (site:abc.net.au OR site:smh.com.au OR site:theage.com.au) 
 Find early harm reduction web content (1990s-2000s).
 
 ```txt
-site:web.archive.org/web/199*/  OR site:web.archive.org/web/200*/ "harm reduction" Australia
+(site:web.archive.org/web/199*/ OR site:web.archive.org/web/200*/) ("harm reduction" Australia)
 ```
 
 **Why this works:**
@@ -238,11 +240,11 @@ site:web.archive.org/web/*/nuaa.org.au "about" OR "history" OR "mission"
 
 ### Date Operators
 
-| Operator | Example | What It Does |
-| -------- | ------- | ------------ |
-| `after:YYYY-MM-DD` | `after:2024-01-01` | Content indexed after date |
-| `before:YYYY-MM-DD` | `before:2020-12-31` | Content indexed before date |
-| `YYYY..YYYY` | `2015..2020` | Content mentioning years in range |
+| Operator            | Example             | What It Does                      |
+| ------------------- | ------------------- | --------------------------------- |
+| `after:YYYY-MM-DD`  | `after:2024-01-01`  | Content indexed after date        |
+| `before:YYYY-MM-DD` | `before:2020-12-31` | Content indexed before date       |
+| `YYYY..YYYY`        | `2015..2020`        | Content mentioning years in range |
 
 ### Combining Date Filters
 
@@ -270,21 +272,21 @@ site:web.archive.org/web/*/nuaa.org.au "about" OR "history" OR "mission"
 
 ### Internet Archive (archive.org)
 
-| Pattern | Purpose |
-| ------- | ------- |
-| `site:web.archive.org` | General Wayback Machine search |
-| `site:web.archive.org/web/*/example.com` | All snapshots of specific site |
-| `site:web.archive.org/web/2020*/` | Snapshots from specific year |
-| `site:archive.org/details/` | Archive.org collections (books, media) |
+| Pattern                                  | Purpose                                |
+| ---------------------------------------- | -------------------------------------- |
+| `site:web.archive.org`                   | General Wayback Machine search         |
+| `site:web.archive.org/web/*/example.com` | All snapshots of specific site         |
+| `site:web.archive.org/web/2020*/`        | Snapshots from specific year           |
+| `site:archive.org/details/`              | Archive.org collections (books, media) |
 
 ### Other Archive Sources
 
-| Pattern | Purpose |
-| ------- | ------- |
-| `site:trove.nla.gov.au` | National Library of Australia archives |
-| `site:pandora.nla.gov.au` | Australian web archive (PANDORA) |
-| `site:webarchive.org.uk` | UK Web Archive |
-| `site:webarchive.loc.gov` | Library of Congress web archive |
+| Pattern                   | Purpose                                |
+| ------------------------- | -------------------------------------- |
+| `site:trove.nla.gov.au`   | National Library of Australia archives |
+| `site:pandora.nla.gov.au` | Australian web archive (PANDORA)       |
+| `site:webarchive.org.uk`  | UK Web Archive                         |
+| `site:webarchive.loc.gov` | Library of Congress web archive        |
 
 ---
 

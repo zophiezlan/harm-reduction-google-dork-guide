@@ -440,7 +440,7 @@ before:2015
 **Using platform patterns with topics:**
 
 ```txt
-(site:*.notion.site OR site:*.gitbook.io OR site:*.wordpress.com) "harm reduction" guide OR resources
+(site:*.notion.site OR site:*.gitbook.io OR site:*.wordpress.com) ("harm reduction") (guide OR resources)
 (site:reddit.com OR site:quora.com) "naloxone" OR "drug checking" -advertisement
 (site:drive.google.com OR site:speakerdeck.com) "harm reduction" training filetype:pdf
 ```

@@ -70,11 +70,11 @@
 
 ### Power User Techniques
 
-| Pack                                                        | Description                                | Quick Link |
-| ----------------------------------------------------------- | ------------------------------------------ | ---------- |
-| [Multimedia Discovery](multimedia-discovery.md)             | Video, audio, podcasts & visual resources  | 🎬         |
+| Pack                                                          | Description                                | Quick Link |
+| ------------------------------------------------------------- | ------------------------------------------ | ---------- |
+| [Multimedia Discovery](multimedia-discovery.md)               | Video, audio, podcasts & visual resources  | 🎬         |
 | [Organizational Intelligence](organizational-intelligence.md) | Strategic plans, governance & funding docs | 🏢         |
-| [Temporal Intelligence](temporal-intelligence.md)           | Archives, historical content & time-based  | ⏳         |
+| [Temporal Intelligence](temporal-intelligence.md)             | Archives, historical content & time-based  | ⏳         |
 
 ### Specialized
 

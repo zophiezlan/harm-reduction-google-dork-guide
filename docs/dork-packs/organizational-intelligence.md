@@ -1,6 +1,8 @@
 # Organizational Intelligence & Infrastructure
 
-> Find the "behind the scenes" of how harm reduction works — strategic plans, governance documents, funding applications, annual reports, tender documents, and operational infrastructure. Power-user searching for understanding how organizations operate.
+> Find the "behind the scenes" of how harm reduction works — strategic plans, governance documents,
+> funding applications, annual reports, tender documents, and operational infrastructure. Power-user
+> searching for understanding how organizations operate.
 
 [← Back to Dork Packs](README.md) | [← Main Guide](../README.md)
 
@@ -199,7 +201,7 @@ Find program evaluations and reviews.
 Find internal organizational policies.
 
 ```txt
-("policy" OR "procedure" OR "guideline" OR "protocol") "harm reduction" (site:*.org.au) inurl:policy OR inurl:policies filetype:pdf
+site:*.org.au ("policy" OR "procedure" OR "guideline" OR "protocol") "harm reduction" (inurl:policy OR inurl:policies) filetype:pdf
 ```
 
 **Why this works:**
@@ -289,7 +291,7 @@ site:*.gov.au ("freedom of information" OR FOI OR "released under FOI") "harm re
 Find Primary Health Network documents.
 
 ```txt
-site:*.com.au OR site:*.org.au (PHN OR "Primary Health Network") ("harm reduction" OR AOD OR "alcohol and other drugs") (tender OR commission OR "needs assessment")
+(site:*.com.au OR site:*.org.au) (PHN OR "Primary Health Network") ("harm reduction" OR AOD OR "alcohol and other drugs") (tender OR commission OR "needs assessment")
 ```
 
 ### State Health Procurement
@@ -322,32 +324,32 @@ site:*.gov.au ("funding recipients" OR "successful applicants" OR "grants awarde
 
 ### Organizational Documents
 
-| Document Type | Search Pattern |
-| ------------- | -------------- |
-| Annual Report | `"annual report" "harm reduction" filetype:pdf` |
-| Strategic Plan | `"strategic plan" "harm reduction" filetype:pdf` |
-| Constitution | `constitution "harm reduction" site:*.org.au` |
-| Board Minutes | `"board minutes" OR "meeting minutes" "harm reduction"` |
-| Policies | `policy OR procedure site:*.org.au "harm reduction"` |
+| Document Type  | Search Pattern                                          |
+| -------------- | ------------------------------------------------------- |
+| Annual Report  | `"annual report" "harm reduction" filetype:pdf`         |
+| Strategic Plan | `"strategic plan" "harm reduction" filetype:pdf`        |
+| Constitution   | `constitution "harm reduction" site:*.org.au`           |
+| Board Minutes  | `"board minutes" OR "meeting minutes" "harm reduction"` |
+| Policies       | `policy OR procedure site:*.org.au "harm reduction"`    |
 
 ### Government Documents
 
-| Document Type | Search Pattern |
-| ------------- | -------------- |
-| Tender | `tender site:*.gov.au "harm reduction"` |
-| Service Spec | `"service specification" site:*.gov.au AOD` |
-| Budget | `budget "harm reduction" site:*.gov.au` |
-| Evaluation | `evaluation "harm reduction" site:*.gov.au` |
-| FOI Release | `FOI site:*.gov.au "harm reduction"` |
+| Document Type | Search Pattern                              |
+| ------------- | ------------------------------------------- |
+| Tender        | `tender site:*.gov.au "harm reduction"`     |
+| Service Spec  | `"service specification" site:*.gov.au AOD` |
+| Budget        | `budget "harm reduction" site:*.gov.au`     |
+| Evaluation    | `evaluation "harm reduction" site:*.gov.au` |
+| FOI Release   | `FOI site:*.gov.au "harm reduction"`        |
 
 ### Workforce Documents
 
-| Document Type | Search Pattern |
-| ------------- | -------------- |
-| Position Description | `"position description" "harm reduction" filetype:pdf` |
-| Competency Framework | `"competency framework" "harm reduction"` |
-| Workforce Strategy | `"workforce strategy" OR "workforce plan" "harm reduction"` |
-| Training Curriculum | `curriculum OR syllabus "harm reduction" training` |
+| Document Type        | Search Pattern                                              |
+| -------------------- | ----------------------------------------------------------- |
+| Position Description | `"position description" "harm reduction" filetype:pdf`      |
+| Competency Framework | `"competency framework" "harm reduction"`                   |
+| Workforce Strategy   | `"workforce strategy" OR "workforce plan" "harm reduction"` |
+| Training Curriculum  | `curriculum OR syllabus "harm reduction" training`          |
 
 ---
 
@@ -492,7 +494,8 @@ site:*.health.*.gov.au ("harm reduction" OR AOD) ("annual report" OR strategy OR
 
 ## 🔗 Related Resources
 
-- **Related Packs:** [Policy & Advocacy](policy-advocacy.md), [Research](research.md), [Data & Statistics](data-statistics.md)
+- **Related Packs:** [Policy & Advocacy](policy-advocacy.md), [Research](research.md),
+  [Data & Statistics](data-statistics.md)
 - **Temporal:** [Temporal Intelligence](temporal-intelligence.md) for finding old versions
 - **Domain Map:** [Government Domains](../04-domain-map.md)
 

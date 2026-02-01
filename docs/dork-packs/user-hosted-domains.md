@@ -1,6 +1,8 @@
 # User-Hosted Domains & Community Platforms
 
-> Find grassroots harm reduction content on user-published platforms. These are where individuals, community groups, students, and small organisations publish guides, resources, and real-world knowledge.
+> Find grassroots harm reduction content on user-published platforms. These are where individuals,
+> community groups, students, and small organisations publish guides, resources, and real-world
+> knowledge.
 
 [← Back to Dork Packs](README.md) | [← Main Guide](../README.md)
 
@@ -37,7 +39,7 @@ Find community commentary, essays, and longform harm reduction content.
 Find guides, resource directories, and knowledge bases.
 
 ```txt
-(site:*.notion.site OR site:*.gitbook.io) "harm reduction" OR "drug checking" OR "safer use"
+(site:*.notion.site OR site:*.gitbook.io) ("harm reduction" OR "drug checking" OR "safer use")
 ```
 
 **Why this works:**
@@ -67,7 +69,7 @@ site:reddit.com ("harm reduction" OR "drug checking" OR "naloxone") -r/politics
 ### Multi-Platform Documentation Search
 
 ```txt
-(site:*.notion.site OR site:*.gitbook.io OR site:*.readthedocs.io OR site:*.readme.io) ("harm reduction" OR "drug policy" OR "safer use") guide OR resources
+(site:*.notion.site OR site:*.gitbook.io OR site:*.readthedocs.io OR site:*.readme.io) ("harm reduction" OR "drug policy" OR "safer use") (guide OR resources)
 ```
 
 **Why this works:**
@@ -157,7 +159,7 @@ Find tools, datasets, and technical harm reduction projects.
 ### Research Data Repositories
 
 ```txt
-(site:zenodo.org OR site:osf.io OR site:figshare.com) "harm reduction" OR "drug policy" (dataset OR data OR report)
+(site:zenodo.org OR site:osf.io OR site:figshare.com) ("harm reduction" OR "drug policy") (dataset OR data OR report)
 ```
 
 **Why this works:**
@@ -358,7 +360,8 @@ site:zenodo.org OR site:osf.io OR site:figshare.com OR site:kaggle.com
 
 ## 🔗 Related Resources
 
-- **Domain Map:** [User-Hosted Platforms Section](../04-domain-map.md#-user-hosted--community-platforms)
+- **Domain Map:**
+  [User-Hosted Platforms Section](../04-domain-map.md#-user-hosted--community-platforms)
 - **Synonym Blocks:** [Platform Patterns](../05-synonym-blocks.md#-user-hosted-platform-patterns)
 - **Related Packs:** [Forum & Community](forum-community.md), [Peer Knowledge](peer-knowledge.md)
 - **Workflow:** [Community Research](../workflows/monitoring.md)

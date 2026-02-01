@@ -1,14 +1,26 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from "vue";
 import { useQueryBuilder } from "../../composables/useQueryBuilder";
-import { useQueryHistory, DORK_TEMPLATES, getTemplatesByCategory, type DorkTemplate } from "../../composables/useQueryHistory";
+import {
+  useQueryHistory,
+  DORK_TEMPLATES,
+  getTemplatesByCategory,
+  type DorkTemplate,
+} from "../../composables/useQueryHistory";
 import { useToast } from "../../composables/useToast";
 import QueryDisplay from "./QueryDisplay.vue";
 import BlockPalette from "./BlockPalette.vue";
 import BlockEditor from "./BlockEditor.vue";
 
 const { clearBlocks, loadFromQuery, queryString } = useQueryBuilder();
-const { history, initialize: initHistory, addToHistory, removeFromHistory, clearHistory, updateLabel } = useQueryHistory();
+const {
+  history,
+  initialize: initHistory,
+  addToHistory,
+  removeFromHistory,
+  clearHistory,
+  updateLabel,
+} = useQueryHistory();
 const { success } = useToast();
 
 // UI State
@@ -323,7 +335,12 @@ onUnmounted(() => {
     <!-- Shortcuts Modal -->
     <Transition name="modal">
       <div v-if="showShortcuts" class="modal-overlay" @click.self="showShortcuts = false">
-        <div class="modal shortcuts-modal" role="dialog" aria-modal="true" aria-labelledby="shortcuts-title">
+        <div
+          class="modal shortcuts-modal"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="shortcuts-title"
+        >
           <div class="modal-header">
             <h2 id="shortcuts-title">⌨️ Keyboard Shortcuts</h2>
             <button class="modal-close" @click="showShortcuts = false" aria-label="Close">×</button>
@@ -873,7 +890,9 @@ onUnmounted(() => {
   padding: 12px 16px;
   color: var(--text-primary);
   font-size: 14px;
-  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
 }
 
 .input:focus {

@@ -149,35 +149,21 @@ defineExpose({ startTutorial });
           <h2 id="tutorial-title" class="tutorial-title">{{ currentStepData.title }}</h2>
           <p class="tutorial-description">{{ currentStepData.description }}</p>
 
-          <button
-            v-if="currentStepData.action"
-            class="action-btn"
-            @click="handleAction"
-          >
+          <button v-if="currentStepData.action" class="action-btn" @click="handleAction">
             {{ currentStepData.action }} →
           </button>
         </div>
 
         <!-- Navigation -->
         <div class="tutorial-nav">
-          <button v-if="!isFirstStep" class="nav-btn prev" @click="prevStep">
-            ← Previous
-          </button>
-          <button class="nav-btn skip" @click="skipTutorial">
-            Skip Tutorial
-          </button>
-          <button v-if="!isLastStep" class="nav-btn next" @click="nextStep">
-            Next →
-          </button>
-          <button v-else class="nav-btn finish" @click="completeTutorial">
-            Get Started ✓
-          </button>
+          <button v-if="!isFirstStep" class="nav-btn prev" @click="prevStep">← Previous</button>
+          <button class="nav-btn skip" @click="skipTutorial">Skip Tutorial</button>
+          <button v-if="!isLastStep" class="nav-btn next" @click="nextStep">Next →</button>
+          <button v-else class="nav-btn finish" @click="completeTutorial">Get Started ✓</button>
         </div>
 
         <!-- Step counter -->
-        <div class="step-counter">
-          Step {{ currentStep + 1 }} of {{ totalSteps }}
-        </div>
+        <div class="step-counter">Step {{ currentStep + 1 }} of {{ totalSteps }}</div>
       </div>
     </div>
   </Transition>
