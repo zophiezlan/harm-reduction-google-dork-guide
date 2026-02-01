@@ -299,8 +299,15 @@ site:ada.edu.au OR site:ands.org.au (drug OR alcohol OR AOD) data
 
 ## 🖤💛❤️ First Nations Data
 
+### 🖤💛❤️ First Nations Data - 1
+
 ```txt
 site:aihw.gov.au ("Aboriginal" OR "Indigenous") ("alcohol" OR "drug" OR "substance") statistics
+```
+
+### 🖤💛❤️ First Nations Data - 2
+
+```txt
 "Closing the Gap" (alcohol OR drug OR substance) data
 ```
 

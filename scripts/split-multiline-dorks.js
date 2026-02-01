@@ -49,16 +49,26 @@ const processFile = (filename) => {
   while (lineIndex < lines.length) {
     const line = lines[lineIndex];
 
-    // Check if this is a dork title (###)
-    if (line.trim().startsWith("### ")) {
-      const title = line.replace("### ", "").trim();
+    // Check if this is a dork title (### or ##)
+    const isH3 = line.trim().startsWith("### ");
+    const isH2 = !isH3 && line.trim().startsWith("## ");
+
+    if (isH3 || isH2) {
+      const titlePrefix = isH3 ? "### " : "## ";
+      const title = line.replace(titlePrefix, "").trim();
       const titleLine = line;
       lineIndex++;
 
-      // Collect empty lines between title and code block
-      const emptyLines = [];
-      while (lineIndex < lines.length && lines[lineIndex].trim() === "") {
-        emptyLines.push(lines[lineIndex]);
+      // Collect lines between title and code block (empty lines, blockquotes, or description text)
+      const intermediateLines = [];
+      while (
+        lineIndex < lines.length &&
+        !lines[lineIndex].trim().startsWith("```") &&
+        !lines[lineIndex].trim().startsWith("###") &&
+        !lines[lineIndex].trim().startsWith("##") &&
+        !lines[lineIndex].trim().startsWith("---")
+      ) {
+        intermediateLines.push(lines[lineIndex]);
         lineIndex++;
       }
 
@@ -92,10 +102,24 @@ const processFile = (filename) => {
             const suffix = generateSuffix(item.line.trim(), idx, nonEmptyLines.length);
             const newTitle = `### ${title} - ${suffix}`;
 
-            if (idx > 0) {
+            if (idx > 0 || isH2) {
               newLines.push(""); // Add blank line between dorks
             }
+
+            // If this is the first item of an H2 split, add the H2 header first
+            if (isH2 && idx === 0) {
+              newLines.push(titleLine);
+              intermediateLines.forEach((l) => newLines.push(l));
+              newLines.push("");
+            }
+
             newLines.push(newTitle);
+
+            // For H3 splits, preserve intermediate text (description, warnings) with first dork only
+            if (isH3 && idx === 0) {
+              intermediateLines.forEach((l) => newLines.push(l));
+            }
+
             newLines.push("");
             newLines.push(lines[codeBlockStart]); // Opening ```
             newLines.push(item.line); // The query
@@ -107,7 +131,7 @@ const processFile = (filename) => {
         } else {
           // Single line or empty - keep as is
           newLines.push(titleLine);
-          emptyLines.forEach((l) => newLines.push(l));
+          intermediateLines.forEach((l) => newLines.push(l));
           newLines.push(lines[codeBlockStart]); // Opening ```
           codeLines.forEach((l) => newLines.push(l));
           newLines.push(lines[codeBlockEnd]); // Closing ```
@@ -115,9 +139,9 @@ const processFile = (filename) => {
           continue;
         }
       } else {
-        // No code block found, keep title and empty lines
+        // No code block found, keep title and intermediate lines
         newLines.push(titleLine);
-        emptyLines.forEach((l) => newLines.push(l));
+        intermediateLines.forEach((l) => newLines.push(l));
         continue;
       }
     }

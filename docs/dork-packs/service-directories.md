@@ -212,8 +212,15 @@ site:health.nt.gov.au service directory AOD
 
 ## 🖤💛❤️ First Nations Services
 
+### 🖤💛❤️ First Nations Services - 1
+
 ```txt
 (Aboriginal OR "Torres Strait Islander" OR Indigenous) (AOD OR "alcohol and other drugs") service directory
+```
+
+### 🖤💛❤️ First Nations Services - 2
+
+```txt
 (ACCHO OR "community controlled") "alcohol and other drugs" services [YOUR STATE]
 ```
 
