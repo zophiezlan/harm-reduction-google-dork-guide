@@ -20,7 +20,16 @@ import { useQueryHistory } from "./composables/useQueryHistory";
 export default {
   extends: DefaultTheme,
   Layout,
-  enhanceApp({ app }: { app: any }) {
+  async enhanceApp({ app }: { app: any }) {
+    if (!import.meta.env.SSR) {
+      const Particles = await import("@tsparticles/vue3");
+      const { loadSlim } = await import("@tsparticles/slim");
+      app.use(Particles.default, {
+        init: async (engine: any) => {
+          await loadSlim(engine);
+        },
+      });
+    }
     app.component("ThemeSwitcher", ThemeSwitcher);
     app.component("NavThemeSwitcher", NavThemeSwitcher);
     app.component("Toast", Toast);
