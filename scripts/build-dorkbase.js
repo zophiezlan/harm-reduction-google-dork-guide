@@ -266,10 +266,9 @@ function isValidDorkQuery(query) {
 // =============================================================================
 
 /**
- * Parse a markdown file and extract dorks
+ * Parse markdown content and extract dorks
  */
-function parseMarkdownFile(filePath) {
-  const content = fs.readFileSync(filePath, "utf-8");
+function parseMarkdownContent(content, filePath) {
   const lines = content.split("\n");
   const relativePath = path.relative(DOCS_DIR, filePath).replace(/\\/g, "/");
   const sourceType = detectSourceType(relativePath);
@@ -429,6 +428,14 @@ function parseMarkdownFile(filePath) {
   }
 
   return result;
+}
+
+/**
+ * Parse a markdown file and extract dorks
+ */
+function parseMarkdownFile(filePath) {
+  const content = fs.readFileSync(filePath, "utf-8");
+  return parseMarkdownContent(content, filePath);
 }
 
 /**
@@ -723,8 +730,26 @@ window.DORK_META = ${JSON.stringify(database.meta, null, 2)};
   console.log(`   ${OUTPUT_JSON}`);
 }
 
-// Run
-processFiles().catch((err) => {
-  console.error("Error:", err);
-  process.exit(1);
-});
+if (require.main === module) {
+  processFiles().catch((err) => {
+    console.error("Error:", err);
+    process.exit(1);
+  });
+}
+
+module.exports = {
+  cleanText,
+  cleanCategory,
+  generateId,
+  generateStandaloneTitle,
+  extractOperators,
+  extractDomains,
+  detectDomainCategory,
+  detectContentType,
+  detectDifficulty,
+  extractTags,
+  isValidDorkQuery,
+  parseMarkdownContent,
+  parseMarkdownFile,
+  extractDorksFromTables,
+};
