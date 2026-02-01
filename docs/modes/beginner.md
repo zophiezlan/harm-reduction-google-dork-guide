@@ -21,5 +21,5 @@ Start here if you’re new to dorking or want a fast orientation.
 
 ## Quick Actions
 
-- [Open Dork Explorer](/dork-explorer/)
+- [Open Dork Explorer](/explorer)
 - [Use the Evidence Log](/templates/evidence-log-template)

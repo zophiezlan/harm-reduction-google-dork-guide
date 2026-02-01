@@ -21,5 +21,5 @@ For people using the guide routinely in service delivery, outreach, or policy wo
 
 ## Quick Actions
 
-- [Open Dork Explorer](/dork-explorer/)
+- [Open Dork Explorer](/explorer)
 - [Use the Briefing Template](/templates/briefing-template)

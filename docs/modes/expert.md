@@ -21,5 +21,5 @@ For advanced users running complex investigations and system‑level analysis.
 
 ## Quick Actions
 
-- [Open Dork Explorer](/dork-explorer/)
+- [Open Dork Explorer](/explorer)
 - [Research Workflow](/workflows/research-workflow)
