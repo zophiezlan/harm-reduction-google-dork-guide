@@ -312,7 +312,7 @@ function scrollToTop() {
 }
 
 function openInBuilder(dork: DorkWithPack) {
-  const url = `/builder?q=${encodeURIComponent(dork.query)}`;
+  const url = `${withBase("/builder")}?q=${encodeURIComponent(dork.query)}`;
   window.location.href = url;
 }
 

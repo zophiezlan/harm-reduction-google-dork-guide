@@ -11,6 +11,7 @@ This directory contains historical versions and source materials for the Harm Re
 | [psychoactive-substance-index.md](Psychoactive_substance_index-PsychonautWiki.md) | Original dork list for psychoactive substances           |
 | [raw-imports/](raw-imports/) (#gitignore)                                         | Source materials used to build and expand the guide      |
 | [README-v3.1-original.md](README-v3.1-original.md)                                | The original v3.1 single-file guide before restructuring |
+| [standalone-dork-explorer.html](standalone-dork-explorer.html)                    | Original standalone dork explorer web app                |
 
 ---
 

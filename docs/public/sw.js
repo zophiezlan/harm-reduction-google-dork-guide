@@ -1,15 +1,24 @@
 // Harm Reduction Dork Guide Service Worker
 const CACHE_NAME = "harm-reduction-dork-guide-v1";
+const BASE_URL = new URL(self.registration.scope).pathname;
+
+function withBase(path) {
+  const base = BASE_URL.endsWith("/") ? BASE_URL.slice(0, -1) : BASE_URL;
+  if (path === "/") return `${base}/`;
+  const normalized = path.startsWith("/") ? path : `/${path}`;
+  return `${base}${normalized}`;
+}
+
 const STATIC_ASSETS = [
-  "/",
-  "/explorer",
-  "/builder",
-  "/01-quick-start",
-  "/02-core-operators",
-  "/03-advanced-operators",
-  "/04-domain-map",
-  "/05-synonym-blocks",
-  "/dork-explorer/dork-data.js",
+  withBase("/"),
+  withBase("/explorer"),
+  withBase("/builder"),
+  withBase("/01-quick-start"),
+  withBase("/02-core-operators"),
+  withBase("/03-advanced-operators"),
+  withBase("/04-domain-map"),
+  withBase("/05-synonym-blocks"),
+  withBase("/dork-explorer/dork-data.js"),
 ];
 
 // Install event - cache static assets
@@ -88,7 +97,7 @@ self.addEventListener("fetch", (event) => {
         .catch(() => {
           // Return offline page for navigation requests
           if (event.request.mode === "navigate") {
-            return caches.match("/");
+            return caches.match(withBase("/"));
           }
           return new Response("Offline", { status: 503 });
         });

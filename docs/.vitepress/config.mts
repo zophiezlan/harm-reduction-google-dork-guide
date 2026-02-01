@@ -10,21 +10,26 @@ const changelogPath = fileURLToPath(new URL("../../CHANGELOG.md", import.meta.ur
 const changelog = fs.readFileSync(changelogPath, "utf-8");
 const changelogMatch = changelog.match(/^##\\s*v?([^\\s(]+)/m);
 const appVersion = changelogMatch ? changelogMatch[1] : packageJson.version;
+const rawBase = process.env.VITEPRESS_BASE ?? "/";
+const base = rawBase.startsWith("/") ? rawBase : `/${rawBase}`;
+const normalizedBase = base.endsWith("/") ? base : `${base}/`;
 
 export default defineConfig({
   title: "Harm Reduction Google Dork Guide",
   description: "Advanced search operators, workflows, and dork packs for harm reduction work.",
+  base: normalizedBase,
   cleanUrls: true,
   lastUpdated: true,
   appearance: false,
   head: [
     // PWA
-    ["link", { rel: "manifest", href: "/manifest.json" }],
+    ["link", { rel: "manifest", href: `${normalizedBase}manifest.json` }],
     ["meta", { name: "theme-color", content: "#10b981" }],
     ["meta", { name: "apple-mobile-web-app-capable", content: "yes" }],
     ["meta", { name: "apple-mobile-web-app-status-bar-style", content: "black-translucent" }],
     ["meta", { name: "apple-mobile-web-app-title", content: "Dork Guide" }],
-    ["link", { rel: "apple-touch-icon", href: "/icons/icon-192.png" }],
+    ["link", { rel: "apple-touch-icon", href: `${normalizedBase}icons/icon-192.png` }],
+    ["meta", { name: "app-base", content: normalizedBase }],
     // SEO
     ["meta", { name: "author", content: "Harm Reduction Community" }],
     [
@@ -46,7 +51,7 @@ export default defineConfig({
     ["meta", { property: "og:locale", content: "en_AU" }],
     ["meta", { name: "twitter:card", content: "summary_large_image" }],
     // Service Worker Registration
-    ["script", { src: "/sw-register.js", defer: "" }],
+    ["script", { src: `${normalizedBase}sw-register.js`, defer: "" }],
   ],
   srcExclude: [
     "_sidebar.md",
