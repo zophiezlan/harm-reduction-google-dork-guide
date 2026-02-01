@@ -44,38 +44,38 @@ const processFile = (filename) => {
 
   let modified = false;
   const newLines = [];
-  let i = 0;
+  let lineIndex = 0;
 
-  while (i < lines.length) {
-    const line = lines[i];
+  while (lineIndex < lines.length) {
+    const line = lines[lineIndex];
 
     // Check if this is a dork title (###)
     if (line.trim().startsWith("### ")) {
       const title = line.replace("### ", "").trim();
       const titleLine = line;
-      i++;
+      lineIndex++;
 
       // Collect empty lines between title and code block
       const emptyLines = [];
-      while (i < lines.length && lines[i].trim() === "") {
-        emptyLines.push(lines[i]);
-        i++;
+      while (lineIndex < lines.length && lines[lineIndex].trim() === "") {
+        emptyLines.push(lines[lineIndex]);
+        lineIndex++;
       }
 
       // Check if next line is start of code block
-      if (i < lines.length && lines[i].trim().startsWith("```")) {
-        const codeBlockStart = i;
-        i++; // Move past opening ```
+      if (lineIndex < lines.length && lines[lineIndex].trim().startsWith("```")) {
+        const codeBlockStart = lineIndex;
+        lineIndex++; // Move past opening ```
 
         // Collect code lines
         const codeLines = [];
-        while (i < lines.length && !lines[i].trim().startsWith("```")) {
-          codeLines.push(lines[i]);
-          i++;
+        while (lineIndex < lines.length && !lines[lineIndex].trim().startsWith("```")) {
+          codeLines.push(lines[lineIndex]);
+          lineIndex++;
         }
 
-        // i now points to closing ```
-        const codeBlockEnd = i;
+        // lineIndex now points to closing ```
+        const codeBlockEnd = lineIndex;
 
         // Filter out empty lines
         const nonEmptyLines = codeLines
@@ -102,7 +102,7 @@ const processFile = (filename) => {
             newLines.push(lines[codeBlockEnd]); // Closing ```
           });
 
-          i++; // Move past closing ```
+          lineIndex++; // Move past closing ```
           continue;
         } else {
           // Single line or empty - keep as is
@@ -111,7 +111,7 @@ const processFile = (filename) => {
           newLines.push(lines[codeBlockStart]); // Opening ```
           codeLines.forEach((l) => newLines.push(l));
           newLines.push(lines[codeBlockEnd]); // Closing ```
-          i++; // Move past closing ```
+          lineIndex++; // Move past closing ```
           continue;
         }
       } else {
@@ -123,7 +123,7 @@ const processFile = (filename) => {
     }
 
     newLines.push(line);
-    i++;
+    lineIndex++;
   }
 
   if (modified) {
