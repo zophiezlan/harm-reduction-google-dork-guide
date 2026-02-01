@@ -15,6 +15,7 @@ import DorkBuilder from "./components/builder/DorkBuilder.vue";
 import SettingsPanel from "./components/settings/SettingsPanel.vue";
 import { useSettings } from "./composables/useSettings";
 import { useFavorites } from "./composables/useFavorites";
+import { useQueryHistory } from "./composables/useQueryHistory";
 
 export default {
   extends: DefaultTheme,
@@ -32,8 +33,10 @@ export default {
     onMounted(() => {
       const { initialize: initSettings } = useSettings();
       const { initialize: initFavorites } = useFavorites();
+      const { initialize: initHistory } = useQueryHistory();
       initSettings();
       initFavorites();
+      initHistory();
     });
   },
 };

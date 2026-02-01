@@ -10,6 +10,25 @@ export default defineConfig({
   cleanUrls: true,
   lastUpdated: true,
   appearance: false,
+  head: [
+    // PWA
+    ["link", { rel: "manifest", href: "/manifest.json" }],
+    ["meta", { name: "theme-color", content: "#10b981" }],
+    ["meta", { name: "apple-mobile-web-app-capable", content: "yes" }],
+    ["meta", { name: "apple-mobile-web-app-status-bar-style", content: "black-translucent" }],
+    ["meta", { name: "apple-mobile-web-app-title", content: "Dork Guide" }],
+    ["link", { rel: "apple-touch-icon", href: "/icons/icon-192.png" }],
+    // SEO
+    ["meta", { name: "author", content: "Harm Reduction Community" }],
+    ["meta", { name: "keywords", content: "harm reduction, google dorks, advanced search, AOD, drug policy, peer support" }],
+    ["meta", { property: "og:type", content: "website" }],
+    ["meta", { property: "og:title", content: "Harm Reduction Google Dork Guide" }],
+    ["meta", { property: "og:description", content: "700+ pre-built search queries for harm reduction professionals" }],
+    ["meta", { property: "og:locale", content: "en_AU" }],
+    ["meta", { name: "twitter:card", content: "summary_large_image" }],
+    // Service Worker Registration
+    ["script", { src: "/sw-register.js", defer: "" }],
+  ],
   srcExclude: [
     "_sidebar.md",
     "_navbar.md",
