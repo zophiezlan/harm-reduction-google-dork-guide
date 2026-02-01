@@ -257,6 +257,62 @@ export const DORK_TEMPLATES: DorkTemplate[] = [
     query: 'site:aihw.gov.au "drug" OR "alcohol" "statistics" OR "data"',
     icon: "📊",
   },
+
+  // User-Hosted Content
+  {
+    id: "user-blogs",
+    name: "Blogs & Newsletters",
+    description: "Find harm reduction content on blogs and newsletter platforms",
+    category: "User Content",
+    query:
+      '(site:*.wordpress.com OR site:medium.com OR site:*.substack.com) "harm reduction"',
+    icon: "✍️",
+  },
+  {
+    id: "user-docs",
+    name: "Community Documentation",
+    description: "Find guides and resource directories on documentation platforms",
+    category: "User Content",
+    query:
+      '(site:*.notion.site OR site:*.gitbook.io) "harm reduction" OR "drug checking" guide OR resources',
+    icon: "📚",
+  },
+  {
+    id: "user-reddit",
+    name: "Reddit Discussions",
+    description: "Find community discussions and lived experience on Reddit",
+    category: "User Content",
+    query:
+      'site:reddit.com ("harm reduction" OR "naloxone" OR "drug checking") -r/politics',
+    icon: "💬",
+  },
+  {
+    id: "user-files",
+    name: "Shared Files & Training",
+    description: "Find training materials and resources on file hosting platforms",
+    category: "User Content",
+    query:
+      '(site:drive.google.com OR site:dropbox.com OR site:speakerdeck.com) "harm reduction" training OR guide',
+    icon: "📁",
+  },
+  {
+    id: "user-research",
+    name: "Research Data Repositories",
+    description: "Find datasets and research outputs on academic repositories",
+    category: "User Content",
+    query:
+      '(site:zenodo.org OR site:osf.io OR site:kaggle.com) "harm reduction" OR "drug policy" data',
+    icon: "🔬",
+  },
+  {
+    id: "user-comprehensive",
+    name: "All User Platforms",
+    description: "Comprehensive search across all major user-hosted platforms",
+    category: "User Content",
+    query:
+      '(site:*.notion.site OR site:*.gitbook.io OR site:*.wordpress.com OR site:medium.com OR site:*.substack.com OR site:reddit.com) "harm reduction"',
+    icon: "🌐",
+  },
 ];
 
 export function getTemplatesByCategory(): Record<string, DorkTemplate[]> {

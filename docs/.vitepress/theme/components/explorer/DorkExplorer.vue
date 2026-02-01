@@ -24,6 +24,7 @@ const quickFilters = ref({
   pdfs: false,
   government: false,
   recent: false,
+  userHosted: false,
 });
 
 // New filter UI state
@@ -85,6 +86,11 @@ const results = computed(() => {
   if (quickFilters.value.recent) {
     filtered = filtered.filter((d) => /after:|before:/i.test(d.query));
   }
+  if (quickFilters.value.userHosted) {
+    filtered = filtered.filter((d) =>
+      /site:\*?\.?(?:notion\.site|gitbook\.io|wordpress\.com|blogspot\.com|medium\.com|substack\.com|tumblr\.com|reddit\.com|github\.io|vercel\.app|netlify\.app|pages\.dev|glitch\.me|drive\.google\.com|dropbox\.com)/i.test(d.query)
+    );
+  }
 
   // Favorites filter
   if (showFavoritesOnly.value) {
@@ -125,6 +131,7 @@ const activeFilterCount = computed(() => {
   if (quickFilters.value.pdfs) count += 1;
   if (quickFilters.value.government) count += 1;
   if (quickFilters.value.recent) count += 1;
+  if (quickFilters.value.userHosted) count += 1;
   return count;
 });
 
@@ -172,7 +179,7 @@ function clearFilters() {
   showFavoritesOnly.value = false;
   packSearchQuery.value = "";
   categorySearchQuery.value = "";
-  quickFilters.value = { auSites: false, pdfs: false, government: false, recent: false };
+  quickFilters.value = { auSites: false, pdfs: false, government: false, recent: false, userHosted: false };
   displayLimit.value = ITEMS_PER_PAGE;
 }
 
@@ -440,6 +447,13 @@ watch([searchQuery, selectedPacks, selectedCategories, showFavoritesOnly, quickF
           📅 Date Filtered
         </button>
         <button
+          :class="['quick-filter', { active: quickFilters.userHosted }]"
+          @click="toggleQuickFilter('userHosted')"
+          :aria-pressed="quickFilters.userHosted.toString()"
+        >
+          🌐 User Platforms
+        </button>
+        <button
           :class="['quick-filter favorites-filter', { active: showFavoritesOnly }]"
           @click="showFavoritesOnly = !showFavoritesOnly; scrollToResults()"
           :aria-pressed="showFavoritesOnly.toString()"
@@ -469,6 +483,9 @@ watch([searchQuery, selectedPacks, selectedCategories, showFavoritesOnly, quickF
           </button>
           <button v-if="quickFilters.recent" class="filter-chip" @click="removeFilter('quick', 'recent')">
             📅 Dated <span class="chip-remove">×</span>
+          </button>
+          <button v-if="quickFilters.userHosted" class="filter-chip" @click="removeFilter('quick', 'userHosted')">
+            🌐 User Platforms <span class="chip-remove">×</span>
           </button>
           <button
             v-for="packId in selectedPacks"

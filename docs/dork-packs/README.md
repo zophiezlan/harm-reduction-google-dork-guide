@@ -78,6 +78,7 @@
 | [Investigative](investigative.md)             | Creative & ethical deep searching       | 🔍         |
 | [Safer Use Education](safer-use-education.md) | Factsheets, brochures, health promotion | 🧰         |
 | [Stigma & Language](stigma-language.md)       | Historical research & terminology       | 📜         |
+| [User-Hosted Domains](user-hosted-domains.md) | Grassroots content on user platforms    | 🌐         |
 
 ---
 
