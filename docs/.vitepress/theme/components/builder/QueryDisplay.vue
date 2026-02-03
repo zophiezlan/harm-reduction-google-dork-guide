@@ -46,7 +46,7 @@ function copyQuery() {
 
 function searchGoogle() {
   const url = `https://www.google.com/search?q=${encodeURIComponent(queryString.value)}`;
-  window.open(url, "_blank");
+  window.open(url, "_blank", "noopener,noreferrer");
 }
 
 const lintIssues = computed(() => lintDorkScript(queryString.value));

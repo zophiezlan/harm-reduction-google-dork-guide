@@ -448,21 +448,33 @@ function handleKeydown(e: KeyboardEvent) {
   }
 }
 
-function handleScroll() {
-  showScrollTop.value = window.scrollY > 300;
+let scrollScheduled = false;
+let lastLoadMoreAt = 0;
 
-  // Infinite scroll: load more when near bottom
-  if (
-    window.innerHeight + window.scrollY >= document.body.offsetHeight - 500 &&
-    hasMoreResults.value
-  ) {
-    loadMore();
-  }
+function handleScroll() {
+  if (scrollScheduled) return;
+  scrollScheduled = true;
+  requestAnimationFrame(() => {
+    scrollScheduled = false;
+    showScrollTop.value = window.scrollY > 300;
+
+    // Infinite scroll: load more when near bottom (rate-limited)
+    if (
+      window.innerHeight + window.scrollY >= document.body.offsetHeight - 500 &&
+      hasMoreResults.value
+    ) {
+      const now = Date.now();
+      if (now - lastLoadMoreAt > 200) {
+        lastLoadMoreAt = now;
+        loadMore();
+      }
+    }
+  });
 }
 
 onMounted(() => {
   window.addEventListener("keydown", handleKeydown);
-  window.addEventListener("scroll", handleScroll);
+  window.addEventListener("scroll", handleScroll, { passive: true });
 });
 
 onUnmounted(() => {

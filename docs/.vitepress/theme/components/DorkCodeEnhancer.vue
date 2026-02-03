@@ -58,6 +58,7 @@ function enhanceCodeBlocks() {
 
 // Watch for route changes and re-enhance
 let observer: MutationObserver | null = null;
+let enhanceTimer: ReturnType<typeof setTimeout> | null = null;
 
 onMounted(() => {
   // Initial enhancement
@@ -65,7 +66,10 @@ onMounted(() => {
 
   // Re-enhance on DOM changes (for SPA navigation)
   observer = new MutationObserver(() => {
-    setTimeout(enhanceCodeBlocks, 100);
+    if (enhanceTimer) {
+      clearTimeout(enhanceTimer);
+    }
+    enhanceTimer = setTimeout(enhanceCodeBlocks, 100);
   });
 
   observer.observe(document.body, {
@@ -76,6 +80,9 @@ onMounted(() => {
 
 onUnmounted(() => {
   observer?.disconnect();
+  if (enhanceTimer) {
+    clearTimeout(enhanceTimer);
+  }
 });
 </script>
 

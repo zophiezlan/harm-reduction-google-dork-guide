@@ -23,6 +23,8 @@ const {
 } = useQueryHistory();
 const { success } = useToast();
 
+const MAX_QUERY_LENGTH = 2000;
+
 // UI State
 const showHistory = ref(false);
 const showTemplates = ref(false);
@@ -41,8 +43,8 @@ onMounted(() => {
 
   const params = new URLSearchParams(window.location.search);
   const q = params.get("q");
-  if (q) {
-    loadFromQuery(decodeURIComponent(q));
+  if (q && q.length <= MAX_QUERY_LENGTH) {
+    loadFromQuery(q);
   }
 });
 
@@ -67,7 +69,7 @@ function handleSearchGoogle() {
   if (!queryString.value) return;
   addToHistory(queryString.value);
   const url = `https://www.google.com/search?q=${encodeURIComponent(queryString.value)}`;
-  window.open(url, "_blank");
+  window.open(url, "_blank", "noopener,noreferrer");
 }
 
 function loadFromHistoryItem(query: string) {

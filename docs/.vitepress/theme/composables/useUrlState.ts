@@ -8,6 +8,8 @@ interface UrlStateOptions<T> {
   deserialize?: (value: string) => T;
 }
 
+const MAX_URL_PARAM_LENGTH = 2000;
+
 /**
  * Syncs a ref value with URL query parameters.
  * Allows users to bookmark and share filtered views.
@@ -28,7 +30,7 @@ export function useUrlState<T>(options: UrlStateOptions<T>): Ref<T> {
     const params = new URLSearchParams(window.location.search);
     const urlValue = params.get(key);
 
-    if (urlValue) {
+    if (urlValue && urlValue.length <= MAX_URL_PARAM_LENGTH) {
       try {
         state.value = doDeserialize(urlValue);
       } catch {

@@ -46,6 +46,7 @@ interface BuilderState {
 
 let builderState: BuilderState | null = null;
 let blockIdCounter = 0;
+const MAX_QUERY_LENGTH = 2000;
 
 export function useQueryBuilder() {
   if (!builderState) {
@@ -202,6 +203,8 @@ export function useQueryBuilder() {
   }
 
   function loadFromQuery(query: string) {
+    if (!query) return;
+    if (query.length > MAX_QUERY_LENGTH) return;
     clearBlocks();
 
     const operatorList =

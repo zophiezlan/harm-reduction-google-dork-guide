@@ -29,6 +29,7 @@ function highlightAllDorks() {
 }
 
 let observer: MutationObserver | null = null;
+let highlightTimer: ReturnType<typeof setTimeout> | null = null;
 
 onMounted(() => {
   // Initial highlighting
@@ -36,7 +37,10 @@ onMounted(() => {
 
   // Re-highlight on DOM changes (SPA navigation)
   observer = new MutationObserver(() => {
-    setTimeout(highlightAllDorks, 100);
+    if (highlightTimer) {
+      clearTimeout(highlightTimer);
+    }
+    highlightTimer = setTimeout(highlightAllDorks, 100);
   });
 
   observer.observe(document.body, {
@@ -47,6 +51,9 @@ onMounted(() => {
 
 onUnmounted(() => {
   observer?.disconnect();
+  if (highlightTimer) {
+    clearTimeout(highlightTimer);
+  }
 });
 </script>
 

@@ -51,7 +51,7 @@ function copyQuery() {
 
 function searchGoogle() {
   const url = `https://www.google.com/search?q=${encodeURIComponent(props.dork.query)}`;
-  window.open(url, "_blank");
+  window.open(url, "_blank", "noopener,noreferrer");
 }
 
 function handleFavorite() {
