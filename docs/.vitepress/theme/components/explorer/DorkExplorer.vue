@@ -12,7 +12,7 @@ import QuickFiltersBar from "./QuickFiltersBar.vue";
 import ActiveFiltersDisplay from "./ActiveFiltersDisplay.vue";
 import ShortcutsModal from "./ShortcutsModal.vue";
 import ExportMenu from "./ExportMenu.vue";
-import type { DorkWithPack } from "../../data/types";
+import type { DorkWithPack, DorkDifficulty, DomainCategory } from "../../data/types";
 
 const {
   loadDorks,
@@ -24,9 +24,11 @@ const {
   domainCategories,
   stats,
   isLoaded,
+  loadError,
+  retryLoad,
 } = useDorkData();
 const { favorites: rawFavorites } = useFavorites();
-const { success } = useToast();
+const { success, error: showError } = useToast();
 
 // SSR-safe favorites array
 const favorites = computed(() => rawFavorites ?? []);
@@ -77,6 +79,9 @@ onMounted(async () => {
     const script = document.createElement("script");
     script.src = withBase("/dork-explorer/dork-data.js");
     script.onload = () => loadDorks();
+    script.onerror = () => {
+      showError("Failed to load dork database. Please refresh the page to try again.");
+    };
     document.head.appendChild(script);
   } else {
     loadDorks();
@@ -89,10 +94,12 @@ const results = computed(() => {
     packs: selectedPacks.value.length > 0 ? selectedPacks.value : undefined,
     categories: selectedCategories.value.length > 0 ? selectedCategories.value : undefined,
     difficulty:
-      selectedDifficulties.value.length > 0 ? (selectedDifficulties.value as any) : undefined,
+      selectedDifficulties.value.length > 0
+        ? (selectedDifficulties.value as DorkDifficulty[])
+        : undefined,
     domainCategory:
       selectedDomainCategories.value.length > 0
-        ? (selectedDomainCategories.value as any)
+        ? (selectedDomainCategories.value as DomainCategory[])
         : undefined,
     includeDocumentation: includeDocumentation.value,
   });
@@ -576,35 +583,35 @@ watch(
         <button
           :class="['quick-filter', { active: quickFilters.auSites }]"
           @click="toggleQuickFilter('auSites')"
-          :aria-pressed="quickFilters.auSites.toString()"
+          :aria-pressed="quickFilters.auSites"
         >
           🇦🇺 Australian Sites
         </button>
         <button
           :class="['quick-filter', { active: quickFilters.pdfs }]"
           @click="toggleQuickFilter('pdfs')"
-          :aria-pressed="quickFilters.pdfs.toString()"
+          :aria-pressed="quickFilters.pdfs"
         >
           📄 PDFs Only
         </button>
         <button
           :class="['quick-filter', { active: quickFilters.government }]"
           @click="toggleQuickFilter('government')"
-          :aria-pressed="quickFilters.government.toString()"
+          :aria-pressed="quickFilters.government"
         >
           🏛️ Government
         </button>
         <button
           :class="['quick-filter', { active: quickFilters.recent }]"
           @click="toggleQuickFilter('recent')"
-          :aria-pressed="quickFilters.recent.toString()"
+          :aria-pressed="quickFilters.recent"
         >
           📅 Date Filtered
         </button>
         <button
           :class="['quick-filter', { active: quickFilters.userHosted }]"
           @click="toggleQuickFilter('userHosted')"
-          :aria-pressed="quickFilters.userHosted.toString()"
+          :aria-pressed="quickFilters.userHosted"
         >
           🌐 User Platforms
         </button>
@@ -614,7 +621,7 @@ watch(
             showFavoritesOnly = !showFavoritesOnly;
             scrollToResults();
           "
-          :aria-pressed="showFavoritesOnly.toString()"
+          :aria-pressed="showFavoritesOnly"
         >
           ★ Favorites ({{ favorites?.length ?? 0 }})
         </button>
@@ -961,13 +968,21 @@ watch(
         </div>
 
         <!-- Loading skeleton -->
-        <div v-if="!isLoaded" class="loading-skeleton">
+        <div v-if="!isLoaded && !loadError" class="loading-skeleton">
           <div v-for="i in 6" :key="i" class="skeleton-card">
             <div class="skeleton-header"></div>
             <div class="skeleton-code"></div>
             <div class="skeleton-text"></div>
             <div class="skeleton-actions"></div>
           </div>
+        </div>
+
+        <!-- Error state -->
+        <div v-else-if="loadError" class="load-error">
+          <div class="load-error-icon">⚠️</div>
+          <h3>Failed to Load Dork Database</h3>
+          <p>{{ loadError }}</p>
+          <button class="btn btn-primary" @click="retryLoad">Try Again</button>
         </div>
 
         <div v-else-if="results.length === 0" class="no-results">
@@ -1801,6 +1816,32 @@ watch(
 
 .no-results p {
   margin: 0 0 20px;
+}
+
+/* Load Error */
+.load-error {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-muted);
+}
+
+.load-error-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.load-error h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--danger-color, #e53935);
+  margin: 0 0 8px;
+}
+
+.load-error p {
+  margin: 0 0 20px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Load More */

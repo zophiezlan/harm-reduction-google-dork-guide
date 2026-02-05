@@ -24,6 +24,8 @@ export interface Settings {
     dateRange: "1y" | "2y" | "5y" | "none";
     auOnly: boolean;
   };
+  // Index signature for compatibility with storage utilities
+  [key: string]: unknown;
 }
 
 const defaultSettings: Settings = {

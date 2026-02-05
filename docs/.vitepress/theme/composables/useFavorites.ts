@@ -1,6 +1,15 @@
 import { reactive, watch } from "vue";
 import { getStorageItemSimple, setStorageItem } from "../utils/storage";
 
+// Debounce helper for storage writes
+let saveTimeout: ReturnType<typeof setTimeout> | null = null;
+function debouncedSave(items: FavoriteItem[]) {
+  if (saveTimeout) clearTimeout(saveTimeout);
+  saveTimeout = setTimeout(() => {
+    setStorageItem("favorites", items);
+  }, 300);
+}
+
 export interface FavoriteItem {
   id: string;
   packId: string;
@@ -13,7 +22,17 @@ interface FavoritesState {
   items: FavoriteItem[];
 }
 
+// Maximum number of favorites to prevent unbounded growth
+const MAX_FAVORITES = 500;
+
 let favoritesState: FavoritesState | null = null;
+
+/**
+ * Generate a unique ID for a favorite item
+ */
+function generateFavoriteId(packId: string, title: string): string {
+  return `${packId}-${title.toLowerCase().replace(/\s+/g, "-")}`;
+}
 
 export function useFavorites() {
   if (!favoritesState) {
@@ -26,17 +45,20 @@ export function useFavorites() {
 
   function initialize() {
     const saved = getStorageItemSimple<FavoriteItem[]>("favorites", []);
-    // Validate that saved items have required properties
+    // Validate that saved items have all required properties
     const validItems = Array.isArray(saved)
-      ? saved.filter(
-          (item): item is FavoriteItem =>
-            typeof item === "object" &&
-            item !== null &&
-            typeof item.id === "string" &&
-            typeof item.packId === "string" &&
-            typeof item.title === "string" &&
-            typeof item.query === "string"
-        )
+      ? saved
+          .filter(
+            (item): item is FavoriteItem =>
+              typeof item === "object" &&
+              item !== null &&
+              typeof item.id === "string" &&
+              typeof item.packId === "string" &&
+              typeof item.title === "string" &&
+              typeof item.query === "string" &&
+              typeof item.addedAt === "number"
+          )
+          .slice(0, MAX_FAVORITES) // Enforce max limit
       : [];
     state.items = validItems;
   }
@@ -44,14 +66,15 @@ export function useFavorites() {
   watch(
     () => state.items,
     (items) => {
-      setStorageItem("favorites", items);
+      debouncedSave([...items]); // Clone to capture current state
     },
     { deep: true }
   );
 
-  function addFavorite(packId: string, title: string, query: string) {
-    const id = `${packId}-${title.toLowerCase().replace(/\s+/g, "-")}`;
-    if (state.items.some((f) => f.id === id)) return; // Already exists
+  function addFavorite(packId: string, title: string, query: string): boolean {
+    const id = generateFavoriteId(packId, title);
+    if (state.items.some((f) => f.id === id)) return false; // Already exists
+    if (state.items.length >= MAX_FAVORITES) return false; // At limit
     state.items.push({
       id,
       packId,
@@ -59,6 +82,7 @@ export function useFavorites() {
       query,
       addedAt: Date.now(),
     });
+    return true;
   }
 
   function removeFavorite(id: string) {
@@ -69,17 +93,22 @@ export function useFavorites() {
   }
 
   function isFavorite(packId: string, title: string): boolean {
-    const id = `${packId}-${title.toLowerCase().replace(/\s+/g, "-")}`;
+    const id = generateFavoriteId(packId, title);
     return state.items.some((f) => f.id === id);
   }
 
-  function toggleFavorite(packId: string, title: string, query: string) {
+  function toggleFavorite(packId: string, title: string, query: string): boolean {
     if (isFavorite(packId, title)) {
-      const id = `${packId}-${title.toLowerCase().replace(/\s+/g, "-")}`;
+      const id = generateFavoriteId(packId, title);
       removeFavorite(id);
+      return false; // Was removed
     } else {
-      addFavorite(packId, title, query);
+      return addFavorite(packId, title, query); // Returns true if added
     }
+  }
+
+  function isAtLimit(): boolean {
+    return state.items.length >= MAX_FAVORITES;
   }
 
   function clearFavorites() {
@@ -93,6 +122,7 @@ export function useFavorites() {
     removeFavorite,
     isFavorite,
     toggleFavorite,
+    isAtLimit,
     clearFavorites,
   };
 }

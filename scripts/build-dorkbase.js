@@ -8,6 +8,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const crypto = require("crypto");
 const fg = require("fast-glob");
 
 // =============================================================================
@@ -17,6 +18,7 @@ const fg = require("fast-glob");
 const DOCS_DIR = path.join(__dirname, "../docs");
 const OUTPUT_FILE = path.join(__dirname, "../tools/dork-explorer/dork-data.js");
 const OUTPUT_JSON = path.join(__dirname, "../tools/dork-explorer/dork-data.json");
+const OUTPUT_INTEGRITY = path.join(__dirname, "../tools/dork-explorer/dork-data-integrity.json");
 
 // Source type mappings based on file path
 const SOURCE_TYPE_MAP = {
@@ -689,6 +691,19 @@ window.DORK_META = ${JSON.stringify(database.meta, null, 2)};
 `;
 
   fs.writeFileSync(OUTPUT_FILE, jsOutput);
+
+  // ==========================================================================
+  // OUTPUT: Integrity Hash (for SRI validation)
+  // ==========================================================================
+
+  const hash = crypto.createHash("sha384").update(jsOutput).digest("base64");
+  const integrityValue = `sha384-${hash}`;
+  const integrityData = {
+    integrity: integrityValue,
+    buildDate: database.meta.buildDate,
+    version: database.meta.version,
+  };
+  fs.writeFileSync(OUTPUT_INTEGRITY, JSON.stringify(integrityData, null, 2));
 
   // ==========================================================================
   // OUTPUT: JSON (for tooling)

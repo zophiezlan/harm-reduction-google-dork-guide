@@ -79,7 +79,7 @@ describe("useDebounce", () => {
   describe("useDebounce", () => {
     it("delays function execution", () => {
       const fn = vi.fn();
-      const debouncedFn = useDebounce(fn, 300);
+      const { fn: debouncedFn } = useDebounce(fn, 300);
 
       debouncedFn();
       expect(fn).not.toHaveBeenCalled();
@@ -90,7 +90,7 @@ describe("useDebounce", () => {
 
     it("passes arguments to the function", () => {
       const fn = vi.fn();
-      const debouncedFn = useDebounce(fn, 300);
+      const { fn: debouncedFn } = useDebounce(fn, 300);
 
       debouncedFn("arg1", "arg2");
       vi.advanceTimersByTime(300);
@@ -100,7 +100,7 @@ describe("useDebounce", () => {
 
     it("only calls function once for rapid calls", () => {
       const fn = vi.fn();
-      const debouncedFn = useDebounce(fn, 300);
+      const { fn: debouncedFn } = useDebounce(fn, 300);
 
       debouncedFn("first");
       debouncedFn("second");
@@ -110,6 +110,17 @@ describe("useDebounce", () => {
 
       expect(fn).toHaveBeenCalledTimes(1);
       expect(fn).toHaveBeenCalledWith("third");
+    });
+
+    it("can cancel pending execution", () => {
+      const fn = vi.fn();
+      const { fn: debouncedFn, cancel } = useDebounce(fn, 300);
+
+      debouncedFn("test");
+      cancel();
+      vi.advanceTimersByTime(300);
+
+      expect(fn).not.toHaveBeenCalled();
     });
   });
 });
