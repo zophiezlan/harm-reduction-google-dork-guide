@@ -1,23 +1,52 @@
 {
   "ignorePatterns": [
-    {
-      "pattern": "^https://www.google.com/search"
-    },
-    {
-      "pattern": "^https://google.com/search"
-    },
-    {
-      "pattern": "^mailto:"
-    },
-    {
-      "pattern": "^/"
-    }
+    { "pattern": "^https://www.google.com/search" },
+    { "pattern": "^https://google.com/search" },
+    { "pattern": "^mailto:" },
+    { "pattern": "^/" },
+    { "pattern": "^\\.\\.\\/" },
+    { "pattern": "sci-hub" },
+    { "pattern": "libgen" },
+    { "pattern": "z-lib" },
+    { "pattern": "annas-archive" },
+    { "pattern": "archive\\.today" },
+    { "pattern": "whitepages\\.com" },
+    { "pattern": "perplexity\\.ai" },
+    { "pattern": "chat\\.openai\\.com" },
+    { "pattern": "typeset\\.io" },
+    { "pattern": "familysearch\\.org" },
+    { "pattern": "spiderfoot\\.net" },
+    { "pattern": "knowem\\.com" },
+    { "pattern": "emporis\\.com" },
+    { "pattern": "smartdeblur\\.net" },
+    { "pattern": "pdfexaminer\\.com" },
+    { "pattern": "zoomeye\\.org" },
+    { "pattern": "connectonline\\.asic\\.gov\\.au" },
+    { "pattern": "tenders\\." },
+    { "pattern": "crimestatistics\\.vic\\.gov\\.au" },
+    { "pattern": "police\\.sa\\.gov\\.au" },
+    { "pattern": "qldspatial\\.information\\.qld\\.gov\\.au" },
+    { "pattern": "legislation\\.sa\\.gov\\.au" },
+    { "pattern": "abc\\.net\\.au/archives" },
+    { "pattern": "ryersonindex\\.org" },
+    { "pattern": "austcemindex\\.com" },
+    { "pattern": "vicroads\\.vic\\.gov\\.au" },
+    { "pattern": "sclqld\\.org\\.au" },
+    { "pattern": "fedcourt\\.gov\\.au" },
+    { "pattern": "truelocal\\.com\\.au" },
+    { "pattern": "ntahc\\.org\\.au" },
+    { "pattern": "aadant\\.org\\.au" },
+    { "pattern": "matildacentre\\.com\\.au" },
+    { "pattern": "ndri\\.curtin\\.edu\\.au" },
+    { "pattern": "turning-point\\.org\\.au" },
+    { "pattern": "naccho\\.org\\.au" },
+    { "pattern": "familydrughelp\\.org\\.au" },
+    { "pattern": "cyber\\.gov\\.au" },
+    { "pattern": "addons\\.mozilla\\.org" }
   ],
-  "replacementPatterns": [],
-  "httpHeaders": [],
   "timeout": "10s",
   "retryOn429": true,
-  "retryCount": 3,
-  "fallbackRetryDelay": "30s",
-  "aliveStatusCodes": [200, 206, 301, 302, 307, 308]
+  "retryCount": 2,
+  "fallbackRetryDelay": "10s",
+  "aliveStatusCodes": [200, 206, 301, 302, 307, 308, 403]
 }

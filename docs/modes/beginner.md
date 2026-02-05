@@ -2,9 +2,7 @@
 title: Beginner Mode
 ---
 
-# Beginner Mode
-
-Start here if you’re new to dorking or want a fast orientation.
+Start here if you're new to dorking or want a fast orientation.
 
 ## Recommended Path
 

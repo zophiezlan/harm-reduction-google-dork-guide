@@ -2,8 +2,6 @@
 title: Practitioner Mode
 ---
 
-# Practitioner Mode
-
 For people using the guide routinely in service delivery, outreach, or policy work.
 
 ## Recommended Path

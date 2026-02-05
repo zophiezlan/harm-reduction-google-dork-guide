@@ -33,7 +33,7 @@ This works until it doesn't. Changes to markdown formatting can silently corrupt
 
 Every dork is hardcoded. A NSW-focused query like:
 
-```
+```txt
 "drug alert" site:health.nsw.gov.au
 ```
 
@@ -134,7 +134,7 @@ variables:
 1. **Pack-level variables** are defined in frontmatter (see above)
 2. **Query syntax** uses `$VARIABLE` placeholders:
 
-   ```
+   ```txt
    "drug alert" site:health.$JURISDICTION.gov.au after:$YEAR-01-01
    ```
 
@@ -143,7 +143,7 @@ variables:
 
 #### UI Design
 
-```
+```text
 ┌─────────────────────────────────────────────────┐
 │  Drug Alerts Pack                    [⚙️ Vars]  │
 ├─────────────────────────────────────────────────┤
@@ -163,7 +163,7 @@ variables:
 └─────────────────────────────────────────────────┘
 ```
 
-#### Implementation
+#### Variable System Implementation
 
 1. Add `variables` field to `DorkPack` type in `types.ts`
 2. Create `useVariables.ts` composable:
@@ -206,7 +206,7 @@ No complex logic, no conditionals, no computed variables. Just find-and-replace.
 - Social media search engines (privacy concerns)
 - Any engine that could enable surveillance
 
-#### Implementation
+#### Search Engine Implementation
 
 1. Add engine selector dropdown to Explorer header
 2. Store preference in localStorage
@@ -362,23 +362,19 @@ variables:
 ```txt
 "drug alert" site:health.$STATE.gov.au
 ```
-````
-
-```
 
 ### In Explorer (after substitution)
-```
 
+```txt
 "drug alert" site:health.vic.gov.au
-
 ```
 
 ### Escaping (if needed)
+
 Use `$$` to output a literal `$`:
-```
 
+```txt
 Price: $$50 site:example.com → Price: $50 site:example.com
-
 ```
 
 ---
@@ -386,21 +382,20 @@ Price: $$50 site:example.com → Price: $50 site:example.com
 ## Appendix C: Build Process Changes
 
 ### Current Flow
-```
 
+```text
 Markdown files ↓ (regex parsing) Inferred metadata + queries ↓ dork-data.json
-
 ```
 
 ### Proposed Flow
-```
 
+```text
 Markdown files with frontmatter ↓ (gray-matter + regex fallback) Explicit metadata + inferred
 metadata (merged) ↓ (validation) dork-data.json (enhanced schema)
-
 ```
 
 ### Validation Rules
+
 1. If frontmatter exists, `id` and `title` are required
 2. Variable names must be UPPER_SNAKE_CASE
 3. Variable references in queries must have definitions
@@ -419,6 +414,5 @@ metadata (merged) ↓ (validation) dork-data.json (enhanced schema)
 
 ---
 
-*Proposal drafted: February 2025*
-*Status: Awaiting review*
-```
+_Proposal drafted: February 2025_ _Status: Awaiting review_
+````

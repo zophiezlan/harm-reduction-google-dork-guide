@@ -1,3 +1,5 @@
+<!-- markdownlint-disable MD028 -->
+
 # Documentation Style Guide
 
 > Consistent GitHub Flavored Markdown patterns for this project.
