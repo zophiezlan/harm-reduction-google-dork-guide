@@ -68,6 +68,7 @@ interface BuilderState {
 let builderState: BuilderState | null = null;
 let blockIdCounter = 0;
 const MAX_QUERY_LENGTH = 2000;
+const MAX_BLOCK_ID = 10000; // Reset counter when it gets too high
 
 export function useQueryBuilder() {
   if (!builderState) {
@@ -78,6 +79,11 @@ export function useQueryBuilder() {
   }
 
   const state = builderState;
+
+  // Reset counter if it gets too high to prevent unbounded growth
+  if (blockIdCounter >= MAX_BLOCK_ID) {
+    blockIdCounter = 0;
+  }
 
   // Generate query string from blocks
   const queryString = computed(() => {
@@ -358,4 +364,14 @@ export function useQueryBuilder() {
     clearBlocks,
     loadFromQuery,
   };
+}
+
+/**
+ * Reset the builder state completely.
+ * Primarily for testing to avoid state pollution between tests.
+ * @internal
+ */
+export function _resetBuilderState(): void {
+  builderState = null;
+  blockIdCounter = 0;
 }

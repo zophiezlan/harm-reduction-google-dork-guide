@@ -1,5 +1,6 @@
+<!-- markdownlint-disable MD041 -->
 <div align="center">
-  
+
 # Google Dorking Guide for AOD Harm-Reduction in Australia
 
 **A comprehensive search guide for the AOD & harm reduction workforce.**

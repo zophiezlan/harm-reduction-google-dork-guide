@@ -478,13 +478,13 @@ Try building these searches yourself:
 site:*.edu.au filetype:pdf "drug checking" after:2022
 ```
 
-2.
+1.
 
 ```txt
 site:health.nsw.gov.au intitle:"harm reduction"
 ```
 
-3.
+1.
 
 ```txt
 site:*.org.au "peer worker" training filetype:pdf -jobs -careers

@@ -9,6 +9,7 @@ const fg = require("fast-glob");
 const path = require("path");
 
 const EXCLUDED_DIRS = ["node_modules", "archive", ".git", "dist", ".vitepress/cache"];
+const CONFIG_FILE = path.join(process.cwd(), ".markdown-link-check.json");
 
 async function checkLinks() {
   console.log("Finding markdown files...");
@@ -31,7 +32,7 @@ async function checkLinks() {
   for (const file of files) {
     const relativePath = path.relative(process.cwd(), file);
     try {
-      execSync(`npx markdown-link-check --quiet "${file}"`, {
+      execSync(`npx markdown-link-check --quiet --config "${CONFIG_FILE}" "${file}"`, {
         stdio: "pipe",
         encoding: "utf-8",
       });

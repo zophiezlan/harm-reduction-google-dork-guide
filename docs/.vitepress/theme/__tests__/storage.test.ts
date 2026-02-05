@@ -90,13 +90,14 @@ describe("storage utilities", () => {
   });
 
   describe("setStorageItem", () => {
-    it("stores value with prefix", () => {
-      setStorageItem("test", { value: 123 });
+    it("stores value with prefix and returns success", () => {
+      const result = setStorageItem("test", { value: 123 });
       const stored = localStorage.getItem("hr-dork-test");
       expect(stored).toBe(JSON.stringify({ value: 123 }));
+      expect(result.success).toBe(true);
     });
 
-    it("handles storage errors gracefully", () => {
+    it("handles storage errors gracefully and returns error type", () => {
       const consoleSpy = vi.spyOn(console, "warn").mockImplementation(() => {});
       // Create a mock storage that throws on setItem
       const mockStorage = {
@@ -111,8 +112,33 @@ describe("storage utilities", () => {
       };
       vi.stubGlobal("localStorage", mockStorage);
 
-      expect(() => setStorageItem("test", { value: 123 })).not.toThrow();
+      const result = setStorageItem("test", { value: 123 });
+      expect(result.success).toBe(false);
+      expect(result.error).toBe("unknown");
       expect(consoleSpy).toHaveBeenCalled();
+
+      vi.unstubAllGlobals();
+      consoleSpy.mockRestore();
+    });
+
+    it("detects quota exceeded error", () => {
+      const consoleSpy = vi.spyOn(console, "warn").mockImplementation(() => {});
+      const quotaError = new DOMException("Quota exceeded", "QuotaExceededError");
+      const mockStorage = {
+        getItem: vi.fn(),
+        setItem: vi.fn(() => {
+          throw quotaError;
+        }),
+        removeItem: vi.fn(),
+        clear: vi.fn(),
+        key: vi.fn(),
+        length: 0,
+      };
+      vi.stubGlobal("localStorage", mockStorage);
+
+      const result = setStorageItem("test", { value: 123 });
+      expect(result.success).toBe(false);
+      expect(result.error).toBe("quota_exceeded");
 
       vi.unstubAllGlobals();
       consoleSpy.mockRestore();

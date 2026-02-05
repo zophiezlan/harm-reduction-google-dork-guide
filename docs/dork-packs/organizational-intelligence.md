@@ -452,7 +452,7 @@ site:web.archive.org/web/*/aivl.org.au "strategic plan"
 ("annual report" OR "strategic plan" OR "corporate plan") filetype:pdf
 ```
 
-### Governance Documents
+### Governance Patterns
 
 ```txt
 ("constitution" OR "governance" OR "board" OR "terms of reference")
@@ -464,7 +464,7 @@ site:web.archive.org/web/*/aivl.org.au "strategic plan"
 ("tender" OR "grant" OR "funding" OR "expression of interest" OR EOI)
 ```
 
-### Workforce Documents
+### Workforce Patterns
 
 ```txt
 ("position description" OR "job description" OR "workforce" OR "staffing")

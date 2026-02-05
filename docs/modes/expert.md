@@ -2,8 +2,6 @@
 title: Expert Mode
 ---
 
-# Expert Mode
-
 For advanced users running complex investigations and system‑level analysis.
 
 ## Recommended Path

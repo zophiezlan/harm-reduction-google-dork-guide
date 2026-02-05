@@ -112,12 +112,32 @@ export function getStorageItemSimple<T>(key: string, defaultValue: T): T {
   }
 }
 
-export function setStorageItem<T>(key: string, value: T): void {
-  if (typeof window === "undefined") return;
+export interface StorageResult {
+  success: boolean;
+  error?: "quota_exceeded" | "serialization_error" | "unknown";
+}
+
+export function setStorageItem<T>(key: string, value: T): StorageResult {
+  if (typeof window === "undefined") return { success: false, error: "unknown" };
   try {
     localStorage.setItem(STORAGE_PREFIX + key, JSON.stringify(value));
+    return { success: true };
   } catch (e) {
+    // Check for quota exceeded error
+    const isQuotaError =
+      e instanceof DOMException &&
+      (e.code === 22 || // Legacy Chrome/Safari
+        e.code === 1014 || // Firefox
+        e.name === "QuotaExceededError" ||
+        e.name === "NS_ERROR_DOM_QUOTA_REACHED");
+
+    if (isQuotaError) {
+      console.warn("localStorage quota exceeded for key:", key);
+      return { success: false, error: "quota_exceeded" };
+    }
+
     console.warn("Failed to save to localStorage:", e);
+    return { success: false, error: "unknown" };
   }
 }
 
