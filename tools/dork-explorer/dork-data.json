@@ -17029,8 +17029,8 @@
           "tags": []
         },
         {
-          "id": "organizational-intelligence-strategic-documents",
-          "title": "Strategic Documents",
+          "id": "organizational-intelligence-strategic-document-patterns",
+          "title": "Strategic Document Patterns",
           "category": "\udccb Quick Copy Document Patterns",
           "query": "(\"annual report\" OR \"strategic plan\" OR \"corporate plan\") filetype:pdf",
           "explanation": "",
@@ -17049,8 +17049,8 @@
           ]
         },
         {
-          "id": "organizational-intelligence-governance-documents",
-          "title": "Governance Documents",
+          "id": "organizational-intelligence-governance-document-patterns",
+          "title": "Governance Document Patterns",
           "category": "\udccb Quick Copy Document Patterns",
           "query": "(\"constitution\" OR \"governance\" OR \"board\" OR \"terms of reference\")",
           "explanation": "",
@@ -17067,8 +17067,8 @@
           ]
         },
         {
-          "id": "organizational-intelligence-funding-documents",
-          "title": "Funding Documents",
+          "id": "organizational-intelligence-funding-document-patterns",
+          "title": "Funding Document Patterns",
           "category": "\udccb Quick Copy Document Patterns",
           "query": "(\"tender\" OR \"grant\" OR \"funding\" OR \"expression of interest\" OR EOI)",
           "explanation": "",
@@ -17085,8 +17085,8 @@
           ]
         },
         {
-          "id": "organizational-intelligence-workforce-documents",
-          "title": "Workforce Documents",
+          "id": "organizational-intelligence-workforce-document-patterns",
+          "title": "Workforce Document Patterns",
           "category": "\udccb Quick Copy Document Patterns",
           "query": "(\"position description\" OR \"job description\" OR \"workforce\" OR \"staffing\")",
           "explanation": "",
@@ -17104,8 +17104,8 @@
           ]
         },
         {
-          "id": "organizational-intelligence-evaluation-documents",
-          "title": "Evaluation Documents",
+          "id": "organizational-intelligence-evaluation-document-patterns",
+          "title": "Evaluation Document Patterns",
           "category": "\udccb Quick Copy Document Patterns",
           "query": "(\"evaluation\" OR \"review\" OR \"assessment\" OR \"audit\")",
           "explanation": "",
@@ -28321,7 +28321,7 @@
       "title": "Search edu.au",
       "category": "\udfaf Practice Exercises",
       "query": "site:*.org.au \"peer worker\" training filetype:pdf -jobs -careers",
-      "explanation": "2.\n\n\n3.\n\n\n</details>",
+      "explanation": "1. Search for harm reduction pages:\n\n\n1. Search for peer worker training:\n\n\n</details>",
       "difficulty": "intermediate",
       "sourceFile": "02-core-operators.md",
       "sourceType": "documentation",
@@ -28482,7 +28482,7 @@
       "id": "03-advanced-operators-pattern-2-stacked-exclusions",
       "title": "Pattern 2: Stacked Exclusions",
       "category": "\udfa8 Advanced Combination Patterns",
-      "query": "\"peer worker\" training\r\n  -jobs -careers -vacancy -position\r\n  -site:seek.com.au -site:indeed.com\r\n  -site:researchgate.net\r\n  filetype:pdf",
+      "query": "\"peer worker\" training\n  -jobs -careers -vacancy -position\n  -site:seek.com.au -site:indeed.com\n  -site:researchgate.net\n  filetype:pdf",
       "explanation": "",
       "difficulty": "advanced",
       "sourceFile": "03-advanced-operators.md",
@@ -28511,7 +28511,7 @@
       "id": "03-advanced-operators-pattern-3-multi-domain-or-with-topic",
       "title": "Pattern 3: Multi-Domain OR with Topic",
       "category": "\udfa8 Advanced Combination Patterns",
-      "query": "(site:nuaa.org.au OR site:aivl.org.au OR site:hrvic.org.au OR site:quihn.org)\r\n  \"peer support\" OR \"peer supervision\"\r\n  filetype:pdf",
+      "query": "(site:nuaa.org.au OR site:aivl.org.au OR site:hrvic.org.au OR site:quihn.org)\n  \"peer support\" OR \"peer supervision\"\n  filetype:pdf",
       "explanation": "",
       "difficulty": "advanced",
       "sourceFile": "03-advanced-operators.md",
@@ -28775,7 +28775,7 @@
       "id": "03-advanced-operators-start-simple-add-complexity",
       "title": "Start Simple, Add Complexity",
       "category": "🧪 Testing Your Queries",
-      "query": "# Step 1: Base search\r\n\"drug checking\" Australia\r\n\r\n# Step 2: Add domain\r\n\"drug checking\" site:*.gov.au\r\n\r\n# Step 3: Add format\r\n\"drug checking\" site:*.gov.au filetype:pdf\r\n\r\n# Step 4: Add date\r\n\"drug checking\" site:*.gov.au filetype:pdf after:2023\r\n\r\n# Step 5: Add specificity\r\n\"drug checking\" site:*.gov.au filetype:pdf evaluation after:2023",
+      "query": "# Step 1: Base search\n\"drug checking\" Australia\n\n# Step 2: Add domain\n\"drug checking\" site:*.gov.au\n\n# Step 3: Add format\n\"drug checking\" site:*.gov.au filetype:pdf\n\n# Step 4: Add date\n\"drug checking\" site:*.gov.au filetype:pdf after:2023\n\n# Step 5: Add specificity\n\"drug checking\" site:*.gov.au filetype:pdf evaluation after:2023",
       "explanation": "",
       "difficulty": "intermediate",
       "sourceFile": "03-advanced-operators.md",
@@ -28800,7 +28800,7 @@
       "id": "03-advanced-operators-example-1-comprehensive-drug-alert-search",
       "title": "Example 1: Comprehensive Drug Alert Search",
       "category": "\udcdd Complex Query Examples",
-      "query": "site:*.health.*.gov.au\r\n  (intitle:\"drug alert\" OR intitle:\"drug warning\" OR intitle:\"drug notification\" OR intitle:\"clinical safety alert\")\r\n  (opioid OR stimulant OR \"novel substance\" OR contamina*)\r\n  after:2024-01-01\r\n  filetype:pdf",
+      "query": "site:*.health.*.gov.au\n  (intitle:\"drug alert\" OR intitle:\"drug warning\" OR intitle:\"drug notification\" OR intitle:\"clinical safety alert\")\n  (opioid OR stimulant OR \"novel substance\" OR contamina*)\n  after:2024-01-01\n  filetype:pdf",
       "explanation": "",
       "difficulty": "intermediate",
       "sourceFile": "03-advanced-operators.md",
@@ -28828,7 +28828,7 @@
       "id": "03-advanced-operators-example-2-peer-workforce-development-sweep",
       "title": "Example 2: Peer Workforce Development Sweep",
       "category": "\udcdd Complex Query Examples",
-      "query": "(\"peer worker\" OR \"peer support\" OR \"lived experience\")\r\n  (supervision OR framework OR competencies OR training)\r\n  filetype:pdf\r\n  site:*.org.au OR site:*.gov.au\r\n  -jobs -careers\r\n  after:2020",
+      "query": "(\"peer worker\" OR \"peer support\" OR \"lived experience\")\n  (supervision OR framework OR competencies OR training)\n  filetype:pdf\n  site:*.org.au OR site:*.gov.au\n  -jobs -careers\n  after:2020",
       "explanation": "",
       "difficulty": "intermediate",
       "sourceFile": "03-advanced-operators.md",
@@ -28857,7 +28857,7 @@
       "id": "03-advanced-operators-example-3-international-best-practice-comparison",
       "title": "Example 3: International Best Practice Comparison",
       "category": "\udcdd Complex Query Examples",
-      "query": "(\"drug consumption room\" OR \"supervised consumption\" OR \"safe injection\")\r\n  (evaluation OR effectiveness OR outcomes)\r\n  (Canada OR Europe OR Switzerland)\r\n  filetype:pdf\r\n  -site:*.au",
+      "query": "(\"drug consumption room\" OR \"supervised consumption\" OR \"safe injection\")\n  (evaluation OR effectiveness OR outcomes)\n  (Canada OR Europe OR Switzerland)\n  filetype:pdf\n  -site:*.au",
       "explanation": "",
       "difficulty": "intermediate",
       "sourceFile": "03-advanced-operators.md",
@@ -29064,7 +29064,7 @@
       "id": "04-domain-map-finding-accho-content",
       "title": "Finding ACCHO Content",
       "category": "\udda4\udc9b❤ Aboriginal Community Controlled Health",
-      "query": "(ACCHO OR \"community controlled\") \"harm reduction\" OR \"alcohol drug\"\r\n\"Aboriginal Community Controlled Health\" AOD",
+      "query": "(ACCHO OR \"community controlled\") \"harm reduction\" OR \"alcohol drug\"\n\"Aboriginal Community Controlled Health\" AOD",
       "explanation": "",
       "difficulty": "intermediate",
       "sourceFile": "04-domain-map.md",
@@ -30354,7 +30354,7 @@
       "id": "05-synonym-blocks-query-33",
       "title": "Query 33",
       "category": "\udcc5 Time/Currency Terms",
-      "query": "1980..2010\r\nbefore:2015",
+      "query": "1980..2010\nbefore:2015",
       "explanation": "**Historical research:**",
       "difficulty": "intermediate",
       "sourceFile": "05-synonym-blocks.md",
@@ -30607,7 +30607,7 @@
       "id": "05-synonym-blocks-example-2-peer-workforce-with-multiple-blocks",
       "title": "Example 2: Peer Workforce with Multiple Blocks",
       "category": "\udd27 Using Blocks in Queries",
-      "query": "site:*.org.au\r\n  (\"peer worker\" OR \"peer support\" OR \"lived experience\")\r\n  (training OR supervision OR competencies)\r\n  filetype:pdf\r\n  -jobs",
+      "query": "site:*.org.au\n  (\"peer worker\" OR \"peer support\" OR \"lived experience\")\n  (training OR supervision OR competencies)\n  filetype:pdf\n  -jobs",
       "explanation": "",
       "difficulty": "intermediate",
       "sourceFile": "05-synonym-blocks.md",
@@ -30633,7 +30633,7 @@
       "id": "05-synonym-blocks-example-3-naloxone-treatment-combo",
       "title": "Example 3: Naloxone + Treatment Combo",
       "category": "\udd27 Using Blocks in Queries",
-      "query": "site:*.gov.au\r\n  (naloxone OR narcan OR nyxoid)\r\n  (program OR guidelines OR training)\r\n  filetype:pdf\r\n  after:2023",
+      "query": "site:*.gov.au\n  (naloxone OR narcan OR nyxoid)\n  (program OR guidelines OR training)\n  filetype:pdf\n  after:2023",
       "explanation": "",
       "difficulty": "intermediate",
       "sourceFile": "05-synonym-blocks.md",
@@ -31053,7 +31053,7 @@
       "id": "troubleshooting-search-gov-au",
       "title": "Search gov.au",
       "category": "Zero Results?",
-      "query": "# Instead of:\r\n\"drug checking\" after:2024\r\n\r\n# Try:\r\n\"drug checking\" 2024",
+      "query": "# Instead of:\n\"drug checking\" after:2024\n\n# Try:\n\"drug checking\" 2024",
       "explanation": "</details>\n\n<details>\n<summary><strong>Fix 2: Loosen <code>site:</code> Restrictions</strong></summary>\n\n\n</details>\n\n<details>\n<summary><strong>Fix 3: Swap Terminology</strong></summary>\n\nDifferent documents use different terms:\n\n| Try this                   | Instead of                 |\n| :------------------------- | :------------------------- |\n| `\"harm minimisation\"`      | `\"harm reduction\"`         |\n| `\"needle exchange\"`        | `\"needle syringe program\"` |\n| `\"opioid pharmacotherapy\"` | `\"OAT\"` or `\"OST\"`         |\n| `\"public health warning\"`  | `\"drug alert\"`             |\n\n</details>\n\n<details>\n<summary><strong>Fix 4: Use <code>AROUND(n)</code> for Looser Phrasing</strong></summary>\n\n\n</details>\n\n<details>\n<summary><strong>Fix 5: Remove Date Filter</strong></summary>\n\nDate filtering can be imprecise.\n\n\n</details>\n\n> [!TIP] **Debug technique:** Remove operators one at a time to find which one is too restrictive.",
       "difficulty": "advanced",
       "sourceFile": "troubleshooting.md",
@@ -31071,7 +31071,7 @@
       "id": "troubleshooting-query-2",
       "title": "Query 2",
       "category": "\udeab Filtering Out Stigmatising Content",
-      "query": "# Peer-reviewed (academic)\r\nsite:*.edu.au [topic] filetype:pdf\r\n\r\n# Peer-led (lived experience)\r\nsite:*.org.au \"peer-led\" [topic] filetype:pdf",
+      "query": "# Peer-reviewed (academic)\nsite:*.edu.au [topic] filetype:pdf\n\n# Peer-led (lived experience)\nsite:*.org.au \"peer-led\" [topic] filetype:pdf",
       "explanation": "</details>\n\n<details>\n<summary><strong>Find Peer-Led Content (Not Just Peer-Reviewed)</strong></summary>\n\n\n</details>\n\n> [!NOTE] Sometimes you need stigmatising terms to find older documents. That's okay—just be aware\n> of context.",
       "difficulty": "intermediate",
       "sourceFile": "troubleshooting.md",
@@ -31097,7 +31097,7 @@
       "id": "troubleshooting-search-health-gov-au",
       "title": "Search health.*.gov.au",
       "category": "\udccb Query Too Complex?",
-      "query": "# Too complex (Google may ignore parts):\r\nsite:*.health.*.gov.au (intitle:\"drug alert\" OR intitle:\"drug warning\" OR intitle:\"drug notification\") (opioid OR stimulant OR \"novel substance\") after:2024 filetype:pdf -news\r\n\r\n# Better - split into focused queries:\r\nsite:*.health.*.gov.au intitle:\"drug alert\" opioid after:2024 filetype:pdf\r\nsite:*.health.*.gov.au intitle:\"drug warning\" stimulant after:2024 filetype:pdf",
+      "query": "# Too complex (Google may ignore parts):\nsite:*.health.*.gov.au (intitle:\"drug alert\" OR intitle:\"drug warning\" OR intitle:\"drug notification\") (opioid OR stimulant OR \"novel substance\") after:2024 filetype:pdf -news\n\n# Better - split into focused queries:\nsite:*.health.*.gov.au intitle:\"drug alert\" opioid after:2024 filetype:pdf\nsite:*.health.*.gov.au intitle:\"drug warning\" stimulant after:2024 filetype:pdf",
       "explanation": "</details>",
       "difficulty": "intermediate",
       "sourceFile": "troubleshooting.md",
@@ -31658,10 +31658,140 @@
       ]
     },
     {
+      "id": "evidence-log-template-research-topic-drug-checking-services-in-australia",
+      "title": "Research Topic: Drug Checking Services in Australia",
+      "category": "Example Filled In",
+      "query": "# International comparisons\nsite:emcdda.europa.eu OR site:drugschecking.ca \"drug checking\" filetype:pdf",
+      "explanation": "",
+      "difficulty": "intermediate",
+      "sourceFile": "templates/evidence-log-template.md",
+      "sourceType": "template",
+      "sourceLine": 94,
+      "operators": [
+        "site",
+        "filetype"
+      ],
+      "targetDomains": [
+        "emcdda.europa.eu",
+        "drugschecking.ca"
+      ],
+      "domainCategory": "international",
+      "contentType": "pdf",
+      "tags": [
+        "documents",
+        "research",
+        "services",
+        "international"
+      ]
+    },
+    {
+      "id": "evidence-log-template-search-act-gov-au",
+      "title": "Search act.gov.au",
+      "category": "Reference Table",
+      "query": "site:*.act.gov.au \"drug checking\" after:2025",
+      "explanation": "",
+      "difficulty": "intermediate",
+      "sourceFile": "templates/evidence-log-template.md",
+      "sourceType": "template",
+      "sourceLine": 104,
+      "operators": [
+        "site",
+        "after"
+      ],
+      "targetDomains": [
+        "act.gov.au"
+      ],
+      "domainCategory": "government",
+      "contentType": "any",
+      "tags": [
+        "australia"
+      ]
+    },
+    {
+      "id": "evidence-log-template-search-edu-au",
+      "title": "Search edu.au",
+      "category": "Reference Table",
+      "query": "site:*.edu.au \"drug checking\" evaluation filetype:pdf",
+      "explanation": "",
+      "difficulty": "intermediate",
+      "sourceFile": "templates/evidence-log-template.md",
+      "sourceType": "template",
+      "sourceLine": 105,
+      "operators": [
+        "site",
+        "filetype"
+      ],
+      "targetDomains": [
+        "edu.au"
+      ],
+      "domainCategory": "education",
+      "contentType": "pdf",
+      "tags": [
+        "documents",
+        "australia"
+      ]
+    },
+    {
+      "id": "evidence-log-template-search-aivl-org-au",
+      "title": "Search aivl.org.au",
+      "category": "Reference Table",
+      "query": "site:aivl.org.au \"drug checking\"",
+      "explanation": "",
+      "difficulty": "intermediate",
+      "sourceFile": "templates/evidence-log-template.md",
+      "sourceType": "template",
+      "sourceLine": 106,
+      "operators": [
+        "site"
+      ],
+      "targetDomains": [
+        "aivl.org.au"
+      ],
+      "domainCategory": "ngo",
+      "contentType": "any",
+      "tags": [
+        "australia"
+      ]
+    },
+    {
+      "id": "evidence-log-template-query-4",
+      "title": "Query 4",
+      "category": "Reference Table",
+      "query": "\"drug checking\" \"cost benefit\" Australia",
+      "explanation": "",
+      "difficulty": "intermediate",
+      "sourceFile": "templates/evidence-log-template.md",
+      "sourceType": "template",
+      "sourceLine": 134,
+      "operators": [],
+      "targetDomains": [],
+      "domainCategory": "any",
+      "contentType": "any",
+      "tags": [
+        "australia"
+      ]
+    },
+    {
+      "id": "evidence-log-template-query-5",
+      "title": "Query 5",
+      "category": "Reference Table",
+      "query": "\"drug checking\" Aboriginal OR Indigenous",
+      "explanation": "",
+      "difficulty": "intermediate",
+      "sourceFile": "templates/evidence-log-template.md",
+      "sourceType": "template",
+      "sourceLine": 135,
+      "operators": [],
+      "targetDomains": [],
+      "domainCategory": "any",
+      "contentType": "any",
+      "tags": []
+    },
+    {
       "id": "bookmarklets-nsw-health-alerts",
       "title": "NSW Health Alerts",
       "category": "\udccb Ready-to-Use Bookmarklets",
-      "query": "javascript: void (location.href =\r\n  \"https://www.google.com/search?q=site:health.nsw.gov.au+(intitle:%22drug+alert%22+OR+intitle:%22health+alert%22)\");",
+      "query": "javascript: void (location.href =\n  \"https://www.google.com/search?q=site:health.nsw.gov.au+(intitle:%22drug+alert%22+OR+intitle:%22health+alert%22)\");",
       "explanation": "",
       "difficulty": "intermediate",
       "sourceFile": "tools/bookmarklets.md",
@@ -31685,7 +31815,7 @@
       "id": "bookmarklets-recent-australian-harm-reduction-pdfs",
       "title": "Recent Australian Harm Reduction PDFs",
       "category": "\udccb Ready-to-Use Bookmarklets",
-      "query": "javascript: void (location.href =\r\n  \"https://www.google.com/search?q=site:*.gov.au+filetype:pdf+(%22harm+reduction%22+OR+%22harm+minimisation%22)+after:2024-01-01\");",
+      "query": "javascript: void (location.href =\n  \"https://www.google.com/search?q=site:*.gov.au+filetype:pdf+(%22harm+reduction%22+OR+%22harm+minimisation%22)+after:2024-01-01\");",
       "explanation": "",
       "difficulty": "intermediate",
       "sourceFile": "tools/bookmarklets.md",
@@ -31710,7 +31840,7 @@
       "id": "bookmarklets-australian-drug-checking-research",
       "title": "Australian Drug Checking Research",
       "category": "\udccb Ready-to-Use Bookmarklets",
-      "query": "javascript: void (location.href =\r\n  \"https://www.google.com/search?q=site:*.edu.au+%22drug+checking%22+OR+%22pill+testing%22+filetype:pdf+after:2020\");",
+      "query": "javascript: void (location.href =\n  \"https://www.google.com/search?q=site:*.edu.au+%22drug+checking%22+OR+%22pill+testing%22+filetype:pdf+after:2020\");",
       "explanation": "",
       "difficulty": "intermediate",
       "sourceFile": "tools/bookmarklets.md",
@@ -31736,7 +31866,7 @@
       "id": "bookmarklets-peer-worker-training-resources",
       "title": "Peer Worker Training Resources",
       "category": "\udccb Ready-to-Use Bookmarklets",
-      "query": "javascript: void (location.href =\r\n  \"https://www.google.com/search?q=%22peer+worker%22+(%22training%22+OR+%22supervision%22)+filetype:pdf+-jobs+-careers\");",
+      "query": "javascript: void (location.href =\n  \"https://www.google.com/search?q=%22peer+worker%22+(%22training%22+OR+%22supervision%22)+filetype:pdf+-jobs+-careers\");",
       "explanation": "",
       "difficulty": "intermediate",
       "sourceFile": "tools/bookmarklets.md",
@@ -31758,7 +31888,7 @@
       "id": "bookmarklets-parliamentary-drug-policy-submissions",
       "title": "Parliamentary Drug Policy Submissions",
       "category": "\udccb Ready-to-Use Bookmarklets",
-      "query": "javascript: void (location.href =\r\n  \"https://www.google.com/search?q=site:*.gov.au+inurl:submissions+(%22drug+policy%22+OR+%22harm+reduction%22)+filetype:pdf\");",
+      "query": "javascript: void (location.href =\n  \"https://www.google.com/search?q=site:*.gov.au+inurl:submissions+(%22drug+policy%22+OR+%22harm+reduction%22)+filetype:pdf\");",
       "explanation": "",
       "difficulty": "intermediate",
       "sourceFile": "tools/bookmarklets.md",
@@ -31784,7 +31914,7 @@
       "id": "bookmarklets-ndarc-research",
       "title": "NDARC Research",
       "category": "\udccb Ready-to-Use Bookmarklets",
-      "query": "javascript: void (location.href =\r\n  \"https://www.google.com/search?q=site:ndarc.med.unsw.edu.au+filetype:pdf\");",
+      "query": "javascript: void (location.href =\n  \"https://www.google.com/search?q=site:ndarc.med.unsw.edu.au+filetype:pdf\");",
       "explanation": "",
       "difficulty": "intermediate",
       "sourceFile": "tools/bookmarklets.md",
@@ -31809,7 +31939,7 @@
       "id": "bookmarklets-peer-organisation-resources",
       "title": "Peer Organisation Resources",
       "category": "\udccb Ready-to-Use Bookmarklets",
-      "query": "javascript: void (location.href =\r\n  \"https://www.google.com/search?q=(site:nuaa.org.au+OR+site:aivl.org.au+OR+site:hrvic.org.au)+filetype:pdf\");",
+      "query": "javascript: void (location.href =\n  \"https://www.google.com/search?q=(site:nuaa.org.au+OR+site:aivl.org.au+OR+site:hrvic.org.au)+filetype:pdf\");",
       "explanation": "",
       "difficulty": "intermediate",
       "sourceFile": "tools/bookmarklets.md",
@@ -31850,7 +31980,7 @@
       "id": "bookmarklets-example-building-your-own",
       "title": "Example: Building Your Own",
       "category": "\udfaf Creating Custom Bookmarklets",
-      "query": "javascript: void (location.href =\r\n  \"https://www.google.com/search?q=site:health.nsw.gov.au+%22naloxone%22+filetype:pdf\");",
+      "query": "javascript: void (location.href =\n  \"https://www.google.com/search?q=site:health.nsw.gov.au+%22naloxone%22+filetype:pdf\");",
       "explanation": "Encoded:",
       "difficulty": "intermediate",
       "sourceFile": "tools/bookmarklets.md",
@@ -31874,7 +32004,7 @@
       "id": "custom-search-core-harm-reduction",
       "title": "Core Harm Reduction",
       "category": "\udccb Recommended Domain Sets",
-      "query": "*.gov.au\r\n*.edu.au\r\nnuaa.org.au\r\naivl.org.au\r\nhrvic.org.au\r\nquihn.org\r\npenington.org.au\r\nburnet.edu.au\r\nndarc.med.unsw.edu.au",
+      "query": "*.gov.au\n*.edu.au\nnuaa.org.au\naivl.org.au\nhrvic.org.au\nquihn.org\npenington.org.au\nburnet.edu.au\nndarc.med.unsw.edu.au",
       "explanation": "",
       "difficulty": "intermediate",
       "sourceFile": "tools/custom-search.md",
@@ -31892,7 +32022,7 @@
       "id": "custom-search-research-focus",
       "title": "Research Focus",
       "category": "\udccb Recommended Domain Sets",
-      "query": "*.edu.au\r\nndarc.med.unsw.edu.au\r\nburnet.edu.au\r\nkirby.unsw.edu.au\r\nturning-point.org.au\r\nnceta.flinders.edu.au\r\nmatildacentre.com.au",
+      "query": "*.edu.au\nndarc.med.unsw.edu.au\nburnet.edu.au\nkirby.unsw.edu.au\nturning-point.org.au\nnceta.flinders.edu.au\nmatildacentre.com.au",
       "explanation": "",
       "difficulty": "intermediate",
       "sourceFile": "tools/custom-search.md",
@@ -31911,7 +32041,7 @@
       "id": "custom-search-policy-focus",
       "title": "Policy Focus",
       "category": "\udccb Recommended Domain Sets",
-      "query": "*.gov.au\r\naph.gov.au\r\nhealth.gov.au\r\naihw.gov.au\r\natoda.org.au\r\nnada.org.au\r\nvaada.org.au",
+      "query": "*.gov.au\naph.gov.au\nhealth.gov.au\naihw.gov.au\natoda.org.au\nnada.org.au\nvaada.org.au",
       "explanation": "",
       "difficulty": "intermediate",
       "sourceFile": "tools/custom-search.md",
@@ -32414,136 +32544,6 @@
       ]
     },
     {
-      "id": "evidence-log-template-research-topic-drug-checking-services-in-australia",
-      "title": "Research Topic: Drug Checking Services in Australia",
-      "category": "Example Filled In",
-      "query": "# International comparisons\r\nsite:emcdda.europa.eu OR site:drugschecking.ca \"drug checking\" filetype:pdf",
-      "explanation": "",
-      "difficulty": "intermediate",
-      "sourceFile": "templates/evidence-log-template.md",
-      "sourceType": "template",
-      "sourceLine": 94,
-      "operators": [
-        "site",
-        "filetype"
-      ],
-      "targetDomains": [
-        "emcdda.europa.eu",
-        "drugschecking.ca"
-      ],
-      "domainCategory": "international",
-      "contentType": "pdf",
-      "tags": [
-        "documents",
-        "research",
-        "services",
-        "international"
-      ]
-    },
-    {
-      "id": "evidence-log-template-search-act-gov-au",
-      "title": "Search act.gov.au",
-      "category": "Reference Table",
-      "query": "site:*.act.gov.au \"drug checking\" after:2025",
-      "explanation": "",
-      "difficulty": "intermediate",
-      "sourceFile": "templates/evidence-log-template.md",
-      "sourceType": "template",
-      "sourceLine": 104,
-      "operators": [
-        "site",
-        "after"
-      ],
-      "targetDomains": [
-        "act.gov.au"
-      ],
-      "domainCategory": "government",
-      "contentType": "any",
-      "tags": [
-        "australia"
-      ]
-    },
-    {
-      "id": "evidence-log-template-search-edu-au",
-      "title": "Search edu.au",
-      "category": "Reference Table",
-      "query": "site:*.edu.au \"drug checking\" evaluation filetype:pdf",
-      "explanation": "",
-      "difficulty": "intermediate",
-      "sourceFile": "templates/evidence-log-template.md",
-      "sourceType": "template",
-      "sourceLine": 105,
-      "operators": [
-        "site",
-        "filetype"
-      ],
-      "targetDomains": [
-        "edu.au"
-      ],
-      "domainCategory": "education",
-      "contentType": "pdf",
-      "tags": [
-        "documents",
-        "australia"
-      ]
-    },
-    {
-      "id": "evidence-log-template-search-aivl-org-au",
-      "title": "Search aivl.org.au",
-      "category": "Reference Table",
-      "query": "site:aivl.org.au \"drug checking\"",
-      "explanation": "",
-      "difficulty": "intermediate",
-      "sourceFile": "templates/evidence-log-template.md",
-      "sourceType": "template",
-      "sourceLine": 106,
-      "operators": [
-        "site"
-      ],
-      "targetDomains": [
-        "aivl.org.au"
-      ],
-      "domainCategory": "ngo",
-      "contentType": "any",
-      "tags": [
-        "australia"
-      ]
-    },
-    {
-      "id": "evidence-log-template-query-4",
-      "title": "Query 4",
-      "category": "Reference Table",
-      "query": "\"drug checking\" \"cost benefit\" Australia",
-      "explanation": "",
-      "difficulty": "intermediate",
-      "sourceFile": "templates/evidence-log-template.md",
-      "sourceType": "template",
-      "sourceLine": 134,
-      "operators": [],
-      "targetDomains": [],
-      "domainCategory": "any",
-      "contentType": "any",
-      "tags": [
-        "australia"
-      ]
-    },
-    {
-      "id": "evidence-log-template-query-5",
-      "title": "Query 5",
-      "category": "Reference Table",
-      "query": "\"drug checking\" Aboriginal OR Indigenous",
-      "explanation": "",
-      "difficulty": "intermediate",
-      "sourceFile": "templates/evidence-log-template.md",
-      "sourceType": "template",
-      "sourceLine": 135,
-      "operators": [],
-      "targetDomains": [],
-      "domainCategory": "any",
-      "contentType": "any",
-      "tags": []
-    },
-    {
       "id": "monitoring-recommended-alerts",
       "title": "Recommended Alerts",
       "category": "\udce7 Google Alerts Setup",
@@ -32597,7 +32597,7 @@
       "id": "monitoring-monthly-deep-dive",
       "title": "Monthly Deep Dive",
       "category": "\udcc5 Manual Monitoring Routines",
-      "query": "site:health.nsw.gov.au filetype:pdf after:[FIRST_OF_MONTH]\r\nsite:parliament.*.gov.au \"drug\" (inquiry OR committee) after:[FIRST_OF_MONTH]",
+      "query": "site:health.nsw.gov.au filetype:pdf after:[FIRST_OF_MONTH]\nsite:parliament.*.gov.au \"drug\" (inquiry OR committee) after:[FIRST_OF_MONTH]",
       "explanation": "",
       "difficulty": "intermediate",
       "sourceFile": "workflows/monitoring.md",
@@ -33637,7 +33637,7 @@
     }
   ],
   "meta": {
-    "buildDate": "2026-02-02T05:55:29.309Z",
+    "buildDate": "2026-02-05T15:42:27.101Z",
     "version": "2.0.0",
     "totalDorks": 1602,
     "sourceFiles": [
@@ -33683,11 +33683,11 @@
       "dork-packs/user-hosted-domains.md",
       "dork-packs/youth.md",
       "resources/cheat-sheet.md",
+      "templates/evidence-log-template.md",
       "tools/bookmarklets.md",
       "tools/custom-search.md",
       "tools/google-alerts.md",
       "tools/search-tweaks.md",
-      "templates/evidence-log-template.md",
       "workflows/monitoring.md",
       "workflows/peer-centered.md",
       "workflows/research-workflow.md",

@@ -81,7 +81,7 @@ Before running a search, ask yourself:
    - Contact the data owner if identifiable
    - Report to [ACSC](https://www.cyber.gov.au/report) (Australia) or equivalent
    - Consider
-     [responsible disclosure](https://www.cyber.gov.au/resources-business-and-government/governance-and-user-education/governance/vulnerability-disclosure)
+     [responsible disclosure](https://www.cyber.gov.au/resources-business-and-government/governance-and-user-education/governance/vulnerability-disclosure-programs-explained)
      pathways
 4. **Do not publicize** until the issue is resolved
 
@@ -186,7 +186,7 @@ For general cybersecurity issues in Australia:
 ## Further Reading
 
 - [OAIC - Privacy Principles](https://www.oaic.gov.au/privacy/australian-privacy-principles)
-- [ACSC - Responsible Disclosure](https://www.cyber.gov.au/resources-business-and-government/governance-and-user-education/governance/vulnerability-disclosure)
+- [ACSC - Responsible Disclosure](https://www.cyber.gov.au/resources-business-and-government/governance-and-user-education/governance/vulnerability-disclosure-programs-explained)
 - [NHMRC - National Statement on Ethical Conduct](https://www.nhmrc.gov.au/about-us/publications/national-statement-ethical-conduct-human-research-2007-updated-2018)
 
 ---

@@ -25,8 +25,7 @@ const lastUpdated = computed(() => {
 });
 
 const buildDate = computed(() => {
-  const metaDate =
-    typeof window !== "undefined" ? window.DORK_META?.buildDate || "" : "";
+  const metaDate = typeof window !== "undefined" ? window.DORK_META?.buildDate || "" : "";
   const rawDate = typeof __BUILD_DATE__ === "undefined" ? metaDate : __BUILD_DATE__;
   if (!rawDate) return "";
   const date = new Date(rawDate);

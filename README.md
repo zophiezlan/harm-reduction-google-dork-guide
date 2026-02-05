@@ -24,12 +24,12 @@
 
 ### By Experience Level
 
-| Level                | Start Here                                                                                                      |
-| :------------------- | :-------------------------------------------------------------------------------------------------------------- |
+| Level                | Start Here                                                                                        |
+| :------------------- | :------------------------------------------------------------------------------------------------ |
 | **Interactive Tool** | [**🕵️‍♂️ Launch Dork Explorer**](docs/explorer.md) - Search & filter the full dork library instantly |
-| **Know the basics?** | [Advanced Operators](docs/03-advanced-operators.md) → [Dork Packs](docs/dork-packs/)                            |
-| **New to dorking?**  | [Quick Start Guide](docs/01-quick-start.md) → [Core Operators](docs/02-core-operators.md)                       |
-| **Power user?**      | [Investigative Searching](docs/dork-packs/investigative.md) → [OSINT Tools](docs/tools/osint.md)                |
+| **Know the basics?** | [Advanced Operators](docs/03-advanced-operators.md) → [Dork Packs](docs/dork-packs/)              |
+| **New to dorking?**  | [Quick Start Guide](docs/01-quick-start.md) → [Core Operators](docs/02-core-operators.md)         |
+| **Power user?**      | [Investigative Searching](docs/dork-packs/investigative.md) → [OSINT Tools](docs/tools/osint.md)  |
 
 ### By Role
 
@@ -150,12 +150,12 @@ Ready-to-use search queries organized by harm reduction task:
 
 ### Interactive Tools
 
-| Tool                                               | Description                      |
-| :------------------------------------------------- | :------------------------------- |
-| [🕵️‍♂️ Dork Explorer](docs/explorer.md) | **NEW!** Interactive search tool |
-| [Bookmarklets](docs/tools/bookmarklets.md)         | One-click searching              |
-| [Custom Search](docs/tools/custom-search.md)       | Build team search engines        |
-| [Google Alerts](docs/tools/google-alerts.md)       | Automated monitoring             |
+| Tool                                         | Description                      |
+| :------------------------------------------- | :------------------------------- |
+| [🕵️‍♂️ Dork Explorer](docs/explorer.md)         | **NEW!** Interactive search tool |
+| [Bookmarklets](docs/tools/bookmarklets.md)   | One-click searching              |
+| [Custom Search](docs/tools/custom-search.md) | Build team search engines        |
+| [Google Alerts](docs/tools/google-alerts.md) | Automated monitoring             |
 
 ### Research Aids
 

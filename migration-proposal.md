@@ -2,39 +2,47 @@
 
 ## Executive Summary
 
-This proposal focuses on **three high-impact improvements** that solve real problems without over-engineering:
+This proposal focuses on **three high-impact improvements** that solve real problems without
+over-engineering:
 
 1. **Structured Pack Metadata** — Replace brittle regex inference with explicit YAML frontmatter
 2. **Variable Templates** — Let users customize queries for their jurisdiction/context
 3. **Multi-Engine Support** — Carefully curated alternative search engines
 
-These changes improve reliability, usability, and flexibility while preserving the excellent existing documentation and Explorer experience.
+These changes improve reliability, usability, and flexibility while preserving the excellent
+existing documentation and Explorer experience.
 
 ---
 
 ## The Problem Today
 
 ### 1. Fragile Data Pipeline
+
 The current `build-dorkbase.js` script (21KB) uses regex to infer metadata from markdown:
 
 ```javascript
 // Current approach: guess difficulty from emoji
-if (heading.includes('🟢')) difficulty = 'beginner';
-if (heading.includes('🟡')) difficulty = 'intermediate';
+if (heading.includes("🟢")) difficulty = "beginner";
+if (heading.includes("🟡")) difficulty = "intermediate";
 // What if someone uses different emoji? Data breaks silently.
 ```
 
 This works until it doesn't. Changes to markdown formatting can silently corrupt the Explorer data.
 
 ### 2. No Query Customization
+
 Every dork is hardcoded. A NSW-focused query like:
+
 ```
 "drug alert" site:health.nsw.gov.au
 ```
+
 Can't be adapted for Victoria without manually creating a duplicate.
 
 ### 3. Google-Only
-Users in organizational contexts may prefer or require alternative engines. The current system offers no choice.
+
+Users in organizational contexts may prefer or require alternative engines. The current system
+offers no choice.
 
 ---
 
@@ -42,9 +50,12 @@ Users in organizational contexts may prefer or require alternative engines. The 
 
 Before diving in, let me be clear about what this proposal **avoids**:
 
-- **No new file format** — We won't create `.dork` files. The existing markdown is excellent documentation. We'll enhance it with structured metadata instead of replacing it.
-- **No complex include system** — The `@include` directive adds tooling complexity for marginal benefit when copy-paste works fine.
-- **No breaking changes** — Everything is additive. The Explorer continues working throughout migration.
+- **No new file format** — We won't create `.dork` files. The existing markdown is excellent
+  documentation. We'll enhance it with structured metadata instead of replacing it.
+- **No complex include system** — The `@include` directive adds tooling complexity for marginal
+  benefit when copy-paste works fine.
+- **No breaking changes** — Everything is additive. The Explorer continues working throughout
+  migration.
 - **No feature creep** — Each proposed feature solves a documented user need, not a theoretical one.
 
 ---
@@ -58,6 +69,7 @@ Before diving in, let me be clear about what this proposal **avoids**:
 **Solution:** Add YAML frontmatter to markdown files.
 
 #### Before (current drug-alerts.md)
+
 ```markdown
 # Drug Alerts & Warnings
 
@@ -67,6 +79,7 @@ Before diving in, let me be clear about what this proposal **avoids**:
 ```
 
 #### After (with frontmatter)
+
 ```markdown
 ---
 id: drug-alerts
@@ -94,12 +107,14 @@ variables:
 ```
 
 #### Implementation
+
 1. Update `build-dorkbase.js` to parse YAML frontmatter (use `gray-matter` package)
 2. Fall back to regex inference when frontmatter is missing (backward compatible)
 3. Add TypeScript types for frontmatter schema
 4. Migrate packs incrementally — no big-bang required
 
 #### Benefits
+
 - Explicit metadata = no silent failures
 - Variables defined per-pack where they make sense
 - Searchable, filterable metadata
@@ -158,11 +173,11 @@ variables:
 
 #### Variable Types (keep simple)
 
-| Type | UI Control | Example |
-|------|------------|---------|
-| `select` | Dropdown | Jurisdiction picker |
-| `text` | Input field | Custom domain |
-| `date` | Date picker | Date range start |
+| Type     | UI Control  | Example             |
+| -------- | ----------- | ------------------- |
+| `select` | Dropdown    | Jurisdiction picker |
+| `text`   | Input field | Custom domain       |
+| `date`   | Date picker | Date range start    |
 
 No complex logic, no conditionals, no computed variables. Just find-and-replace.
 
@@ -176,14 +191,15 @@ No complex logic, no conditionals, no computed variables. Just find-and-replace.
 
 #### Allowed Engines (Curated List)
 
-| Engine | Use Case | Notes |
-|--------|----------|-------|
-| Google | Default | Full operator support |
-| Bing | Corporate environments | Good operator support |
-| DuckDuckGo | Privacy preference | Limited operators |
-| Google Scholar | Academic research | Research packs only |
+| Engine         | Use Case               | Notes                 |
+| -------------- | ---------------------- | --------------------- |
+| Google         | Default                | Full operator support |
+| Bing           | Corporate environments | Good operator support |
+| DuckDuckGo     | Privacy preference     | Limited operators     |
+| Google Scholar | Academic research      | Research packs only   |
 
 **Explicitly Excluded:**
+
 - Shodan, Censys (infrastructure scanning — outside harm reduction scope)
 - Social media search engines (privacy concerns)
 - Any engine that could enable surveillance
@@ -200,14 +216,15 @@ No complex logic, no conditionals, no computed variables. Just find-and-replace.
 
 ```typescript
 const ENGINE_OPERATORS: Record<Engine, Set<string>> = {
-  google: new Set(['site:', 'filetype:', 'inurl:', 'intitle:', 'after:', 'before:', 'OR', '-']),
-  bing: new Set(['site:', 'filetype:', 'inurl:', 'intitle:', 'OR', '-']),
-  duckduckgo: new Set(['site:', 'filetype:', 'OR', '-']),
-  scholar: new Set(['site:', 'filetype:', 'author:', 'OR', '-']),
+  google: new Set(["site:", "filetype:", "inurl:", "intitle:", "after:", "before:", "OR", "-"]),
+  bing: new Set(["site:", "filetype:", "inurl:", "intitle:", "OR", "-"]),
+  duckduckgo: new Set(["site:", "filetype:", "OR", "-"]),
+  scholar: new Set(["site:", "filetype:", "author:", "OR", "-"]),
 };
 ```
 
-When a query uses unsupported operators, show: "⚠️ DuckDuckGo doesn't support `intitle:` — results may differ"
+When a query uses unsupported operators, show: "⚠️ DuckDuckGo doesn't support `intitle:` — results
+may differ"
 
 ---
 
@@ -215,40 +232,46 @@ When a query uses unsupported operators, show: "⚠️ DuckDuckGo doesn't suppor
 
 The `dorkscript-main` tool is interesting, but adopting its format wholesale creates problems:
 
-| Concern | Issue |
-|---------|-------|
-| **Tooling burden** | Need to build and maintain a parser |
-| **Duplication** | Content would exist in both .dork and .md files |
-| **Learning curve** | Contributors must learn new syntax |
+| Concern             | Issue                                                    |
+| ------------------- | -------------------------------------------------------- |
+| **Tooling burden**  | Need to build and maintain a parser                      |
+| **Duplication**     | Content would exist in both .dork and .md files          |
+| **Learning curve**  | Contributors must learn new syntax                       |
 | **Limited benefit** | Variables and metadata can be added to existing markdown |
 
-**Recommendation:** Keep dorkscript-main as a separate CLI tool for power users who want it. Don't make it the source of truth for the Explorer.
+**Recommendation:** Keep dorkscript-main as a separate CLI tool for power users who want it. Don't
+make it the source of truth for the Explorer.
 
-If demand emerges later, we can add `.dork` export from the Explorer — letting users download packs in that format without us maintaining it as a source format.
+If demand emerges later, we can add `.dork` export from the Explorer — letting users download packs
+in that format without us maintaining it as a source format.
 
 ---
 
 ## Migration Path
 
 ### Week 1-2: Foundation
+
 - [ ] Add `gray-matter` dependency
 - [ ] Update `build-dorkbase.js` to parse frontmatter
 - [ ] Define frontmatter TypeScript schema
 - [ ] Add frontmatter to 3-5 high-traffic packs as pilot
 
 ### Week 3-4: Variables
+
 - [ ] Create `useVariables.ts` composable
 - [ ] Add variable UI to DorkCard
 - [ ] Add variables panel to pack view
 - [ ] Update copy/export to apply substitutions
 
 ### Week 5-6: Engines
+
 - [ ] Add engine selector component
 - [ ] Implement URL generation per engine
 - [ ] Add operator compatibility warnings
 - [ ] Update export to respect engine choice
 
 ### Week 7-8: Polish & Migration
+
 - [ ] Add frontmatter to remaining packs
 - [ ] Document variable syntax for contributors
 - [ ] Add validation to build process
@@ -258,12 +281,12 @@ If demand emerges later, we can add `.dork` export from the Explorer — letting
 
 ## Risks & Mitigations
 
-| Risk | Likelihood | Impact | Mitigation |
-|------|------------|--------|------------|
-| Breaking existing build | Low | High | Frontmatter parsing is additive; regex fallback preserved |
-| Variable syntax errors | Medium | Low | Validate at build time; show clear errors |
-| Engine compatibility confusion | Medium | Low | Clear UI warnings; sensible defaults |
-| Scope creep | Medium | Medium | Strict feature freeze after phase 3 |
+| Risk                           | Likelihood | Impact | Mitigation                                                |
+| ------------------------------ | ---------- | ------ | --------------------------------------------------------- |
+| Breaking existing build        | Low        | High   | Frontmatter parsing is additive; regex fallback preserved |
+| Variable syntax errors         | Medium     | Low    | Validate at build time; show clear errors                 |
+| Engine compatibility confusion | Medium     | Low    | Clear UI warnings; sensible defaults                      |
+| Scope creep                    | Medium     | Medium | Strict feature freeze after phase 3                       |
 
 ---
 
@@ -293,27 +316,27 @@ These ideas have merit but are not part of this proposal:
 ```typescript
 interface PackFrontmatter {
   // Required
-  id: string;                    // URL-safe identifier
-  title: string;                 // Human-readable title
+  id: string; // URL-safe identifier
+  title: string; // Human-readable title
 
   // Recommended
-  category?: string;             // e.g., "Core Services", "Evidence"
-  difficulty?: 'beginner' | 'intermediate' | 'advanced' | 'mixed';
-  domains?: string[];            // e.g., ["government", "health"]
-  tags?: string[];               // Searchable keywords
+  category?: string; // e.g., "Core Services", "Evidence"
+  difficulty?: "beginner" | "intermediate" | "advanced" | "mixed";
+  domains?: string[]; // e.g., ["government", "health"]
+  tags?: string[]; // Searchable keywords
 
   // Optional
-  audience?: string[];           // Who this pack is for
-  icon?: string;                 // Emoji for display
-  sortOrder?: number;            // Display ordering
-  relatedPacks?: string[];       // Pack IDs for cross-linking
+  audience?: string[]; // Who this pack is for
+  icon?: string; // Emoji for display
+  sortOrder?: number; // Display ordering
+  relatedPacks?: string[]; // Pack IDs for cross-linking
 
   // Variables (optional)
   variables?: Array<{
-    name: string;                // e.g., "JURISDICTION"
-    description?: string;        // Help text
-    default?: string;            // Default value
-    options?: string[];          // For select-type variables
+    name: string; // e.g., "JURISDICTION"
+    description?: string; // Help text
+    default?: string; // Default value
+    options?: string[]; // For select-type variables
   }>;
 }
 ```
@@ -323,7 +346,8 @@ interface PackFrontmatter {
 ## Appendix B: Variable Syntax Examples
 
 ### In Markdown Source
-```markdown
+
+````markdown
 ---
 variables:
   - name: STATE
@@ -332,21 +356,27 @@ variables:
 ---
 
 ### State Health Alerts
+
 ```txt
 "drug alert" site:health.$STATE.gov.au
 ```
+````
+
 ```
 
 ### In Explorer (after substitution)
 ```
+
 "drug alert" site:health.vic.gov.au
+
 ```
 
 ### Escaping (if needed)
 Use `$$` to output a literal `$`:
 ```
-Price: $$50 site:example.com
-→ Price: $50 site:example.com
+
+Price: $$50 site:example.com → Price: $50 site:example.com
+
 ```
 
 ---
@@ -355,20 +385,17 @@ Price: $$50 site:example.com
 
 ### Current Flow
 ```
-Markdown files
-    ↓ (regex parsing)
-Inferred metadata + queries
-    ↓
-dork-data.json
+
+Markdown files ↓ (regex parsing) Inferred metadata + queries ↓ dork-data.json
+
 ```
 
 ### Proposed Flow
 ```
-Markdown files with frontmatter
-    ↓ (gray-matter + regex fallback)
-Explicit metadata + inferred metadata (merged)
-    ↓ (validation)
-dork-data.json (enhanced schema)
+
+Markdown files with frontmatter ↓ (gray-matter + regex fallback) Explicit metadata + inferred
+metadata (merged) ↓ (validation) dork-data.json (enhanced schema)
+
 ```
 
 ### Validation Rules
@@ -392,3 +419,4 @@ dork-data.json (enhanced schema)
 
 *Proposal drafted: February 2025*
 *Status: Awaiting review*
+```

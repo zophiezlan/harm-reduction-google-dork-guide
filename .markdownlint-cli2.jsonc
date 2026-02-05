@@ -1,3 +1,3 @@
 {
-  "ignores": ["node_modules/**", "archive/**", "plans/**"],
+  "ignores": ["node_modules/**", "archive/**", "plans/**", "migration-proposal.md"],
 }

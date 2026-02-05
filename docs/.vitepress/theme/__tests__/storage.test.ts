@@ -98,15 +98,26 @@ describe("storage utilities", () => {
 
     it("handles storage errors gracefully", () => {
       const consoleSpy = vi.spyOn(console, "warn").mockImplementation(() => {});
-      const originalSetItem = localStorage.setItem;
-      localStorage.setItem = () => {
-        throw new Error("QuotaExceeded");
-      };
+      const originalSetItem = localStorage.setItem.bind(localStorage);
+
+      // Use Object.defineProperty to properly mock localStorage.setItem
+      Object.defineProperty(localStorage, "setItem", {
+        value: () => {
+          throw new Error("QuotaExceeded");
+        },
+        writable: true,
+        configurable: true,
+      });
 
       expect(() => setStorageItem("test", { value: 123 })).not.toThrow();
       expect(consoleSpy).toHaveBeenCalled();
 
-      localStorage.setItem = originalSetItem;
+      // Restore original setItem
+      Object.defineProperty(localStorage, "setItem", {
+        value: originalSetItem,
+        writable: true,
+        configurable: true,
+      });
     });
   });
 

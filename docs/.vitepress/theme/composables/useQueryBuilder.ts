@@ -212,7 +212,8 @@ export function useQueryBuilder() {
     const operatorStripRegex = new RegExp(`\\b(?:${operatorList}):[^\\s]+`, "gi");
 
     const readOperatorValue = (operator: string) => {
-      const regex = new RegExp(`${operator}:([^\n]+?)(?=\s+\w+:|$)`, "i");
+      // Match operator value - stops at whitespace (for simple values like inurl:report)
+      const regex = new RegExp(`${operator}:([^\\s]+)`, "i");
       const match = query.match(regex);
       return match ? match[1].trim() : null;
     };

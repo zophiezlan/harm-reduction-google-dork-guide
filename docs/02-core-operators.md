@@ -472,19 +472,19 @@ Try building these searches yourself:
 <details>
 <summary>Click for answers</summary>
 
-1.
+1. Search for drug checking research:
 
 ```txt
 site:*.edu.au filetype:pdf "drug checking" after:2022
 ```
 
-2.
+1. Search for harm reduction pages:
 
 ```txt
 site:health.nsw.gov.au intitle:"harm reduction"
 ```
 
-3.
+1. Search for peer worker training:
 
 ```txt
 site:*.org.au "peer worker" training filetype:pdf -jobs -careers

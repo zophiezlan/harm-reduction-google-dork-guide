@@ -446,31 +446,31 @@ site:web.archive.org/web/*/aivl.org.au "strategic plan"
 
 ## 📋 Quick Copy Document Patterns
 
-### Strategic Documents
+### Strategic Document Patterns
 
 ```txt
 ("annual report" OR "strategic plan" OR "corporate plan") filetype:pdf
 ```
 
-### Governance Documents
+### Governance Document Patterns
 
 ```txt
 ("constitution" OR "governance" OR "board" OR "terms of reference")
 ```
 
-### Funding Documents
+### Funding Document Patterns
 
 ```txt
 ("tender" OR "grant" OR "funding" OR "expression of interest" OR EOI)
 ```
 
-### Workforce Documents
+### Workforce Document Patterns
 
 ```txt
 ("position description" OR "job description" OR "workforce" OR "staffing")
 ```
 
-### Evaluation Documents
+### Evaluation Document Patterns
 
 ```txt
 ("evaluation" OR "review" OR "assessment" OR "audit")
