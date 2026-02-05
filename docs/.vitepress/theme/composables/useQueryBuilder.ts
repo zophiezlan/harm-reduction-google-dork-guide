@@ -32,11 +32,32 @@ export type BlockType =
   | "exact"
   | "wildcard";
 
+// Type-safe options for different block types
+export interface BlockOptions {
+  // site
+  wildcard?: boolean;
+  // keyword
+  useSynonyms?: boolean;
+  exact?: boolean;
+  // date
+  type?: "after" | "before";
+  // imagesize
+  width?: string;
+  height?: string;
+  // daterange
+  start?: string;
+  end?: string;
+  // around
+  termA?: string;
+  termB?: string;
+  distance?: number;
+}
+
 export interface QueryBlock {
   id: string;
   type: BlockType;
   value: string;
-  options: Record<string, any>;
+  options: BlockOptions;
 }
 
 interface BuilderState {
@@ -157,8 +178,8 @@ export function useQueryBuilder() {
       .join(" ");
   });
 
-  function addBlock(type: BlockType, value = "", options: Record<string, any> = {}) {
-    const defaults: Record<string, any> = {};
+  function addBlock(type: BlockType, value = "", options: BlockOptions = {}) {
+    const defaults: BlockOptions = {};
     if (type === "around") defaults.distance = 5;
     if (type === "date") defaults.type = "after";
     if (type === "exclude") defaults.exact = false;
@@ -212,9 +233,13 @@ export function useQueryBuilder() {
     const operatorStripRegex = new RegExp(`\\b(?:${operatorList}):[^\\s]+`, "gi");
 
     const readOperatorValue = (operator: string) => {
-      const regex = new RegExp(`${operator}:([^\n]+?)(?=\s+\w+:|$)`, "i");
+      // Match operator value: either a quoted string or non-whitespace characters
+      const regex = new RegExp(`${operator}:("[^"]*"|[^\\s]+)`, "i");
       const match = query.match(regex);
-      return match ? match[1].trim() : null;
+      if (!match) return null;
+      const value = match[1].trim();
+      // Remove surrounding quotes if present
+      return value.startsWith('"') && value.endsWith('"') ? value.slice(1, -1) : value;
     };
 
     // Parse site:

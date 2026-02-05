@@ -27,7 +27,7 @@ const emit = defineEmits<{
     <button
       :class="['quick-filter', { active: quickFilters.auSites }]"
       @click="emit('toggle-quick-filter', 'auSites')"
-      :aria-pressed="quickFilters.auSites.toString()"
+      :aria-pressed="quickFilters.auSites"
     >
       <span aria-hidden="true">🇦🇺</span>
       <span class="filter-text">Australian Sites</span>
@@ -35,7 +35,7 @@ const emit = defineEmits<{
     <button
       :class="['quick-filter', { active: quickFilters.pdfs }]"
       @click="emit('toggle-quick-filter', 'pdfs')"
-      :aria-pressed="quickFilters.pdfs.toString()"
+      :aria-pressed="quickFilters.pdfs"
     >
       <span aria-hidden="true">📄</span>
       <span class="filter-text">PDFs Only</span>
@@ -43,7 +43,7 @@ const emit = defineEmits<{
     <button
       :class="['quick-filter', { active: quickFilters.government }]"
       @click="emit('toggle-quick-filter', 'government')"
-      :aria-pressed="quickFilters.government.toString()"
+      :aria-pressed="quickFilters.government"
     >
       <span aria-hidden="true">🏛️</span>
       <span class="filter-text">Government</span>
@@ -51,7 +51,7 @@ const emit = defineEmits<{
     <button
       :class="['quick-filter', { active: quickFilters.recent }]"
       @click="emit('toggle-quick-filter', 'recent')"
-      :aria-pressed="quickFilters.recent.toString()"
+      :aria-pressed="quickFilters.recent"
     >
       <span aria-hidden="true">📅</span>
       <span class="filter-text">Date Filtered</span>
@@ -59,7 +59,7 @@ const emit = defineEmits<{
     <button
       :class="['quick-filter', { active: quickFilters.userHosted }]"
       @click="emit('toggle-quick-filter', 'userHosted')"
-      :aria-pressed="quickFilters.userHosted.toString()"
+      :aria-pressed="quickFilters.userHosted"
     >
       <span aria-hidden="true">🌐</span>
       <span class="filter-text">User Platforms</span>
@@ -67,7 +67,7 @@ const emit = defineEmits<{
     <button
       :class="['quick-filter favorites-filter', { active: showFavoritesOnly }]"
       @click="emit('toggle-favorites')"
-      :aria-pressed="showFavoritesOnly.toString()"
+      :aria-pressed="showFavoritesOnly"
     >
       <span aria-hidden="true">★</span>
       <span class="filter-text">Favorites ({{ favoritesCount }})</span>

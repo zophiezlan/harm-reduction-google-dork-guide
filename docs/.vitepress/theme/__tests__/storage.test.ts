@@ -98,15 +98,24 @@ describe("storage utilities", () => {
 
     it("handles storage errors gracefully", () => {
       const consoleSpy = vi.spyOn(console, "warn").mockImplementation(() => {});
-      const originalSetItem = localStorage.setItem;
-      localStorage.setItem = () => {
-        throw new Error("QuotaExceeded");
+      // Create a mock storage that throws on setItem
+      const mockStorage = {
+        getItem: vi.fn(),
+        setItem: vi.fn(() => {
+          throw new Error("QuotaExceeded");
+        }),
+        removeItem: vi.fn(),
+        clear: vi.fn(),
+        key: vi.fn(),
+        length: 0,
       };
+      vi.stubGlobal("localStorage", mockStorage);
 
       expect(() => setStorageItem("test", { value: 123 })).not.toThrow();
       expect(consoleSpy).toHaveBeenCalled();
 
-      localStorage.setItem = originalSetItem;
+      vi.unstubAllGlobals();
+      consoleSpy.mockRestore();
     });
   });
 

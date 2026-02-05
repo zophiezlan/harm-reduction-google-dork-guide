@@ -31229,6 +31229,136 @@
       ]
     },
     {
+      "id": "evidence-log-template-research-topic-drug-checking-services-in-australia",
+      "title": "Research Topic: Drug Checking Services in Australia",
+      "category": "Example Filled In",
+      "query": "# International comparisons\r\nsite:emcdda.europa.eu OR site:drugschecking.ca \"drug checking\" filetype:pdf",
+      "explanation": "",
+      "difficulty": "intermediate",
+      "sourceFile": "templates/evidence-log-template.md",
+      "sourceType": "template",
+      "sourceLine": 94,
+      "operators": [
+        "site",
+        "filetype"
+      ],
+      "targetDomains": [
+        "emcdda.europa.eu",
+        "drugschecking.ca"
+      ],
+      "domainCategory": "international",
+      "contentType": "pdf",
+      "tags": [
+        "documents",
+        "research",
+        "services",
+        "international"
+      ]
+    },
+    {
+      "id": "evidence-log-template-search-act-gov-au",
+      "title": "Search act.gov.au",
+      "category": "Reference Table",
+      "query": "site:*.act.gov.au \"drug checking\" after:2025",
+      "explanation": "",
+      "difficulty": "intermediate",
+      "sourceFile": "templates/evidence-log-template.md",
+      "sourceType": "template",
+      "sourceLine": 104,
+      "operators": [
+        "site",
+        "after"
+      ],
+      "targetDomains": [
+        "act.gov.au"
+      ],
+      "domainCategory": "government",
+      "contentType": "any",
+      "tags": [
+        "australia"
+      ]
+    },
+    {
+      "id": "evidence-log-template-search-edu-au",
+      "title": "Search edu.au",
+      "category": "Reference Table",
+      "query": "site:*.edu.au \"drug checking\" evaluation filetype:pdf",
+      "explanation": "",
+      "difficulty": "intermediate",
+      "sourceFile": "templates/evidence-log-template.md",
+      "sourceType": "template",
+      "sourceLine": 105,
+      "operators": [
+        "site",
+        "filetype"
+      ],
+      "targetDomains": [
+        "edu.au"
+      ],
+      "domainCategory": "education",
+      "contentType": "pdf",
+      "tags": [
+        "documents",
+        "australia"
+      ]
+    },
+    {
+      "id": "evidence-log-template-search-aivl-org-au",
+      "title": "Search aivl.org.au",
+      "category": "Reference Table",
+      "query": "site:aivl.org.au \"drug checking\"",
+      "explanation": "",
+      "difficulty": "intermediate",
+      "sourceFile": "templates/evidence-log-template.md",
+      "sourceType": "template",
+      "sourceLine": 106,
+      "operators": [
+        "site"
+      ],
+      "targetDomains": [
+        "aivl.org.au"
+      ],
+      "domainCategory": "ngo",
+      "contentType": "any",
+      "tags": [
+        "australia"
+      ]
+    },
+    {
+      "id": "evidence-log-template-query-4",
+      "title": "Query 4",
+      "category": "Reference Table",
+      "query": "\"drug checking\" \"cost benefit\" Australia",
+      "explanation": "",
+      "difficulty": "intermediate",
+      "sourceFile": "templates/evidence-log-template.md",
+      "sourceType": "template",
+      "sourceLine": 134,
+      "operators": [],
+      "targetDomains": [],
+      "domainCategory": "any",
+      "contentType": "any",
+      "tags": [
+        "australia"
+      ]
+    },
+    {
+      "id": "evidence-log-template-query-5",
+      "title": "Query 5",
+      "category": "Reference Table",
+      "query": "\"drug checking\" Aboriginal OR Indigenous",
+      "explanation": "",
+      "difficulty": "intermediate",
+      "sourceFile": "templates/evidence-log-template.md",
+      "sourceType": "template",
+      "sourceLine": 135,
+      "operators": [],
+      "targetDomains": [],
+      "domainCategory": "any",
+      "contentType": "any",
+      "tags": []
+    },
+    {
       "id": "cheat-sheet-1-recent-government-harm-reduction-docs",
       "title": "1. Recent Government Harm Reduction Docs",
       "category": "\udfaf Top 10 Most Useful Dorks",
@@ -31656,892 +31786,6 @@
         "alerts",
         "australia"
       ]
-    },
-    {
-      "id": "bookmarklets-nsw-health-alerts",
-      "title": "NSW Health Alerts",
-      "category": "\udccb Ready-to-Use Bookmarklets",
-      "query": "javascript: void (location.href =\r\n  \"https://www.google.com/search?q=site:health.nsw.gov.au+(intitle:%22drug+alert%22+OR+intitle:%22health+alert%22)\");",
-      "explanation": "",
-      "difficulty": "intermediate",
-      "sourceFile": "tools/bookmarklets.md",
-      "sourceType": "tool",
-      "sourceLine": 20,
-      "operators": [
-        "site",
-        "intitle"
-      ],
-      "targetDomains": [
-        "health.nsw.gov.au+"
-      ],
-      "domainCategory": "government",
-      "contentType": "any",
-      "tags": [
-        "alerts",
-        "australia"
-      ]
-    },
-    {
-      "id": "bookmarklets-recent-australian-harm-reduction-pdfs",
-      "title": "Recent Australian Harm Reduction PDFs",
-      "category": "\udccb Ready-to-Use Bookmarklets",
-      "query": "javascript: void (location.href =\r\n  \"https://www.google.com/search?q=site:*.gov.au+filetype:pdf+(%22harm+reduction%22+OR+%22harm+minimisation%22)+after:2024-01-01\");",
-      "explanation": "",
-      "difficulty": "intermediate",
-      "sourceFile": "tools/bookmarklets.md",
-      "sourceType": "tool",
-      "sourceLine": 27,
-      "operators": [
-        "site",
-        "filetype",
-        "after"
-      ],
-      "targetDomains": [
-        "gov.au+filetype:pdf+"
-      ],
-      "domainCategory": "government",
-      "contentType": "pdf",
-      "tags": [
-        "documents",
-        "australia"
-      ]
-    },
-    {
-      "id": "bookmarklets-australian-drug-checking-research",
-      "title": "Australian Drug Checking Research",
-      "category": "\udccb Ready-to-Use Bookmarklets",
-      "query": "javascript: void (location.href =\r\n  \"https://www.google.com/search?q=site:*.edu.au+%22drug+checking%22+OR+%22pill+testing%22+filetype:pdf+after:2020\");",
-      "explanation": "",
-      "difficulty": "intermediate",
-      "sourceFile": "tools/bookmarklets.md",
-      "sourceType": "tool",
-      "sourceLine": 34,
-      "operators": [
-        "site",
-        "filetype",
-        "after"
-      ],
-      "targetDomains": [
-        "edu.au+%22drug+checking%22+OR+%22pill+testing%22+filetype:pdf+after:2020"
-      ],
-      "domainCategory": "education",
-      "contentType": "pdf",
-      "tags": [
-        "documents",
-        "research",
-        "australia"
-      ]
-    },
-    {
-      "id": "bookmarklets-peer-worker-training-resources",
-      "title": "Peer Worker Training Resources",
-      "category": "\udccb Ready-to-Use Bookmarklets",
-      "query": "javascript: void (location.href =\r\n  \"https://www.google.com/search?q=%22peer+worker%22+(%22training%22+OR+%22supervision%22)+filetype:pdf+-jobs+-careers\");",
-      "explanation": "",
-      "difficulty": "intermediate",
-      "sourceFile": "tools/bookmarklets.md",
-      "sourceType": "tool",
-      "sourceLine": 41,
-      "operators": [
-        "filetype"
-      ],
-      "targetDomains": [],
-      "domainCategory": "any",
-      "contentType": "pdf",
-      "tags": [
-        "documents",
-        "peer",
-        "training"
-      ]
-    },
-    {
-      "id": "bookmarklets-parliamentary-drug-policy-submissions",
-      "title": "Parliamentary Drug Policy Submissions",
-      "category": "\udccb Ready-to-Use Bookmarklets",
-      "query": "javascript: void (location.href =\r\n  \"https://www.google.com/search?q=site:*.gov.au+inurl:submissions+(%22drug+policy%22+OR+%22harm+reduction%22)+filetype:pdf\");",
-      "explanation": "",
-      "difficulty": "intermediate",
-      "sourceFile": "tools/bookmarklets.md",
-      "sourceType": "tool",
-      "sourceLine": 48,
-      "operators": [
-        "site",
-        "filetype",
-        "inurl"
-      ],
-      "targetDomains": [
-        "gov.au+inurl:submissions+"
-      ],
-      "domainCategory": "government",
-      "contentType": "pdf",
-      "tags": [
-        "documents",
-        "policy",
-        "australia"
-      ]
-    },
-    {
-      "id": "bookmarklets-ndarc-research",
-      "title": "NDARC Research",
-      "category": "\udccb Ready-to-Use Bookmarklets",
-      "query": "javascript: void (location.href =\r\n  \"https://www.google.com/search?q=site:ndarc.med.unsw.edu.au+filetype:pdf\");",
-      "explanation": "",
-      "difficulty": "intermediate",
-      "sourceFile": "tools/bookmarklets.md",
-      "sourceType": "tool",
-      "sourceLine": 55,
-      "operators": [
-        "site",
-        "filetype"
-      ],
-      "targetDomains": [
-        "ndarc.med.unsw.edu.au+filetype:pdf"
-      ],
-      "domainCategory": "education",
-      "contentType": "pdf",
-      "tags": [
-        "documents",
-        "research",
-        "australia"
-      ]
-    },
-    {
-      "id": "bookmarklets-peer-organisation-resources",
-      "title": "Peer Organisation Resources",
-      "category": "\udccb Ready-to-Use Bookmarklets",
-      "query": "javascript: void (location.href =\r\n  \"https://www.google.com/search?q=(site:nuaa.org.au+OR+site:aivl.org.au+OR+site:hrvic.org.au)+filetype:pdf\");",
-      "explanation": "",
-      "difficulty": "intermediate",
-      "sourceFile": "tools/bookmarklets.md",
-      "sourceType": "tool",
-      "sourceLine": 62,
-      "operators": [
-        "site",
-        "filetype"
-      ],
-      "targetDomains": [
-        "nuaa.org.au+OR+site:aivl.org.au+OR+site:hrvic.org.au"
-      ],
-      "domainCategory": "ngo",
-      "contentType": "pdf",
-      "tags": [
-        "documents",
-        "peer",
-        "australia"
-      ]
-    },
-    {
-      "id": "bookmarklets-template",
-      "title": "Template",
-      "category": "\udfaf Creating Custom Bookmarklets",
-      "query": "javascript: void (location.href = \"https://www.google.com/search?q=[YOUR_ENCODED_QUERY]\");",
-      "explanation": "",
-      "difficulty": "intermediate",
-      "sourceFile": "tools/bookmarklets.md",
-      "sourceType": "tool",
-      "sourceLine": 73,
-      "operators": [],
-      "targetDomains": [],
-      "domainCategory": "any",
-      "contentType": "any",
-      "tags": []
-    },
-    {
-      "id": "bookmarklets-example-building-your-own",
-      "title": "Example: Building Your Own",
-      "category": "\udfaf Creating Custom Bookmarklets",
-      "query": "javascript: void (location.href =\r\n  \"https://www.google.com/search?q=site:health.nsw.gov.au+%22naloxone%22+filetype:pdf\");",
-      "explanation": "Encoded:",
-      "difficulty": "intermediate",
-      "sourceFile": "tools/bookmarklets.md",
-      "sourceType": "tool",
-      "sourceLine": 91,
-      "operators": [
-        "site",
-        "filetype"
-      ],
-      "targetDomains": [
-        "health.nsw.gov.au+%22naloxone%22+filetype:pdf"
-      ],
-      "domainCategory": "government",
-      "contentType": "pdf",
-      "tags": [
-        "documents",
-        "australia"
-      ]
-    },
-    {
-      "id": "custom-search-core-harm-reduction",
-      "title": "Core Harm Reduction",
-      "category": "\udccb Recommended Domain Sets",
-      "query": "*.gov.au\r\n*.edu.au\r\nnuaa.org.au\r\naivl.org.au\r\nhrvic.org.au\r\nquihn.org\r\npenington.org.au\r\nburnet.edu.au\r\nndarc.med.unsw.edu.au",
-      "explanation": "",
-      "difficulty": "intermediate",
-      "sourceFile": "tools/custom-search.md",
-      "sourceType": "tool",
-      "sourceLine": 70,
-      "operators": [],
-      "targetDomains": [],
-      "domainCategory": "government",
-      "contentType": "any",
-      "tags": [
-        "australia"
-      ]
-    },
-    {
-      "id": "custom-search-research-focus",
-      "title": "Research Focus",
-      "category": "\udccb Recommended Domain Sets",
-      "query": "*.edu.au\r\nndarc.med.unsw.edu.au\r\nburnet.edu.au\r\nkirby.unsw.edu.au\r\nturning-point.org.au\r\nnceta.flinders.edu.au\r\nmatildacentre.com.au",
-      "explanation": "",
-      "difficulty": "intermediate",
-      "sourceFile": "tools/custom-search.md",
-      "sourceType": "tool",
-      "sourceLine": 84,
-      "operators": [],
-      "targetDomains": [],
-      "domainCategory": "education",
-      "contentType": "any",
-      "tags": [
-        "research",
-        "australia"
-      ]
-    },
-    {
-      "id": "custom-search-policy-focus",
-      "title": "Policy Focus",
-      "category": "\udccb Recommended Domain Sets",
-      "query": "*.gov.au\r\naph.gov.au\r\nhealth.gov.au\r\naihw.gov.au\r\natoda.org.au\r\nnada.org.au\r\nvaada.org.au",
-      "explanation": "",
-      "difficulty": "intermediate",
-      "sourceFile": "tools/custom-search.md",
-      "sourceType": "tool",
-      "sourceLine": 96,
-      "operators": [],
-      "targetDomains": [],
-      "domainCategory": "government",
-      "contentType": "any",
-      "tags": [
-        "policy",
-        "australia"
-      ]
-    },
-    {
-      "id": "google-alerts-step-2-enter-your-query",
-      "title": "Step 2: Enter Your Query",
-      "category": "\udd27 Setup Guide",
-      "query": "site:*.health.*.gov.au (\"drug alert\" OR \"drug warning\")",
-      "explanation": "",
-      "difficulty": "intermediate",
-      "sourceFile": "tools/google-alerts.md",
-      "sourceType": "tool",
-      "sourceLine": 15,
-      "operators": [
-        "site"
-      ],
-      "targetDomains": [
-        "health.*.gov.au"
-      ],
-      "domainCategory": "government",
-      "contentType": "any",
-      "tags": [
-        "alerts",
-        "australia"
-      ]
-    },
-    {
-      "id": "google-alerts-priority-drug-alerts-as-it-happens",
-      "title": "Priority: Drug Alerts (As-it-happens)",
-      "category": "\udccb Recommended Alerts",
-      "query": "site:*.health.*.gov.au (\"drug alert\" OR \"drug warning\" OR \"drug notification\")",
-      "explanation": "**Why:** Immediate notification of health warnings.",
-      "difficulty": "intermediate",
-      "sourceFile": "tools/google-alerts.md",
-      "sourceType": "tool",
-      "sourceLine": 40,
-      "operators": [
-        "site"
-      ],
-      "targetDomains": [
-        "health.*.gov.au"
-      ],
-      "domainCategory": "government",
-      "contentType": "any",
-      "tags": [
-        "alerts",
-        "australia"
-      ]
-    },
-    {
-      "id": "google-alerts-daily-drug-checking-news",
-      "title": "Daily: Drug Checking News",
-      "category": "\udccb Recommended Alerts",
-      "query": "\"drug checking\" OR \"pill testing\" (Australia OR NSW OR VIC) -jobs",
-      "explanation": "**Why:** Stay current on drug checking developments.",
-      "difficulty": "intermediate",
-      "sourceFile": "tools/google-alerts.md",
-      "sourceType": "tool",
-      "sourceLine": 51,
-      "operators": [],
-      "targetDomains": [],
-      "domainCategory": "any",
-      "contentType": "any",
-      "tags": [
-        "australia"
-      ]
-    },
-    {
-      "id": "google-alerts-weekly-policy-consultations",
-      "title": "Weekly: Policy Consultations",
-      "category": "\udccb Recommended Alerts",
-      "query": "site:*.gov.au (\"consultation\" OR \"call for submissions\") (\"harm reduction\" OR \"drug policy\")",
-      "explanation": "**Why:** Don't miss consultation deadlines.",
-      "difficulty": "intermediate",
-      "sourceFile": "tools/google-alerts.md",
-      "sourceType": "tool",
-      "sourceLine": 59,
-      "operators": [
-        "site"
-      ],
-      "targetDomains": [
-        "gov.au"
-      ],
-      "domainCategory": "government",
-      "contentType": "any",
-      "tags": [
-        "policy",
-        "australia"
-      ]
-    },
-    {
-      "id": "google-alerts-weekly-research-updates",
-      "title": "Weekly: Research Updates",
-      "category": "\udccb Recommended Alerts",
-      "query": "site:ndarc.med.unsw.edu.au OR site:burnet.edu.au \"harm reduction\" OR naloxone",
-      "explanation": "**Why:** Track new research from key institutions.",
-      "difficulty": "intermediate",
-      "sourceFile": "tools/google-alerts.md",
-      "sourceType": "tool",
-      "sourceLine": 67,
-      "operators": [
-        "site"
-      ],
-      "targetDomains": [
-        "ndarc.med.unsw.edu.au",
-        "burnet.edu.au"
-      ],
-      "domainCategory": "education",
-      "contentType": "any",
-      "tags": [
-        "research",
-        "australia"
-      ]
-    },
-    {
-      "id": "google-alerts-weekly-parliamentary-inquiries",
-      "title": "Weekly: Parliamentary Inquiries",
-      "category": "\udccb Recommended Alerts",
-      "query": "site:aph.gov.au OR site:parliament.*.gov.au (inquiry OR committee) (drug OR \"harm reduction\")",
-      "explanation": "**Why:** Monitor parliamentary activity.",
-      "difficulty": "intermediate",
-      "sourceFile": "tools/google-alerts.md",
-      "sourceType": "tool",
-      "sourceLine": 75,
-      "operators": [
-        "site"
-      ],
-      "targetDomains": [
-        "aph.gov.au",
-        "parliament.*.gov.au"
-      ],
-      "domainCategory": "government",
-      "contentType": "any",
-      "tags": [
-        "australia"
-      ]
-    },
-    {
-      "id": "google-alerts-novel-substances",
-      "title": "Novel Substances",
-      "category": "\udfaf Topic-Specific Alerts",
-      "query": "(\"nitazene\" OR \"benzimidazole opioid\" OR \"xylazine\") Australia",
-      "explanation": "",
-      "difficulty": "intermediate",
-      "sourceFile": "tools/google-alerts.md",
-      "sourceType": "tool",
-      "sourceLine": 87,
-      "operators": [],
-      "targetDomains": [],
-      "domainCategory": "any",
-      "contentType": "any",
-      "tags": [
-        "australia"
-      ]
-    },
-    {
-      "id": "google-alerts-naloxone-programs",
-      "title": "Naloxone Programs",
-      "category": "\udfaf Topic-Specific Alerts",
-      "query": "\"take-home naloxone\" OR \"THN\" (Australia OR NSW OR VIC) (program OR expansion)",
-      "explanation": "",
-      "difficulty": "intermediate",
-      "sourceFile": "tools/google-alerts.md",
-      "sourceType": "tool",
-      "sourceLine": 93,
-      "operators": [],
-      "targetDomains": [],
-      "domainCategory": "any",
-      "contentType": "any",
-      "tags": [
-        "services",
-        "australia"
-      ]
-    },
-    {
-      "id": "google-alerts-peer-workforce",
-      "title": "Peer Workforce",
-      "category": "\udfaf Topic-Specific Alerts",
-      "query": "\"peer worker\" OR \"lived experience worker\" (AOD OR \"harm reduction\") Australia -jobs",
-      "explanation": "",
-      "difficulty": "intermediate",
-      "sourceFile": "tools/google-alerts.md",
-      "sourceType": "tool",
-      "sourceLine": 99,
-      "operators": [],
-      "targetDomains": [],
-      "domainCategory": "any",
-      "contentType": "any",
-      "tags": [
-        "peer",
-        "training",
-        "australia"
-      ]
-    },
-    {
-      "id": "google-alerts-specific-state-e-g-nsw",
-      "title": "Specific State (e.g., NSW)",
-      "category": "\udfaf Topic-Specific Alerts",
-      "query": "site:*.nsw.gov.au \"harm reduction\" OR \"drug policy\" OR \"drug alert\"",
-      "explanation": "",
-      "difficulty": "intermediate",
-      "sourceFile": "tools/google-alerts.md",
-      "sourceType": "tool",
-      "sourceLine": 105,
-      "operators": [
-        "site"
-      ],
-      "targetDomains": [
-        "nsw.gov.au"
-      ],
-      "domainCategory": "government",
-      "contentType": "any",
-      "tags": [
-        "alerts",
-        "policy",
-        "australia"
-      ]
-    },
-    {
-      "id": "google-alerts-tip-1-use-specific-queries",
-      "title": "Tip 1: Use Specific Queries",
-      "category": "\udca1 Tips",
-      "query": "site:*.gov.au \"drug alert\" OR \"drug warning\"",
-      "explanation": "**Better:**",
-      "difficulty": "intermediate",
-      "sourceFile": "tools/google-alerts.md",
-      "sourceType": "tool",
-      "sourceLine": 118,
-      "operators": [
-        "site"
-      ],
-      "targetDomains": [
-        "gov.au"
-      ],
-      "domainCategory": "government",
-      "contentType": "any",
-      "tags": [
-        "alerts",
-        "australia"
-      ]
-    },
-    {
-      "id": "google-alerts-tip-2-combine-with-exclusions",
-      "title": "Tip 2: Combine with Exclusions",
-      "category": "\udca1 Tips",
-      "query": "\"peer worker\" training Australia -jobs -careers -vacancy",
-      "explanation": "",
-      "difficulty": "intermediate",
-      "sourceFile": "tools/google-alerts.md",
-      "sourceType": "tool",
-      "sourceLine": 134,
-      "operators": [],
-      "targetDomains": [],
-      "domainCategory": "any",
-      "contentType": "any",
-      "tags": [
-        "peer",
-        "training",
-        "australia"
-      ]
-    },
-    {
-      "id": "search-tweaks-the-standard-cleaner-block",
-      "title": "The Standard Cleaner Block",
-      "category": "🧹 The \"Clean Search\" Filter (Clutter Removal)",
-      "query": "-site:rehabs.com -site:addictioncenter.com -site:recovery.org -site:drugabuse.com -site:treatment-centers.net -site:projectknow.com -site:americanaddictioncenters.org",
-      "explanation": "",
-      "difficulty": "intermediate",
-      "sourceFile": "tools/search-tweaks.md",
-      "sourceType": "tool",
-      "sourceLine": 18,
-      "operators": [
-        "site"
-      ],
-      "targetDomains": [
-        "rehabs.com",
-        "addictioncenter.com",
-        "recovery.org",
-        "drugabuse.com",
-        "treatment-centers.net",
-        "projectknow.com",
-        "americanaddictioncenters.org"
-      ],
-      "domainCategory": "any",
-      "contentType": "any",
-      "tags": []
-    },
-    {
-      "id": "search-tweaks-the-sales-cleaner",
-      "title": "The \"Sales\" Cleaner",
-      "category": "🧹 The \"Clean Search\" Filter (Clutter Removal)",
-      "query": "-pricing -buy -shop -cart -checkout -\"call now\" -\"insurance accepted\"",
-      "explanation": "",
-      "difficulty": "intermediate",
-      "sourceFile": "tools/search-tweaks.md",
-      "sourceType": "tool",
-      "sourceLine": 27,
-      "operators": [],
-      "targetDomains": [],
-      "domainCategory": "any",
-      "contentType": "any",
-      "tags": []
-    },
-    {
-      "id": "search-tweaks-example-usage",
-      "title": "Example Usage",
-      "category": "🧹 The \"Clean Search\" Filter (Clutter Removal)",
-      "query": "\"kratom\" withdrawal symptoms -site:rehabs.com -site:addictioncenter.com -pricing -buy",
-      "explanation": "",
-      "difficulty": "intermediate",
-      "sourceFile": "tools/search-tweaks.md",
-      "sourceType": "tool",
-      "sourceLine": 35,
-      "operators": [
-        "site"
-      ],
-      "targetDomains": [
-        "rehabs.com",
-        "addictioncenter.com"
-      ],
-      "domainCategory": "any",
-      "contentType": "any",
-      "tags": []
-    },
-    {
-      "id": "search-tweaks-pattern-1-the-context-anchor",
-      "title": "Pattern 1: The Context Anchor",
-      "category": "⚓ The \"Sinker\" Method (Bias Counteraction)",
-      "query": "\"methamphetamine\" AROUND(20) \"safe smoking\"",
-      "explanation": "",
-      "difficulty": "intermediate",
-      "sourceFile": "tools/search-tweaks.md",
-      "sourceType": "tool",
-      "sourceLine": 56,
-      "operators": [
-        "AROUND"
-      ],
-      "targetDomains": [],
-      "domainCategory": "any",
-      "contentType": "any",
-      "tags": []
-    },
-    {
-      "id": "search-tweaks-pattern-2-the-repetition-weighting",
-      "title": "Pattern 2: The Repetition Weighting",
-      "category": "⚓ The \"Sinker\" Method (Bias Counteraction)",
-      "query": "\"safe supply\" \"safe supply\" \"safe supply\" hydromorphone",
-      "explanation": "",
-      "difficulty": "intermediate",
-      "sourceFile": "tools/search-tweaks.md",
-      "sourceType": "tool",
-      "sourceLine": 72,
-      "operators": [],
-      "targetDomains": [],
-      "domainCategory": "any",
-      "contentType": "any",
-      "tags": []
-    },
-    {
-      "id": "search-tweaks-the-pattern",
-      "title": "The Pattern",
-      "category": "\udd78 The \"Name Net\" (Identity Verification)",
-      "query": "(\"Jane Doe\" OR \"Jane M. Doe\" OR \"J. Doe\" OR \"Doe, Jane\" OR \"Doe, J.\")",
-      "explanation": "",
-      "difficulty": "intermediate",
-      "sourceFile": "tools/search-tweaks.md",
-      "sourceType": "tool",
-      "sourceLine": 93,
-      "operators": [],
-      "targetDomains": [],
-      "domainCategory": "any",
-      "contentType": "any",
-      "tags": []
-    },
-    {
-      "id": "search-tweaks-contextual-filtering",
-      "title": "Contextual Filtering",
-      "category": "\udd78 The \"Name Net\" (Identity Verification)",
-      "query": "(\"Jane Doe\" OR \"Doe, Jane\") (harm reduction OR \"drug policy\" OR nuaa OR unsw)",
-      "explanation": "",
-      "difficulty": "intermediate",
-      "sourceFile": "tools/search-tweaks.md",
-      "sourceType": "tool",
-      "sourceLine": 101,
-      "operators": [],
-      "targetDomains": [],
-      "domainCategory": "any",
-      "contentType": "any",
-      "tags": [
-        "policy"
-      ]
-    },
-    {
-      "id": "search-tweaks-the-first-appearance-hunt",
-      "title": "The \"First Appearance\" Hunt",
-      "category": "⏳ Time-Travel Searching (Trend Analysis)",
-      "query": "\"isotonitazene\" after:2019-01-01 before:2019-06-01",
-      "explanation": "**Step 2:** Narrow the window.",
-      "difficulty": "intermediate",
-      "sourceFile": "tools/search-tweaks.md",
-      "sourceType": "tool",
-      "sourceLine": 116,
-      "operators": [
-        "after",
-        "before"
-      ],
-      "targetDomains": [],
-      "domainCategory": "any",
-      "contentType": "any",
-      "tags": []
-    },
-    {
-      "id": "search-tweaks-the-crisis-timeline",
-      "title": "The \"Crisis Timeline\"",
-      "category": "⏳ Time-Travel Searching (Trend Analysis)",
-      "query": "\"heroin\" overdose location:Sydney after:2024-01-01 before:2024-01-07",
-      "explanation": "",
-      "difficulty": "intermediate",
-      "sourceFile": "tools/search-tweaks.md",
-      "sourceType": "tool",
-      "sourceLine": 134,
-      "operators": [
-        "after",
-        "before",
-        "location"
-      ],
-      "targetDomains": [],
-      "domainCategory": "any",
-      "contentType": "news",
-      "tags": []
-    },
-    {
-      "id": "search-tweaks-the-location-operator",
-      "title": "The \"Location\" Operator",
-      "category": "\udcf0 Local Alert Monitoring",
-      "query": "location:Melbourne \"overdose\"",
-      "explanation": "",
-      "difficulty": "intermediate",
-      "sourceFile": "tools/search-tweaks.md",
-      "sourceType": "tool",
-      "sourceLine": 149,
-      "operators": [
-        "location"
-      ],
-      "targetDomains": [],
-      "domainCategory": "any",
-      "contentType": "news",
-      "tags": []
-    },
-    {
-      "id": "search-tweaks-the-local-source-pattern",
-      "title": "The \"Local Source\" Pattern",
-      "category": "\udcf0 Local Alert Monitoring",
-      "query": "site:.com.au (news OR times OR herald OR chronicle OR daily) \"bad batch\" OR \"warning\"",
-      "explanation": "",
-      "difficulty": "intermediate",
-      "sourceFile": "tools/search-tweaks.md",
-      "sourceType": "tool",
-      "sourceLine": 161,
-      "operators": [
-        "site"
-      ],
-      "targetDomains": [
-        ".com.au"
-      ],
-      "domainCategory": "news",
-      "contentType": "any",
-      "tags": [
-        "alerts",
-        "australia"
-      ]
-    },
-    {
-      "id": "search-tweaks-query-12",
-      "title": "Query 12",
-      "category": "🧠 Wikipedia Synonym Expansion",
-      "query": "(\"nitazene\" OR \"2-benzylbenzimidazole\" OR \"etonitazene\" OR \"isotonitazene\" OR \"protonitazene\") (\"drug alert\" OR \"warning\")",
-      "explanation": "",
-      "difficulty": "intermediate",
-      "sourceFile": "tools/search-tweaks.md",
-      "sourceType": "tool",
-      "sourceLine": 185,
-      "operators": [],
-      "targetDomains": [],
-      "domainCategory": "any",
-      "contentType": "any",
-      "tags": [
-        "alerts"
-      ]
-    },
-    {
-      "id": "evidence-log-template-research-topic-drug-checking-services-in-australia",
-      "title": "Research Topic: Drug Checking Services in Australia",
-      "category": "Example Filled In",
-      "query": "# International comparisons\r\nsite:emcdda.europa.eu OR site:drugschecking.ca \"drug checking\" filetype:pdf",
-      "explanation": "",
-      "difficulty": "intermediate",
-      "sourceFile": "templates/evidence-log-template.md",
-      "sourceType": "template",
-      "sourceLine": 94,
-      "operators": [
-        "site",
-        "filetype"
-      ],
-      "targetDomains": [
-        "emcdda.europa.eu",
-        "drugschecking.ca"
-      ],
-      "domainCategory": "international",
-      "contentType": "pdf",
-      "tags": [
-        "documents",
-        "research",
-        "services",
-        "international"
-      ]
-    },
-    {
-      "id": "evidence-log-template-search-act-gov-au",
-      "title": "Search act.gov.au",
-      "category": "Reference Table",
-      "query": "site:*.act.gov.au \"drug checking\" after:2025",
-      "explanation": "",
-      "difficulty": "intermediate",
-      "sourceFile": "templates/evidence-log-template.md",
-      "sourceType": "template",
-      "sourceLine": 104,
-      "operators": [
-        "site",
-        "after"
-      ],
-      "targetDomains": [
-        "act.gov.au"
-      ],
-      "domainCategory": "government",
-      "contentType": "any",
-      "tags": [
-        "australia"
-      ]
-    },
-    {
-      "id": "evidence-log-template-search-edu-au",
-      "title": "Search edu.au",
-      "category": "Reference Table",
-      "query": "site:*.edu.au \"drug checking\" evaluation filetype:pdf",
-      "explanation": "",
-      "difficulty": "intermediate",
-      "sourceFile": "templates/evidence-log-template.md",
-      "sourceType": "template",
-      "sourceLine": 105,
-      "operators": [
-        "site",
-        "filetype"
-      ],
-      "targetDomains": [
-        "edu.au"
-      ],
-      "domainCategory": "education",
-      "contentType": "pdf",
-      "tags": [
-        "documents",
-        "australia"
-      ]
-    },
-    {
-      "id": "evidence-log-template-search-aivl-org-au",
-      "title": "Search aivl.org.au",
-      "category": "Reference Table",
-      "query": "site:aivl.org.au \"drug checking\"",
-      "explanation": "",
-      "difficulty": "intermediate",
-      "sourceFile": "templates/evidence-log-template.md",
-      "sourceType": "template",
-      "sourceLine": 106,
-      "operators": [
-        "site"
-      ],
-      "targetDomains": [
-        "aivl.org.au"
-      ],
-      "domainCategory": "ngo",
-      "contentType": "any",
-      "tags": [
-        "australia"
-      ]
-    },
-    {
-      "id": "evidence-log-template-query-4",
-      "title": "Query 4",
-      "category": "Reference Table",
-      "query": "\"drug checking\" \"cost benefit\" Australia",
-      "explanation": "",
-      "difficulty": "intermediate",
-      "sourceFile": "templates/evidence-log-template.md",
-      "sourceType": "template",
-      "sourceLine": 134,
-      "operators": [],
-      "targetDomains": [],
-      "domainCategory": "any",
-      "contentType": "any",
-      "tags": [
-        "australia"
-      ]
-    },
-    {
-      "id": "evidence-log-template-query-5",
-      "title": "Query 5",
-      "category": "Reference Table",
-      "query": "\"drug checking\" Aboriginal OR Indigenous",
-      "explanation": "",
-      "difficulty": "intermediate",
-      "sourceFile": "templates/evidence-log-template.md",
-      "sourceType": "template",
-      "sourceLine": 135,
-      "operators": [],
-      "targetDomains": [],
-      "domainCategory": "any",
-      "contentType": "any",
-      "tags": []
     },
     {
       "id": "monitoring-recommended-alerts",
@@ -33634,10 +32878,766 @@
       "tags": [
         "documents"
       ]
+    },
+    {
+      "id": "bookmarklets-nsw-health-alerts",
+      "title": "NSW Health Alerts",
+      "category": "\udccb Ready-to-Use Bookmarklets",
+      "query": "javascript: void (location.href =\r\n  \"https://www.google.com/search?q=site:health.nsw.gov.au+(intitle:%22drug+alert%22+OR+intitle:%22health+alert%22)\");",
+      "explanation": "",
+      "difficulty": "intermediate",
+      "sourceFile": "tools/bookmarklets.md",
+      "sourceType": "tool",
+      "sourceLine": 20,
+      "operators": [
+        "site",
+        "intitle"
+      ],
+      "targetDomains": [
+        "health.nsw.gov.au+"
+      ],
+      "domainCategory": "government",
+      "contentType": "any",
+      "tags": [
+        "alerts",
+        "australia"
+      ]
+    },
+    {
+      "id": "bookmarklets-recent-australian-harm-reduction-pdfs",
+      "title": "Recent Australian Harm Reduction PDFs",
+      "category": "\udccb Ready-to-Use Bookmarklets",
+      "query": "javascript: void (location.href =\r\n  \"https://www.google.com/search?q=site:*.gov.au+filetype:pdf+(%22harm+reduction%22+OR+%22harm+minimisation%22)+after:2024-01-01\");",
+      "explanation": "",
+      "difficulty": "intermediate",
+      "sourceFile": "tools/bookmarklets.md",
+      "sourceType": "tool",
+      "sourceLine": 27,
+      "operators": [
+        "site",
+        "filetype",
+        "after"
+      ],
+      "targetDomains": [
+        "gov.au+filetype:pdf+"
+      ],
+      "domainCategory": "government",
+      "contentType": "pdf",
+      "tags": [
+        "documents",
+        "australia"
+      ]
+    },
+    {
+      "id": "bookmarklets-australian-drug-checking-research",
+      "title": "Australian Drug Checking Research",
+      "category": "\udccb Ready-to-Use Bookmarklets",
+      "query": "javascript: void (location.href =\r\n  \"https://www.google.com/search?q=site:*.edu.au+%22drug+checking%22+OR+%22pill+testing%22+filetype:pdf+after:2020\");",
+      "explanation": "",
+      "difficulty": "intermediate",
+      "sourceFile": "tools/bookmarklets.md",
+      "sourceType": "tool",
+      "sourceLine": 34,
+      "operators": [
+        "site",
+        "filetype",
+        "after"
+      ],
+      "targetDomains": [
+        "edu.au+%22drug+checking%22+OR+%22pill+testing%22+filetype:pdf+after:2020"
+      ],
+      "domainCategory": "education",
+      "contentType": "pdf",
+      "tags": [
+        "documents",
+        "research",
+        "australia"
+      ]
+    },
+    {
+      "id": "bookmarklets-peer-worker-training-resources",
+      "title": "Peer Worker Training Resources",
+      "category": "\udccb Ready-to-Use Bookmarklets",
+      "query": "javascript: void (location.href =\r\n  \"https://www.google.com/search?q=%22peer+worker%22+(%22training%22+OR+%22supervision%22)+filetype:pdf+-jobs+-careers\");",
+      "explanation": "",
+      "difficulty": "intermediate",
+      "sourceFile": "tools/bookmarklets.md",
+      "sourceType": "tool",
+      "sourceLine": 41,
+      "operators": [
+        "filetype"
+      ],
+      "targetDomains": [],
+      "domainCategory": "any",
+      "contentType": "pdf",
+      "tags": [
+        "documents",
+        "peer",
+        "training"
+      ]
+    },
+    {
+      "id": "bookmarklets-parliamentary-drug-policy-submissions",
+      "title": "Parliamentary Drug Policy Submissions",
+      "category": "\udccb Ready-to-Use Bookmarklets",
+      "query": "javascript: void (location.href =\r\n  \"https://www.google.com/search?q=site:*.gov.au+inurl:submissions+(%22drug+policy%22+OR+%22harm+reduction%22)+filetype:pdf\");",
+      "explanation": "",
+      "difficulty": "intermediate",
+      "sourceFile": "tools/bookmarklets.md",
+      "sourceType": "tool",
+      "sourceLine": 48,
+      "operators": [
+        "site",
+        "filetype",
+        "inurl"
+      ],
+      "targetDomains": [
+        "gov.au+inurl:submissions+"
+      ],
+      "domainCategory": "government",
+      "contentType": "pdf",
+      "tags": [
+        "documents",
+        "policy",
+        "australia"
+      ]
+    },
+    {
+      "id": "bookmarklets-ndarc-research",
+      "title": "NDARC Research",
+      "category": "\udccb Ready-to-Use Bookmarklets",
+      "query": "javascript: void (location.href =\r\n  \"https://www.google.com/search?q=site:ndarc.med.unsw.edu.au+filetype:pdf\");",
+      "explanation": "",
+      "difficulty": "intermediate",
+      "sourceFile": "tools/bookmarklets.md",
+      "sourceType": "tool",
+      "sourceLine": 55,
+      "operators": [
+        "site",
+        "filetype"
+      ],
+      "targetDomains": [
+        "ndarc.med.unsw.edu.au+filetype:pdf"
+      ],
+      "domainCategory": "education",
+      "contentType": "pdf",
+      "tags": [
+        "documents",
+        "research",
+        "australia"
+      ]
+    },
+    {
+      "id": "bookmarklets-peer-organisation-resources",
+      "title": "Peer Organisation Resources",
+      "category": "\udccb Ready-to-Use Bookmarklets",
+      "query": "javascript: void (location.href =\r\n  \"https://www.google.com/search?q=(site:nuaa.org.au+OR+site:aivl.org.au+OR+site:hrvic.org.au)+filetype:pdf\");",
+      "explanation": "",
+      "difficulty": "intermediate",
+      "sourceFile": "tools/bookmarklets.md",
+      "sourceType": "tool",
+      "sourceLine": 62,
+      "operators": [
+        "site",
+        "filetype"
+      ],
+      "targetDomains": [
+        "nuaa.org.au+OR+site:aivl.org.au+OR+site:hrvic.org.au"
+      ],
+      "domainCategory": "ngo",
+      "contentType": "pdf",
+      "tags": [
+        "documents",
+        "peer",
+        "australia"
+      ]
+    },
+    {
+      "id": "bookmarklets-template",
+      "title": "Template",
+      "category": "\udfaf Creating Custom Bookmarklets",
+      "query": "javascript: void (location.href = \"https://www.google.com/search?q=[YOUR_ENCODED_QUERY]\");",
+      "explanation": "",
+      "difficulty": "intermediate",
+      "sourceFile": "tools/bookmarklets.md",
+      "sourceType": "tool",
+      "sourceLine": 73,
+      "operators": [],
+      "targetDomains": [],
+      "domainCategory": "any",
+      "contentType": "any",
+      "tags": []
+    },
+    {
+      "id": "bookmarklets-example-building-your-own",
+      "title": "Example: Building Your Own",
+      "category": "\udfaf Creating Custom Bookmarklets",
+      "query": "javascript: void (location.href =\r\n  \"https://www.google.com/search?q=site:health.nsw.gov.au+%22naloxone%22+filetype:pdf\");",
+      "explanation": "Encoded:",
+      "difficulty": "intermediate",
+      "sourceFile": "tools/bookmarklets.md",
+      "sourceType": "tool",
+      "sourceLine": 91,
+      "operators": [
+        "site",
+        "filetype"
+      ],
+      "targetDomains": [
+        "health.nsw.gov.au+%22naloxone%22+filetype:pdf"
+      ],
+      "domainCategory": "government",
+      "contentType": "pdf",
+      "tags": [
+        "documents",
+        "australia"
+      ]
+    },
+    {
+      "id": "custom-search-core-harm-reduction",
+      "title": "Core Harm Reduction",
+      "category": "\udccb Recommended Domain Sets",
+      "query": "*.gov.au\r\n*.edu.au\r\nnuaa.org.au\r\naivl.org.au\r\nhrvic.org.au\r\nquihn.org\r\npenington.org.au\r\nburnet.edu.au\r\nndarc.med.unsw.edu.au",
+      "explanation": "",
+      "difficulty": "intermediate",
+      "sourceFile": "tools/custom-search.md",
+      "sourceType": "tool",
+      "sourceLine": 70,
+      "operators": [],
+      "targetDomains": [],
+      "domainCategory": "government",
+      "contentType": "any",
+      "tags": [
+        "australia"
+      ]
+    },
+    {
+      "id": "custom-search-research-focus",
+      "title": "Research Focus",
+      "category": "\udccb Recommended Domain Sets",
+      "query": "*.edu.au\r\nndarc.med.unsw.edu.au\r\nburnet.edu.au\r\nkirby.unsw.edu.au\r\nturning-point.org.au\r\nnceta.flinders.edu.au\r\nmatildacentre.com.au",
+      "explanation": "",
+      "difficulty": "intermediate",
+      "sourceFile": "tools/custom-search.md",
+      "sourceType": "tool",
+      "sourceLine": 84,
+      "operators": [],
+      "targetDomains": [],
+      "domainCategory": "education",
+      "contentType": "any",
+      "tags": [
+        "research",
+        "australia"
+      ]
+    },
+    {
+      "id": "custom-search-policy-focus",
+      "title": "Policy Focus",
+      "category": "\udccb Recommended Domain Sets",
+      "query": "*.gov.au\r\naph.gov.au\r\nhealth.gov.au\r\naihw.gov.au\r\natoda.org.au\r\nnada.org.au\r\nvaada.org.au",
+      "explanation": "",
+      "difficulty": "intermediate",
+      "sourceFile": "tools/custom-search.md",
+      "sourceType": "tool",
+      "sourceLine": 96,
+      "operators": [],
+      "targetDomains": [],
+      "domainCategory": "government",
+      "contentType": "any",
+      "tags": [
+        "policy",
+        "australia"
+      ]
+    },
+    {
+      "id": "google-alerts-step-2-enter-your-query",
+      "title": "Step 2: Enter Your Query",
+      "category": "\udd27 Setup Guide",
+      "query": "site:*.health.*.gov.au (\"drug alert\" OR \"drug warning\")",
+      "explanation": "",
+      "difficulty": "intermediate",
+      "sourceFile": "tools/google-alerts.md",
+      "sourceType": "tool",
+      "sourceLine": 15,
+      "operators": [
+        "site"
+      ],
+      "targetDomains": [
+        "health.*.gov.au"
+      ],
+      "domainCategory": "government",
+      "contentType": "any",
+      "tags": [
+        "alerts",
+        "australia"
+      ]
+    },
+    {
+      "id": "google-alerts-priority-drug-alerts-as-it-happens",
+      "title": "Priority: Drug Alerts (As-it-happens)",
+      "category": "\udccb Recommended Alerts",
+      "query": "site:*.health.*.gov.au (\"drug alert\" OR \"drug warning\" OR \"drug notification\")",
+      "explanation": "**Why:** Immediate notification of health warnings.",
+      "difficulty": "intermediate",
+      "sourceFile": "tools/google-alerts.md",
+      "sourceType": "tool",
+      "sourceLine": 40,
+      "operators": [
+        "site"
+      ],
+      "targetDomains": [
+        "health.*.gov.au"
+      ],
+      "domainCategory": "government",
+      "contentType": "any",
+      "tags": [
+        "alerts",
+        "australia"
+      ]
+    },
+    {
+      "id": "google-alerts-daily-drug-checking-news",
+      "title": "Daily: Drug Checking News",
+      "category": "\udccb Recommended Alerts",
+      "query": "\"drug checking\" OR \"pill testing\" (Australia OR NSW OR VIC) -jobs",
+      "explanation": "**Why:** Stay current on drug checking developments.",
+      "difficulty": "intermediate",
+      "sourceFile": "tools/google-alerts.md",
+      "sourceType": "tool",
+      "sourceLine": 51,
+      "operators": [],
+      "targetDomains": [],
+      "domainCategory": "any",
+      "contentType": "any",
+      "tags": [
+        "australia"
+      ]
+    },
+    {
+      "id": "google-alerts-weekly-policy-consultations",
+      "title": "Weekly: Policy Consultations",
+      "category": "\udccb Recommended Alerts",
+      "query": "site:*.gov.au (\"consultation\" OR \"call for submissions\") (\"harm reduction\" OR \"drug policy\")",
+      "explanation": "**Why:** Don't miss consultation deadlines.",
+      "difficulty": "intermediate",
+      "sourceFile": "tools/google-alerts.md",
+      "sourceType": "tool",
+      "sourceLine": 59,
+      "operators": [
+        "site"
+      ],
+      "targetDomains": [
+        "gov.au"
+      ],
+      "domainCategory": "government",
+      "contentType": "any",
+      "tags": [
+        "policy",
+        "australia"
+      ]
+    },
+    {
+      "id": "google-alerts-weekly-research-updates",
+      "title": "Weekly: Research Updates",
+      "category": "\udccb Recommended Alerts",
+      "query": "site:ndarc.med.unsw.edu.au OR site:burnet.edu.au \"harm reduction\" OR naloxone",
+      "explanation": "**Why:** Track new research from key institutions.",
+      "difficulty": "intermediate",
+      "sourceFile": "tools/google-alerts.md",
+      "sourceType": "tool",
+      "sourceLine": 67,
+      "operators": [
+        "site"
+      ],
+      "targetDomains": [
+        "ndarc.med.unsw.edu.au",
+        "burnet.edu.au"
+      ],
+      "domainCategory": "education",
+      "contentType": "any",
+      "tags": [
+        "research",
+        "australia"
+      ]
+    },
+    {
+      "id": "google-alerts-weekly-parliamentary-inquiries",
+      "title": "Weekly: Parliamentary Inquiries",
+      "category": "\udccb Recommended Alerts",
+      "query": "site:aph.gov.au OR site:parliament.*.gov.au (inquiry OR committee) (drug OR \"harm reduction\")",
+      "explanation": "**Why:** Monitor parliamentary activity.",
+      "difficulty": "intermediate",
+      "sourceFile": "tools/google-alerts.md",
+      "sourceType": "tool",
+      "sourceLine": 75,
+      "operators": [
+        "site"
+      ],
+      "targetDomains": [
+        "aph.gov.au",
+        "parliament.*.gov.au"
+      ],
+      "domainCategory": "government",
+      "contentType": "any",
+      "tags": [
+        "australia"
+      ]
+    },
+    {
+      "id": "google-alerts-novel-substances",
+      "title": "Novel Substances",
+      "category": "\udfaf Topic-Specific Alerts",
+      "query": "(\"nitazene\" OR \"benzimidazole opioid\" OR \"xylazine\") Australia",
+      "explanation": "",
+      "difficulty": "intermediate",
+      "sourceFile": "tools/google-alerts.md",
+      "sourceType": "tool",
+      "sourceLine": 87,
+      "operators": [],
+      "targetDomains": [],
+      "domainCategory": "any",
+      "contentType": "any",
+      "tags": [
+        "australia"
+      ]
+    },
+    {
+      "id": "google-alerts-naloxone-programs",
+      "title": "Naloxone Programs",
+      "category": "\udfaf Topic-Specific Alerts",
+      "query": "\"take-home naloxone\" OR \"THN\" (Australia OR NSW OR VIC) (program OR expansion)",
+      "explanation": "",
+      "difficulty": "intermediate",
+      "sourceFile": "tools/google-alerts.md",
+      "sourceType": "tool",
+      "sourceLine": 93,
+      "operators": [],
+      "targetDomains": [],
+      "domainCategory": "any",
+      "contentType": "any",
+      "tags": [
+        "services",
+        "australia"
+      ]
+    },
+    {
+      "id": "google-alerts-peer-workforce",
+      "title": "Peer Workforce",
+      "category": "\udfaf Topic-Specific Alerts",
+      "query": "\"peer worker\" OR \"lived experience worker\" (AOD OR \"harm reduction\") Australia -jobs",
+      "explanation": "",
+      "difficulty": "intermediate",
+      "sourceFile": "tools/google-alerts.md",
+      "sourceType": "tool",
+      "sourceLine": 99,
+      "operators": [],
+      "targetDomains": [],
+      "domainCategory": "any",
+      "contentType": "any",
+      "tags": [
+        "peer",
+        "training",
+        "australia"
+      ]
+    },
+    {
+      "id": "google-alerts-specific-state-e-g-nsw",
+      "title": "Specific State (e.g., NSW)",
+      "category": "\udfaf Topic-Specific Alerts",
+      "query": "site:*.nsw.gov.au \"harm reduction\" OR \"drug policy\" OR \"drug alert\"",
+      "explanation": "",
+      "difficulty": "intermediate",
+      "sourceFile": "tools/google-alerts.md",
+      "sourceType": "tool",
+      "sourceLine": 105,
+      "operators": [
+        "site"
+      ],
+      "targetDomains": [
+        "nsw.gov.au"
+      ],
+      "domainCategory": "government",
+      "contentType": "any",
+      "tags": [
+        "alerts",
+        "policy",
+        "australia"
+      ]
+    },
+    {
+      "id": "google-alerts-tip-1-use-specific-queries",
+      "title": "Tip 1: Use Specific Queries",
+      "category": "\udca1 Tips",
+      "query": "site:*.gov.au \"drug alert\" OR \"drug warning\"",
+      "explanation": "**Better:**",
+      "difficulty": "intermediate",
+      "sourceFile": "tools/google-alerts.md",
+      "sourceType": "tool",
+      "sourceLine": 118,
+      "operators": [
+        "site"
+      ],
+      "targetDomains": [
+        "gov.au"
+      ],
+      "domainCategory": "government",
+      "contentType": "any",
+      "tags": [
+        "alerts",
+        "australia"
+      ]
+    },
+    {
+      "id": "google-alerts-tip-2-combine-with-exclusions",
+      "title": "Tip 2: Combine with Exclusions",
+      "category": "\udca1 Tips",
+      "query": "\"peer worker\" training Australia -jobs -careers -vacancy",
+      "explanation": "",
+      "difficulty": "intermediate",
+      "sourceFile": "tools/google-alerts.md",
+      "sourceType": "tool",
+      "sourceLine": 134,
+      "operators": [],
+      "targetDomains": [],
+      "domainCategory": "any",
+      "contentType": "any",
+      "tags": [
+        "peer",
+        "training",
+        "australia"
+      ]
+    },
+    {
+      "id": "search-tweaks-the-standard-cleaner-block",
+      "title": "The Standard Cleaner Block",
+      "category": "🧹 The \"Clean Search\" Filter (Clutter Removal)",
+      "query": "-site:rehabs.com -site:addictioncenter.com -site:recovery.org -site:drugabuse.com -site:treatment-centers.net -site:projectknow.com -site:americanaddictioncenters.org",
+      "explanation": "",
+      "difficulty": "intermediate",
+      "sourceFile": "tools/search-tweaks.md",
+      "sourceType": "tool",
+      "sourceLine": 18,
+      "operators": [
+        "site"
+      ],
+      "targetDomains": [
+        "rehabs.com",
+        "addictioncenter.com",
+        "recovery.org",
+        "drugabuse.com",
+        "treatment-centers.net",
+        "projectknow.com",
+        "americanaddictioncenters.org"
+      ],
+      "domainCategory": "any",
+      "contentType": "any",
+      "tags": []
+    },
+    {
+      "id": "search-tweaks-the-sales-cleaner",
+      "title": "The \"Sales\" Cleaner",
+      "category": "🧹 The \"Clean Search\" Filter (Clutter Removal)",
+      "query": "-pricing -buy -shop -cart -checkout -\"call now\" -\"insurance accepted\"",
+      "explanation": "",
+      "difficulty": "intermediate",
+      "sourceFile": "tools/search-tweaks.md",
+      "sourceType": "tool",
+      "sourceLine": 27,
+      "operators": [],
+      "targetDomains": [],
+      "domainCategory": "any",
+      "contentType": "any",
+      "tags": []
+    },
+    {
+      "id": "search-tweaks-example-usage",
+      "title": "Example Usage",
+      "category": "🧹 The \"Clean Search\" Filter (Clutter Removal)",
+      "query": "\"kratom\" withdrawal symptoms -site:rehabs.com -site:addictioncenter.com -pricing -buy",
+      "explanation": "",
+      "difficulty": "intermediate",
+      "sourceFile": "tools/search-tweaks.md",
+      "sourceType": "tool",
+      "sourceLine": 35,
+      "operators": [
+        "site"
+      ],
+      "targetDomains": [
+        "rehabs.com",
+        "addictioncenter.com"
+      ],
+      "domainCategory": "any",
+      "contentType": "any",
+      "tags": []
+    },
+    {
+      "id": "search-tweaks-pattern-1-the-context-anchor",
+      "title": "Pattern 1: The Context Anchor",
+      "category": "⚓ The \"Sinker\" Method (Bias Counteraction)",
+      "query": "\"methamphetamine\" AROUND(20) \"safe smoking\"",
+      "explanation": "",
+      "difficulty": "intermediate",
+      "sourceFile": "tools/search-tweaks.md",
+      "sourceType": "tool",
+      "sourceLine": 56,
+      "operators": [
+        "AROUND"
+      ],
+      "targetDomains": [],
+      "domainCategory": "any",
+      "contentType": "any",
+      "tags": []
+    },
+    {
+      "id": "search-tweaks-pattern-2-the-repetition-weighting",
+      "title": "Pattern 2: The Repetition Weighting",
+      "category": "⚓ The \"Sinker\" Method (Bias Counteraction)",
+      "query": "\"safe supply\" \"safe supply\" \"safe supply\" hydromorphone",
+      "explanation": "",
+      "difficulty": "intermediate",
+      "sourceFile": "tools/search-tweaks.md",
+      "sourceType": "tool",
+      "sourceLine": 72,
+      "operators": [],
+      "targetDomains": [],
+      "domainCategory": "any",
+      "contentType": "any",
+      "tags": []
+    },
+    {
+      "id": "search-tweaks-the-pattern",
+      "title": "The Pattern",
+      "category": "\udd78 The \"Name Net\" (Identity Verification)",
+      "query": "(\"Jane Doe\" OR \"Jane M. Doe\" OR \"J. Doe\" OR \"Doe, Jane\" OR \"Doe, J.\")",
+      "explanation": "",
+      "difficulty": "intermediate",
+      "sourceFile": "tools/search-tweaks.md",
+      "sourceType": "tool",
+      "sourceLine": 93,
+      "operators": [],
+      "targetDomains": [],
+      "domainCategory": "any",
+      "contentType": "any",
+      "tags": []
+    },
+    {
+      "id": "search-tweaks-contextual-filtering",
+      "title": "Contextual Filtering",
+      "category": "\udd78 The \"Name Net\" (Identity Verification)",
+      "query": "(\"Jane Doe\" OR \"Doe, Jane\") (harm reduction OR \"drug policy\" OR nuaa OR unsw)",
+      "explanation": "",
+      "difficulty": "intermediate",
+      "sourceFile": "tools/search-tweaks.md",
+      "sourceType": "tool",
+      "sourceLine": 101,
+      "operators": [],
+      "targetDomains": [],
+      "domainCategory": "any",
+      "contentType": "any",
+      "tags": [
+        "policy"
+      ]
+    },
+    {
+      "id": "search-tweaks-the-first-appearance-hunt",
+      "title": "The \"First Appearance\" Hunt",
+      "category": "⏳ Time-Travel Searching (Trend Analysis)",
+      "query": "\"isotonitazene\" after:2019-01-01 before:2019-06-01",
+      "explanation": "**Step 2:** Narrow the window.",
+      "difficulty": "intermediate",
+      "sourceFile": "tools/search-tweaks.md",
+      "sourceType": "tool",
+      "sourceLine": 116,
+      "operators": [
+        "after",
+        "before"
+      ],
+      "targetDomains": [],
+      "domainCategory": "any",
+      "contentType": "any",
+      "tags": []
+    },
+    {
+      "id": "search-tweaks-the-crisis-timeline",
+      "title": "The \"Crisis Timeline\"",
+      "category": "⏳ Time-Travel Searching (Trend Analysis)",
+      "query": "\"heroin\" overdose location:Sydney after:2024-01-01 before:2024-01-07",
+      "explanation": "",
+      "difficulty": "intermediate",
+      "sourceFile": "tools/search-tweaks.md",
+      "sourceType": "tool",
+      "sourceLine": 134,
+      "operators": [
+        "after",
+        "before",
+        "location"
+      ],
+      "targetDomains": [],
+      "domainCategory": "any",
+      "contentType": "news",
+      "tags": []
+    },
+    {
+      "id": "search-tweaks-the-location-operator",
+      "title": "The \"Location\" Operator",
+      "category": "\udcf0 Local Alert Monitoring",
+      "query": "location:Melbourne \"overdose\"",
+      "explanation": "",
+      "difficulty": "intermediate",
+      "sourceFile": "tools/search-tweaks.md",
+      "sourceType": "tool",
+      "sourceLine": 149,
+      "operators": [
+        "location"
+      ],
+      "targetDomains": [],
+      "domainCategory": "any",
+      "contentType": "news",
+      "tags": []
+    },
+    {
+      "id": "search-tweaks-the-local-source-pattern",
+      "title": "The \"Local Source\" Pattern",
+      "category": "\udcf0 Local Alert Monitoring",
+      "query": "site:.com.au (news OR times OR herald OR chronicle OR daily) \"bad batch\" OR \"warning\"",
+      "explanation": "",
+      "difficulty": "intermediate",
+      "sourceFile": "tools/search-tweaks.md",
+      "sourceType": "tool",
+      "sourceLine": 161,
+      "operators": [
+        "site"
+      ],
+      "targetDomains": [
+        ".com.au"
+      ],
+      "domainCategory": "news",
+      "contentType": "any",
+      "tags": [
+        "alerts",
+        "australia"
+      ]
+    },
+    {
+      "id": "search-tweaks-query-12",
+      "title": "Query 12",
+      "category": "🧠 Wikipedia Synonym Expansion",
+      "query": "(\"nitazene\" OR \"2-benzylbenzimidazole\" OR \"etonitazene\" OR \"isotonitazene\" OR \"protonitazene\") (\"drug alert\" OR \"warning\")",
+      "explanation": "",
+      "difficulty": "intermediate",
+      "sourceFile": "tools/search-tweaks.md",
+      "sourceType": "tool",
+      "sourceLine": 185,
+      "operators": [],
+      "targetDomains": [],
+      "domainCategory": "any",
+      "contentType": "any",
+      "tags": [
+        "alerts"
+      ]
     }
   ],
   "meta": {
-    "buildDate": "2026-02-02T05:55:29.309Z",
+    "buildDate": "2026-02-05T15:15:55.614Z",
     "version": "2.0.0",
     "totalDorks": 1602,
     "sourceFiles": [
@@ -33682,16 +33682,16 @@
       "dork-packs/temporal-intelligence.md",
       "dork-packs/user-hosted-domains.md",
       "dork-packs/youth.md",
-      "resources/cheat-sheet.md",
-      "tools/bookmarklets.md",
-      "tools/custom-search.md",
-      "tools/google-alerts.md",
-      "tools/search-tweaks.md",
       "templates/evidence-log-template.md",
+      "resources/cheat-sheet.md",
       "workflows/monitoring.md",
       "workflows/peer-centered.md",
       "workflows/research-workflow.md",
-      "workflows/verification.md"
+      "workflows/verification.md",
+      "tools/bookmarklets.md",
+      "tools/custom-search.md",
+      "tools/google-alerts.md",
+      "tools/search-tweaks.md"
     ]
   }
 }

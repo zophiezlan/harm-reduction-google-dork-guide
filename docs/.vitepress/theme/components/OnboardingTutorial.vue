@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from "vue";
-import { getStorageItem, setStorageItem } from "../utils/storage";
+import { getStorageItemSimple, setStorageItem } from "../utils/storage";
 
 const STORAGE_KEY = "onboarding-completed";
 
@@ -110,7 +110,7 @@ function handleAction() {
 }
 
 onMounted(() => {
-  const completed = getStorageItem<boolean>(STORAGE_KEY, false);
+  const completed = getStorageItemSimple<boolean>(STORAGE_KEY, false);
   if (!completed) {
     // Show tutorial after a short delay
     setTimeout(() => {

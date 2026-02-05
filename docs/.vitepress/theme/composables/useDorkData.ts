@@ -14,6 +14,7 @@ const dorkPacks = ref<DorkPack[]>([]);
 const documentationDorks = ref<Dork[]>([]);
 const isLoaded = ref(false);
 const isLoading = ref(false);
+const loadError = ref<string | null>(null);
 let dataScriptPromise: Promise<void> | null = null;
 
 // Extended window interface for type safety
@@ -41,6 +42,17 @@ export interface DorkFilters {
 }
 
 export function useDorkData() {
+  async function fetchIntegrityHash(): Promise<string | null> {
+    try {
+      const response = await fetch(withBase("/dork-explorer/dork-data-integrity.json"));
+      if (!response.ok) return null;
+      const data = await response.json();
+      return data.integrity || null;
+    } catch {
+      return null;
+    }
+  }
+
   async function ensureDorkScriptLoaded() {
     if (typeof window === "undefined") return;
     if (window.DORK_DATA || window.DORK_DOCUMENTATION) return;
@@ -49,16 +61,23 @@ export function useDorkData() {
       return;
     }
 
-    dataScriptPromise = new Promise<void>((resolve, reject) => {
+    dataScriptPromise = new Promise<void>(async (resolve, reject) => {
       const existing = document.getElementById("dork-data-script");
       if (existing) {
         resolve();
         return;
       }
 
+      // Fetch integrity hash for SRI validation
+      const integrity = await fetchIntegrityHash();
+
       const script = document.createElement("script");
       script.id = "dork-data-script";
       script.src = withBase("/dork-explorer/dork-data.js");
+      if (integrity) {
+        script.integrity = integrity;
+        script.crossOrigin = "anonymous";
+      }
       script.onload = () => resolve();
       script.onerror = () => reject(new Error("Failed to load dork data script"));
       document.head.appendChild(script);
@@ -70,6 +89,7 @@ export function useDorkData() {
   async function loadDorks() {
     if (isLoaded.value || isLoading.value) return;
     isLoading.value = true;
+    loadError.value = null;
 
     try {
       if (typeof window !== "undefined") {
@@ -85,10 +105,20 @@ export function useDorkData() {
         isLoaded.value = true;
       }
     } catch (e) {
+      const message = e instanceof Error ? e.message : "Failed to load dork data";
+      loadError.value = message;
       console.error("Failed to load dork data:", e);
     } finally {
       isLoading.value = false;
     }
+  }
+
+  function retryLoad() {
+    // Reset state to allow retry
+    dataScriptPromise = null;
+    loadError.value = null;
+    isLoaded.value = false;
+    loadDorks();
   }
 
   // All dorks from packs (with pack metadata attached)
@@ -258,7 +288,9 @@ export function useDorkData() {
     stats,
     isLoaded,
     isLoading,
+    loadError,
     loadDorks,
+    retryLoad,
     searchDorks,
     getDorksByPack,
   };

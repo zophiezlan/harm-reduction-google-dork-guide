@@ -1,4 +1,4 @@
-import { ref, watch, type Ref } from "vue";
+import { ref, watch, onScopeDispose, getCurrentScope, type Ref } from "vue";
 
 /**
  * Creates a debounced ref that updates after the specified delay.
@@ -19,6 +19,15 @@ export function useDebouncedRef<T>(source: Ref<T>, delay = 300): Ref<T> {
     }, delay);
   });
 
+  // Clean up pending timeout when scope is disposed (if in a scope)
+  if (getCurrentScope()) {
+    onScopeDispose(() => {
+      if (timeout) {
+        clearTimeout(timeout);
+      }
+    });
+  }
+
   return debounced;
 }
 
@@ -31,15 +40,27 @@ export function useDebouncedRef<T>(source: Ref<T>, delay = 300): Ref<T> {
 export function useDebounce<T extends (...args: unknown[]) => unknown>(
   func: T,
   delay = 300
-): (...args: Parameters<T>) => void {
+): { fn: (...args: Parameters<T>) => void; cancel: () => void } {
   let timeout: ReturnType<typeof setTimeout> | null = null;
 
-  return (...args: Parameters<T>) => {
+  const cancel = () => {
     if (timeout) {
       clearTimeout(timeout);
+      timeout = null;
     }
+  };
+
+  const fn = (...args: Parameters<T>) => {
+    cancel();
     timeout = setTimeout(() => {
       func(...args);
     }, delay);
   };
+
+  // Clean up pending timeout when scope is disposed (if in a scope)
+  if (getCurrentScope()) {
+    onScopeDispose(cancel);
+  }
+
+  return { fn, cancel };
 }
