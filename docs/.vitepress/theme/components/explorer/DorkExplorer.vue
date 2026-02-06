@@ -58,6 +58,7 @@ const quickFilters = ref({
 // UI state
 const showScrollTop = ref(false);
 const resultsRef = ref<HTMLElement | null>(null);
+const headerCollapsed = ref(false);
 
 // Infinite scroll / pagination
 const displayLimit = ref(50);
@@ -149,7 +150,7 @@ const categorySearchQuery = ref("");
 const packsExpanded = ref(true);
 const categoriesExpanded = ref(true);
 const difficultyExpanded = ref(true);
-const domainExpanded = ref(false);
+const domainExpanded = ref(true);
 
 // Display labels for difficulty
 const difficultyLabels: Record<string, string> = {
@@ -303,6 +304,48 @@ function removeFilter(
     includeDocumentation.value = true;
   } else if (type === "quick" && value) {
     quickFilters.value[value as keyof typeof quickFilters.value] = false;
+  }
+}
+
+function handleFilterListKeydown(e: KeyboardEvent) {
+  const target = e.target as HTMLElement;
+  const list = target.closest('[role="listbox"]');
+  if (!list) return;
+
+  const options = Array.from(list.querySelectorAll('[role="option"]')) as HTMLElement[];
+  const currentIndex = options.indexOf(target);
+  if (currentIndex === -1) return;
+
+  let nextIndex: number | null = null;
+
+  switch (e.key) {
+    case "ArrowDown":
+    case "ArrowRight":
+      e.preventDefault();
+      nextIndex = Math.min(currentIndex + 1, options.length - 1);
+      break;
+    case "ArrowUp":
+    case "ArrowLeft":
+      e.preventDefault();
+      nextIndex = Math.max(currentIndex - 1, 0);
+      break;
+    case "Home":
+      e.preventDefault();
+      nextIndex = 0;
+      break;
+    case "End":
+      e.preventDefault();
+      nextIndex = options.length - 1;
+      break;
+    case " ":
+    case "Enter":
+      e.preventDefault();
+      target.click();
+      return;
+  }
+
+  if (nextIndex !== null && nextIndex !== currentIndex) {
+    options[nextIndex].focus();
   }
 }
 
@@ -577,13 +620,30 @@ watch(
         </div>
       </div>
 
+      <!-- Mobile header toggle -->
+      <button
+        class="header-collapse-toggle"
+        @click="headerCollapsed = !headerCollapsed"
+        :aria-expanded="!headerCollapsed"
+        aria-controls="explorer-header-details"
+      >
+        <span v-if="activeFilterCount > 0" class="toggle-filter-count">{{ activeFilterCount }} active</span>
+        <span v-else>Filters</span>
+        <span class="toggle-chevron" :class="{ collapsed: headerCollapsed }">▼</span>
+      </button>
+
       <!-- Quick Filters Bar -->
+      <div
+        id="explorer-header-details"
+        :class="['header-collapsible', { collapsed: headerCollapsed }]"
+      >
       <div class="quick-filters-bar">
         <span class="quick-filters-label">Quick filters:</span>
         <button
           :class="['quick-filter', { active: quickFilters.auSites }]"
           @click="toggleQuickFilter('auSites')"
           :aria-pressed="quickFilters.auSites"
+          title="Show only dorks targeting .gov.au, .edu.au, .org.au domains"
         >
           🇦🇺 Australian Sites
         </button>
@@ -591,6 +651,7 @@ watch(
           :class="['quick-filter', { active: quickFilters.pdfs }]"
           @click="toggleQuickFilter('pdfs')"
           :aria-pressed="quickFilters.pdfs"
+          title="Show only dorks that search for PDF files"
         >
           📄 PDFs Only
         </button>
@@ -598,6 +659,7 @@ watch(
           :class="['quick-filter', { active: quickFilters.government }]"
           @click="toggleQuickFilter('government')"
           :aria-pressed="quickFilters.government"
+          title="Show dorks targeting government websites and policy content"
         >
           🏛️ Government
         </button>
@@ -605,6 +667,7 @@ watch(
           :class="['quick-filter', { active: quickFilters.recent }]"
           @click="toggleQuickFilter('recent')"
           :aria-pressed="quickFilters.recent"
+          title="Show dorks that include after: or before: date filters"
         >
           📅 Date Filtered
         </button>
@@ -612,6 +675,7 @@ watch(
           :class="['quick-filter', { active: quickFilters.userHosted }]"
           @click="toggleQuickFilter('userHosted')"
           :aria-pressed="quickFilters.userHosted"
+          title="Show dorks targeting user platforms like Reddit, Medium, Notion, GitHub"
         >
           🌐 User Platforms
         </button>
@@ -732,6 +796,7 @@ watch(
         <span class="stat-divider">•</span>
         <span class="stat">★ {{ displayStats.favorites }} saved</span>
       </div>
+      </div><!-- /.header-collapsible -->
     </header>
 
     <div class="explorer-body">
@@ -749,7 +814,7 @@ watch(
               Packs
               <span v-if="selectedPacks.length > 0" class="filter-badge">{{
                 selectedPacks.length
-              }}</span>
+              }} / {{ packList.length }}</span>
             </h4>
             <span class="expand-icon" aria-hidden="true">{{ packsExpanded ? "▼" : "▶" }}</span>
           </button>
@@ -774,14 +839,15 @@ watch(
               </button>
             </div>
 
-            <div class="filter-list" role="listbox" aria-label="Available packs">
+            <div class="filter-list" role="listbox" aria-label="Available packs" @keydown="handleFilterListKeydown">
               <button
-                v-for="pack in filteredPacks"
+                v-for="(pack, i) in filteredPacks"
                 :key="pack.id"
                 :class="['filter-item', { active: selectedPacks.includes(pack.id) }]"
                 @click="togglePack(pack.id)"
                 role="option"
                 :aria-selected="selectedPacks.includes(pack.id)"
+                :tabindex="i === 0 ? 0 : -1"
               >
                 <span class="filter-name">{{ pack.title }}</span>
                 <span class="filter-count">{{ pack.count }}</span>
@@ -805,7 +871,7 @@ watch(
               Difficulty
               <span v-if="selectedDifficulties.length > 0" class="filter-badge">{{
                 selectedDifficulties.length
-              }}</span>
+              }} / {{ difficulties.length }}</span>
             </h4>
             <span class="expand-icon" aria-hidden="true">{{ difficultyExpanded ? "▼" : "▶" }}</span>
           </button>
@@ -815,10 +881,12 @@ watch(
               class="filter-chips difficulty-chips"
               role="listbox"
               aria-label="Difficulty levels"
+              @keydown="handleFilterListKeydown"
             >
               <button
-                v-for="diff in difficulties"
+                v-for="(diff, i) in difficulties"
                 :key="diff"
+                :tabindex="i === 0 ? 0 : -1"
                 :class="[
                   'chip',
                   'diff-chip',
@@ -847,16 +915,17 @@ watch(
               Domain Type
               <span v-if="selectedDomainCategories.length > 0" class="filter-badge">{{
                 selectedDomainCategories.length
-              }}</span>
+              }} / {{ domainCategories.length }}</span>
             </h4>
             <span class="expand-icon" aria-hidden="true">{{ domainExpanded ? "▼" : "▶" }}</span>
           </button>
 
           <div v-show="domainExpanded" id="domain-content" class="filter-content">
-            <div class="filter-chips" role="listbox" aria-label="Domain categories">
+            <div class="filter-chips" role="listbox" aria-label="Domain categories" @keydown="handleFilterListKeydown">
               <button
-                v-for="domain in domainCategories"
+                v-for="(domain, i) in domainCategories"
                 :key="domain"
+                :tabindex="i === 0 ? 0 : -1"
                 :class="['chip', { active: selectedDomainCategories.includes(domain) }]"
                 @click="toggleDomainCategory(domain)"
                 role="option"
@@ -880,7 +949,7 @@ watch(
               Categories
               <span v-if="selectedCategories.length > 0" class="filter-badge">{{
                 selectedCategories.length
-              }}</span>
+              }} / {{ categories.length }}</span>
             </h4>
             <span class="expand-icon" aria-hidden="true">{{ categoriesExpanded ? "▼" : "▶" }}</span>
           </button>
@@ -905,10 +974,11 @@ watch(
               </button>
             </div>
 
-            <div class="filter-chips" role="listbox" aria-label="Available categories">
+            <div class="filter-chips" role="listbox" aria-label="Available categories" @keydown="handleFilterListKeydown">
               <button
-                v-for="cat in filteredCategories"
+                v-for="(cat, i) in filteredCategories"
                 :key="cat"
+                :tabindex="i === 0 ? 0 : -1"
                 :class="['chip', { active: selectedCategories.includes(cat) }]"
                 @click="toggleCategory(cat)"
                 role="option"
@@ -997,6 +1067,7 @@ watch(
             v-for="dork in displayedResults"
             :key="`${dork.packId}-${dork.title}`"
             :dork="dork"
+            :search-query="debouncedSearchQuery"
             @open-in-builder="openInBuilder"
           />
         </div>
@@ -1238,6 +1309,67 @@ watch(
   color: var(--accent);
 }
 
+/* Mobile header collapse toggle */
+.header-collapse-toggle {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.header-collapse-toggle:hover {
+  color: var(--text-primary);
+  border-color: var(--accent-border);
+}
+
+.toggle-filter-count {
+  color: var(--accent);
+}
+
+.toggle-chevron {
+  font-size: 10px;
+  transition: transform var(--transition-fast);
+}
+
+.toggle-chevron.collapsed {
+  transform: rotate(-90deg);
+}
+
+.header-collapsible {
+  display: contents;
+}
+
+@media (max-width: 900px) {
+  .header-collapse-toggle {
+    display: flex;
+  }
+
+  .header-collapsible {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow: hidden;
+    max-height: 600px;
+    transition: max-height 0.25s ease, opacity 0.2s ease;
+    opacity: 1;
+  }
+
+  .header-collapsible.collapsed {
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
 /* Quick Filters Bar */
 .quick-filters-bar {
   display: flex;
@@ -1259,7 +1391,8 @@ watch(
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 6px 12px;
+  padding: 8px 14px;
+  min-height: 36px;
   font-size: 12px;
   font-weight: 500;
   border-radius: 9999px;
@@ -1351,8 +1484,9 @@ watch(
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 4px 8px;
-  font-size: 11px;
+  padding: 6px 10px;
+  min-height: 32px;
+  font-size: 12px;
   border-radius: var(--radius-md);
   border: 1px solid var(--accent-border);
   background: var(--accent-subtle);
@@ -1432,12 +1566,13 @@ watch(
   justify-content: center;
   min-width: 18px;
   height: 18px;
-  padding: 0 5px;
+  padding: 0 6px;
   font-size: 10px;
   font-weight: 700;
   background: var(--accent);
   color: white;
   border-radius: 9px;
+  white-space: nowrap;
 }
 
 .expand-icon {
@@ -1569,8 +1704,9 @@ watch(
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 4px 10px;
-  font-size: 11px;
+  padding: 6px 12px;
+  min-height: 32px;
+  font-size: 12px;
   font-weight: 500;
   border-radius: 9999px;
   background: var(--bg-elevated);

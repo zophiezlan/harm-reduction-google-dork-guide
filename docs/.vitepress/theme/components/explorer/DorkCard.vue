@@ -7,6 +7,7 @@ import { highlightDorkText } from "../../utils/dorkscript";
 
 const props = defineProps<{
   dork: DorkWithPack;
+  searchQuery?: string;
 }>();
 
 const emit = defineEmits<{
@@ -18,6 +19,21 @@ const { success } = useToast();
 
 const isFav = computed(() => isFavorite(props.dork.packId, props.dork.title));
 const highlightedQuery = computed(() => highlightDorkText(props.dork.query));
+
+function highlightMatch(text: string): string {
+  if (!props.searchQuery || !props.searchQuery.trim()) return text;
+  const query = props.searchQuery.trim();
+  const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const regex = new RegExp(`(${escaped})`, "gi");
+  return text.replace(regex, '<mark class="search-highlight">$1</mark>');
+}
+
+const highlightedTitle = computed(() => highlightMatch(props.dork.title));
+const highlightedExplanation = computed(() => {
+  const text = props.dork.explanation?.slice(0, 150) || "";
+  const suffix = (props.dork.explanation?.length || 0) > 150 ? "..." : "";
+  return highlightMatch(text) + suffix;
+});
 
 const difficultyLabel = computed(() => {
   const labels: Record<string, string> = {
@@ -63,7 +79,7 @@ function handleFavorite() {
 <template>
   <div class="dork-card">
     <div class="card-header">
-      <h3 class="card-title">{{ dork.title }}</h3>
+      <h3 class="card-title" v-html="highlightedTitle"></h3>
       <div class="card-badges">
         <span
           v-if="dork.difficulty"
@@ -79,9 +95,7 @@ function handleFavorite() {
       <code v-html="highlightedQuery"></code>
     </div>
 
-    <p v-if="dork.explanation" class="card-explanation">
-      {{ dork.explanation.slice(0, 150) }}{{ dork.explanation.length > 150 ? "..." : "" }}
-    </p>
+    <p v-if="dork.explanation" class="card-explanation" v-html="highlightedExplanation"></p>
 
     <div class="card-meta">
       <span class="card-pack">{{ dork.packTitle }}</span>
@@ -403,7 +417,8 @@ function handleFavorite() {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  padding: 6px 10px;
+  padding: 8px 12px;
+  min-height: 36px;
   font-size: 12px;
   border-radius: var(--radius-md);
   border: 1px solid var(--border-subtle);
@@ -421,5 +436,14 @@ function handleFavorite() {
 .favorite-btn.active {
   color: var(--warning);
   border-color: var(--warning);
+}
+
+/* Search result highlighting */
+:deep(.search-highlight) {
+  background: color-mix(in srgb, var(--accent) 25%, transparent);
+  color: var(--accent);
+  padding: 1px 2px;
+  border-radius: 2px;
+  font-weight: inherit;
 }
 </style>

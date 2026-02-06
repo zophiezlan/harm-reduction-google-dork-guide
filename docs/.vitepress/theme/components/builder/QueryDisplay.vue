@@ -4,7 +4,7 @@ import { useQueryBuilder } from "../../composables/useQueryBuilder";
 import { useToast } from "../../composables/useToast";
 import { highlightDorkWithLint, lintDorkScript } from "../../utils/dorkscript";
 
-const { blocks, queryString, selectBlock, selectedBlockId, removeBlock } = useQueryBuilder();
+const { blocks, queryString, selectBlock, selectedBlockId, removeBlock, moveBlock } = useQueryBuilder();
 const { success } = useToast();
 
 const blockColors: Record<string, string> = {
@@ -65,14 +65,32 @@ const highlightedQuery = computed(() =>
       </div>
       <div v-else class="query-blocks">
         <span
-          v-for="block in blocks"
+          v-for="(block, index) in blocks"
           :key="block.id"
           :class="['query-block', { selected: block.id === selectedBlockId }]"
           :style="{ '--block-color': blockColors[block.type] }"
           @click="selectBlock(block.id)"
         >
+          <span class="block-reorder" v-if="block.id === selectedBlockId">
+            <button
+              class="reorder-btn"
+              :disabled="index === 0"
+              @click.stop="moveBlock(block.id, 'up')"
+              title="Move left"
+              aria-label="Move block left"
+            >◀</button>
+          </span>
           {{ block.type }}:{{ block.value || "..." }}
-          <button class="block-remove" @click.stop="removeBlock(block.id)">×</button>
+          <span class="block-reorder" v-if="block.id === selectedBlockId">
+            <button
+              class="reorder-btn"
+              :disabled="index === blocks.length - 1"
+              @click.stop="moveBlock(block.id, 'down')"
+              title="Move right"
+              aria-label="Move block right"
+            >▶</button>
+          </span>
+          <button class="block-remove" @click.stop="removeBlock(block.id)" title="Remove block" aria-label="Remove block">×</button>
         </span>
       </div>
     </div>
@@ -159,12 +177,45 @@ const highlightedQuery = computed(() =>
   box-shadow: 0 0 0 2px var(--block-color);
 }
 
+.block-reorder {
+  display: inline-flex;
+  align-items: center;
+}
+
+.reorder-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: none;
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+  font-size: 9px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: all var(--transition-fast);
+  padding: 0;
+}
+
+.reorder-btn:hover:not(:disabled) {
+  opacity: 1;
+  background: var(--accent-subtle);
+  color: var(--accent);
+}
+
+.reorder-btn:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
 .block-remove {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   border: none;
   background: var(--bg-elevated);
@@ -172,6 +223,7 @@ const highlightedQuery = computed(() =>
   font-size: 12px;
   cursor: pointer;
   opacity: 0.6;
+  padding: 0;
 }
 
 .block-remove:hover {

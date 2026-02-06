@@ -224,6 +224,16 @@ export function useQueryBuilder() {
     state.selectedBlockId = id;
   }
 
+  function moveBlock(id: string, direction: "up" | "down") {
+    const idx = state.blocks.findIndex((b) => b.id === id);
+    if (idx === -1) return;
+    const targetIdx = direction === "up" ? idx - 1 : idx + 1;
+    if (targetIdx < 0 || targetIdx >= state.blocks.length) return;
+    const temp = state.blocks[idx];
+    state.blocks[idx] = state.blocks[targetIdx];
+    state.blocks[targetIdx] = temp;
+  }
+
   function clearBlocks() {
     state.blocks = [];
     state.selectedBlockId = null;
@@ -360,6 +370,7 @@ export function useQueryBuilder() {
     addBlock,
     updateBlock,
     removeBlock,
+    moveBlock,
     selectBlock,
     clearBlocks,
     loadFromQuery,

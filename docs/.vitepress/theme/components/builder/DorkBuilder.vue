@@ -33,6 +33,12 @@ const editingHistoryId = ref<string | null>(null);
 const editingLabel = ref("");
 const activeTemplateCategory = ref<string>("Research");
 
+// Confirmation dialog state
+const showConfirmDialog = ref(false);
+const confirmAction = ref<(() => void) | null>(null);
+const confirmMessage = ref("");
+const confirmTitle = ref("");
+
 // Computed
 const templatesByCategory = computed(() => getTemplatesByCategory());
 const templateCategories = computed(() => Object.keys(templatesByCategory.value));
@@ -48,9 +54,37 @@ onMounted(() => {
   }
 });
 
+function requestConfirm(title: string, message: string, action: () => void) {
+  confirmTitle.value = title;
+  confirmMessage.value = message;
+  confirmAction.value = action;
+  showConfirmDialog.value = true;
+}
+
+function executeConfirm() {
+  if (confirmAction.value) confirmAction.value();
+  showConfirmDialog.value = false;
+  confirmAction.value = null;
+}
+
+function cancelConfirm() {
+  showConfirmDialog.value = false;
+  confirmAction.value = null;
+}
+
 function handleReset() {
-  clearBlocks();
-  success("Builder cleared");
+  if (queryString.value) {
+    requestConfirm(
+      "Reset Builder",
+      "This will clear all blocks from your current query. This cannot be undone.",
+      () => {
+        clearBlocks();
+        success("Builder cleared");
+      }
+    );
+  } else {
+    clearBlocks();
+  }
 }
 
 function handleShare() {
@@ -79,9 +113,21 @@ function loadFromHistoryItem(query: string) {
 }
 
 function loadTemplate(template: DorkTemplate) {
-  loadFromQuery(template.query);
-  showTemplates.value = false;
-  success(`Loaded template: ${template.name}`);
+  if (queryString.value) {
+    requestConfirm(
+      "Load Template",
+      `Loading "${template.name}" will replace your current query. Continue?`,
+      () => {
+        loadFromQuery(template.query);
+        showTemplates.value = false;
+        success(`Loaded template: ${template.name}`);
+      }
+    );
+  } else {
+    loadFromQuery(template.query);
+    showTemplates.value = false;
+    success(`Loaded template: ${template.name}`);
+  }
 }
 
 function startEditLabel(id: string, currentLabel?: string) {
@@ -270,7 +316,11 @@ onUnmounted(() => {
         <div class="panel-header">
           <h2>🕐 Query History</h2>
           <div class="panel-actions">
-            <button v-if="history.length > 0" class="text-btn danger" @click="clearHistory">
+            <button
+              v-if="history.length > 0"
+              class="text-btn danger"
+              @click="requestConfirm('Clear History', `Delete all ${history.length} saved queries? This cannot be undone.`, () => { clearHistory(); success('History cleared'); })"
+            >
               Clear All
             </button>
             <button class="panel-close" @click="showHistory = false" aria-label="Close">×</button>
@@ -337,6 +387,25 @@ onUnmounted(() => {
                 <button class="btn btn-ghost btn-sm" @click="cancelEditLabel">Cancel</button>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </Transition>
+
+    <!-- Confirm Dialog -->
+    <Transition name="modal">
+      <div v-if="showConfirmDialog" class="modal-overlay" @click.self="cancelConfirm">
+        <div class="modal confirm-modal" role="alertdialog" aria-modal="true" :aria-labelledby="'confirm-title'">
+          <div class="modal-header">
+            <h2 id="confirm-title">{{ confirmTitle }}</h2>
+            <button class="modal-close" @click="cancelConfirm" aria-label="Close">×</button>
+          </div>
+          <div class="modal-body">
+            <p class="confirm-message">{{ confirmMessage }}</p>
+          </div>
+          <div class="confirm-actions">
+            <button class="btn btn-ghost" @click="cancelConfirm">Cancel</button>
+            <button class="btn btn-danger" @click="executeConfirm">Confirm</button>
           </div>
         </div>
       </div>
@@ -523,6 +592,15 @@ onUnmounted(() => {
 .btn-ghost:hover {
   background: var(--bg-elevated);
   color: var(--text-primary);
+}
+
+.btn-danger {
+  background: var(--danger);
+  color: white;
+}
+
+.btn-danger:hover {
+  opacity: 0.9;
 }
 
 .btn:disabled {
@@ -894,6 +972,26 @@ onUnmounted(() => {
 .shortcut span {
   font-size: 13px;
   color: var(--text-secondary);
+}
+
+/* Confirm Dialog */
+.confirm-modal {
+  max-width: 400px;
+}
+
+.confirm-message {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.confirm-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 16px 20px;
+  border-top: 1px solid var(--border-subtle);
 }
 
 /* Input */
