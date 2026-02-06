@@ -12,16 +12,24 @@ const icons = {
 
 <template>
   <Teleport to="body">
-    <div class="toast-container">
+    <div class="toast-container" role="status" aria-live="polite" aria-atomic="false">
       <TransitionGroup name="toast">
         <div
           v-for="toast in toasts"
           :key="toast.id"
           :class="['toast', toast.type]"
           @click="dismiss(toast.id)"
+          role="alert"
         >
-          <span class="toast-icon">{{ icons[toast.type] }}</span>
+          <span class="toast-icon" aria-hidden="true">{{ icons[toast.type] }}</span>
           <span class="toast-message">{{ toast.message }}</span>
+          <button
+            class="toast-dismiss"
+            @click.stop="dismiss(toast.id)"
+            aria-label="Dismiss notification"
+          >
+            ×
+          </button>
         </div>
       </TransitionGroup>
     </div>
@@ -84,6 +92,31 @@ const icons = {
 .toast-message {
   font-size: 14px;
   color: var(--text-primary);
+  flex: 1;
+}
+
+.toast-dismiss {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: var(--radius-sm, 4px);
+  transition: all 0.15s ease;
+  padding: 0;
+  line-height: 1;
+}
+
+.toast-dismiss:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* Transitions */

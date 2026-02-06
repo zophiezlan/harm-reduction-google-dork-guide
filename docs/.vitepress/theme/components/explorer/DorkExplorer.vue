@@ -1554,9 +1554,9 @@ watch(
 }
 
 .quick-filter.favorites-filter.active {
-  background: #fef3c7;
-  border-color: #f59e0b;
-  color: #d97706;
+  background: var(--fav-bg, #fef3c7);
+  border-color: var(--fav-border, #f59e0b);
+  color: var(--fav-text, #d97706);
 }
 
 .quick-filter.clear-filter {

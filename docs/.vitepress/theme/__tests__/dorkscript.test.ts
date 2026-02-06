@@ -38,6 +38,76 @@ describe("isDorkQuery", () => {
     expect(isDorkQuery("just some words")).toBe(false);
     expect(isDorkQuery("hello world")).toBe(false);
   });
+
+  it("rejects empty and whitespace-only strings", () => {
+    expect(isDorkQuery("")).toBe(false);
+    expect(isDorkQuery("   ")).toBe(false);
+  });
+
+  it("detects @ mention patterns", () => {
+    expect(isDorkQuery("@username")).toBe(true);
+  });
+
+  it("rejects short hashtag/mention tokens", () => {
+    // The regex requires 2+ chars after # or @
+    expect(isDorkQuery("#a")).toBe(false);
+  });
+
+  it("detects leading wildcard in text", () => {
+    expect(isDorkQuery("*opioid treatment")).toBe(true);
+  });
+
+  it("detects exclusion mid-sentence", () => {
+    expect(isDorkQuery("treatment -methadone")).toBe(true);
+  });
+
+  it("does not false-positive on hyphenated words", () => {
+    // Hyphen in the middle of a word is not exclusion
+    expect(isDorkQuery("evidence-based")).toBe(false);
+  });
+
+  it("detects all known operators", () => {
+    const operators = [
+      "site",
+      "filetype",
+      "ext",
+      "intitle",
+      "allintitle",
+      "inurl",
+      "allinurl",
+      "intext",
+      "allintext",
+      "inanchor",
+      "allinanchor",
+      "related",
+      "cache",
+      "info",
+      "link",
+      "after",
+      "before",
+      "daterange",
+      "imagesize",
+      "define",
+      "source",
+      "location",
+      "weather",
+      "stocks",
+      "map",
+    ];
+    for (const op of operators) {
+      expect(isDorkQuery(`${op}:value`)).toBe(true);
+    }
+  });
+
+  it("is case-insensitive for operators", () => {
+    expect(isDorkQuery("SITE:example.com")).toBe(true);
+    expect(isDorkQuery("Site:example.com")).toBe(true);
+    expect(isDorkQuery("FILETYPE:pdf")).toBe(true);
+  });
+
+  it("detects case-insensitive AROUND", () => {
+    expect(isDorkQuery('"a" around(3) "b"')).toBe(true);
+  });
 });
 
 describe("lintDorkScript", () => {
@@ -144,6 +214,45 @@ describe("lintDorkScript", () => {
     expect(issues1.map((i) => i.message)).toEqual(
       issues2.map((i) => i.message),
     );
+  });
+
+  it("returns no issues for empty string", () => {
+    expect(lintDorkScript("")).toEqual([]);
+  });
+
+  it("detects multiple unmatched parentheses", () => {
+    const issues = lintDorkScript("((site:example.com");
+    const parenIssues = issues.filter((i) =>
+      i.message.includes("opening parenthesis"),
+    );
+    expect(parenIssues).toHaveLength(2);
+  });
+
+  it("detects multiple filetype operators without OR", () => {
+    const issues = lintDorkScript("filetype:pdf filetype:doc");
+    const multiFiletype = issues.find((i) =>
+      i.message.includes("Multiple filetype:"),
+    );
+    expect(multiFiletype).toBeDefined();
+    expect(multiFiletype!.severity).toBe("warning");
+  });
+
+  it("does not warn about multiple filetype operators with OR", () => {
+    const issues = lintDorkScript("filetype:pdf OR filetype:doc");
+    const multiFiletype = issues.find((i) =>
+      i.message.includes("Multiple filetype:"),
+    );
+    expect(multiFiletype).toBeUndefined();
+  });
+
+  it("handles escaped quotes correctly", () => {
+    // Escaped quotes should not count as unbalanced
+    const issues = lintDorkScript('"hello \\"world\\""');
+    // The escaped quotes are inside, so the outer pair should be balanced
+    const quoteIssues = issues.filter((i) =>
+      i.message.includes("Unclosed quote"),
+    );
+    expect(quoteIssues).toHaveLength(0);
   });
 });
 

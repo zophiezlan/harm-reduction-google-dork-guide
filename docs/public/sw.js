@@ -24,10 +24,16 @@ const STATIC_ASSETS = [
 // Install event - cache static assets
 self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      console.log("Caching static assets");
-      return cache.addAll(STATIC_ASSETS);
-    }),
+    caches
+      .open(CACHE_NAME)
+      .then((cache) => {
+        console.log("[SW] Caching static assets");
+        return cache.addAll(STATIC_ASSETS);
+      })
+      .catch((error) => {
+        console.error("[SW] Pre-cache failed:", error);
+        // Still activate even if some assets fail to cache
+      }),
   );
   self.skipWaiting();
 });
@@ -71,8 +77,9 @@ self.addEventListener("fetch", (event) => {
         fetch(event.request)
           .then((response) => {
             if (response.ok) {
+              const clone = response.clone();
               return caches.open(CACHE_NAME).then((cache) => {
-                return cache.put(event.request, response).then(() => {
+                return cache.put(event.request, clone).then(() => {
                   console.log(
                     "[SW] Background cache updated for",
                     event.request.url,

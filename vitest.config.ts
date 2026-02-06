@@ -18,8 +18,17 @@ export default defineConfig({
         "**/*.d.ts",
         "**/*.test.ts",
         "**/*.spec.ts",
+        "**/*.vue",
         "vitest.config.ts",
+        "docs/.vitepress/theme/index.ts",
+        "docs/.vitepress/theme/data/synonyms.ts",
       ],
+      thresholds: {
+        lines: 60,
+        functions: 60,
+        branches: 50,
+        statements: 60,
+      },
     },
   },
   resolve: {
