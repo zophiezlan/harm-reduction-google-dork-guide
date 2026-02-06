@@ -25,7 +25,9 @@ const shouldShow = computed(() => {
   return true;
 });
 
-const label = computed(() => (isCollapsed.value ? "Expand sidebar" : "Collapse sidebar"));
+const label = computed(() =>
+  isCollapsed.value ? "Expand sidebar" : "Collapse sidebar",
+);
 </script>
 
 <template>
@@ -39,7 +41,9 @@ const label = computed(() => (isCollapsed.value ? "Expand sidebar" : "Collapse s
     }"
     @click.stop
   >
-    <span v-if="variant === 'inline'" class="sidebar-toggle-label">Navigation</span>
+    <span v-if="variant === 'inline'" class="sidebar-toggle-label"
+      >Navigation</span
+    >
     <button
       class="sidebar-toggle-btn"
       type="button"

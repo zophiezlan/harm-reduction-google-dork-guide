@@ -8,7 +8,13 @@ const { execSync, spawn } = require("child_process");
 const fg = require("fast-glob");
 const path = require("path");
 
-const EXCLUDED_DIRS = ["node_modules", "archive", ".git", "dist", ".vitepress/cache"];
+const EXCLUDED_DIRS = [
+  "node_modules",
+  "archive",
+  ".git",
+  "dist",
+  ".vitepress/cache",
+];
 const CONFIG_FILE = path.join(process.cwd(), ".markdown-link-check.json");
 
 async function checkLinks() {
@@ -32,10 +38,13 @@ async function checkLinks() {
   for (const file of files) {
     const relativePath = path.relative(process.cwd(), file);
     try {
-      execSync(`npx markdown-link-check --quiet --config "${CONFIG_FILE}" "${file}"`, {
-        stdio: "pipe",
-        encoding: "utf-8",
-      });
+      execSync(
+        `npx markdown-link-check --quiet --config "${CONFIG_FILE}" "${file}"`,
+        {
+          stdio: "pipe",
+          encoding: "utf-8",
+        },
+      );
       // Success - no output needed for quiet mode
     } catch (error) {
       // markdown-link-check exits with non-zero if links are broken

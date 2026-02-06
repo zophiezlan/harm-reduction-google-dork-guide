@@ -17,8 +17,14 @@ const fg = require("fast-glob");
 
 const DOCS_DIR = path.join(__dirname, "../docs");
 const OUTPUT_FILE = path.join(__dirname, "../tools/dork-explorer/dork-data.js");
-const OUTPUT_JSON = path.join(__dirname, "../tools/dork-explorer/dork-data.json");
-const OUTPUT_INTEGRITY = path.join(__dirname, "../tools/dork-explorer/dork-data-integrity.json");
+const OUTPUT_JSON = path.join(
+  __dirname,
+  "../tools/dork-explorer/dork-data.json",
+);
+const OUTPUT_INTEGRITY = path.join(
+  __dirname,
+  "../tools/dork-explorer/dork-data-integrity.json",
+);
 
 // Source type mappings based on file path
 const SOURCE_TYPE_MAP = {
@@ -189,7 +195,8 @@ function extractTags(query, title, category) {
   if (/research|study|evidence/i.test(query + title)) tags.push("research");
   if (/policy|strategy|framework/i.test(query + title)) tags.push("policy");
   if (/service|program|clinic/i.test(query + title)) tags.push("services");
-  if (/training|workforce|education/i.test(query + title)) tags.push("training");
+  if (/training|workforce|education/i.test(query + title))
+    tags.push("training");
   if (/data|statistics|mortality/i.test(query + title)) tags.push("data");
   if (/international|global|who\./i.test(query)) tags.push("international");
   if (/australia|\.au\b/i.test(query)) tags.push("australia");
@@ -236,7 +243,10 @@ function isValidDorkQuery(query) {
   if (query.includes("| ") && query.includes(" |")) return false;
 
   // Skip JavaScript/code
-  if (/^(const|let|var|function|import|export|class|if|for|while)\b/.test(query)) return false;
+  if (
+    /^(const|let|var|function|import|export|class|if|for|while)\b/.test(query)
+  )
+    return false;
 
   // Skip JSON
   if (/^\s*[{[]/.test(query)) return false;
@@ -377,7 +387,10 @@ function parseMarkdownContent(content, filePath) {
           captureExplanation = true;
         } else if (isValidDorkQuery(query)) {
           // Standalone code block - create anonymous dork
-          const standaloneTitle = generateStandaloneTitle(query, result.dorks.length + 1);
+          const standaloneTitle = generateStandaloneTitle(
+            query,
+            result.dorks.length + 1,
+          );
           currentDork = {
             title: standaloneTitle,
             category: currentCategory,
@@ -508,10 +521,14 @@ function extractDorksFromTables(filePath) {
         // Check if this is a header row with Query column
         const lowerCells = cells.map((c) => c.toLowerCase());
         queryColumnIndex = lowerCells.findIndex(
-          (c) => c.includes("query") || c.includes("dork") || c.includes("search")
+          (c) =>
+            c.includes("query") || c.includes("dork") || c.includes("search"),
         );
         descColumnIndex = lowerCells.findIndex(
-          (c) => c.includes("description") || c.includes("purpose") || c.includes("what")
+          (c) =>
+            c.includes("description") ||
+            c.includes("purpose") ||
+            c.includes("what"),
         );
 
         if (queryColumnIndex !== -1) {
@@ -546,8 +563,8 @@ function extractDorksFromTables(filePath) {
                   sourceType: detectSourceType(relativePath),
                   sourceLine: i + 1,
                 },
-                packId
-              )
+                packId,
+              ),
             );
           }
         }
@@ -638,8 +655,10 @@ async function processFiles() {
 
     // Update stats
     for (const dork of result.dorks) {
-      stats.bySourceType[dork.sourceType] = (stats.bySourceType[dork.sourceType] || 0) + 1;
-      stats.byDifficulty[dork.difficulty] = (stats.byDifficulty[dork.difficulty] || 0) + 1;
+      stats.bySourceType[dork.sourceType] =
+        (stats.bySourceType[dork.sourceType] || 0) + 1;
+      stats.byDifficulty[dork.difficulty] =
+        (stats.byDifficulty[dork.difficulty] || 0) + 1;
       for (const op of dork.operators || []) {
         stats.byOperator[op] = (stats.byOperator[op] || 0) + 1;
       }
@@ -647,7 +666,10 @@ async function processFiles() {
   }
 
   // Calculate totals
-  const packDorkCount = database.packs.reduce((sum, p) => sum + p.dorks.length, 0);
+  const packDorkCount = database.packs.reduce(
+    (sum, p) => sum + p.dorks.length,
+    0,
+  );
   const docDorkCount = database.documentationDorks.length;
   database.meta.totalDorks = packDorkCount + docDorkCount;
 
@@ -719,7 +741,9 @@ window.DORK_META = ${JSON.stringify(database.meta, null, 2)};
   console.log("📊 STATISTICS:");
   console.log("─".repeat(50));
   console.log(`   Total Dorks:        ${database.meta.totalDorks}`);
-  console.log(`   From Dork Packs:    ${packDorkCount} (${database.packs.length} packs)`);
+  console.log(
+    `   From Dork Packs:    ${packDorkCount} (${database.packs.length} packs)`,
+  );
   console.log(`   From Documentation: ${docDorkCount}`);
   console.log("");
   console.log("   By Source Type:");

@@ -25,7 +25,12 @@ describe("build-dorkbase parsing", () => {
 
   describe("markdown parsing logic", () => {
     function parseMarkdown(content: string) {
-      const filePath = path.join(process.cwd(), "docs", "dork-packs", "test-pack.md");
+      const filePath = path.join(
+        process.cwd(),
+        "docs",
+        "dork-packs",
+        "test-pack.md",
+      );
       return parseMarkdownContent(content, filePath);
     }
 

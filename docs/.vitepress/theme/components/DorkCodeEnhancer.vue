@@ -12,7 +12,7 @@ function runDork(code: string) {
 function enhanceCodeBlocks() {
   // Find all txt/text code blocks (dork queries)
   const codeBlocks = document.querySelectorAll(
-    'div[class*="language-txt"], div[class*="language-text"], div[class*="language-dork"]'
+    'div[class*="language-txt"], div[class*="language-text"], div[class*="language-dork"]',
   );
 
   codeBlocks.forEach((block) => {

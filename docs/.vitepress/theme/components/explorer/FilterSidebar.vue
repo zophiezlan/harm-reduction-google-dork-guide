@@ -40,7 +40,9 @@ const domainExpanded = ref(false);
 const filteredPacks = computed(() => {
   if (!packSearchQuery.value) return props.packList;
   const query = packSearchQuery.value.toLowerCase();
-  return props.packList.filter((pack) => pack.title.toLowerCase().includes(query));
+  return props.packList.filter((pack) =>
+    pack.title.toLowerCase().includes(query),
+  );
 });
 
 const filteredCategories = computed(() => {
@@ -94,7 +96,9 @@ const difficultyColors: Record<DorkDifficulty, string> = {
             selectedPacks.length
           }}</span>
         </h4>
-        <span class="expand-icon" aria-hidden="true">{{ packsExpanded ? "▼" : "▶" }}</span>
+        <span class="expand-icon" aria-hidden="true">{{
+          packsExpanded ? "▼" : "▶"
+        }}</span>
       </button>
 
       <div v-show="packsExpanded" id="packs-content" class="filter-content">
@@ -120,7 +124,10 @@ const difficultyColors: Record<DorkDifficulty, string> = {
           <button
             v-for="pack in filteredPacks"
             :key="pack.id"
-            :class="['filter-item', { active: selectedPacks.includes(pack.id) }]"
+            :class="[
+              'filter-item',
+              { active: selectedPacks.includes(pack.id) },
+            ]"
             @click="emit('toggle-pack', pack.id)"
             role="option"
             :aria-selected="selectedPacks.includes(pack.id)"
@@ -149,11 +156,21 @@ const difficultyColors: Record<DorkDifficulty, string> = {
             selectedDifficulties.length
           }}</span>
         </h4>
-        <span class="expand-icon" aria-hidden="true">{{ difficultyExpanded ? "▼" : "▶" }}</span>
+        <span class="expand-icon" aria-hidden="true">{{
+          difficultyExpanded ? "▼" : "▶"
+        }}</span>
       </button>
 
-      <div v-show="difficultyExpanded" id="difficulty-content" class="filter-content">
-        <div class="filter-chips difficulty-chips" role="listbox" aria-label="Difficulty levels">
+      <div
+        v-show="difficultyExpanded"
+        id="difficulty-content"
+        class="filter-content"
+      >
+        <div
+          class="filter-chips difficulty-chips"
+          role="listbox"
+          aria-label="Difficulty levels"
+        >
           <button
             v-for="diff in difficulties"
             :key="diff"
@@ -183,11 +200,15 @@ const difficultyColors: Record<DorkDifficulty, string> = {
       >
         <h4 class="filter-title">
           Domain Type
-          <span v-if="selectedDomainCategories.length > 0" class="filter-badge">{{
-            selectedDomainCategories.length
-          }}</span>
+          <span
+            v-if="selectedDomainCategories.length > 0"
+            class="filter-badge"
+            >{{ selectedDomainCategories.length }}</span
+          >
         </h4>
-        <span class="expand-icon" aria-hidden="true">{{ domainExpanded ? "▼" : "▶" }}</span>
+        <span class="expand-icon" aria-hidden="true">{{
+          domainExpanded ? "▼" : "▶"
+        }}</span>
       </button>
 
       <div v-show="domainExpanded" id="domain-content" class="filter-content">
@@ -195,7 +216,10 @@ const difficultyColors: Record<DorkDifficulty, string> = {
           <button
             v-for="domain in domainCategories"
             :key="domain"
-            :class="['chip', { active: selectedDomainCategories.includes(domain) }]"
+            :class="[
+              'chip',
+              { active: selectedDomainCategories.includes(domain) },
+            ]"
             @click="emit('toggle-domain', domain)"
             role="option"
             :aria-selected="selectedDomainCategories.includes(domain)"
@@ -220,10 +244,16 @@ const difficultyColors: Record<DorkDifficulty, string> = {
             selectedCategories.length
           }}</span>
         </h4>
-        <span class="expand-icon" aria-hidden="true">{{ categoriesExpanded ? "▼" : "▶" }}</span>
+        <span class="expand-icon" aria-hidden="true">{{
+          categoriesExpanded ? "▼" : "▶"
+        }}</span>
       </button>
 
-      <div v-show="categoriesExpanded" id="categories-content" class="filter-content">
+      <div
+        v-show="categoriesExpanded"
+        id="categories-content"
+        class="filter-content"
+      >
         <div class="filter-search-wrapper">
           <input
             v-model="categorySearchQuery"
@@ -242,7 +272,11 @@ const difficultyColors: Record<DorkDifficulty, string> = {
           </button>
         </div>
 
-        <div class="filter-chips" role="listbox" aria-label="Available categories">
+        <div
+          class="filter-chips"
+          role="listbox"
+          aria-label="Available categories"
+        >
           <button
             v-for="cat in filteredCategories"
             :key="cat"

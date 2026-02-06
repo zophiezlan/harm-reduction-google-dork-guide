@@ -141,8 +141,12 @@ export function lintDorkScript(text: string): DorkLintIssue[] {
     }
   }
 
-  // Empty operator values
-  while ((match = operatorRegex.exec(text))) {
+  // Empty operator values — use a fresh regex to avoid lastIndex issues
+  const operatorRegexLocal = new RegExp(
+    `\\b(${DORK_OPERATORS.join("|")}):`,
+    "gi",
+  );
+  while ((match = operatorRegexLocal.exec(text))) {
     const afterIndex = match.index + match[0].length;
     let cursor = afterIndex;
     while (cursor < text.length && text[cursor] === " ") cursor++;
@@ -150,7 +154,12 @@ export function lintDorkScript(text: string): DorkLintIssue[] {
     const nextChar = text[cursor];
     const nextToken = text.slice(cursor, cursor + 3);
 
-    if (!nextChar || nextChar === ")" || nextToken === "OR " || nextToken === "AND") {
+    if (
+      !nextChar ||
+      nextChar === ")" ||
+      nextToken === "OR " ||
+      nextToken === "AND"
+    ) {
       issues.push({
         message: `Missing value for ${match[1]} operator`,
         start: match.index,
@@ -171,7 +180,8 @@ export function lintDorkScript(text: string): DorkLintIssue[] {
   }
   if ((operatorCounts.filetype || 0) > 1 && !/\bOR\b/i.test(text)) {
     issues.push({
-      message: "Multiple filetype: operators detected. Consider grouping with OR.",
+      message:
+        "Multiple filetype: operators detected. Consider grouping with OR.",
       start: 0,
       end: Math.min(5, text.length),
       severity: "warning",
@@ -198,7 +208,8 @@ export function lintDorkScript(text: string): DorkLintIssue[] {
     const value = match[1];
     if (!/^\d{2,5}x\d{2,5}$/i.test(value)) {
       issues.push({
-        message: "Invalid imagesize format. Use WIDTHxHEIGHT (e.g., 1920x1080).",
+        message:
+          "Invalid imagesize format. Use WIDTHxHEIGHT (e.g., 1920x1080).",
         start: match.index,
         end: match.index + match[0].length,
         severity: "error",
@@ -339,7 +350,8 @@ export function highlightDorkText(text: string): string {
     const booleanMatch = rest.match(/^\b(OR|AND)\b/);
     if (booleanMatch) {
       const boolOp = booleanMatch[1];
-      const cls = boolOp === "OR" ? "dork-boolean dork-or" : "dork-boolean dork-and";
+      const cls =
+        boolOp === "OR" ? "dork-boolean dork-or" : "dork-boolean dork-and";
       result += `<span class="${cls}">${escapeHtml(take(booleanMatch[0].length))}</span>`;
       continue;
     }
@@ -414,10 +426,15 @@ export function highlightDorkText(text: string): string {
   return result;
 }
 
-export function highlightDorkWithLint(text: string, issues: DorkLintIssue[]): string {
+export function highlightDorkWithLint(
+  text: string,
+  issues: DorkLintIssue[],
+): string {
   if (!issues.length) return highlightDorkText(text);
 
-  const sorted = [...issues].map((issue) => ({ ...issue })).sort((a, b) => a.start - b.start);
+  const sorted = [...issues]
+    .map((issue) => ({ ...issue }))
+    .sort((a, b) => a.start - b.start);
 
   let result = "";
   let cursor = 0;

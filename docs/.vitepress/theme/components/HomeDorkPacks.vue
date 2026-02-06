@@ -66,7 +66,11 @@ function navigate(link: string) {
       </button>
     </div>
     <div class="view-all">
-      <button class="view-all-link" type="button" @click="navigate('/dork-packs/README')">
+      <button
+        class="view-all-link"
+        type="button"
+        @click="navigate('/dork-packs/README')"
+      >
         View All Dork Packs →
       </button>
     </div>

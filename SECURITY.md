@@ -1,8 +1,8 @@
 # Security & Responsible Use Guidelines
 
-This document outlines ethical guidelines for using dorks (advanced search operators) in harm reduction work. These are
-not just suggestions—they are foundational principles that protect individuals, communities, and the
-integrity of harm reduction practice.
+This document outlines ethical guidelines for using dorks (advanced search operators) in harm
+reduction work. These are not just suggestions—they are foundational principles that protect
+individuals, communities, and the integrity of harm reduction practice.
 
 ---
 

@@ -19,7 +19,9 @@ const isDark = computed(() => {
 
 function syncAccent() {
   if (typeof window === "undefined") return;
-  const value = getComputedStyle(document.documentElement).getPropertyValue("--accent").trim();
+  const value = getComputedStyle(document.documentElement)
+    .getPropertyValue("--accent")
+    .trim();
   if (value) accent.value = value;
 }
 
@@ -52,7 +54,7 @@ watch(
   () => [settings.theme.color, settings.theme.mode, systemDark.value],
   () => {
     syncAccent();
-  }
+  },
 );
 
 const particleColor = computed(() => (isDark.value ? "#ffffff" : accent.value));

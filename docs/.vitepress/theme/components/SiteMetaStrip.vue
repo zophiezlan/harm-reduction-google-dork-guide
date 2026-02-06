@@ -25,8 +25,10 @@ const lastUpdated = computed(() => {
 });
 
 const buildDate = computed(() => {
-  const metaDate = typeof window !== "undefined" ? window.DORK_META?.buildDate || "" : "";
-  const rawDate = typeof __BUILD_DATE__ === "undefined" ? metaDate : __BUILD_DATE__;
+  const metaDate =
+    typeof window !== "undefined" ? window.DORK_META?.buildDate || "" : "";
+  const rawDate =
+    typeof __BUILD_DATE__ === "undefined" ? metaDate : __BUILD_DATE__;
   if (!rawDate) return "";
   const date = new Date(rawDate);
   if (Number.isNaN(date.getTime())) return "";
@@ -39,7 +41,8 @@ const buildDate = computed(() => {
 
 const appVersion = computed(() => {
   if (typeof __APP_VERSION__ !== "undefined") return __APP_VERSION__;
-  if (typeof window !== "undefined" && window.DORK_META?.version) return window.DORK_META.version;
+  if (typeof window !== "undefined" && window.DORK_META?.version)
+    return window.DORK_META.version;
   return "";
 });
 </script>

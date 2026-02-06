@@ -23,7 +23,7 @@ function handleKeydown(e: KeyboardEvent) {
 
   if (e.key === "Tab" && modalRef.value) {
     const focusableElements = modalRef.value.querySelectorAll<HTMLElement>(
-      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
     );
     const firstElement = focusableElements[0];
     const lastElement = focusableElements[focusableElements.length - 1];
@@ -63,8 +63,17 @@ function onAfterLeave() {
 
 <template>
   <Teleport to="body">
-    <Transition name="modal" @after-enter="onAfterEnter" @after-leave="onAfterLeave">
-      <div v-if="show" class="modal-overlay" @click.self="emit('close')" role="presentation">
+    <Transition
+      name="modal"
+      @after-enter="onAfterEnter"
+      @after-leave="onAfterLeave"
+    >
+      <div
+        v-if="show"
+        class="modal-overlay"
+        @click.self="emit('close')"
+        role="presentation"
+      >
         <div
           ref="modalRef"
           class="modal shortcuts-modal"
@@ -73,7 +82,9 @@ function onAfterLeave() {
           aria-labelledby="shortcuts-title"
         >
           <div class="modal-header">
-            <h2 id="shortcuts-title"><span aria-hidden="true">⌨️</span> Keyboard Shortcuts</h2>
+            <h2 id="shortcuts-title">
+              <span aria-hidden="true">⌨️</span> Keyboard Shortcuts
+            </h2>
             <button
               class="modal-close"
               @click="emit('close')"

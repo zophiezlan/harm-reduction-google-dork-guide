@@ -7,7 +7,7 @@ const props = withDefaults(
   {
     target: "#main-content",
     label: "Skip to main content",
-  }
+  },
 );
 </script>
 

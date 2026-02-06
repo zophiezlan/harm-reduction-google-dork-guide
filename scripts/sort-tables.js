@@ -151,7 +151,11 @@ async function processFile(filePath) {
   }
 
   if (changedFiles.length === 0) {
-    console.log(mode === "check" ? "No table changes needed." : "No table changes needed.");
+    console.log(
+      mode === "check"
+        ? "No table changes needed."
+        : "No table changes needed.",
+    );
     process.exit(0);
   }
 

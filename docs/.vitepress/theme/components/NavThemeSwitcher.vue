@@ -89,7 +89,10 @@ onUnmounted(() => {
           <button
             v-for="color in colors"
             :key="color.id"
-            :class="['color-swatch', { active: settings.theme.color === color.id }]"
+            :class="[
+              'color-swatch',
+              { active: settings.theme.color === color.id },
+            ]"
             :style="{ '--swatch-color': `var(--color-${color.id})` }"
             :title="color.label"
             @click="setThemeColor(color.id)"

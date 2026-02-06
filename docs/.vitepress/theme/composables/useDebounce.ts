@@ -39,7 +39,7 @@ export function useDebouncedRef<T>(source: Ref<T>, delay = 300): Ref<T> {
  */
 export function useDebounce<T extends (...args: unknown[]) => unknown>(
   func: T,
-  delay = 300
+  delay = 300,
 ): { fn: (...args: Parameters<T>) => void; cancel: () => void } {
   let timeout: ReturnType<typeof setTimeout> | null = null;
 

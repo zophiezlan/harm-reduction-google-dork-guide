@@ -22,8 +22,10 @@ self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(STATIC_CACHE).then((cache) => {
       console.log("[SW] Pre-caching static assets");
-      return cache.addAll(PRECACHE_ASSETS.map((url) => new Request(url, { cache: "reload" })));
-    })
+      return cache.addAll(
+        PRECACHE_ASSETS.map((url) => new Request(url, { cache: "reload" })),
+      );
+    }),
   );
   // Activate immediately
   self.skipWaiting();
@@ -36,14 +38,18 @@ self.addEventListener("activate", (event) => {
       return Promise.all(
         cacheNames
           .filter((name) => {
-            return name.startsWith("needle-") && name !== STATIC_CACHE && name !== DATA_CACHE;
+            return (
+              name.startsWith("needle-") &&
+              name !== STATIC_CACHE &&
+              name !== DATA_CACHE
+            );
           })
           .map((name) => {
             console.log("[SW] Deleting old cache:", name);
             return caches.delete(name);
-          })
+          }),
       );
-    })
+    }),
   );
   // Take control of all pages immediately
   self.clients.claim();
@@ -135,7 +141,7 @@ async function networkFirst(request, cacheName) {
         {
           status: 503,
           headers: { "Content-Type": "text/html" },
-        }
+        },
       );
     }
 

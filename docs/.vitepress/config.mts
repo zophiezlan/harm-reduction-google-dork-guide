@@ -4,11 +4,15 @@ import { fileURLToPath, URL } from "node:url";
 import fs from "node:fs";
 
 const toolsPublicDir = fileURLToPath(new URL("../../tools", import.meta.url));
-const packageJsonPath = fileURLToPath(new URL("../../package.json", import.meta.url));
+const packageJsonPath = fileURLToPath(
+  new URL("../../package.json", import.meta.url),
+);
 const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf-8"));
-const changelogPath = fileURLToPath(new URL("../../CHANGELOG.md", import.meta.url));
+const changelogPath = fileURLToPath(
+  new URL("../../CHANGELOG.md", import.meta.url),
+);
 const changelog = fs.readFileSync(changelogPath, "utf-8");
-const changelogMatch = changelog.match(/^##\\s*v?([^\\s(]+)/m);
+const changelogMatch = changelog.match(/^##\s*v?([^\s(]+)/m);
 const appVersion = changelogMatch ? changelogMatch[1] : packageJson.version;
 const rawBase = process.env.VITEPRESS_BASE ?? "/";
 const base = rawBase.startsWith("/") ? rawBase : `/${rawBase}`;
@@ -26,9 +30,18 @@ export default defineConfig({
     ["link", { rel: "manifest", href: `${normalizedBase}manifest.json` }],
     ["meta", { name: "theme-color", content: "#10b981" }],
     ["meta", { name: "apple-mobile-web-app-capable", content: "yes" }],
-    ["meta", { name: "apple-mobile-web-app-status-bar-style", content: "black-translucent" }],
+    [
+      "meta",
+      {
+        name: "apple-mobile-web-app-status-bar-style",
+        content: "black-translucent",
+      },
+    ],
     ["meta", { name: "apple-mobile-web-app-title", content: "Needle" }],
-    ["link", { rel: "apple-touch-icon", href: `${normalizedBase}icons/icon-192.png` }],
+    [
+      "link",
+      { rel: "apple-touch-icon", href: `${normalizedBase}icons/icon-192.png` },
+    ],
     ["meta", { name: "app-base", content: normalizedBase }],
     // SEO
     ["meta", { name: "author", content: "Harm Reduction Community" }],
@@ -36,16 +49,21 @@ export default defineConfig({
       "meta",
       {
         name: "keywords",
-        content: "harm reduction, dorks, advanced search, AOD, drug policy, peer support, needle",
+        content:
+          "harm reduction, dorks, advanced search, AOD, drug policy, peer support, needle",
       },
     ],
     ["meta", { property: "og:type", content: "website" }],
-    ["meta", { property: "og:title", content: "Needle — Harm Reduction Search" }],
+    [
+      "meta",
+      { property: "og:title", content: "Needle — Harm Reduction Search" },
+    ],
     [
       "meta",
       {
         property: "og:description",
-        content: "Search discovery platform with 700+ pre-built queries for harm reduction professionals",
+        content:
+          "Search discovery platform with 700+ pre-built queries for harm reduction professionals",
       },
     ],
     ["meta", { property: "og:locale", content: "en_AU" }],

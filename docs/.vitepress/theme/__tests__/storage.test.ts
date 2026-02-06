@@ -33,7 +33,10 @@ describe("storage utilities", () => {
       const stored = { theme: { color: "green" } };
       localStorage.setItem("needle-test", JSON.stringify(stored));
 
-      const defaultValue = { theme: { color: "blue", mode: "dark" }, newProp: true };
+      const defaultValue = {
+        theme: { color: "blue", mode: "dark" },
+        newProp: true,
+      };
       const result = getStorageItem("test", defaultValue);
       expect(result).toEqual({
         theme: { color: "green", mode: "dark" },
@@ -56,7 +59,10 @@ describe("storage utilities", () => {
     });
 
     it("returns default value for wrong nested type", () => {
-      localStorage.setItem("needle-test", JSON.stringify({ theme: "not an object" }));
+      localStorage.setItem(
+        "needle-test",
+        JSON.stringify({ theme: "not an object" }),
+      );
       const defaultValue = { theme: { color: "blue" } };
       const result = getStorageItem("test", defaultValue);
       expect(result).toEqual(defaultValue);
@@ -123,7 +129,10 @@ describe("storage utilities", () => {
 
     it("detects quota exceeded error", () => {
       const consoleSpy = vi.spyOn(console, "warn").mockImplementation(() => {});
-      const quotaError = new DOMException("Quota exceeded", "QuotaExceededError");
+      const quotaError = new DOMException(
+        "Quota exceeded",
+        "QuotaExceededError",
+      );
       const mockStorage = {
         getItem: vi.fn(),
         setItem: vi.fn(() => {

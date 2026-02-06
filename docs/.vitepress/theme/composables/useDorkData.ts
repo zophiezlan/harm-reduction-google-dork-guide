@@ -44,7 +44,9 @@ export interface DorkFilters {
 export function useDorkData() {
   async function fetchIntegrityHash(): Promise<string | null> {
     try {
-      const response = await fetch(withBase("/dork-explorer/dork-data-integrity.json"));
+      const response = await fetch(
+        withBase("/dork-explorer/dork-data-integrity.json"),
+      );
       if (!response.ok) return null;
       const data = await response.json();
       return data.integrity || null;
@@ -79,7 +81,8 @@ export function useDorkData() {
         script.crossOrigin = "anonymous";
       }
       script.onload = () => resolve();
-      script.onerror = () => reject(new Error("Failed to load dork data script"));
+      script.onerror = () =>
+        reject(new Error("Failed to load dork data script"));
       document.head.appendChild(script);
     });
 
@@ -105,7 +108,8 @@ export function useDorkData() {
         isLoaded.value = true;
       }
     } catch (e) {
-      const message = e instanceof Error ? e.message : "Failed to load dork data";
+      const message =
+        e instanceof Error ? e.message : "Failed to load dork data";
       loadError.value = message;
       console.error("Failed to load dork data:", e);
     } finally {
@@ -128,7 +132,7 @@ export function useDorkData() {
         ...dork,
         packId: pack.id,
         packTitle: pack.title,
-      }))
+      })),
     );
   });
 
@@ -152,7 +156,7 @@ export function useDorkData() {
       title: p.title,
       description: p.description,
       count: p.dorks.length,
-    }))
+    })),
   );
 
   const categories = computed(() => {
@@ -168,7 +172,7 @@ export function useDorkData() {
       if (d.difficulty) set.add(d.difficulty);
     });
     return ["beginner", "intermediate", "advanced", "expert"].filter((d) =>
-      set.has(d as DorkDifficulty)
+      set.has(d as DorkDifficulty),
     ) as DorkDifficulty[];
   });
 
@@ -201,9 +205,13 @@ export function useDorkData() {
     return Array.from(set).sort();
   });
 
-  function searchDorks(query: string, filters: DorkFilters = {}): DorkWithPack[] {
+  function searchDorks(
+    query: string,
+    filters: DorkFilters = {},
+  ): DorkWithPack[] {
     // Start with appropriate dataset
-    let results = filters.includeDocumentation !== false ? allDorks.value : packDorks.value;
+    let results =
+      filters.includeDocumentation !== false ? allDorks.value : packDorks.value;
 
     // Filter by packs
     if (filters.packs && filters.packs.length > 0) {
@@ -217,26 +225,34 @@ export function useDorkData() {
 
     // Filter by difficulty
     if (filters.difficulty && filters.difficulty.length > 0) {
-      results = results.filter((d) => d.difficulty && filters.difficulty!.includes(d.difficulty));
+      results = results.filter(
+        (d) => d.difficulty && filters.difficulty!.includes(d.difficulty),
+      );
     }
 
     // Filter by domain category
     if (filters.domainCategory && filters.domainCategory.length > 0) {
       results = results.filter(
-        (d) => d.domainCategory && filters.domainCategory!.includes(d.domainCategory)
+        (d) =>
+          d.domainCategory &&
+          filters.domainCategory!.includes(d.domainCategory),
       );
     }
 
     // Filter by operators
     if (filters.operators && filters.operators.length > 0) {
       results = results.filter(
-        (d) => d.operators && filters.operators!.some((op) => d.operators!.includes(op))
+        (d) =>
+          d.operators &&
+          filters.operators!.some((op) => d.operators!.includes(op)),
       );
     }
 
     // Filter by tags
     if (filters.tags && filters.tags.length > 0) {
-      results = results.filter((d) => d.tags && filters.tags!.some((tag) => d.tags!.includes(tag)));
+      results = results.filter(
+        (d) => d.tags && filters.tags!.some((tag) => d.tags!.includes(tag)),
+      );
     }
 
     // Search query
@@ -248,7 +264,7 @@ export function useDorkData() {
           d.query.toLowerCase().includes(lower) ||
           d.explanation.toLowerCase().includes(lower) ||
           d.packTitle.toLowerCase().includes(lower) ||
-          d.tags?.some((t) => t.toLowerCase().includes(lower))
+          d.tags?.some((t) => t.toLowerCase().includes(lower)),
       );
     }
 
@@ -269,7 +285,7 @@ export function useDorkData() {
         acc[d] = allDorks.value.filter((dork) => dork.difficulty === d).length;
         return acc;
       },
-      {} as Record<DorkDifficulty, number>
+      {} as Record<DorkDifficulty, number>,
     ),
   }));
 

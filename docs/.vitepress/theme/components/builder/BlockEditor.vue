@@ -99,10 +99,14 @@ const validationError = computed(() => {
   <div v-if="selectedBlock" class="block-editor">
     <div class="editor-header">
       <span class="editor-type">{{ selectedBlock.type.toUpperCase() }}</span>
-      <button class="editor-remove" @click="removeBlock(selectedBlock.id)">Remove</button>
+      <button class="editor-remove" @click="removeBlock(selectedBlock.id)">
+        Remove
+      </button>
     </div>
 
-    <div v-if="validationError" class="validation-alert">⚠️ {{ validationError }}</div>
+    <div v-if="validationError" class="validation-alert">
+      ⚠️ {{ validationError }}
+    </div>
 
     <!-- Site Block -->
     <div v-if="selectedBlock.type === 'site'" class="editor-content">
@@ -110,7 +114,10 @@ const validationError = computed(() => {
         <button
           v-for="preset in sitePresets"
           :key="preset.value"
-          :class="['preset-btn', { active: selectedBlock.value === preset.value }]"
+          :class="[
+            'preset-btn',
+            { active: selectedBlock.value === preset.value },
+          ]"
           @click="updateBlock(selectedBlock.id, { value: preset.value })"
         >
           {{ preset.label }}
@@ -121,7 +128,11 @@ const validationError = computed(() => {
         class="input"
         placeholder="Custom domain..."
         aria-label="Custom domain"
-        @input="updateBlock(selectedBlock.id, { value: ($event.target as HTMLInputElement).value })"
+        @input="
+          updateBlock(selectedBlock.id, {
+            value: ($event.target as HTMLInputElement).value,
+          })
+        "
       />
       <label class="checkbox-label">
         <input
@@ -171,7 +182,11 @@ const validationError = computed(() => {
         class="input"
         placeholder="File extension"
         aria-label="File extension"
-        @input="updateBlock(selectedBlock.id, { value: ($event.target as HTMLInputElement).value })"
+        @input="
+          updateBlock(selectedBlock.id, {
+            value: ($event.target as HTMLInputElement).value,
+          })
+        "
       />
     </div>
 
@@ -183,11 +198,15 @@ const validationError = computed(() => {
           :key="preset.value"
           :class="[
             'preset-btn',
-            { active: selectedBlock.value.toLowerCase().includes(preset.value) },
+            {
+              active: selectedBlock.value.toLowerCase().includes(preset.value),
+            },
           ]"
           @click="
             updateBlock(selectedBlock.id, {
-              value: selectedBlock.value ? `${selectedBlock.value} ${preset.value}` : preset.value,
+              value: selectedBlock.value
+                ? `${selectedBlock.value} ${preset.value}`
+                : preset.value,
             })
           "
         >
@@ -199,7 +218,11 @@ const validationError = computed(() => {
         class="input"
         placeholder="Enter keywords..."
         aria-label="Keywords"
-        @input="updateBlock(selectedBlock.id, { value: ($event.target as HTMLInputElement).value })"
+        @input="
+          updateBlock(selectedBlock.id, {
+            value: ($event.target as HTMLInputElement).value,
+          })
+        "
       />
       <label class="checkbox-label">
         <input
@@ -272,11 +295,17 @@ const validationError = computed(() => {
         <button
           v-for="preset in datePresets"
           :key="preset.value"
-          :class="['preset-btn', { active: selectedBlock.value === String(preset.value) }]"
+          :class="[
+            'preset-btn',
+            { active: selectedBlock.value === String(preset.value) },
+          ]"
           @click="
             updateBlock(selectedBlock.id, {
               value: String(preset.value),
-              options: { ...selectedBlock.options, type: selectedBlock.options.type || 'after' },
+              options: {
+                ...selectedBlock.options,
+                type: selectedBlock.options.type || 'after',
+              },
             })
           "
         >
@@ -288,7 +317,11 @@ const validationError = computed(() => {
         class="input"
         placeholder="YYYY or YYYY-MM-DD"
         aria-label="Date (YYYY or YYYY-MM-DD)"
-        @input="updateBlock(selectedBlock.id, { value: ($event.target as HTMLInputElement).value })"
+        @input="
+          updateBlock(selectedBlock.id, {
+            value: ($event.target as HTMLInputElement).value,
+          })
+        "
       />
     </div>
 
@@ -299,7 +332,11 @@ const validationError = computed(() => {
         class="input"
         placeholder="Title keywords..."
         aria-label="Title keywords"
-        @input="updateBlock(selectedBlock.id, { value: ($event.target as HTMLInputElement).value })"
+        @input="
+          updateBlock(selectedBlock.id, {
+            value: ($event.target as HTMLInputElement).value,
+          })
+        "
       />
     </div>
 
@@ -310,7 +347,11 @@ const validationError = computed(() => {
         class="input"
         placeholder="All title terms..."
         aria-label="All title terms"
-        @input="updateBlock(selectedBlock.id, { value: ($event.target as HTMLInputElement).value })"
+        @input="
+          updateBlock(selectedBlock.id, {
+            value: ($event.target as HTMLInputElement).value,
+          })
+        "
       />
     </div>
 
@@ -321,7 +362,11 @@ const validationError = computed(() => {
         class="input"
         placeholder="URL keywords..."
         aria-label="URL keywords"
-        @input="updateBlock(selectedBlock.id, { value: ($event.target as HTMLInputElement).value })"
+        @input="
+          updateBlock(selectedBlock.id, {
+            value: ($event.target as HTMLInputElement).value,
+          })
+        "
       />
     </div>
 
@@ -332,7 +377,11 @@ const validationError = computed(() => {
         class="input"
         placeholder="All URL terms..."
         aria-label="All URL terms"
-        @input="updateBlock(selectedBlock.id, { value: ($event.target as HTMLInputElement).value })"
+        @input="
+          updateBlock(selectedBlock.id, {
+            value: ($event.target as HTMLInputElement).value,
+          })
+        "
       />
     </div>
 
@@ -343,7 +392,11 @@ const validationError = computed(() => {
         class="input"
         placeholder="Body text keywords..."
         aria-label="Body text keywords"
-        @input="updateBlock(selectedBlock.id, { value: ($event.target as HTMLInputElement).value })"
+        @input="
+          updateBlock(selectedBlock.id, {
+            value: ($event.target as HTMLInputElement).value,
+          })
+        "
       />
     </div>
 
@@ -354,7 +407,11 @@ const validationError = computed(() => {
         class="input"
         placeholder="All body text terms..."
         aria-label="All body text terms"
-        @input="updateBlock(selectedBlock.id, { value: ($event.target as HTMLInputElement).value })"
+        @input="
+          updateBlock(selectedBlock.id, {
+            value: ($event.target as HTMLInputElement).value,
+          })
+        "
       />
     </div>
 
@@ -365,7 +422,11 @@ const validationError = computed(() => {
         class="input"
         placeholder="Anchor text..."
         aria-label="Anchor text"
-        @input="updateBlock(selectedBlock.id, { value: ($event.target as HTMLInputElement).value })"
+        @input="
+          updateBlock(selectedBlock.id, {
+            value: ($event.target as HTMLInputElement).value,
+          })
+        "
       />
     </div>
 
@@ -376,7 +437,11 @@ const validationError = computed(() => {
         class="input"
         placeholder="All anchor terms..."
         aria-label="All anchor terms"
-        @input="updateBlock(selectedBlock.id, { value: ($event.target as HTMLInputElement).value })"
+        @input="
+          updateBlock(selectedBlock.id, {
+            value: ($event.target as HTMLInputElement).value,
+          })
+        "
       />
     </div>
 
@@ -387,7 +452,11 @@ const validationError = computed(() => {
         class="input"
         placeholder="related:example.com"
         aria-label="Related site"
-        @input="updateBlock(selectedBlock.id, { value: ($event.target as HTMLInputElement).value })"
+        @input="
+          updateBlock(selectedBlock.id, {
+            value: ($event.target as HTMLInputElement).value,
+          })
+        "
       />
     </div>
 
@@ -398,7 +467,11 @@ const validationError = computed(() => {
         class="input"
         placeholder="cache:example.com/page"
         aria-label="Cached page"
-        @input="updateBlock(selectedBlock.id, { value: ($event.target as HTMLInputElement).value })"
+        @input="
+          updateBlock(selectedBlock.id, {
+            value: ($event.target as HTMLInputElement).value,
+          })
+        "
       />
     </div>
 
@@ -409,7 +482,11 @@ const validationError = computed(() => {
         class="input"
         placeholder="source:bbc.com"
         aria-label="News source"
-        @input="updateBlock(selectedBlock.id, { value: ($event.target as HTMLInputElement).value })"
+        @input="
+          updateBlock(selectedBlock.id, {
+            value: ($event.target as HTMLInputElement).value,
+          })
+        "
       />
     </div>
 
@@ -420,7 +497,11 @@ const validationError = computed(() => {
         class="input"
         placeholder="info:example.com"
         aria-label="Info lookup"
-        @input="updateBlock(selectedBlock.id, { value: ($event.target as HTMLInputElement).value })"
+        @input="
+          updateBlock(selectedBlock.id, {
+            value: ($event.target as HTMLInputElement).value,
+          })
+        "
       />
     </div>
 
@@ -431,7 +512,11 @@ const validationError = computed(() => {
         class="input"
         placeholder="link:example.com"
         aria-label="Link lookup"
-        @input="updateBlock(selectedBlock.id, { value: ($event.target as HTMLInputElement).value })"
+        @input="
+          updateBlock(selectedBlock.id, {
+            value: ($event.target as HTMLInputElement).value,
+          })
+        "
       />
     </div>
 
@@ -442,7 +527,11 @@ const validationError = computed(() => {
         class="input"
         placeholder="define:term"
         aria-label="Define term"
-        @input="updateBlock(selectedBlock.id, { value: ($event.target as HTMLInputElement).value })"
+        @input="
+          updateBlock(selectedBlock.id, {
+            value: ($event.target as HTMLInputElement).value,
+          })
+        "
       />
     </div>
 
@@ -453,7 +542,11 @@ const validationError = computed(() => {
         class="input"
         placeholder="weather:location"
         aria-label="Weather location"
-        @input="updateBlock(selectedBlock.id, { value: ($event.target as HTMLInputElement).value })"
+        @input="
+          updateBlock(selectedBlock.id, {
+            value: ($event.target as HTMLInputElement).value,
+          })
+        "
       />
     </div>
 
@@ -464,7 +557,11 @@ const validationError = computed(() => {
         class="input"
         placeholder="stocks:SYMBOL"
         aria-label="Stock symbol"
-        @input="updateBlock(selectedBlock.id, { value: ($event.target as HTMLInputElement).value })"
+        @input="
+          updateBlock(selectedBlock.id, {
+            value: ($event.target as HTMLInputElement).value,
+          })
+        "
       />
     </div>
 
@@ -475,7 +572,11 @@ const validationError = computed(() => {
         class="input"
         placeholder="map:location"
         aria-label="Map location"
-        @input="updateBlock(selectedBlock.id, { value: ($event.target as HTMLInputElement).value })"
+        @input="
+          updateBlock(selectedBlock.id, {
+            value: ($event.target as HTMLInputElement).value,
+          })
+        "
       />
     </div>
 
@@ -503,7 +604,10 @@ const validationError = computed(() => {
           aria-label="Date range end"
           @input="
             updateBlock(selectedBlock.id, {
-              options: { ...selectedBlock.options, end: ($event.target as HTMLInputElement).value },
+              options: {
+                ...selectedBlock.options,
+                end: ($event.target as HTMLInputElement).value,
+              },
             })
           "
         />
@@ -513,7 +617,11 @@ const validationError = computed(() => {
         class="input"
         placeholder="Or enter daterange value"
         aria-label="Date range value"
-        @input="updateBlock(selectedBlock.id, { value: ($event.target as HTMLInputElement).value })"
+        @input="
+          updateBlock(selectedBlock.id, {
+            value: ($event.target as HTMLInputElement).value,
+          })
+        "
       />
     </div>
 
@@ -556,7 +664,11 @@ const validationError = computed(() => {
         class="input"
         placeholder="Or enter WIDTHxHEIGHT"
         aria-label="Image size"
-        @input="updateBlock(selectedBlock.id, { value: ($event.target as HTMLInputElement).value })"
+        @input="
+          updateBlock(selectedBlock.id, {
+            value: ($event.target as HTMLInputElement).value,
+          })
+        "
       />
     </div>
 
@@ -573,7 +685,8 @@ const validationError = computed(() => {
             updateBlock(selectedBlock.id, {
               options: {
                 ...selectedBlock.options,
-                distance: Number(($event.target as HTMLInputElement).value) || 0,
+                distance:
+                  Number(($event.target as HTMLInputElement).value) || 0,
               },
             })
           "
@@ -611,7 +724,10 @@ const validationError = computed(() => {
         <button
           v-for="preset in aroundPresets"
           :key="preset"
-          :class="['preset-btn', { active: selectedBlock.options.distance === preset }]"
+          :class="[
+            'preset-btn',
+            { active: selectedBlock.options.distance === preset },
+          ]"
           @click="
             updateBlock(selectedBlock.id, {
               options: { ...selectedBlock.options, distance: preset },
@@ -630,7 +746,11 @@ const validationError = computed(() => {
         class="input"
         placeholder="Exclude term or site"
         aria-label="Exclude term or site"
-        @input="updateBlock(selectedBlock.id, { value: ($event.target as HTMLInputElement).value })"
+        @input="
+          updateBlock(selectedBlock.id, {
+            value: ($event.target as HTMLInputElement).value,
+          })
+        "
       />
       <label class="checkbox-label">
         <input
@@ -690,7 +810,11 @@ const validationError = computed(() => {
         class="input"
         placeholder="Exact phrase"
         aria-label="Exact phrase"
-        @input="updateBlock(selectedBlock.id, { value: ($event.target as HTMLInputElement).value })"
+        @input="
+          updateBlock(selectedBlock.id, {
+            value: ($event.target as HTMLInputElement).value,
+          })
+        "
       />
     </div>
 
@@ -701,7 +825,11 @@ const validationError = computed(() => {
         class="input"
         placeholder="Keyword with *"
         aria-label="Wildcard keyword"
-        @input="updateBlock(selectedBlock.id, { value: ($event.target as HTMLInputElement).value })"
+        @input="
+          updateBlock(selectedBlock.id, {
+            value: ($event.target as HTMLInputElement).value,
+          })
+        "
       />
     </div>
   </div>

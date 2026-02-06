@@ -73,13 +73,19 @@ const processFile = (filename) => {
       }
 
       // Check if next line is start of code block
-      if (lineIndex < lines.length && lines[lineIndex].trim().startsWith("```")) {
+      if (
+        lineIndex < lines.length &&
+        lines[lineIndex].trim().startsWith("```")
+      ) {
         const codeBlockStart = lineIndex;
         lineIndex++; // Move past opening ```
 
         // Collect code lines
         const codeLines = [];
-        while (lineIndex < lines.length && !lines[lineIndex].trim().startsWith("```")) {
+        while (
+          lineIndex < lines.length &&
+          !lines[lineIndex].trim().startsWith("```")
+        ) {
           codeLines.push(lines[lineIndex]);
           lineIndex++;
         }
@@ -99,7 +105,11 @@ const processFile = (filename) => {
 
           // Create separate dork entries for each line
           nonEmptyLines.forEach((item, idx) => {
-            const suffix = generateSuffix(item.line.trim(), idx, nonEmptyLines.length);
+            const suffix = generateSuffix(
+              item.line.trim(),
+              idx,
+              nonEmptyLines.length,
+            );
             const newTitle = `### ${title} - ${suffix}`;
 
             if (idx > 0 || isH2) {

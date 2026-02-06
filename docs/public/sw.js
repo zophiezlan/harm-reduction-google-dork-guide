@@ -27,7 +27,7 @@ self.addEventListener("install", (event) => {
     caches.open(CACHE_NAME).then((cache) => {
       console.log("Caching static assets");
       return cache.addAll(STATIC_ASSETS);
-    })
+    }),
   );
   self.skipWaiting();
 });
@@ -37,9 +37,11 @@ self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
-        cacheNames.filter((name) => name !== CACHE_NAME).map((name) => caches.delete(name))
+        cacheNames
+          .filter((name) => name !== CACHE_NAME)
+          .map((name) => caches.delete(name)),
       );
-    })
+    }),
   );
   self.clients.claim();
 });
@@ -71,13 +73,20 @@ self.addEventListener("fetch", (event) => {
             if (response.ok) {
               return caches.open(CACHE_NAME).then((cache) => {
                 return cache.put(event.request, response).then(() => {
-                  console.log("[SW] Background cache updated for", event.request.url);
+                  console.log(
+                    "[SW] Background cache updated for",
+                    event.request.url,
+                  );
                 });
               });
             }
           })
           .catch((error) => {
-            console.error("[SW] Background update failed for", event.request.url, error);
+            console.error(
+              "[SW] Background update failed for",
+              event.request.url,
+              error,
+            );
           });
         return cachedResponse;
       }
@@ -101,7 +110,7 @@ self.addEventListener("fetch", (event) => {
           }
           return new Response("Offline", { status: 503 });
         });
-    })
+    }),
   );
 });
 

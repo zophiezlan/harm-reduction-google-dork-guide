@@ -1,41 +1,129 @@
 <script setup lang="ts">
-import { useQueryBuilder, type BlockType } from "../../composables/useQueryBuilder";
+import {
+  useQueryBuilder,
+  type BlockType,
+} from "../../composables/useQueryBuilder";
 
 const { addBlock } = useQueryBuilder();
 
-const coreBlocks: { type: BlockType; icon: string; label: string; color: string }[] = [
+const coreBlocks: {
+  type: BlockType;
+  icon: string;
+  label: string;
+  color: string;
+}[] = [
   { type: "site", icon: "🌐", label: "Site", color: "var(--block-site)" },
-  { type: "filetype", icon: "📄", label: "File", color: "var(--block-filetype)" },
-  { type: "keyword", icon: "💬", label: "Keywords", color: "var(--block-keyword)" },
+  {
+    type: "filetype",
+    icon: "📄",
+    label: "File",
+    color: "var(--block-filetype)",
+  },
+  {
+    type: "keyword",
+    icon: "💬",
+    label: "Keywords",
+    color: "var(--block-keyword)",
+  },
   { type: "date", icon: "📅", label: "Date", color: "var(--block-date)" },
 ];
 
-const operatorBlocks: { type: BlockType; icon: string; label: string; color: string }[] = [
-  { type: "intitle", icon: "🧷", label: "In Title", color: "var(--block-intitle)" },
+const operatorBlocks: {
+  type: BlockType;
+  icon: string;
+  label: string;
+  color: string;
+}[] = [
+  {
+    type: "intitle",
+    icon: "🧷",
+    label: "In Title",
+    color: "var(--block-intitle)",
+  },
   { type: "inurl", icon: "🔗", label: "In URL", color: "var(--block-inurl)" },
-  { type: "intext", icon: "📝", label: "In Text", color: "var(--block-intext)" },
+  {
+    type: "intext",
+    icon: "📝",
+    label: "In Text",
+    color: "var(--block-intext)",
+  },
   { type: "exact", icon: "🎯", label: "Exact", color: "var(--block-exact)" },
-  { type: "exclude", icon: "🚫", label: "Exclude", color: "var(--block-exclude)" },
+  {
+    type: "exclude",
+    icon: "🚫",
+    label: "Exclude",
+    color: "var(--block-exclude)",
+  },
   { type: "or", icon: "➕", label: "OR Group", color: "var(--block-or)" },
-  { type: "wildcard", icon: "✳️", label: "Wildcard", color: "var(--block-wildcard)" },
+  {
+    type: "wildcard",
+    icon: "✳️",
+    label: "Wildcard",
+    color: "var(--block-wildcard)",
+  },
   { type: "around", icon: "📏", label: "Around", color: "var(--block-around)" },
-  { type: "imagesize", icon: "🖼️", label: "Image Size", color: "var(--block-imagesize)" },
-  { type: "related", icon: "🧭", label: "Related", color: "var(--block-related)" },
+  {
+    type: "imagesize",
+    icon: "🖼️",
+    label: "Image Size",
+    color: "var(--block-imagesize)",
+  },
+  {
+    type: "related",
+    icon: "🧭",
+    label: "Related",
+    color: "var(--block-related)",
+  },
   { type: "source", icon: "📰", label: "Source", color: "var(--block-source)" },
   { type: "cache", icon: "🗂️", label: "Cache", color: "var(--block-cache)" },
   { type: "info", icon: "ℹ️", label: "Info", color: "var(--block-info)" },
   { type: "link", icon: "🔍", label: "Link", color: "var(--block-link)" },
-  { type: "inanchor", icon: "⚓", label: "In Anchor", color: "var(--block-inanchor)" },
-  { type: "allinanchor", icon: "⚓", label: "All In Anchor", color: "var(--block-allinanchor)" },
-  { type: "allintitle", icon: "🧷", label: "All In Title", color: "var(--block-allintitle)" },
-  { type: "allinurl", icon: "🔗", label: "All In URL", color: "var(--block-allinurl)" },
-  { type: "allintext", icon: "📝", label: "All In Text", color: "var(--block-allintext)" },
+  {
+    type: "inanchor",
+    icon: "⚓",
+    label: "In Anchor",
+    color: "var(--block-inanchor)",
+  },
+  {
+    type: "allinanchor",
+    icon: "⚓",
+    label: "All In Anchor",
+    color: "var(--block-allinanchor)",
+  },
+  {
+    type: "allintitle",
+    icon: "🧷",
+    label: "All In Title",
+    color: "var(--block-allintitle)",
+  },
+  {
+    type: "allinurl",
+    icon: "🔗",
+    label: "All In URL",
+    color: "var(--block-allinurl)",
+  },
+  {
+    type: "allintext",
+    icon: "📝",
+    label: "All In Text",
+    color: "var(--block-allintext)",
+  },
   { type: "ext", icon: "🧩", label: "Ext", color: "var(--block-ext)" },
   { type: "define", icon: "📖", label: "Define", color: "var(--block-define)" },
-  { type: "weather", icon: "🌦️", label: "Weather", color: "var(--block-weather)" },
+  {
+    type: "weather",
+    icon: "🌦️",
+    label: "Weather",
+    color: "var(--block-weather)",
+  },
   { type: "stocks", icon: "📈", label: "Stocks", color: "var(--block-stocks)" },
   { type: "map", icon: "🗺️", label: "Map", color: "var(--block-map)" },
-  { type: "daterange", icon: "🗓️", label: "Date Range", color: "var(--block-daterange)" },
+  {
+    type: "daterange",
+    icon: "🗓️",
+    label: "Date Range",
+    color: "var(--block-daterange)",
+  },
 ];
 
 function handleAdd(type: BlockType) {

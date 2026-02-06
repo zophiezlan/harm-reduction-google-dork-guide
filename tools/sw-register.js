@@ -23,7 +23,10 @@
             console.log("[SW] New version installing...");
 
             newWorker.addEventListener("statechange", function () {
-              if (newWorker.state === "installed" && navigator.serviceWorker.controller) {
+              if (
+                newWorker.state === "installed" &&
+                navigator.serviceWorker.controller
+              ) {
                 // New version available
                 console.log("[SW] New version available");
                 // Optionally notify user of update

@@ -29,18 +29,22 @@ describe("useFavorites logic", () => {
   describe("generateFavoriteId", () => {
     it("generates correct ID from pack and title", () => {
       expect(generateFavoriteId("drug-alerts", "NSW Health Alerts")).toBe(
-        "drug-alerts-nsw-health-alerts"
+        "drug-alerts-nsw-health-alerts",
       );
     });
 
     it("handles multiple spaces (collapses to single dash)", () => {
       // The actual implementation uses \s+ which collapses multiple spaces
-      expect(generateFavoriteId("pack", "Multi  Space  Title")).toBe("pack-multi-space-title");
+      expect(generateFavoriteId("pack", "Multi  Space  Title")).toBe(
+        "pack-multi-space-title",
+      );
     });
 
     it("only lowercases title, not packId", () => {
       // packId is used as-is, only title is lowercased
-      expect(generateFavoriteId("Pack1", "UPPERCASE Title")).toBe("Pack1-uppercase-title");
+      expect(generateFavoriteId("Pack1", "UPPERCASE Title")).toBe(
+        "Pack1-uppercase-title",
+      );
     });
 
     it("handles empty title", () => {
@@ -83,7 +87,7 @@ describe("useFavorites logic", () => {
           title: "Test",
           query: "site:example.com",
           addedAt: Date.now(),
-        })
+        }),
       ).toBe(false);
     });
 
@@ -94,7 +98,7 @@ describe("useFavorites logic", () => {
           title: "Test",
           query: "site:example.com",
           addedAt: Date.now(),
-        })
+        }),
       ).toBe(false);
     });
 
@@ -105,7 +109,7 @@ describe("useFavorites logic", () => {
           packId: "pack1",
           query: "site:example.com",
           addedAt: Date.now(),
-        })
+        }),
       ).toBe(false);
     });
 
@@ -116,7 +120,7 @@ describe("useFavorites logic", () => {
           packId: "pack1",
           title: "Test",
           addedAt: Date.now(),
-        })
+        }),
       ).toBe(false);
     });
 
@@ -127,7 +131,7 @@ describe("useFavorites logic", () => {
           packId: "pack1",
           title: "Test",
           query: "site:example.com",
-        })
+        }),
       ).toBe(false);
     });
 
@@ -139,7 +143,7 @@ describe("useFavorites logic", () => {
           title: "Test",
           query: "site:example.com",
           addedAt: "not a number",
-        })
+        }),
       ).toBe(false);
     });
   });

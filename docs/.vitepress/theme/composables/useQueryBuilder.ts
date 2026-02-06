@@ -85,18 +85,43 @@ export function useQueryBuilder() {
     blockIdCounter = 0;
   }
 
+  // Block types that follow the simple "operator:value" pattern
+  const SIMPLE_OPERATOR_TYPES = new Set<BlockType>([
+    "filetype",
+    "ext",
+    "intitle",
+    "allintitle",
+    "inurl",
+    "allinurl",
+    "intext",
+    "allintext",
+    "inanchor",
+    "allinanchor",
+    "related",
+    "cache",
+    "source",
+    "info",
+    "link",
+    "define",
+    "weather",
+    "stocks",
+    "map",
+  ]);
+
   // Generate query string from blocks
   const queryString = computed(() => {
     return state.blocks
       .map((block) => {
+        // Handle simple operator:value types in one place
+        if (SIMPLE_OPERATOR_TYPES.has(block.type)) {
+          return block.value ? `${block.type}:${block.value}` : "";
+        }
+
         switch (block.type) {
-          case "site":
+          case "site": {
             const wildcard = block.options.wildcard ? "*." : "";
             return `site:${wildcard}${block.value}`;
-          case "filetype":
-            return `filetype:${block.value}`;
-          case "ext":
-            return block.value ? `ext:${block.value}` : "";
+          }
           case "keyword":
             if (block.options.useSynonyms) {
               const group = findSynonyms(block.value);
@@ -108,45 +133,11 @@ export function useQueryBuilder() {
             if (block.options.type === "after") return `after:${block.value}`;
             if (block.options.type === "before") return `before:${block.value}`;
             return "";
-          case "intitle":
-            return block.value ? `intitle:${block.value}` : "";
-          case "allintitle":
-            return block.value ? `allintitle:${block.value}` : "";
-          case "inurl":
-            return block.value ? `inurl:${block.value}` : "";
-          case "allinurl":
-            return block.value ? `allinurl:${block.value}` : "";
-          case "intext":
-            return block.value ? `intext:${block.value}` : "";
-          case "allintext":
-            return block.value ? `allintext:${block.value}` : "";
-          case "inanchor":
-            return block.value ? `inanchor:${block.value}` : "";
-          case "allinanchor":
-            return block.value ? `allinanchor:${block.value}` : "";
-          case "related":
-            return block.value ? `related:${block.value}` : "";
-          case "cache":
-            return block.value ? `cache:${block.value}` : "";
-          case "source":
-            return block.value ? `source:${block.value}` : "";
           case "imagesize":
             if (block.options.width && block.options.height) {
               return `imagesize:${block.options.width}x${block.options.height}`;
             }
             return block.value ? `imagesize:${block.value}` : "";
-          case "info":
-            return block.value ? `info:${block.value}` : "";
-          case "link":
-            return block.value ? `link:${block.value}` : "";
-          case "define":
-            return block.value ? `define:${block.value}` : "";
-          case "weather":
-            return block.value ? `weather:${block.value}` : "";
-          case "stocks":
-            return block.value ? `stocks:${block.value}` : "";
-          case "map":
-            return block.value ? `map:${block.value}` : "";
           case "daterange": {
             const start = block.options.start || "";
             const end = block.options.end || "";
@@ -198,7 +189,12 @@ export function useQueryBuilder() {
       defaults.termB = "";
     }
     const id = `block-${++blockIdCounter}`;
-    state.blocks.push({ id, type, value, options: { ...defaults, ...options } });
+    state.blocks.push({
+      id,
+      type,
+      value,
+      options: { ...defaults, ...options },
+    });
     state.selectedBlockId = id;
     return id;
   }
@@ -246,7 +242,10 @@ export function useQueryBuilder() {
 
     const operatorList =
       "site|filetype|ext|intitle|allintitle|inurl|allinurl|intext|allintext|inanchor|allinanchor|after|before|daterange|cache|related|info|link|define|source|weather|stocks|map|imagesize";
-    const operatorStripRegex = new RegExp(`\\b(?:${operatorList}):[^\\s]+`, "gi");
+    const operatorStripRegex = new RegExp(
+      `\\b(?:${operatorList}):[^\\s]+`,
+      "gi",
+    );
 
     const readOperatorValue = (operator: string) => {
       // Match operator value: either a quoted string or non-whitespace characters
@@ -255,7 +254,9 @@ export function useQueryBuilder() {
       if (!match) return null;
       const value = match[1].trim();
       // Remove surrounding quotes if present
-      return value.startsWith('"') && value.endsWith('"') ? value.slice(1, -1) : value;
+      return value.startsWith('"') && value.endsWith('"')
+        ? value.slice(1, -1)
+        : value;
     };
 
     // Parse site:
@@ -284,45 +285,32 @@ export function useQueryBuilder() {
       addBlock("date", beforeMatch[1], { type: "before" });
     }
 
-    // Parse operator values (multi-word compatible)
-    const intitleValue = readOperatorValue("intitle");
-    if (intitleValue) addBlock("intitle", intitleValue);
-    const allintitleValue = readOperatorValue("allintitle");
-    if (allintitleValue) addBlock("allintitle", allintitleValue);
-    const inurlValue = readOperatorValue("inurl");
-    if (inurlValue) addBlock("inurl", inurlValue);
-    const allinurlValue = readOperatorValue("allinurl");
-    if (allinurlValue) addBlock("allinurl", allinurlValue);
-    const intextValue = readOperatorValue("intext");
-    if (intextValue) addBlock("intext", intextValue);
-    const allintextValue = readOperatorValue("allintext");
-    if (allintextValue) addBlock("allintext", allintextValue);
-    const inanchorValue = readOperatorValue("inanchor");
-    if (inanchorValue) addBlock("inanchor", inanchorValue);
-    const allinanchorValue = readOperatorValue("allinanchor");
-    if (allinanchorValue) addBlock("allinanchor", allinanchorValue);
-    const relatedValue = readOperatorValue("related");
-    if (relatedValue) addBlock("related", relatedValue);
-    const cacheValue = readOperatorValue("cache");
-    if (cacheValue) addBlock("cache", cacheValue);
-    const sourceValue = readOperatorValue("source");
-    if (sourceValue) addBlock("source", sourceValue);
-    const imageValue = readOperatorValue("imagesize");
-    if (imageValue) addBlock("imagesize", imageValue);
-    const infoValue = readOperatorValue("info");
-    if (infoValue) addBlock("info", infoValue);
-    const linkValue = readOperatorValue("link");
-    if (linkValue) addBlock("link", linkValue);
-    const defineValue = readOperatorValue("define");
-    if (defineValue) addBlock("define", defineValue);
-    const weatherValue = readOperatorValue("weather");
-    if (weatherValue) addBlock("weather", weatherValue);
-    const stocksValue = readOperatorValue("stocks");
-    if (stocksValue) addBlock("stocks", stocksValue);
-    const mapValue = readOperatorValue("map");
-    if (mapValue) addBlock("map", mapValue);
-    const daterangeValue = readOperatorValue("daterange");
-    if (daterangeValue) addBlock("daterange", daterangeValue);
+    // Parse remaining operators via readOperatorValue
+    const parsableOperators: BlockType[] = [
+      "intitle",
+      "allintitle",
+      "inurl",
+      "allinurl",
+      "intext",
+      "allintext",
+      "inanchor",
+      "allinanchor",
+      "related",
+      "cache",
+      "source",
+      "imagesize",
+      "info",
+      "link",
+      "define",
+      "weather",
+      "stocks",
+      "map",
+      "daterange",
+    ];
+    for (const op of parsableOperators) {
+      const value = readOperatorValue(op);
+      if (value) addBlock(op, value);
+    }
 
     // Parse AROUND
     const aroundMatch = query.match(/"([^"]+)"\s+AROUND\((\d+)\)\s+"([^"]+)"/i);
@@ -358,14 +346,19 @@ export function useQueryBuilder() {
       .trim();
 
     if (keywords) {
-      addBlock("keyword", keywords, { useSynonyms: false, exact: keywords.startsWith('"') });
+      addBlock("keyword", keywords, {
+        useSynonyms: false,
+        exact: keywords.startsWith('"'),
+      });
     }
   }
 
   return {
     blocks: computed(() => state.blocks),
     selectedBlockId: computed(() => state.selectedBlockId),
-    selectedBlock: computed(() => state.blocks.find((b) => b.id === state.selectedBlockId)),
+    selectedBlock: computed(() =>
+      state.blocks.find((b) => b.id === state.selectedBlockId),
+    ),
     queryString,
     addBlock,
     updateBlock,

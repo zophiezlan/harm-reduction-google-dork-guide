@@ -1,7 +1,10 @@
 <!-- docs/.vitepress/theme/components/settings/SettingsPanel.vue -->
 <script setup lang="ts">
 import { computed } from "vue";
-import { useSettings, type ExperienceMode } from "../../composables/useSettings";
+import {
+  useSettings,
+  type ExperienceMode,
+} from "../../composables/useSettings";
 import { useFavorites } from "../../composables/useFavorites";
 import { useToast } from "../../composables/useToast";
 import ThemeSwitcher from "../ThemeSwitcher.vue";
@@ -10,9 +13,21 @@ const { settings, setExperienceMode, resetSettings } = useSettings();
 const { favorites, clearFavorites } = useFavorites();
 const { success, error } = useToast();
 
-const experienceModes: { id: ExperienceMode; label: string; description: string }[] = [
-  { id: "beginner", label: "Beginner", description: "More guidance, expanded tooltips" },
-  { id: "practitioner", label: "Practitioner", description: "Balanced experience" },
+const experienceModes: {
+  id: ExperienceMode;
+  label: string;
+  description: string;
+}[] = [
+  {
+    id: "beginner",
+    label: "Beginner",
+    description: "More guidance, expanded tooltips",
+  },
+  {
+    id: "practitioner",
+    label: "Practitioner",
+    description: "Balanced experience",
+  },
   { id: "expert", label: "Expert", description: "Minimal UI, power features" },
 ];
 
@@ -23,7 +38,9 @@ function exportData() {
     favorites: favorites,
     exportedAt: new Date().toISOString(),
   };
-  const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+  const blob = new Blob([JSON.stringify(data, null, 2)], {
+    type: "application/json",
+  });
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
@@ -56,7 +73,11 @@ function importData() {
 }
 
 function handleClearData() {
-  if (confirm("Are you sure? This will clear all your favorites and reset settings.")) {
+  if (
+    confirm(
+      "Are you sure? This will clear all your favorites and reset settings.",
+    )
+  ) {
     clearFavorites();
     resetSettings();
     success("All data cleared");
@@ -126,16 +147,24 @@ function generateShareLink() {
         <span>Favorites: {{ favorites.length }} dorks saved</span>
       </div>
       <div class="data-actions">
-        <button class="btn btn-secondary" @click="exportData">Export All (.json)</button>
+        <button class="btn btn-secondary" @click="exportData">
+          Export All (.json)
+        </button>
         <button class="btn btn-secondary" @click="importData">Import</button>
-        <button class="btn btn-ghost danger" @click="handleClearData">Clear Data</button>
+        <button class="btn btn-ghost danger" @click="handleClearData">
+          Clear Data
+        </button>
       </div>
     </section>
 
     <section class="settings-section">
       <h2 class="section-title">Share Setup</h2>
-      <button class="btn btn-secondary" @click="generateShareLink">Generate Settings Link</button>
-      <p class="help-text">Share this link to give someone your exact configuration</p>
+      <button class="btn btn-secondary" @click="generateShareLink">
+        Generate Settings Link
+      </button>
+      <p class="help-text">
+        Share this link to give someone your exact configuration
+      </p>
     </section>
   </div>
 </template>

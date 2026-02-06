@@ -12,7 +12,11 @@ import QuickFiltersBar from "./QuickFiltersBar.vue";
 import ActiveFiltersDisplay from "./ActiveFiltersDisplay.vue";
 import ShortcutsModal from "./ShortcutsModal.vue";
 import ExportMenu from "./ExportMenu.vue";
-import type { DorkWithPack, DorkDifficulty, DomainCategory } from "../../data/types";
+import type {
+  DorkWithPack,
+  DorkDifficulty,
+  DomainCategory,
+} from "../../data/types";
 
 const {
   loadDorks,
@@ -81,7 +85,9 @@ onMounted(async () => {
     script.src = withBase("/dork-explorer/dork-data.js");
     script.onload = () => loadDorks();
     script.onerror = () => {
-      showError("Failed to load dork database. Please refresh the page to try again.");
+      showError(
+        "Failed to load dork database. Please refresh the page to try again.",
+      );
     };
     document.head.appendChild(script);
   } else {
@@ -93,7 +99,10 @@ onMounted(async () => {
 const results = computed(() => {
   let filtered = searchDorks(debouncedSearchQuery.value, {
     packs: selectedPacks.value.length > 0 ? selectedPacks.value : undefined,
-    categories: selectedCategories.value.length > 0 ? selectedCategories.value : undefined,
+    categories:
+      selectedCategories.value.length > 0
+        ? selectedCategories.value
+        : undefined,
     difficulty:
       selectedDifficulties.value.length > 0
         ? (selectedDifficulties.value as DorkDifficulty[])
@@ -107,14 +116,18 @@ const results = computed(() => {
 
   // Apply quick filters
   if (quickFilters.value.auSites) {
-    filtered = filtered.filter((d) => /site:\*?\.?(?:gov\.au|edu\.au|org\.au|au\b)/i.test(d.query));
+    filtered = filtered.filter((d) =>
+      /site:\*?\.?(?:gov\.au|edu\.au|org\.au|au\b)/i.test(d.query),
+    );
   }
   if (quickFilters.value.pdfs) {
     filtered = filtered.filter((d) => /filetype:pdf/i.test(d.query));
   }
   if (quickFilters.value.government) {
     filtered = filtered.filter(
-      (d) => /site:\*?\.?gov\./i.test(d.query) || /government|policy|legislation/i.test(d.query)
+      (d) =>
+        /site:\*?\.?gov\./i.test(d.query) ||
+        /government|policy|legislation/i.test(d.query),
     );
   }
   if (quickFilters.value.recent) {
@@ -123,8 +136,8 @@ const results = computed(() => {
   if (quickFilters.value.userHosted) {
     filtered = filtered.filter((d) =>
       /(site:\*?\.?(?:notion\.site|gitbook\.io|wordpress\.com|blogspot\.com|medium\.com|substack\.com|tumblr\.com|reddit\.com|github\.io|github\.com|speakerdeck\.com|slideshare\.net|vercel\.app|netlify\.app|pages\.dev|glitch\.me|drive\.google\.com|docs\.google\.com|dropbox\.com)|"Powered by Discourse"|Powered by Discourse)/i.test(
-        d.query
-      )
+        d.query,
+      ),
     );
   }
 
@@ -141,8 +154,12 @@ const results = computed(() => {
 });
 
 // Displayed results (for infinite scroll)
-const displayedResults = computed(() => results.value.slice(0, displayLimit.value));
-const hasMoreResults = computed(() => results.value.length > displayLimit.value);
+const displayedResults = computed(() =>
+  results.value.slice(0, displayLimit.value),
+);
+const hasMoreResults = computed(
+  () => results.value.length > displayLimit.value,
+);
 
 // Filter sidebar state
 const packSearchQuery = ref("");
@@ -177,7 +194,9 @@ const domainLabels: Record<string, string> = {
 const filteredPacks = computed(() => {
   if (!packSearchQuery.value) return packList.value;
   const query = packSearchQuery.value.toLowerCase();
-  return packList.value.filter((pack) => pack.title.toLowerCase().includes(query));
+  return packList.value.filter((pack) =>
+    pack.title.toLowerCase().includes(query),
+  );
 });
 
 const filteredCategories = computed(() => {
@@ -190,9 +209,12 @@ const filteredCategories = computed(() => {
 const activeFilterCount = computed(() => {
   let count = 0;
   if (selectedPacks.value.length > 0) count += selectedPacks.value.length;
-  if (selectedCategories.value.length > 0) count += selectedCategories.value.length;
-  if (selectedDifficulties.value.length > 0) count += selectedDifficulties.value.length;
-  if (selectedDomainCategories.value.length > 0) count += selectedDomainCategories.value.length;
+  if (selectedCategories.value.length > 0)
+    count += selectedCategories.value.length;
+  if (selectedDifficulties.value.length > 0)
+    count += selectedDifficulties.value.length;
+  if (selectedDomainCategories.value.length > 0)
+    count += selectedDomainCategories.value.length;
   if (showFavoritesOnly.value) count += 1;
   if (!includeDocumentation.value) count += 1;
   if (quickFilters.value.auSites) count += 1;
@@ -283,8 +305,15 @@ function clearFilters() {
 }
 
 function removeFilter(
-  type: "pack" | "category" | "difficulty" | "domain" | "favorites" | "documentation" | "quick",
-  value?: string
+  type:
+    | "pack"
+    | "category"
+    | "difficulty"
+    | "domain"
+    | "favorites"
+    | "documentation"
+    | "quick",
+  value?: string,
 ) {
   if (type === "pack" && value) {
     const idx = selectedPacks.value.indexOf(value);
@@ -312,7 +341,9 @@ function handleFilterListKeydown(e: KeyboardEvent) {
   const list = target.closest('[role="listbox"]');
   if (!list) return;
 
-  const options = Array.from(list.querySelectorAll('[role="option"]')) as HTMLElement[];
+  const options = Array.from(
+    list.querySelectorAll('[role="option"]'),
+  ) as HTMLElement[];
   const currentIndex = options.indexOf(target);
   if (currentIndex === -1) return;
 
@@ -352,7 +383,11 @@ function handleFilterListKeydown(e: KeyboardEvent) {
 function scrollToResults() {
   nextTick(() => {
     if (resultsRef.value) {
-      resultsRef.value.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+      resultsRef.value.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "nearest",
+      });
     }
   });
 }
@@ -457,7 +492,11 @@ function downloadFile(content: string, filename: string, mimeType: string) {
 // Keyboard shortcuts
 function handleKeydown(e: KeyboardEvent) {
   const target = e.target as HTMLElement;
-  if (["INPUT", "TEXTAREA"].includes(target.tagName) || target.isContentEditable) return;
+  if (
+    ["INPUT", "TEXTAREA"].includes(target.tagName) ||
+    target.isContentEditable
+  )
+    return;
 
   switch (e.key) {
     case "/":
@@ -546,7 +585,7 @@ watch(
   ],
   () => {
     displayLimit.value = ITEMS_PER_PAGE;
-  }
+  },
 );
 </script>
 
@@ -596,13 +635,25 @@ watch(
             </button>
             <Transition name="dropdown">
               <div v-if="showExportMenu" class="export-menu" role="menu">
-                <button class="export-option" @click="exportToCSV" role="menuitem">
+                <button
+                  class="export-option"
+                  @click="exportToCSV"
+                  role="menuitem"
+                >
                   📊 Export to CSV
                 </button>
-                <button class="export-option" @click="exportToJSON" role="menuitem">
+                <button
+                  class="export-option"
+                  @click="exportToJSON"
+                  role="menuitem"
+                >
                   📋 Export to JSON
                 </button>
-                <button class="export-option" @click="exportToMarkdown" role="menuitem">
+                <button
+                  class="export-option"
+                  @click="exportToMarkdown"
+                  role="menuitem"
+                >
                   📝 Export to Markdown
                 </button>
               </div>
@@ -627,9 +678,13 @@ watch(
         :aria-expanded="!headerCollapsed"
         aria-controls="explorer-header-details"
       >
-        <span v-if="activeFilterCount > 0" class="toggle-filter-count">{{ activeFilterCount }} active</span>
+        <span v-if="activeFilterCount > 0" class="toggle-filter-count"
+          >{{ activeFilterCount }} active</span
+        >
         <span v-else>Filters</span>
-        <span class="toggle-chevron" :class="{ collapsed: headerCollapsed }">▼</span>
+        <span class="toggle-chevron" :class="{ collapsed: headerCollapsed }"
+          >▼</span
+        >
       </button>
 
       <!-- Quick Filters Bar -->
@@ -637,166 +692,174 @@ watch(
         id="explorer-header-details"
         :class="['header-collapsible', { collapsed: headerCollapsed }]"
       >
-      <div class="quick-filters-bar">
-        <span class="quick-filters-label">Quick filters:</span>
-        <button
-          :class="['quick-filter', { active: quickFilters.auSites }]"
-          @click="toggleQuickFilter('auSites')"
-          :aria-pressed="quickFilters.auSites"
-          title="Show only dorks targeting .gov.au, .edu.au, .org.au domains"
-        >
-          🇦🇺 Australian Sites
-        </button>
-        <button
-          :class="['quick-filter', { active: quickFilters.pdfs }]"
-          @click="toggleQuickFilter('pdfs')"
-          :aria-pressed="quickFilters.pdfs"
-          title="Show only dorks that search for PDF files"
-        >
-          📄 PDFs Only
-        </button>
-        <button
-          :class="['quick-filter', { active: quickFilters.government }]"
-          @click="toggleQuickFilter('government')"
-          :aria-pressed="quickFilters.government"
-          title="Show dorks targeting government websites and policy content"
-        >
-          🏛️ Government
-        </button>
-        <button
-          :class="['quick-filter', { active: quickFilters.recent }]"
-          @click="toggleQuickFilter('recent')"
-          :aria-pressed="quickFilters.recent"
-          title="Show dorks that include after: or before: date filters"
-        >
-          📅 Date Filtered
-        </button>
-        <button
-          :class="['quick-filter', { active: quickFilters.userHosted }]"
-          @click="toggleQuickFilter('userHosted')"
-          :aria-pressed="quickFilters.userHosted"
-          title="Show dorks targeting user platforms like Reddit, Medium, Notion, GitHub"
-        >
-          🌐 User Platforms
-        </button>
-        <button
-          :class="['quick-filter favorites-filter', { active: showFavoritesOnly }]"
-          @click="
-            showFavoritesOnly = !showFavoritesOnly;
-            scrollToResults();
-          "
-          :aria-pressed="showFavoritesOnly"
-        >
-          ★ Favorites ({{ favorites?.length ?? 0 }})
-        </button>
-        <button
-          v-if="activeFilterCount > 0"
-          class="quick-filter clear-filter"
-          @click="clearFilters"
-        >
-          ✕ Clear All
-        </button>
-      </div>
-
-      <!-- Active Filters Summary -->
-      <div v-if="activeFilterCount > 0" class="active-filters">
-        <span class="active-filters-label">Active:</span>
-        <div class="active-filters-chips">
-          <button v-if="showFavoritesOnly" class="filter-chip" @click="removeFilter('favorites')">
-            ★ Favorites <span class="chip-remove">×</span>
+        <div class="quick-filters-bar">
+          <span class="quick-filters-label">Quick filters:</span>
+          <button
+            :class="['quick-filter', { active: quickFilters.auSites }]"
+            @click="toggleQuickFilter('auSites')"
+            :aria-pressed="quickFilters.auSites"
+            title="Show only dorks targeting .gov.au, .edu.au, .org.au domains"
+          >
+            🇦🇺 Australian Sites
           </button>
           <button
-            v-if="quickFilters.auSites"
-            class="filter-chip"
-            @click="removeFilter('quick', 'auSites')"
+            :class="['quick-filter', { active: quickFilters.pdfs }]"
+            @click="toggleQuickFilter('pdfs')"
+            :aria-pressed="quickFilters.pdfs"
+            title="Show only dorks that search for PDF files"
           >
-            🇦🇺 AU Sites <span class="chip-remove">×</span>
+            📄 PDFs Only
           </button>
           <button
-            v-if="quickFilters.pdfs"
-            class="filter-chip"
-            @click="removeFilter('quick', 'pdfs')"
+            :class="['quick-filter', { active: quickFilters.government }]"
+            @click="toggleQuickFilter('government')"
+            :aria-pressed="quickFilters.government"
+            title="Show dorks targeting government websites and policy content"
           >
-            📄 PDFs <span class="chip-remove">×</span>
+            🏛️ Government
           </button>
           <button
-            v-if="quickFilters.government"
-            class="filter-chip"
-            @click="removeFilter('quick', 'government')"
+            :class="['quick-filter', { active: quickFilters.recent }]"
+            @click="toggleQuickFilter('recent')"
+            :aria-pressed="quickFilters.recent"
+            title="Show dorks that include after: or before: date filters"
           >
-            🏛️ Gov <span class="chip-remove">×</span>
+            📅 Date Filtered
           </button>
           <button
-            v-if="quickFilters.recent"
-            class="filter-chip"
-            @click="removeFilter('quick', 'recent')"
+            :class="['quick-filter', { active: quickFilters.userHosted }]"
+            @click="toggleQuickFilter('userHosted')"
+            :aria-pressed="quickFilters.userHosted"
+            title="Show dorks targeting user platforms like Reddit, Medium, Notion, GitHub"
           >
-            📅 Dated <span class="chip-remove">×</span>
+            🌐 User Platforms
           </button>
           <button
-            v-if="quickFilters.userHosted"
-            class="filter-chip"
-            @click="removeFilter('quick', 'userHosted')"
+            :class="[
+              'quick-filter favorites-filter',
+              { active: showFavoritesOnly },
+            ]"
+            @click="
+              showFavoritesOnly = !showFavoritesOnly;
+              scrollToResults();
+            "
+            :aria-pressed="showFavoritesOnly"
           >
-            🌐 User Platforms <span class="chip-remove">×</span>
+            ★ Favorites ({{ favorites?.length ?? 0 }})
           </button>
           <button
-            v-for="packId in selectedPacks"
-            :key="`pack-${packId}`"
-            class="filter-chip"
-            @click="removeFilter('pack', packId)"
+            v-if="activeFilterCount > 0"
+            class="quick-filter clear-filter"
+            @click="clearFilters"
           >
-            {{ packList.find((p) => p.id === packId)?.title }}
-            <span class="chip-remove">×</span>
-          </button>
-          <button
-            v-for="cat in selectedCategories"
-            :key="`cat-${cat}`"
-            class="filter-chip"
-            @click="removeFilter('category', cat)"
-          >
-            {{ cat }}
-            <span class="chip-remove">×</span>
-          </button>
-          <button
-            v-for="diff in selectedDifficulties"
-            :key="`diff-${diff}`"
-            :class="['filter-chip', `chip-${diff}`]"
-            @click="removeFilter('difficulty', diff)"
-          >
-            {{ difficultyLabels[diff] }}
-            <span class="chip-remove">×</span>
-          </button>
-          <button
-            v-for="domain in selectedDomainCategories"
-            :key="`domain-${domain}`"
-            class="filter-chip"
-            @click="removeFilter('domain', domain)"
-          >
-            {{ domainLabels[domain] }}
-            <span class="chip-remove">×</span>
-          </button>
-          <button
-            v-if="!includeDocumentation"
-            class="filter-chip"
-            @click="removeFilter('documentation')"
-          >
-            Packs Only <span class="chip-remove">×</span>
+            ✕ Clear All
           </button>
         </div>
-      </div>
 
-      <!-- Stats Bar -->
-      <div class="stats-bar">
-        <span class="stat">📊 {{ displayStats.total }} total dorks</span>
-        <span class="stat-divider">•</span>
-        <span class="stat">📦 {{ displayStats.packs }} packs</span>
-        <span class="stat-divider">•</span>
-        <span class="stat">🏷️ {{ displayStats.categories }} categories</span>
-        <span class="stat-divider">•</span>
-        <span class="stat">★ {{ displayStats.favorites }} saved</span>
+        <!-- Active Filters Summary -->
+        <div v-if="activeFilterCount > 0" class="active-filters">
+          <span class="active-filters-label">Active:</span>
+          <div class="active-filters-chips">
+            <button
+              v-if="showFavoritesOnly"
+              class="filter-chip"
+              @click="removeFilter('favorites')"
+            >
+              ★ Favorites <span class="chip-remove">×</span>
+            </button>
+            <button
+              v-if="quickFilters.auSites"
+              class="filter-chip"
+              @click="removeFilter('quick', 'auSites')"
+            >
+              🇦🇺 AU Sites <span class="chip-remove">×</span>
+            </button>
+            <button
+              v-if="quickFilters.pdfs"
+              class="filter-chip"
+              @click="removeFilter('quick', 'pdfs')"
+            >
+              📄 PDFs <span class="chip-remove">×</span>
+            </button>
+            <button
+              v-if="quickFilters.government"
+              class="filter-chip"
+              @click="removeFilter('quick', 'government')"
+            >
+              🏛️ Gov <span class="chip-remove">×</span>
+            </button>
+            <button
+              v-if="quickFilters.recent"
+              class="filter-chip"
+              @click="removeFilter('quick', 'recent')"
+            >
+              📅 Dated <span class="chip-remove">×</span>
+            </button>
+            <button
+              v-if="quickFilters.userHosted"
+              class="filter-chip"
+              @click="removeFilter('quick', 'userHosted')"
+            >
+              🌐 User Platforms <span class="chip-remove">×</span>
+            </button>
+            <button
+              v-for="packId in selectedPacks"
+              :key="`pack-${packId}`"
+              class="filter-chip"
+              @click="removeFilter('pack', packId)"
+            >
+              {{ packList.find((p) => p.id === packId)?.title }}
+              <span class="chip-remove">×</span>
+            </button>
+            <button
+              v-for="cat in selectedCategories"
+              :key="`cat-${cat}`"
+              class="filter-chip"
+              @click="removeFilter('category', cat)"
+            >
+              {{ cat }}
+              <span class="chip-remove">×</span>
+            </button>
+            <button
+              v-for="diff in selectedDifficulties"
+              :key="`diff-${diff}`"
+              :class="['filter-chip', `chip-${diff}`]"
+              @click="removeFilter('difficulty', diff)"
+            >
+              {{ difficultyLabels[diff] }}
+              <span class="chip-remove">×</span>
+            </button>
+            <button
+              v-for="domain in selectedDomainCategories"
+              :key="`domain-${domain}`"
+              class="filter-chip"
+              @click="removeFilter('domain', domain)"
+            >
+              {{ domainLabels[domain] }}
+              <span class="chip-remove">×</span>
+            </button>
+            <button
+              v-if="!includeDocumentation"
+              class="filter-chip"
+              @click="removeFilter('documentation')"
+            >
+              Packs Only <span class="chip-remove">×</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Stats Bar -->
+        <div class="stats-bar">
+          <span class="stat">📊 {{ displayStats.total }} total dorks</span>
+          <span class="stat-divider">•</span>
+          <span class="stat">📦 {{ displayStats.packs }} packs</span>
+          <span class="stat-divider">•</span>
+          <span class="stat">🏷️ {{ displayStats.categories }} categories</span>
+          <span class="stat-divider">•</span>
+          <span class="stat">★ {{ displayStats.favorites }} saved</span>
+        </div>
       </div>
-      </div><!-- /.header-collapsible -->
+      <!-- /.header-collapsible -->
     </header>
 
     <div class="explorer-body">
@@ -812,11 +875,13 @@ watch(
           >
             <h4 class="filter-title">
               Packs
-              <span v-if="selectedPacks.length > 0" class="filter-badge">{{
-                selectedPacks.length
-              }} / {{ packList.length }}</span>
+              <span v-if="selectedPacks.length > 0" class="filter-badge"
+                >{{ selectedPacks.length }} / {{ packList.length }}</span
+              >
             </h4>
-            <span class="expand-icon" aria-hidden="true">{{ packsExpanded ? "▼" : "▶" }}</span>
+            <span class="expand-icon" aria-hidden="true">{{
+              packsExpanded ? "▼" : "▶"
+            }}</span>
           </button>
 
           <div v-show="packsExpanded" id="packs-content" class="filter-content">
@@ -839,11 +904,19 @@ watch(
               </button>
             </div>
 
-            <div class="filter-list" role="listbox" aria-label="Available packs" @keydown="handleFilterListKeydown">
+            <div
+              class="filter-list"
+              role="listbox"
+              aria-label="Available packs"
+              @keydown="handleFilterListKeydown"
+            >
               <button
                 v-for="(pack, i) in filteredPacks"
                 :key="pack.id"
-                :class="['filter-item', { active: selectedPacks.includes(pack.id) }]"
+                :class="[
+                  'filter-item',
+                  { active: selectedPacks.includes(pack.id) },
+                ]"
                 @click="togglePack(pack.id)"
                 role="option"
                 :aria-selected="selectedPacks.includes(pack.id)"
@@ -869,14 +942,21 @@ watch(
           >
             <h4 class="filter-title">
               Difficulty
-              <span v-if="selectedDifficulties.length > 0" class="filter-badge">{{
-                selectedDifficulties.length
-              }} / {{ difficulties.length }}</span>
+              <span v-if="selectedDifficulties.length > 0" class="filter-badge"
+                >{{ selectedDifficulties.length }} /
+                {{ difficulties.length }}</span
+              >
             </h4>
-            <span class="expand-icon" aria-hidden="true">{{ difficultyExpanded ? "▼" : "▶" }}</span>
+            <span class="expand-icon" aria-hidden="true">{{
+              difficultyExpanded ? "▼" : "▶"
+            }}</span>
           </button>
 
-          <div v-show="difficultyExpanded" id="difficulty-content" class="filter-content">
+          <div
+            v-show="difficultyExpanded"
+            id="difficulty-content"
+            class="filter-content"
+          >
             <div
               class="filter-chips difficulty-chips"
               role="listbox"
@@ -913,20 +993,37 @@ watch(
           >
             <h4 class="filter-title">
               Domain Type
-              <span v-if="selectedDomainCategories.length > 0" class="filter-badge">{{
-                selectedDomainCategories.length
-              }} / {{ domainCategories.length }}</span>
+              <span
+                v-if="selectedDomainCategories.length > 0"
+                class="filter-badge"
+                >{{ selectedDomainCategories.length }} /
+                {{ domainCategories.length }}</span
+              >
             </h4>
-            <span class="expand-icon" aria-hidden="true">{{ domainExpanded ? "▼" : "▶" }}</span>
+            <span class="expand-icon" aria-hidden="true">{{
+              domainExpanded ? "▼" : "▶"
+            }}</span>
           </button>
 
-          <div v-show="domainExpanded" id="domain-content" class="filter-content">
-            <div class="filter-chips" role="listbox" aria-label="Domain categories" @keydown="handleFilterListKeydown">
+          <div
+            v-show="domainExpanded"
+            id="domain-content"
+            class="filter-content"
+          >
+            <div
+              class="filter-chips"
+              role="listbox"
+              aria-label="Domain categories"
+              @keydown="handleFilterListKeydown"
+            >
               <button
                 v-for="(domain, i) in domainCategories"
                 :key="domain"
                 :tabindex="i === 0 ? 0 : -1"
-                :class="['chip', { active: selectedDomainCategories.includes(domain) }]"
+                :class="[
+                  'chip',
+                  { active: selectedDomainCategories.includes(domain) },
+                ]"
                 @click="toggleDomainCategory(domain)"
                 role="option"
                 :aria-selected="selectedDomainCategories.includes(domain)"
@@ -947,14 +1044,20 @@ watch(
           >
             <h4 class="filter-title">
               Categories
-              <span v-if="selectedCategories.length > 0" class="filter-badge">{{
-                selectedCategories.length
-              }} / {{ categories.length }}</span>
+              <span v-if="selectedCategories.length > 0" class="filter-badge"
+                >{{ selectedCategories.length }} / {{ categories.length }}</span
+              >
             </h4>
-            <span class="expand-icon" aria-hidden="true">{{ categoriesExpanded ? "▼" : "▶" }}</span>
+            <span class="expand-icon" aria-hidden="true">{{
+              categoriesExpanded ? "▼" : "▶"
+            }}</span>
           </button>
 
-          <div v-show="categoriesExpanded" id="categories-content" class="filter-content">
+          <div
+            v-show="categoriesExpanded"
+            id="categories-content"
+            class="filter-content"
+          >
             <div class="filter-search-wrapper">
               <input
                 v-model="categorySearchQuery"
@@ -974,7 +1077,12 @@ watch(
               </button>
             </div>
 
-            <div class="filter-chips" role="listbox" aria-label="Available categories" @keydown="handleFilterListKeydown">
+            <div
+              class="filter-chips"
+              role="listbox"
+              aria-label="Available categories"
+              @keydown="handleFilterListKeydown"
+            >
               <button
                 v-for="(cat, i) in filteredCategories"
                 :key="cat"
@@ -1011,7 +1119,10 @@ watch(
         <div ref="resultsRef" class="results-header">
           <span class="results-count">
             {{ results.length }} dorks found
-            <span v-if="displayedResults.length < results.length" class="results-showing">
+            <span
+              v-if="displayedResults.length < results.length"
+              class="results-showing"
+            >
               (showing {{ displayedResults.length }})
             </span>
           </span>
@@ -1059,7 +1170,9 @@ watch(
           <div class="no-results-icon">🔍</div>
           <h3>No dorks found</h3>
           <p>Try adjusting your filters or search terms.</p>
-          <button class="btn btn-primary" @click="clearFilters">Clear all filters</button>
+          <button class="btn btn-primary" @click="clearFilters">
+            Clear all filters
+          </button>
         </div>
 
         <div v-else :class="['results-grid', viewMode]">
@@ -1097,7 +1210,11 @@ watch(
 
     <!-- Random Dork Modal -->
     <Transition name="modal">
-      <div v-if="showRandomDork && randomDork" class="modal-overlay" @click.self="closeRandomDork">
+      <div
+        v-if="showRandomDork && randomDork"
+        class="modal-overlay"
+        @click.self="closeRandomDork"
+      >
         <div
           class="modal random-dork-modal"
           role="dialog"
@@ -1106,14 +1223,24 @@ watch(
         >
           <div class="modal-header">
             <h2 id="random-dork-title">🎲 Random Dork</h2>
-            <button class="modal-close" @click="closeRandomDork" aria-label="Close">×</button>
+            <button
+              class="modal-close"
+              @click="closeRandomDork"
+              aria-label="Close"
+            >
+              ×
+            </button>
           </div>
           <div class="modal-body">
             <DorkCard :dork="randomDork" @open-in-builder="openInBuilder" />
           </div>
           <div class="modal-footer">
-            <button class="btn btn-secondary" @click="showRandomDorkFunc">🎲 Another Random</button>
-            <button class="btn btn-primary" @click="closeRandomDork">Close</button>
+            <button class="btn btn-secondary" @click="showRandomDorkFunc">
+              🎲 Another Random
+            </button>
+            <button class="btn btn-primary" @click="closeRandomDork">
+              Close
+            </button>
           </div>
         </div>
       </div>
@@ -1121,7 +1248,11 @@ watch(
 
     <!-- Keyboard Shortcuts Modal -->
     <Transition name="modal">
-      <div v-if="showShortcuts" class="modal-overlay" @click.self="showShortcuts = false">
+      <div
+        v-if="showShortcuts"
+        class="modal-overlay"
+        @click.self="showShortcuts = false"
+      >
         <div
           class="modal shortcuts-modal"
           role="dialog"
@@ -1130,7 +1261,13 @@ watch(
         >
           <div class="modal-header">
             <h2 id="shortcuts-title">⌨️ Keyboard Shortcuts</h2>
-            <button class="modal-close" @click="showShortcuts = false" aria-label="Close">×</button>
+            <button
+              class="modal-close"
+              @click="showShortcuts = false"
+              aria-label="Close"
+            >
+              ×
+            </button>
           </div>
           <div class="modal-body">
             <div class="shortcuts-grid">
@@ -1359,7 +1496,9 @@ watch(
     gap: 12px;
     overflow: hidden;
     max-height: 600px;
-    transition: max-height 0.25s ease, opacity 0.2s ease;
+    transition:
+      max-height 0.25s ease,
+      opacity 0.2s ease;
     opacity: 1;
   }
 

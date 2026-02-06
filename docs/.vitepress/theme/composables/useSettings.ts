@@ -54,17 +54,25 @@ export function useSettings() {
   // Apply theme color to CSS
   function applyThemeColor(color: ThemeColor) {
     if (typeof document === "undefined") return;
-    document.documentElement.style.setProperty("--accent", `var(--color-${color})`);
+    document.documentElement.style.setProperty(
+      "--accent",
+      `var(--color-${color})`,
+    );
   }
 
   // Apply theme mode (syncs with VitePress's .dark class)
   function applyThemeMode(mode: ThemeMode) {
     if (typeof document === "undefined") return;
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)",
+    ).matches;
     const isDark = mode === "dark" || (mode === "system" && prefersDark);
 
     // Set our data-theme attribute
-    document.documentElement.setAttribute("data-theme", isDark ? "dark" : "light");
+    document.documentElement.setAttribute(
+      "data-theme",
+      isDark ? "dark" : "light",
+    );
 
     // Sync with VitePress's dark mode class
     if (isDark) {
@@ -90,7 +98,7 @@ export function useSettings() {
       applyThemeColor(newSettings.theme.color);
       applyThemeMode(newSettings.theme.mode);
     },
-    { deep: true }
+    { deep: true },
   );
 
   // Setters

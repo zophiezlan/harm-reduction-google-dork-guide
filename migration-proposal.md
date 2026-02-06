@@ -218,7 +218,16 @@ No complex logic, no conditionals, no computed variables. Just find-and-replace.
 
 ```typescript
 const ENGINE_OPERATORS: Record<Engine, Set<string>> = {
-  google: new Set(["site:", "filetype:", "inurl:", "intitle:", "after:", "before:", "OR", "-"]),
+  google: new Set([
+    "site:",
+    "filetype:",
+    "inurl:",
+    "intitle:",
+    "after:",
+    "before:",
+    "OR",
+    "-",
+  ]),
   bing: new Set(["site:", "filetype:", "inurl:", "intitle:", "OR", "-"]),
   duckduckgo: new Set(["site:", "filetype:", "OR", "-"]),
   scholar: new Set(["site:", "filetype:", "author:", "OR", "-"]),

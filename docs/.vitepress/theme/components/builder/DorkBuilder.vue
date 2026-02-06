@@ -41,7 +41,9 @@ const confirmTitle = ref("");
 
 // Computed
 const templatesByCategory = computed(() => getTemplatesByCategory());
-const templateCategories = computed(() => Object.keys(templatesByCategory.value));
+const templateCategories = computed(() =>
+  Object.keys(templatesByCategory.value),
+);
 
 // Load query from URL params
 onMounted(() => {
@@ -80,7 +82,7 @@ function handleReset() {
       () => {
         clearBlocks();
         success("Builder cleared");
-      }
+      },
     );
   } else {
     clearBlocks();
@@ -121,7 +123,7 @@ function loadTemplate(template: DorkTemplate) {
         loadFromQuery(template.query);
         showTemplates.value = false;
         success(`Loaded template: ${template.name}`);
-      }
+      },
     );
   } else {
     loadFromQuery(template.query);
@@ -215,23 +217,45 @@ onUnmounted(() => {
     <header class="builder-header">
       <div class="header-left">
         <h1 class="builder-title">🔧 Dork Builder</h1>
-        <p class="builder-subtitle">Build powerful Google search queries visually</p>
+        <p class="builder-subtitle">
+          Build powerful Google search queries visually
+        </p>
       </div>
       <div class="builder-actions">
-        <button class="btn btn-ghost" @click="showTemplates = !showTemplates" title="Templates (T)">
+        <button
+          class="btn btn-ghost"
+          @click="showTemplates = !showTemplates"
+          title="Templates (T)"
+        >
           📋 Templates
         </button>
-        <button class="btn btn-ghost" @click="showHistory = !showHistory" title="History (H)">
+        <button
+          class="btn btn-ghost"
+          @click="showHistory = !showHistory"
+          title="History (H)"
+        >
           🕐 History ({{ history.length }})
         </button>
         <button class="btn btn-ghost" @click="handleReset">🗑️ Reset</button>
-        <button class="btn btn-secondary" :disabled="!queryString" @click="handleSaveToHistory">
+        <button
+          class="btn btn-secondary"
+          :disabled="!queryString"
+          @click="handleSaveToHistory"
+        >
           💾 Save
         </button>
-        <button class="btn btn-secondary" :disabled="!queryString" @click="handleShare">
+        <button
+          class="btn btn-secondary"
+          :disabled="!queryString"
+          @click="handleShare"
+        >
           🔗 Share
         </button>
-        <button class="btn btn-primary" :disabled="!queryString" @click="handleSearchGoogle">
+        <button
+          class="btn btn-primary"
+          :disabled="!queryString"
+          @click="handleSearchGoogle"
+        >
           🔍 Search
         </button>
       </div>
@@ -279,14 +303,23 @@ onUnmounted(() => {
       <div v-if="showTemplates" class="panel templates-panel">
         <div class="panel-header">
           <h2>📋 Quick Templates</h2>
-          <button class="panel-close" @click="showTemplates = false" aria-label="Close">×</button>
+          <button
+            class="panel-close"
+            @click="showTemplates = false"
+            aria-label="Close"
+          >
+            ×
+          </button>
         </div>
         <div class="panel-body">
           <div class="template-categories">
             <button
               v-for="cat in templateCategories"
               :key="cat"
-              :class="['category-tab', { active: activeTemplateCategory === cat }]"
+              :class="[
+                'category-tab',
+                { active: activeTemplateCategory === cat },
+              ]"
               @click="activeTemplateCategory = cat"
             >
               {{ cat }}
@@ -319,11 +352,26 @@ onUnmounted(() => {
             <button
               v-if="history.length > 0"
               class="text-btn danger"
-              @click="requestConfirm('Clear History', `Delete all ${history.length} saved queries? This cannot be undone.`, () => { clearHistory(); success('History cleared'); })"
+              @click="
+                requestConfirm(
+                  'Clear History',
+                  `Delete all ${history.length} saved queries? This cannot be undone.`,
+                  () => {
+                    clearHistory();
+                    success('History cleared');
+                  },
+                )
+              "
             >
               Clear All
             </button>
-            <button class="panel-close" @click="showHistory = false" aria-label="Close">×</button>
+            <button
+              class="panel-close"
+              @click="showHistory = false"
+              aria-label="Close"
+            >
+              ×
+            </button>
           </div>
         </div>
         <div class="panel-body">
@@ -341,10 +389,16 @@ onUnmounted(() => {
                 :aria-label="`Load query from ${formatDate(item.timestamp)}`"
               >
                 <div class="history-label-row">
-                  <span v-if="item.label" class="history-label">{{ item.label }}</span>
-                  <span class="history-time">{{ formatDate(item.timestamp) }}</span>
+                  <span v-if="item.label" class="history-label">{{
+                    item.label
+                  }}</span>
+                  <span class="history-time">{{
+                    formatDate(item.timestamp)
+                  }}</span>
                 </div>
-                <code class="history-query">{{ truncateQuery(item.query) }}</code>
+                <code class="history-query">{{
+                  truncateQuery(item.query)
+                }}</code>
               </button>
               <div class="history-actions">
                 <button
@@ -383,8 +437,12 @@ onUnmounted(() => {
                   @keyup.enter="saveLabel"
                   @keyup.escape="cancelEditLabel"
                 />
-                <button class="btn btn-primary btn-sm" @click="saveLabel">Save</button>
-                <button class="btn btn-ghost btn-sm" @click="cancelEditLabel">Cancel</button>
+                <button class="btn btn-primary btn-sm" @click="saveLabel">
+                  Save
+                </button>
+                <button class="btn btn-ghost btn-sm" @click="cancelEditLabel">
+                  Cancel
+                </button>
               </div>
             </div>
           </div>
@@ -394,18 +452,35 @@ onUnmounted(() => {
 
     <!-- Confirm Dialog -->
     <Transition name="modal">
-      <div v-if="showConfirmDialog" class="modal-overlay" @click.self="cancelConfirm">
-        <div class="modal confirm-modal" role="alertdialog" aria-modal="true" :aria-labelledby="'confirm-title'">
+      <div
+        v-if="showConfirmDialog"
+        class="modal-overlay"
+        @click.self="cancelConfirm"
+      >
+        <div
+          class="modal confirm-modal"
+          role="alertdialog"
+          aria-modal="true"
+          :aria-labelledby="'confirm-title'"
+        >
           <div class="modal-header">
             <h2 id="confirm-title">{{ confirmTitle }}</h2>
-            <button class="modal-close" @click="cancelConfirm" aria-label="Close">×</button>
+            <button
+              class="modal-close"
+              @click="cancelConfirm"
+              aria-label="Close"
+            >
+              ×
+            </button>
           </div>
           <div class="modal-body">
             <p class="confirm-message">{{ confirmMessage }}</p>
           </div>
           <div class="confirm-actions">
             <button class="btn btn-ghost" @click="cancelConfirm">Cancel</button>
-            <button class="btn btn-danger" @click="executeConfirm">Confirm</button>
+            <button class="btn btn-danger" @click="executeConfirm">
+              Confirm
+            </button>
           </div>
         </div>
       </div>
@@ -413,7 +488,11 @@ onUnmounted(() => {
 
     <!-- Shortcuts Modal -->
     <Transition name="modal">
-      <div v-if="showShortcuts" class="modal-overlay" @click.self="showShortcuts = false">
+      <div
+        v-if="showShortcuts"
+        class="modal-overlay"
+        @click.self="showShortcuts = false"
+      >
         <div
           class="modal shortcuts-modal"
           role="dialog"
@@ -422,14 +501,28 @@ onUnmounted(() => {
         >
           <div class="modal-header">
             <h2 id="shortcuts-title">⌨️ Keyboard Shortcuts</h2>
-            <button class="modal-close" @click="showShortcuts = false" aria-label="Close">×</button>
+            <button
+              class="modal-close"
+              @click="showShortcuts = false"
+              aria-label="Close"
+            >
+              ×
+            </button>
           </div>
           <div class="modal-body">
             <div class="shortcuts-grid">
-              <div class="shortcut"><kbd>?</kbd><span>Show this help</span></div>
-              <div class="shortcut"><kbd>H</kbd><span>Toggle history</span></div>
-              <div class="shortcut"><kbd>T</kbd><span>Toggle templates</span></div>
-              <div class="shortcut"><kbd>Esc</kbd><span>Close panels</span></div>
+              <div class="shortcut">
+                <kbd>?</kbd><span>Show this help</span>
+              </div>
+              <div class="shortcut">
+                <kbd>H</kbd><span>Toggle history</span>
+              </div>
+              <div class="shortcut">
+                <kbd>T</kbd><span>Toggle templates</span>
+              </div>
+              <div class="shortcut">
+                <kbd>Esc</kbd><span>Close panels</span>
+              </div>
             </div>
           </div>
         </div>

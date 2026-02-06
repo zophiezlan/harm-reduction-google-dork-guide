@@ -1,5 +1,6 @@
 import { ref, watch } from "vue";
 import { useRoute } from "vitepress";
+import { getStorageItemSimple, setStorageItem } from "../utils/storage";
 
 const isCollapsed = ref(false);
 
@@ -16,13 +17,11 @@ export function useSidebar() {
 
   // Initialize and persist
   if (typeof window !== "undefined") {
-    const stored = localStorage.getItem("vitepress-sidebar-collapsed");
-    if (stored) {
-      isCollapsed.value = stored === "true";
-    }
+    const stored = getStorageItemSimple<boolean>("sidebar-collapsed", false);
+    isCollapsed.value = stored;
 
     watch(isCollapsed, (val) => {
-      localStorage.setItem("vitepress-sidebar-collapsed", String(val));
+      setStorageItem("sidebar-collapsed", val);
       updateDom(val);
     });
 
@@ -33,7 +32,7 @@ export function useSidebar() {
       () => route.path,
       () => {
         updateDom(isCollapsed.value);
-      }
+      },
     );
   }
 

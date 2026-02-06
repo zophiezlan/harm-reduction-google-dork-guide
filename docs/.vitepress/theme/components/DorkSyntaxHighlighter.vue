@@ -11,7 +11,9 @@ function highlightDork(codeEl: HTMLElement) {
 
   // Mark the parent as a dork block for CSS
   const parent =
-    codeEl.closest('div[class*="language-"]') || codeEl.closest("pre") || codeEl.parentElement;
+    codeEl.closest('div[class*="language-"]') ||
+    codeEl.closest("pre") ||
+    codeEl.parentElement;
   parent?.classList.add("language-dork");
 
   codeEl.innerHTML = highlightDorkText(text);

@@ -23,10 +23,17 @@ const props = defineProps<{
 }>();
 
 const emit = defineEmits<{
-  (e: "remove-filter", type: "pack" | "category" | "favorites" | "quick", value?: string): void;
+  (
+    e: "remove-filter",
+    type: "pack" | "category" | "favorites" | "quick",
+    value?: string,
+  ): void;
 }>();
 
-const quickFilterLabels: Record<keyof QuickFilters, { icon: string; label: string }> = {
+const quickFilterLabels: Record<
+  keyof QuickFilters,
+  { icon: string; label: string }
+> = {
   auSites: { icon: "🇦🇺", label: "AU Sites" },
   pdfs: { icon: "📄", label: "PDFs" },
   government: { icon: "🏛️", label: "Gov" },

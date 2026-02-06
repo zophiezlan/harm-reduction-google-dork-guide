@@ -2,7 +2,10 @@ const fs = require("fs");
 const path = require("path");
 
 const SYNONYM_FILE = path.join(__dirname, "../docs/05-synonym-blocks.md");
-const OUTPUT_FILE = path.join(__dirname, "../docs/.vitepress/theme/data/synonyms.ts");
+const OUTPUT_FILE = path.join(
+  __dirname,
+  "../docs/.vitepress/theme/data/synonyms.ts",
+);
 
 /**
  * Extract clean terms from an OR pattern

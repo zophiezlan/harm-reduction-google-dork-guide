@@ -56,7 +56,7 @@ export function useFavorites() {
               typeof item.packId === "string" &&
               typeof item.title === "string" &&
               typeof item.query === "string" &&
-              typeof item.addedAt === "number"
+              typeof item.addedAt === "number",
           )
           .slice(0, MAX_FAVORITES) // Enforce max limit
       : [];
@@ -68,7 +68,7 @@ export function useFavorites() {
     (items) => {
       debouncedSave([...items]); // Clone to capture current state
     },
-    { deep: true }
+    { deep: true },
   );
 
   function addFavorite(packId: string, title: string, query: string): boolean {
@@ -97,7 +97,11 @@ export function useFavorites() {
     return state.items.some((f) => f.id === id);
   }
 
-  function toggleFavorite(packId: string, title: string, query: string): boolean {
+  function toggleFavorite(
+    packId: string,
+    title: string,
+    query: string,
+  ): boolean {
     if (isFavorite(packId, title)) {
       const id = generateFavoriteId(packId, title);
       removeFavorite(id);

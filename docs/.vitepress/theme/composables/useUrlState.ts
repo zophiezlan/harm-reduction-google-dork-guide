@@ -50,7 +50,8 @@ export function useUrlState<T>(options: UrlStateOptions<T>): Ref<T> {
       const serialized = doSerialize(newValue);
 
       // Check if value equals default to decide whether to include in URL
-      const isDefault = JSON.stringify(newValue) === JSON.stringify(defaultValue);
+      const isDefault =
+        JSON.stringify(newValue) === JSON.stringify(defaultValue);
 
       if (isDefault) {
         params.delete(key);
@@ -65,7 +66,7 @@ export function useUrlState<T>(options: UrlStateOptions<T>): Ref<T> {
 
       window.history.replaceState({}, "", newUrl);
     },
-    { deep: true }
+    { deep: true },
   );
 
   return state;
@@ -76,7 +77,7 @@ export function useUrlState<T>(options: UrlStateOptions<T>): Ref<T> {
  */
 export function useUrlStateSimple<T extends string | boolean | string[]>(
   key: string,
-  defaultValue: T
+  defaultValue: T,
 ): Ref<T> {
   return useUrlState<T>({
     key,

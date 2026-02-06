@@ -3,7 +3,9 @@ layout: home
 hero:
   name: Needle
   text: Find what matters in the haystack
-  tagline: A search discovery platform for peer workers, clinicians, researchers, advocates, and anyone reducing harm.
+  tagline:
+    A search discovery platform for peer workers, clinicians, researchers, advocates, and anyone
+    reducing harm.
 features:
   - title: Dork Explorer Pro
     details: Search and filter <DorkCount /> dorks with instant copy, presets, and smart grouping.

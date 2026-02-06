@@ -31,7 +31,7 @@ export function useQueryHistory() {
             item !== null &&
             typeof item.id === "string" &&
             typeof item.query === "string" &&
-            typeof item.timestamp === "number"
+            typeof item.timestamp === "number",
         )
       : [];
     history.value = validItems;
@@ -117,7 +117,8 @@ export const DORK_TEMPLATES: DorkTemplate[] = [
     name: "Academic Research PDFs",
     description: "Find peer-reviewed research papers and academic PDFs",
     category: "Research",
-    query: 'site:edu.au OR site:gov.au filetype:pdf "harm reduction" OR "drug policy"',
+    query:
+      'site:edu.au OR site:gov.au filetype:pdf "harm reduction" OR "drug policy"',
     icon: "📚",
   },
   {
@@ -133,7 +134,8 @@ export const DORK_TEMPLATES: DorkTemplate[] = [
     name: "Clinical Guidelines",
     description: "Find clinical practice guidelines and treatment protocols",
     category: "Research",
-    query: 'site:health.gov.au OR site:racgp.org.au "clinical guidelines" OR "treatment protocol"',
+    query:
+      'site:health.gov.au OR site:racgp.org.au "clinical guidelines" OR "treatment protocol"',
     icon: "⚕️",
   },
 
@@ -143,7 +145,8 @@ export const DORK_TEMPLATES: DorkTemplate[] = [
     name: "Drug Alerts & Warnings",
     description: "Find recent drug alerts and safety warnings",
     category: "Drug Info",
-    query: '"drug alert" OR "drug warning" OR "high strength" site:*.au after:2024',
+    query:
+      '"drug alert" OR "drug warning" OR "high strength" site:*.au after:2024',
     icon: "⚠️",
   },
   {
@@ -159,7 +162,8 @@ export const DORK_TEMPLATES: DorkTemplate[] = [
     name: "Naloxone Programs",
     description: "Find naloxone distribution and training programs",
     category: "Drug Info",
-    query: 'site:*.au "take home naloxone" OR "naloxone program" OR "opioid overdose"',
+    query:
+      'site:*.au "take home naloxone" OR "naloxone program" OR "opioid overdose"',
     icon: "💉",
   },
 
@@ -169,7 +173,8 @@ export const DORK_TEMPLATES: DorkTemplate[] = [
     name: "Service Directories",
     description: "Find directories of harm reduction and AOD services",
     category: "Services",
-    query: 'site:*.au "service directory" OR "find a service" "drug" OR "alcohol"',
+    query:
+      'site:*.au "service directory" OR "find a service" "drug" OR "alcohol"',
     icon: "📍",
   },
   {
@@ -177,7 +182,8 @@ export const DORK_TEMPLATES: DorkTemplate[] = [
     name: "Peer Support Services",
     description: "Find peer worker and lived experience support services",
     category: "Services",
-    query: 'site:*.au "peer worker" OR "peer support" OR "lived experience" "drug" OR "AOD"',
+    query:
+      'site:*.au "peer worker" OR "peer support" OR "lived experience" "drug" OR "AOD"',
     icon: "🤝",
   },
   {
@@ -185,7 +191,8 @@ export const DORK_TEMPLATES: DorkTemplate[] = [
     name: "NSP Locations",
     description: "Find needle and syringe program locations",
     category: "Services",
-    query: 'site:*.au "needle syringe program" OR "NSP" OR "fitpack" location OR directory',
+    query:
+      'site:*.au "needle syringe program" OR "NSP" OR "fitpack" location OR directory',
     icon: "📌",
   },
 
@@ -195,7 +202,8 @@ export const DORK_TEMPLATES: DorkTemplate[] = [
     name: "Policy Submissions",
     description: "Find submissions to government inquiries",
     category: "Policy",
-    query: 'site:*.au "submission" "inquiry" "drug" OR "harm reduction" filetype:pdf',
+    query:
+      'site:*.au "submission" "inquiry" "drug" OR "harm reduction" filetype:pdf',
     icon: "📝",
   },
   {
@@ -203,7 +211,8 @@ export const DORK_TEMPLATES: DorkTemplate[] = [
     name: "Drug Legislation",
     description: "Find drug-related legislation and acts",
     category: "Policy",
-    query: 'site:legislation.gov.au "drug" OR "controlled substance" OR "poison"',
+    query:
+      'site:legislation.gov.au "drug" OR "controlled substance" OR "poison"',
     icon: "⚖️",
   },
   {
@@ -211,7 +220,8 @@ export const DORK_TEMPLATES: DorkTemplate[] = [
     name: "National Strategies",
     description: "Find national drug and alcohol strategy documents",
     category: "Policy",
-    query: 'site:*.gov.au "national drug strategy" OR "alcohol strategy" filetype:pdf',
+    query:
+      'site:*.gov.au "national drug strategy" OR "alcohol strategy" filetype:pdf',
     icon: "📊",
   },
 
@@ -221,7 +231,8 @@ export const DORK_TEMPLATES: DorkTemplate[] = [
     name: "Training Resources",
     description: "Find workforce training and education materials",
     category: "Education",
-    query: 'site:*.au "training" OR "workforce development" "harm reduction" OR "AOD"',
+    query:
+      'site:*.au "training" OR "workforce development" "harm reduction" OR "AOD"',
     icon: "🎓",
   },
   {
@@ -229,7 +240,8 @@ export const DORK_TEMPLATES: DorkTemplate[] = [
     name: "Factsheets & Info Sheets",
     description: "Find educational factsheets and information materials",
     category: "Education",
-    query: 'site:*.au "fact sheet" OR "factsheet" OR "information sheet" drug filetype:pdf',
+    query:
+      'site:*.au "fact sheet" OR "factsheet" OR "information sheet" drug filetype:pdf',
     icon: "📄",
   },
 
@@ -239,7 +251,8 @@ export const DORK_TEMPLATES: DorkTemplate[] = [
     name: "International Best Practice",
     description: "Find international examples and best practices",
     category: "International",
-    query: '"harm reduction" "best practice" OR "evidence" site:who.int OR site:unodc.org',
+    query:
+      '"harm reduction" "best practice" OR "evidence" site:who.int OR site:unodc.org',
     icon: "🌍",
   },
   {
@@ -247,7 +260,8 @@ export const DORK_TEMPLATES: DorkTemplate[] = [
     name: "Decriminalization Models",
     description: "Find information about drug decriminalization approaches",
     category: "International",
-    query: '"decriminalisation" OR "decriminalization" "drug" "Portugal" OR "Oregon" OR "model"',
+    query:
+      '"decriminalisation" OR "decriminalization" "drug" "Portugal" OR "Oregon" OR "model"',
     icon: "🔓",
   },
 
@@ -257,7 +271,8 @@ export const DORK_TEMPLATES: DorkTemplate[] = [
     name: "Overdose Statistics",
     description: "Find overdose data and mortality statistics",
     category: "Data",
-    query: 'site:*.gov.au "overdose" "deaths" OR "mortality" "drug" filetype:pdf after:2022',
+    query:
+      'site:*.gov.au "overdose" "deaths" OR "mortality" "drug" filetype:pdf after:2022',
     icon: "📈",
   },
   {
@@ -273,15 +288,18 @@ export const DORK_TEMPLATES: DorkTemplate[] = [
   {
     id: "user-blogs",
     name: "Blogs & Newsletters",
-    description: "Find harm reduction content on blogs and newsletter platforms",
+    description:
+      "Find harm reduction content on blogs and newsletter platforms",
     category: "User Content",
-    query: '(site:*.wordpress.com OR site:medium.com OR site:*.substack.com) "harm reduction"',
+    query:
+      '(site:*.wordpress.com OR site:medium.com OR site:*.substack.com) "harm reduction"',
     icon: "✍️",
   },
   {
     id: "user-docs",
     name: "Community Documentation",
-    description: "Find guides and resource directories on documentation platforms",
+    description:
+      "Find guides and resource directories on documentation platforms",
     category: "User Content",
     query:
       '(site:*.notion.site OR site:*.gitbook.io) ("harm reduction" OR "drug checking") (guide OR resources)',
@@ -292,13 +310,15 @@ export const DORK_TEMPLATES: DorkTemplate[] = [
     name: "Reddit Discussions",
     description: "Find community discussions and lived experience on Reddit",
     category: "User Content",
-    query: 'site:reddit.com ("harm reduction" OR "naloxone" OR "drug checking") -r/politics',
+    query:
+      'site:reddit.com ("harm reduction" OR "naloxone" OR "drug checking") -r/politics',
     icon: "💬",
   },
   {
     id: "user-files",
     name: "Shared Files & Training",
-    description: "Find training materials and resources on file hosting platforms",
+    description:
+      "Find training materials and resources on file hosting platforms",
     category: "User Content",
     query:
       '(site:drive.google.com OR site:dropbox.com OR site:speakerdeck.com) "harm reduction" (training OR guide)',

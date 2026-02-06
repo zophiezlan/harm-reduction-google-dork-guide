@@ -126,7 +126,12 @@ defineExpose({ startTutorial });
 <template>
   <Transition name="modal">
     <div v-if="isVisible" class="tutorial-overlay" @click.self="skipTutorial">
-      <div class="tutorial-modal" role="dialog" aria-modal="true" aria-labelledby="tutorial-title">
+      <div
+        class="tutorial-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="tutorial-title"
+      >
         <!-- Progress bar -->
         <div class="tutorial-progress">
           <div class="progress-bar" :style="{ width: `${progress}%` }"></div>
@@ -137,7 +142,10 @@ defineExpose({ startTutorial });
           <button
             v-for="(step, index) in steps"
             :key="index"
-            :class="['step-dot', { active: index === currentStep, completed: index < currentStep }]"
+            :class="[
+              'step-dot',
+              { active: index === currentStep, completed: index < currentStep },
+            ]"
             @click="goToStep(index)"
             :title="step.title"
             :aria-label="`Go to step ${index + 1}: ${step.title}`"
@@ -147,24 +155,40 @@ defineExpose({ startTutorial });
         <!-- Content -->
         <div class="tutorial-content">
           <div class="tutorial-icon">{{ currentStepData.icon }}</div>
-          <h2 id="tutorial-title" class="tutorial-title">{{ currentStepData.title }}</h2>
+          <h2 id="tutorial-title" class="tutorial-title">
+            {{ currentStepData.title }}
+          </h2>
           <p class="tutorial-description">{{ currentStepData.description }}</p>
 
-          <button v-if="currentStepData.action" class="action-btn" @click="handleAction">
+          <button
+            v-if="currentStepData.action"
+            class="action-btn"
+            @click="handleAction"
+          >
             {{ currentStepData.action }} →
           </button>
         </div>
 
         <!-- Navigation -->
         <div class="tutorial-nav">
-          <button v-if="!isFirstStep" class="nav-btn prev" @click="prevStep">← Previous</button>
-          <button class="nav-btn skip" @click="skipTutorial">Skip Tutorial</button>
-          <button v-if="!isLastStep" class="nav-btn next" @click="nextStep">Next →</button>
-          <button v-else class="nav-btn finish" @click="completeTutorial">Get Started ✓</button>
+          <button v-if="!isFirstStep" class="nav-btn prev" @click="prevStep">
+            ← Previous
+          </button>
+          <button class="nav-btn skip" @click="skipTutorial">
+            Skip Tutorial
+          </button>
+          <button v-if="!isLastStep" class="nav-btn next" @click="nextStep">
+            Next →
+          </button>
+          <button v-else class="nav-btn finish" @click="completeTutorial">
+            Get Started ✓
+          </button>
         </div>
 
         <!-- Step counter -->
-        <div class="step-counter">Step {{ currentStep + 1 }} of {{ totalSteps }}</div>
+        <div class="step-counter">
+          Step {{ currentStep + 1 }} of {{ totalSteps }}
+        </div>
       </div>
     </div>
   </Transition>

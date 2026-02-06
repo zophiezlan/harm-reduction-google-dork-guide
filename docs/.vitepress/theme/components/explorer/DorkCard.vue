@@ -95,15 +95,30 @@ function handleFavorite() {
       <code v-html="highlightedQuery"></code>
     </div>
 
-    <p v-if="dork.explanation" class="card-explanation" v-html="highlightedExplanation"></p>
+    <p
+      v-if="dork.explanation"
+      class="card-explanation"
+      v-html="highlightedExplanation"
+    ></p>
 
     <div class="card-meta">
       <span class="card-pack">{{ dork.packTitle }}</span>
-      <span v-if="dork.domainCategory && dork.domainCategory !== 'any'" class="card-domain-cat">
+      <span
+        v-if="dork.domainCategory && dork.domainCategory !== 'any'"
+        class="card-domain-cat"
+      >
         {{ domainCategoryLabel }}
       </span>
-      <div v-if="dork.operators && dork.operators.length > 0" class="card-operators">
-        <span v-for="op in dork.operators.slice(0, 3)" :key="op" class="op-badge">{{ op }}</span>
+      <div
+        v-if="dork.operators && dork.operators.length > 0"
+        class="card-operators"
+      >
+        <span
+          v-for="op in dork.operators.slice(0, 3)"
+          :key="op"
+          class="op-badge"
+          >{{ op }}</span
+        >
         <span v-if="dork.operators.length > 3" class="op-more"
           >+{{ dork.operators.length - 3 }}</span
         >
@@ -111,15 +126,23 @@ function handleFavorite() {
     </div>
 
     <div v-if="dork.tags && dork.tags.length > 0" class="card-tags">
-      <span v-for="tag in dork.tags.slice(0, 4)" :key="tag" class="tag-badge">{{ tag }}</span>
+      <span v-for="tag in dork.tags.slice(0, 4)" :key="tag" class="tag-badge">{{
+        tag
+      }}</span>
     </div>
 
     <div class="card-actions">
-      <button class="action-btn" title="Copy query" @click="copyQuery"><span>📋</span> Copy</button>
+      <button class="action-btn" title="Copy query" @click="copyQuery">
+        <span>📋</span> Copy
+      </button>
       <button class="action-btn" title="Search Google" @click="searchGoogle">
         <span>🔍</span> Search
       </button>
-      <button class="action-btn" title="Open in Builder" @click="emit('openInBuilder', dork)">
+      <button
+        class="action-btn"
+        title="Open in Builder"
+        @click="emit('openInBuilder', dork)"
+      >
         <span>🔧</span> Builder
       </button>
       <button

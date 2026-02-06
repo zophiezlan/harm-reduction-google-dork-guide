@@ -8,7 +8,11 @@
 // -----------------------------------------------------------------------------
 
 /** Difficulty level for dorks */
-export type DorkDifficulty = "beginner" | "intermediate" | "advanced" | "expert";
+export type DorkDifficulty =
+  | "beginner"
+  | "intermediate"
+  | "advanced"
+  | "expert";
 
 /** Search methodology category */
 export type DorkMethodology =

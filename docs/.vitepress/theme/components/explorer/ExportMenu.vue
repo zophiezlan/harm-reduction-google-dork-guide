@@ -13,7 +13,11 @@ const emit = defineEmits<{
 const menuRef = ref<HTMLElement | null>(null);
 
 function handleClickOutside(event: MouseEvent) {
-  if (props.show && menuRef.value && !menuRef.value.contains(event.target as Node)) {
+  if (
+    props.show &&
+    menuRef.value &&
+    !menuRef.value.contains(event.target as Node)
+  ) {
     emit("close");
   }
 }
@@ -44,14 +48,31 @@ function handleExport(format: "csv" | "json" | "markdown") {
   <div class="export-wrapper" ref="menuRef">
     <slot name="trigger"></slot>
     <Transition name="dropdown">
-      <div v-if="show" class="export-menu" role="menu" aria-label="Export options">
-        <button class="export-option" @click="handleExport('csv')" role="menuitem">
+      <div
+        v-if="show"
+        class="export-menu"
+        role="menu"
+        aria-label="Export options"
+      >
+        <button
+          class="export-option"
+          @click="handleExport('csv')"
+          role="menuitem"
+        >
           <span aria-hidden="true">📊</span> Export to CSV
         </button>
-        <button class="export-option" @click="handleExport('json')" role="menuitem">
+        <button
+          class="export-option"
+          @click="handleExport('json')"
+          role="menuitem"
+        >
           <span aria-hidden="true">📋</span> Export to JSON
         </button>
-        <button class="export-option" @click="handleExport('markdown')" role="menuitem">
+        <button
+          class="export-option"
+          @click="handleExport('markdown')"
+          role="menuitem"
+        >
           <span aria-hidden="true">📝</span> Export to Markdown
         </button>
       </div>

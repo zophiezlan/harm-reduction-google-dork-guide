@@ -10,7 +10,11 @@ const toasts = ref<ToastMessage[]>([]);
 let toastId = 0;
 
 export function useToast() {
-  function show(message: string, type: ToastMessage["type"] = "info", duration = 3000) {
+  function show(
+    message: string,
+    type: ToastMessage["type"] = "info",
+    duration = 3000,
+  ) {
     const id = ++toastId;
     toasts.value.push({ id, message, type });
     setTimeout(() => {

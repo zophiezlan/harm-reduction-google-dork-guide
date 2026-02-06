@@ -6,7 +6,10 @@ export type Validator<T> = (value: unknown) => value is T;
  * Deep merge two objects, preferring values from source.
  * Only merges plain objects, not arrays or other types.
  */
-function deepMerge<T extends Record<string, unknown>>(target: T, source: Partial<T>): T {
+function deepMerge<T extends Record<string, unknown>>(
+  target: T,
+  source: Partial<T>,
+): T {
   const result = { ...target };
   for (const key in source) {
     const sourceVal = source[key];
@@ -21,7 +24,7 @@ function deepMerge<T extends Record<string, unknown>>(target: T, source: Partial
     ) {
       (result as Record<string, unknown>)[key] = deepMerge(
         targetVal as Record<string, unknown>,
-        sourceVal as Record<string, unknown>
+        sourceVal as Record<string, unknown>,
       );
     } else if (sourceVal !== undefined) {
       (result as Record<string, unknown>)[key] = sourceVal;
@@ -36,7 +39,7 @@ function deepMerge<T extends Record<string, unknown>>(target: T, source: Partial
  */
 function validateShape<T extends Record<string, unknown>>(
   value: unknown,
-  defaultValue: T
+  defaultValue: T,
 ): value is Partial<T> {
   if (value === null || typeof value !== "object" || Array.isArray(value)) {
     return false;
@@ -54,7 +57,7 @@ function validateShape<T extends Record<string, unknown>>(
       if (
         !validateShape(
           obj[key] as Record<string, unknown>,
-          defaultValue[key] as Record<string, unknown>
+          defaultValue[key] as Record<string, unknown>,
         )
       ) {
         return false;
@@ -71,7 +74,10 @@ function validateShape<T extends Record<string, unknown>>(
  * If the stored value doesn't match the expected shape, returns defaultValue.
  * Merges stored values with defaults to handle schema migrations.
  */
-export function getStorageItem<T extends Record<string, unknown>>(key: string, defaultValue: T): T {
+export function getStorageItem<T extends Record<string, unknown>>(
+  key: string,
+  defaultValue: T,
+): T {
   if (typeof window === "undefined") return defaultValue;
   try {
     const item = localStorage.getItem(STORAGE_PREFIX + key);
@@ -118,7 +124,8 @@ export interface StorageResult {
 }
 
 export function setStorageItem<T>(key: string, value: T): StorageResult {
-  if (typeof window === "undefined") return { success: false, error: "unknown" };
+  if (typeof window === "undefined")
+    return { success: false, error: "unknown" };
   try {
     localStorage.setItem(STORAGE_PREFIX + key, JSON.stringify(value));
     return { success: true };

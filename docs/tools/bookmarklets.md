@@ -73,7 +73,8 @@ javascript: void (location.href =
 ### Template
 
 ```javascript
-javascript: void (location.href = "https://www.google.com/search?q=[YOUR_ENCODED_QUERY]");
+javascript: void (location.href =
+  "https://www.google.com/search?q=[YOUR_ENCODED_QUERY]");
 ```
 
 ### URL Encoding Reference

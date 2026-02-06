@@ -276,8 +276,8 @@ site:*.gov.au inurl:"/assets/" filetype:pdf "overdose"
 > [!CAUTION] **Ethical Framework Required.** These techniques can find sensitive information. Always
 > ensure your search serves a legitimate harm reduction purpose and does not target personal or
 > identifiable information. See [Investigative Searching](dork-packs/investigative.md) and
-> [Security Guidelines](https://github.com/zophiezlan/Needle/blob/main/SECURITY.md)
-> for the full ethical framework.
+> [Security Guidelines](https://github.com/zophiezlan/Needle/blob/main/SECURITY.md) for the full
+> ethical framework.
 
 ### Finding Draft Documents
 
